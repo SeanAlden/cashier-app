@@ -41,5 +41,50 @@
         app:layout_constraintStart_toStartOf="@+id/produkBtn"
         app:layout_constraintTop_toBottomOf="@+id/produkBtn" />
 
+    <ImageButton
+        android:id="@+id/supplierBtn"
+        android:layout_width="95dp"
+        android:layout_height="88dp"
+        android:layout_marginTop="50dp"
+        android:background="@drawable/rounded_corners"
+        android:src="@drawable/supplier_logo"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView3" />
+
+    <TextView
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="7dp"
+        android:fontFamily="@font/poppinssemibold"
+        android:text="Supplier"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        app:layout_constraintEnd_toEndOf="@+id/supplierBtn"
+        app:layout_constraintStart_toStartOf="@+id/supplierBtn"
+        app:layout_constraintTop_toBottomOf="@+id/supplierBtn" />
+
+    <ImageButton
+        android:id="@+id/cashierBtn"
+        android:layout_width="95dp"
+        android:layout_height="88dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginEnd="40dp"
+        android:background="@drawable/rounded_corners"
+        android:src="@drawable/cashier_logo"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView3" />
+
+    <TextView
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="7dp"
+        android:fontFamily="@font/poppinssemibold"
+        android:text="Cashier"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        app:layout_constraintEnd_toEndOf="@+id/cashierBtn"
+        app:layout_constraintStart_toStartOf="@+id/cashierBtn"
+        app:layout_constraintTop_toBottomOf="@+id/cashierBtn" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
