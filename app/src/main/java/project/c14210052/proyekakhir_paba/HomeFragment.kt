@@ -1,10 +1,12 @@
 package project.c14210052.proyekakhir_paba
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageButton
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -33,8 +35,29 @@ class HomeFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_home, container, false)
+
+        val view = inflater.inflate(R.layout.fragment_home, container, false)
+
+        val produkBtn: ImageButton = view.findViewById(R.id.produkBtn)
+        val supplierBtn: ImageButton = view.findViewById(R.id.supplierBtn)
+        val cashierBtn: ImageButton = view.findViewById(R.id.cashierBtn)
+
+        produkBtn.setOnClickListener {
+            val intentProduk = Intent(activity, AddProductActivity::class.java)
+            startActivity(intentProduk)
+        }
+
+        supplierBtn.setOnClickListener {
+            val intentSupplier = Intent(activity, SupplierListActivity::class.java)
+            startActivity(intentSupplier)
+        }
+
+        cashierBtn.setOnClickListener {
+            val intentCashier = Intent(activity, CashierActivity::class.java)
+            startActivity(intentCashier)
+        }
+
+        return view
     }
 
     companion object {
