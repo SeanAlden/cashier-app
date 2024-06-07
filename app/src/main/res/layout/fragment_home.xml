@@ -22,7 +22,7 @@
         android:id="@+id/produkBtn"
         android:layout_width="95dp"
         android:layout_height="88dp"
-        android:layout_marginStart="40dp"
+        android:layout_marginStart="80dp"
         android:layout_marginTop="50dp"
         android:background="@drawable/rounded_corners"
         android:src="@drawable/produk_logo"
@@ -30,6 +30,7 @@
         app:layout_constraintTop_toBottomOf="@+id/imageView3" />
 
     <TextView
+        android:id="@+id/textView13"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="7dp"
@@ -46,13 +47,14 @@
         android:layout_width="95dp"
         android:layout_height="88dp"
         android:layout_marginTop="50dp"
+        android:layout_marginEnd="80dp"
         android:background="@drawable/rounded_corners"
         android:src="@drawable/supplier_logo"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView3" />
 
     <TextView
+        android:id="@+id/textView14"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="7dp"
@@ -68,12 +70,11 @@
         android:id="@+id/cashierBtn"
         android:layout_width="95dp"
         android:layout_height="88dp"
-        android:layout_marginTop="50dp"
-        android:layout_marginEnd="40dp"
+        android:layout_marginTop="25dp"
         android:background="@drawable/rounded_corners"
         android:src="@drawable/cashier_logo"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView3" />
+        app:layout_constraintEnd_toEndOf="@+id/textView13"
+        app:layout_constraintTop_toBottomOf="@+id/textView13" />
 
     <TextView
         android:layout_width="0dp"
@@ -85,6 +86,28 @@
         android:textColor="@color/white"
         app:layout_constraintEnd_toEndOf="@+id/cashierBtn"
         app:layout_constraintStart_toStartOf="@+id/cashierBtn"
+        app:layout_constraintTop_toBottomOf="@+id/cashierBtn" />
+
+    <ImageButton
+        android:id="@+id/inventoryBtn"
+        android:layout_width="95dp"
+        android:layout_height="88dp"
+        android:layout_marginTop="25dp"
+        android:background="@drawable/rounded_corners"
+        android:src="@drawable/inventory_logo"
+        app:layout_constraintEnd_toEndOf="@+id/supplierBtn"
+        app:layout_constraintTop_toBottomOf="@+id/textView14" />
+
+    <TextView
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="7dp"
+        android:fontFamily="@font/poppinssemibold"
+        android:text="Inventory"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        app:layout_constraintEnd_toEndOf="@+id/inventoryBtn"
+        app:layout_constraintStart_toStartOf="@+id/inventoryBtn"
         app:layout_constraintTop_toBottomOf="@+id/cashierBtn" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
