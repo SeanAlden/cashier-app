@@ -26,7 +26,7 @@ class MainActivity : AppCompatActivity() {
                 R.id.home -> replaceFragment(HomeFragment())
                 R.id.profile -> replaceFragment(ProfileFragment())
                 R.id.settings -> replaceFragment(SettingsFragment())
-
+                R.id.faq -> replaceFragment(FaqFragment())
                 else -> {
 
                 }
