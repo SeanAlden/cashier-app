@@ -1,0 +1,6 @@
+package project.c14210052.proyekakhir_paba
+
+data class Supplier(
+    val namaSupplier: String,
+    val alamatSupplier: String
+)

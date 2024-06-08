@@ -1,5 +1,28 @@
 <resources>
     <string name="app_name">ProyekAkhir_PABA</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string-array name="pertanyaan">
+        <item>Apa itu aplikasi kasir?</item>
+        <item>Apa keuntungan menggunakan aplikasi kasir </item>
+        <item>Apakah aplikasi kasir dapat diakses secara online dan offline?</item>
+        <item>Bagaimana cara menginstal aplikasi kasir?</item>
+        <item>Apakah aplikasi kasir aman digunakan?</item>
+        <item>Apa saja fitur utama yang harus ada dalam aplikasi kasir?</item>
+        <item>Bisakah aplikasi kasir mengelola beberapa cabang usaha?</item>
+        <item>Apakah aplikasi kasir dapat terintegrasi dengan perangkat lunak lain?</item>
+        <item>Bagaimana cara memantau stok barang dengan aplikasi kasir?</item>
+        <item>Apakah ada biaya berlangganan untuk menggunakan aplikasi kasir?</item>
+    </string-array>
+
+    <string-array name="jawaban">
+        <item>Aplikasi kasir adalah perangkat lunak yang digunakan untuk memproses transaksi penjualan, mengelola inventaris, dan menghasilkan laporan keuangan di tempat usaha.</item>
+        <item>Aplikasi kasir menawarkan fitur yang lebih canggih seperti pelacakan inventaris real-time, analisis penjualan, integrasi dengan sistem pembayaran elektronik, dan akses data dari mana saja.</item>
+        <item>Banyak aplikasi kasir modern dapat berfungsi baik secara online maupun offline, memungkinkan transaksi tetap tercatat meskipun koneksi internet terputus.</item>
+        <item>Instalasi biasanya melibatkan mengunduh perangkat lunak dari situs web penyedia atau toko aplikasi, lalu mengikuti petunjuk instalasi yang diberikan. Beberapa aplikasi juga mungkin memerlukan konfigurasi perangkat keras tambahan.</item>
+        <item>Keamanan aplikasi kasir tergantung pada penyedia perangkat lunak. Cari aplikasi dengan enkripsi data, otentikasi pengguna, dan pencadangan data otomatis untuk keamanan maksimal.</item>
+        <item>Fitur utama termasuk manajemen penjualan, pelacakan inventaris, laporan keuangan, integrasi dengan metode pembayaran, dan dukungan pelanggan.</item>
+        <item>Ya, banyak aplikasi kasir dirancang untuk mendukung manajemen multi-cabang, memungkinkan pemilik usaha mengelola beberapa lokasi dari satu platform.</item>
+        <item>Aplikasi kasir sering kali dapat diintegrasikan dengan perangkat lunak lain seperti akuntansi, manajemen pelanggan (CRM), dan e-commerce untuk sinkronisasi data yang lebih baik.</item>
+        <item>Aplikasi kasir biasanya dilengkapi dengan fitur manajemen inventaris yang memungkinkan pelacakan stok barang secara real-time, pemberitahuan saat stok menipis, dan pembaruan otomatis setelah transaksi.</item>
+        <item>Banyak aplikasi kasir berbasis langganan dengan biaya bulanan atau tahunan, meskipun ada juga yang menawarkan lisensi satu kali atau model freemium.</item>
+    </string-array>
 </resources>

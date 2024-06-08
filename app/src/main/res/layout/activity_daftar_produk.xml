@@ -101,10 +101,10 @@
         android:layout_height="60dp"
         android:background="@drawable/plus_symbol"
         android:backgroundTint="@color/white"
-        app:layout_constraintBottom_toBottomOf="@+id/addSuppButton"
-        app:layout_constraintEnd_toEndOf="@+id/addSuppButton"
-        app:layout_constraintStart_toStartOf="@+id/addSuppButton"
-        app:layout_constraintTop_toTopOf="@+id/addSuppButton" />
+        app:layout_constraintBottom_toBottomOf="@+id/addProductButton"
+        app:layout_constraintEnd_toEndOf="@+id/addProductButton"
+        app:layout_constraintStart_toStartOf="@+id/addProductButton"
+        app:layout_constraintTop_toTopOf="@+id/addProductButton" />
 
 
 

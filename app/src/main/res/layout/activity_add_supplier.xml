@@ -31,6 +31,7 @@
         app:layout_constraintTop_toTopOf="@+id/imageView4" />
 
     <ImageButton
+        android:id="@+id/backButtonFromAddSupplier"
         android:layout_width="60dp"
         android:layout_height="60dp"
         android:background="@color/grey"
