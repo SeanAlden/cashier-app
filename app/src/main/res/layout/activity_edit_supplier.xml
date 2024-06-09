@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/black"
-    tools:context=".Supplier.SupplierInformationActivity">
+    tools:context=".Supplier.EditSupplierActivity">
 
     <ImageView
         android:id="@+id/headerEditSupplierData"
@@ -18,11 +18,11 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/addProductTitleHeader"
+        android:id="@+id/EditSupplierDataTitleHeader"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:fontFamily="@font/poppinssemibold"
-        android:text="Informasi Supplier"
+        android:text="Edit Data Supplier"
         android:textAlignment="center"
         android:textColor="@color/white"
         android:textSize="20sp"
@@ -32,14 +32,14 @@
         app:layout_constraintTop_toTopOf="@+id/headerEditSupplierData" />
 
     <ImageButton
-        android:id="@+id/backButton"
+        android:id="@+id/backButtonFromEditSupplier"
         android:layout_width="60dp"
         android:layout_height="60dp"
         android:background="@color/grey"
         android:src="@drawable/back_symbol"
         app:layout_constraintBottom_toBottomOf="@+id/headerEditSupplierData"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="@+id/headerEditSupplierData" />
 
     <TextView
         android:id="@+id/textView24"
@@ -54,23 +54,21 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/headerEditSupplierData" />
 
-    <TextView
-        android:id="@+id/namaSupplierView"
+    <EditText
+        android:id="@+id/namaSupplierEdtTxt"
         android:layout_width="0dp"
         android:layout_height="30dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="10dp"
         android:layout_marginEnd="30dp"
         android:background="@drawable/rounded_corners"
-        android:hint="Nama Anda"
+        android:hint="Masukkan Nama"
         android:paddingStart="10dp"
         android:paddingTop="5dp"
         android:paddingEnd="10dp"
         android:paddingBottom="5dp"
-        android:textColor="@color/black"
         android:textColorHint="@color/grey"
         android:textSize="15sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/textView24"
         app:layout_constraintTop_toBottomOf="@+id/textView24" />
 
@@ -85,23 +83,22 @@
         android:textSize="15sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/namaSupplierView" />
+        app:layout_constraintTop_toBottomOf="@+id/namaSupplierEdtTxt" />
 
-    <TextView
-        android:id="@+id/emailSupplierView"
+    <EditText
+        android:id="@+id/emailSupplierEdtTxt"
         android:layout_width="0dp"
         android:layout_height="30dp"
         android:layout_marginTop="10dp"
         android:layout_marginEnd="30dp"
         android:background="@drawable/rounded_corners"
-        android:hint="Email Anda"
+        android:hint="Masukkan Email"
         android:paddingStart="10dp"
         android:paddingTop="5dp"
         android:paddingEnd="10dp"
         android:paddingBottom="5dp"
         android:textColorHint="@color/grey"
         android:textSize="15sp"
-        android:textColor="@color/black"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@+id/textView24"
         app:layout_constraintTop_toBottomOf="@+id/textView25" />
@@ -117,17 +114,16 @@
         android:textSize="15sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/emailSupplierView" />
+        app:layout_constraintTop_toBottomOf="@+id/emailSupplierEdtTxt" />
 
-    <TextView
-        android:id="@+id/nomorTeleponView"
+    <EditText
+        android:id="@+id/nomorTeleponEdtTxt"
         android:layout_width="0dp"
         android:layout_height="30dp"
         android:layout_marginTop="10dp"
         android:layout_marginEnd="30dp"
         android:background="@drawable/rounded_corners"
-        android:hint="Nomor Telepon Anda"
-        android:textColor="@color/black"
+        android:hint="Masukkan Nomor Telepon"
         android:paddingStart="10dp"
         android:paddingTop="5dp"
         android:paddingEnd="10dp"
@@ -149,17 +145,16 @@
         android:textSize="15sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/nomorTeleponView" />
+        app:layout_constraintTop_toBottomOf="@+id/nomorTeleponEdtTxt" />
 
-    <TextView
-        android:id="@+id/alamatSupplierView"
+    <EditText
+        android:id="@+id/alamatSupplierEdtTxt"
         android:layout_width="0dp"
         android:layout_height="30dp"
         android:layout_marginTop="10dp"
         android:layout_marginEnd="30dp"
         android:background="@drawable/rounded_corners"
-        android:hint="Alamat Anda"
-        android:textColor="@color/black"
+        android:hint="Masukkan Alamat"
         android:paddingStart="10dp"
         android:paddingTop="5dp"
         android:paddingEnd="10dp"
@@ -181,17 +176,16 @@
         android:textSize="15sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/alamatSupplierView" />
+        app:layout_constraintTop_toBottomOf="@+id/alamatSupplierEdtTxt" />
 
-    <TextView
-        android:id="@+id/kotaSupplierView"
+    <EditText
+        android:id="@+id/kotaSupplierEdtTxt"
         android:layout_width="0dp"
         android:layout_height="30dp"
         android:layout_marginTop="10dp"
         android:layout_marginEnd="30dp"
         android:background="@drawable/rounded_corners"
         android:hint="Kota"
-        android:textColor="@color/black"
         android:paddingStart="10dp"
         android:paddingTop="5dp"
         android:paddingEnd="10dp"
@@ -213,17 +207,16 @@
         android:textSize="15sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/kotaSupplierView" />
+        app:layout_constraintTop_toBottomOf="@+id/kotaSupplierEdtTxt" />
 
-    <TextView
-        android:id="@+id/provinsiSupplierView"
+    <EditText
+        android:id="@+id/provinsiSupplierEdtTxt"
         android:layout_width="0dp"
         android:layout_height="30dp"
         android:layout_marginTop="10dp"
         android:layout_marginEnd="30dp"
         android:background="@drawable/rounded_corners"
         android:hint="Provinsi"
-        android:textColor="@color/black"
         android:paddingStart="10dp"
         android:paddingTop="5dp"
         android:paddingEnd="10dp"
@@ -245,17 +238,16 @@
         android:textSize="15sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/provinsiSupplierView" />
+        app:layout_constraintTop_toBottomOf="@+id/provinsiSupplierEdtTxt" />
 
-    <TextView
-        android:id="@+id/kodePosSupplierView"
+    <EditText
+        android:id="@+id/kodePosSupplierEdtTxt"
         android:layout_width="0dp"
         android:layout_height="30dp"
         android:layout_marginTop="10dp"
         android:layout_marginEnd="30dp"
         android:background="@drawable/rounded_corners"
         android:hint="Kode Pos"
-        android:textColor="@color/black"
         android:paddingStart="10dp"
         android:paddingTop="5dp"
         android:paddingEnd="10dp"
@@ -267,16 +259,16 @@
         app:layout_constraintTop_toBottomOf="@+id/textView30" />
 
     <Button
-        android:id="@+id/editSupplierBtn"
+        android:id="@+id/saveEditSupplierDataBtn"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="30dp"
         android:layout_marginTop="50dp"
         android:layout_marginEnd="30dp"
         android:backgroundTint="#4CAF50"
-        android:text="Edit"
+        android:text="Save"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/kodePosSupplierView" />
+        app:layout_constraintTop_toBottomOf="@+id/kodePosSupplierEdtTxt" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

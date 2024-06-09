@@ -21,6 +21,8 @@ class AddSupplierActivity : AppCompatActivity() {
     private val gson = Gson()
     private lateinit var btnBack : ImageButton
 
+    private var arSupplier = arrayListOf<Supplier>()
+
     @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -68,7 +70,11 @@ class AddSupplierActivity : AppCompatActivity() {
 
             val newSupplier = Supplier(
                 namaSupplier = namaSupplierEdtTxt.text.toString(),
+                emailSupplier = emailSupplierEdtTxt.text.toString(),
+                teleponSupplier = nomorTeleponEdtTxt.text.toString(),
                 alamatSupplier = alamatSupplierEdtTxt.text.toString(),
+                kotaSupplier = kotaSupplierEdtTxt.text.toString(),
+                provinsiSupplier = provinsiSupplierEdtTxt.text.toString(),
                 kodeSupplier = kodePosSupplierEdtTxt.text.toString()
             )
             suppliers.add(newSupplier)
@@ -78,6 +84,7 @@ class AddSupplierActivity : AppCompatActivity() {
             editor.apply()
 
             val intent = Intent(this, SupplierInformationActivity::class.java)
+            intent.putExtra("supplier", gson.toJson(newSupplier))
             startActivity(intent)
         }
     }

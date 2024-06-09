@@ -11,7 +11,7 @@
     tools:context=".Supplier.SupplierListActivity">
 
     <ImageView
-        android:id="@+id/headerAddProduct"
+        android:id="@+id/headerEditSupplierData"
         android:layout_width="0dp"
         android:layout_height="70dp"
         android:background="@color/grey"
@@ -28,10 +28,10 @@
         android:textAlignment="center"
         android:textColor="@color/white"
         android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="@+id/headerAddProduct"
+        app:layout_constraintBottom_toBottomOf="@+id/headerEditSupplierData"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/headerAddProduct" />
+        app:layout_constraintTop_toTopOf="@+id/headerEditSupplierData" />
 
     <ImageButton
         android:id="@+id/backButtonFromSupplierList"
@@ -39,9 +39,9 @@
         android:layout_height="60dp"
         android:src="@drawable/back_symbol"
         android:backgroundTint="@color/grey"
-        app:layout_constraintBottom_toBottomOf="@+id/headerAddProduct"
+        app:layout_constraintBottom_toBottomOf="@+id/headerEditSupplierData"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/headerAddProduct" />
+        app:layout_constraintTop_toTopOf="@+id/headerEditSupplierData" />
 
     <TextView
         android:id="@+id/textView23"
@@ -57,7 +57,7 @@
         android:textSize="15sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/headerAddProduct" />
+        app:layout_constraintTop_toBottomOf="@+id/headerEditSupplierData" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvSupplier"

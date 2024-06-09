@@ -56,9 +56,10 @@ class SupplierListActivity : AppCompatActivity() {
             adapter.notifyItemRemoved(position)
         }, { supplier ->
             val intent = Intent(this, SupplierInformationActivity::class.java)
-            intent.putExtra("namaSupplier", supplier.namaSupplier)
-            intent.putExtra("alamatSupplier", supplier.alamatSupplier)
-            intent.putExtra("kodeSupplier", supplier.kodeSupplier)
+//            intent.putExtra("namaSupplier", supplier.namaSupplier)
+//            intent.putExtra("alamatSupplier", supplier.alamatSupplier)
+//            intent.putExtra("kodeSupplier", supplier.kodeSupplier)
+            intent.putExtra("supplier", gson.toJson(supplier))
             startActivity(intent)
         })
         recyclerView.adapter = adapter

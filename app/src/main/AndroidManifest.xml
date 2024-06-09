@@ -15,6 +15,9 @@
         android:theme="@style/Theme.ProyekAkhir_PABA"
         tools:targetApi="31">
         <activity
+            android:name=".Supplier.EditSupplierActivity"
+            android:exported="false" />
+        <activity
             android:name=".MainActivity"
             android:exported="false" />
         <activity
