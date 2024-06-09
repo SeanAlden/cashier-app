@@ -26,6 +26,11 @@ class AddSupplierActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContentView(R.layout.activity_add_supplier)
+        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
+            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
+            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
+            insets
+        }
 
         sharedPreferences = getSharedPreferences("SupplierData", MODE_PRIVATE)
 
@@ -46,14 +51,16 @@ class AddSupplierActivity : AppCompatActivity() {
         }
 
         saveBtn.setOnClickListener {
-//            val editor = sharedPreferences.edit()
-//            editor.putString("namaSupplier", namaSupplierEdtTxt.text.toString())
-//            editor.putString("emailSupplier", emailSupplierEdtTxt.text.toString())
-//            editor.putString("nomorTelepon", nomorTeleponEdtTxt.text.toString())
-//            editor.putString("alamatSupplier", alamatSupplierEdtTxt.text.toString())
-//            editor.putString("kotaSupplier", kotaSupplierEdtTxt.text.toString())
-//            editor.putString("provinsiSupplier", provinsiSupplierEdtTxt.text.toString())
-//            editor.putString("kodePosSupplier", kodePosSupplierEdtTxt.text.toString())
+
+            val saved = sharedPreferences.edit()
+            saved.putString("namaSupplier", namaSupplierEdtTxt.text.toString())
+            saved.putString("emailSupplier", emailSupplierEdtTxt.text.toString())
+            saved.putString("nomorTelepon", nomorTeleponEdtTxt.text.toString())
+            saved.putString("alamatSupplier", alamatSupplierEdtTxt.text.toString())
+            saved.putString("kotaSupplier", kotaSupplierEdtTxt.text.toString())
+            saved.putString("provinsiSupplier", provinsiSupplierEdtTxt.text.toString())
+            saved.putString("kodePosSupplier", kodePosSupplierEdtTxt.text.toString())
+            saved.apply()
 
             val suppliersJson = sharedPreferences.getString("suppliers", "[]")
             val suppliersType = object : TypeToken<List<Supplier>>() {}.type
@@ -61,7 +68,8 @@ class AddSupplierActivity : AppCompatActivity() {
 
             val newSupplier = Supplier(
                 namaSupplier = namaSupplierEdtTxt.text.toString(),
-                alamatSupplier = alamatSupplierEdtTxt.text.toString()
+                alamatSupplier = alamatSupplierEdtTxt.text.toString(),
+                kodeSupplier = kodePosSupplierEdtTxt.text.toString()
             )
             suppliers.add(newSupplier)
 
@@ -71,12 +79,6 @@ class AddSupplierActivity : AppCompatActivity() {
 
             val intent = Intent(this, SupplierInformationActivity::class.java)
             startActivity(intent)
-        }
-
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
-            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
-            insets
         }
     }
 }

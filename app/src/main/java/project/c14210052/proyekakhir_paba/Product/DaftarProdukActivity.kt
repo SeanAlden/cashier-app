@@ -28,8 +28,8 @@ class DaftarProdukActivity : AppCompatActivity() {
             insets
         }
 
-        backBtn = findViewById(R.id.backFromProductList)
         addProductBtn = findViewById(R.id.addProductButton)
+        backBtn = findViewById(R.id.backFromProductList)
         categoryBtn = findViewById(R.id.categoryBtn)
 
         addProductBtn.setOnClickListener {

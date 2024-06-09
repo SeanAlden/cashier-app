@@ -29,6 +29,11 @@ class SupplierListActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContentView(R.layout.activity_supplier_list)
+        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
+            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
+            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
+            insets
+        }
 
         sharedPreferences = getSharedPreferences("SupplierData", MODE_PRIVATE)
 
@@ -53,15 +58,10 @@ class SupplierListActivity : AppCompatActivity() {
             val intent = Intent(this, SupplierInformationActivity::class.java)
             intent.putExtra("namaSupplier", supplier.namaSupplier)
             intent.putExtra("alamatSupplier", supplier.alamatSupplier)
+            intent.putExtra("kodeSupplier", supplier.kodeSupplier)
             startActivity(intent)
         })
         recyclerView.adapter = adapter
-
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
-            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
-            insets
-        }
 
         val addSuppButton = findViewById<ImageButton>(R.id.addSuppButton)
         btnBack = findViewById(R.id.backButtonFromSupplierList)
@@ -75,7 +75,5 @@ class SupplierListActivity : AppCompatActivity() {
             val intent = Intent(this@SupplierListActivity, MainActivity::class.java)
             startActivity(intent)
         }
-
     }
-
 }

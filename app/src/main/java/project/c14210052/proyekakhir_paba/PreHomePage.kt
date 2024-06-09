@@ -1,4 +1,4 @@
-package project.c14210052.proyekakhir_paba.Product
+package project.c14210052.proyekakhir_paba
 
 import android.annotation.SuppressLint
 import android.content.Intent
@@ -8,26 +8,26 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
-import project.c14210052.proyekakhir_paba.R
+import project.c14210052.proyekakhir_paba.FragmentClass.HomeFragment
 
-class AddProductActivity : AppCompatActivity() {
+class PreHomePage : AppCompatActivity() {
 
-    private lateinit var backBtn : ImageButton
+    private lateinit var startBtn : ImageButton
     @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
-        setContentView(R.layout.activity_add_product)
+        setContentView(R.layout.activity_pre_home_page)
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
 
-        backBtn = findViewById(R.id.backFromAddProduct)
+        startBtn = findViewById(R.id.startButton)
 
-        backBtn.setOnClickListener {
-            val intent = Intent(this@AddProductActivity, DaftarProdukActivity::class.java)
+        startBtn.setOnClickListener {
+            val intent = Intent(this@PreHomePage, MainActivity::class.java)
             startActivity(intent)
         }
     }
