@@ -8,7 +8,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/black"
-    tools:context=".SupplierListActivity">
+    tools:context=".Supplier.SupplierListActivity">
 
     <ImageView
         android:id="@+id/imageView4"
@@ -36,8 +36,8 @@
         android:id="@+id/backButtonFromSupplierList"
         android:layout_width="60dp"
         android:layout_height="60dp"
-        android:background="@color/grey"
         android:src="@drawable/back_symbol"
+        android:backgroundTint="@color/grey"
         app:layout_constraintBottom_toBottomOf="@+id/imageView4"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/imageView4" />

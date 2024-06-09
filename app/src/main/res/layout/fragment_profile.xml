@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ProfileFragment"
+    tools:context=".FragmentClass.ProfileFragment"
     android:background="@color/black"
     >
 
@@ -123,12 +123,24 @@
         android:id="@+id/saveBtn"
         android:layout_width="100dp"
         android:layout_height="50dp"
+        android:layout_marginStart="70dp"
         android:layout_marginTop="40dp"
-        android:backgroundTint="@color/grey"
+        android:backgroundTint="#8BC34A"
         android:text="Save"
         android:textSize="15sp"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editText7" />
+
+    <Button
+        android:id="@+id/editBtn"
+        android:layout_width="100dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginEnd="70dp"
+        android:backgroundTint="@color/grey"
+        android:text="Edit"
+        android:textSize="15sp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editText7" />
 
 

@@ -1,16 +1,16 @@
-package project.c14210052.proyekakhir_paba
+package project.c14210052.proyekakhir_paba.Supplier
 
 import android.annotation.SuppressLint
 import android.content.Intent
 import android.content.SharedPreferences
 import android.os.Bundle
-import android.widget.Button
 import android.widget.ImageButton
 import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import project.c14210052.proyekakhir_paba.R
 
 class SupplierInformationActivity : AppCompatActivity() {
 

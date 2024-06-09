@@ -1,4 +1,4 @@
-package project.c14210052.proyekakhir_paba
+package project.c14210052.proyekakhir_paba.FragmentClass
 
 import android.view.LayoutInflater
 import android.view.ViewGroup

@@ -1,10 +1,11 @@
-package project.c14210052.proyekakhir_paba
+package project.c14210052.proyekakhir_paba.Cashier
 
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import project.c14210052.proyekakhir_paba.R
 
 class DaftarAntrianActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

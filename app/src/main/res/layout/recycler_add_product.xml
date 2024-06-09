@@ -6,39 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/black"
-    tools:context=".Product.AddProductActivity">
-
-    <ImageView
-        android:id="@+id/imageView4"
-        android:layout_width="0dp"
-        android:layout_height="70dp"
-        android:background="@color/grey"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <TextView
-        android:id="@+id/textView12"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:fontFamily="@font/poppinssemibold"
-        android:text="Tambah Produk"
-        android:textAlignment="center"
-        android:textColor="@color/white"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="@+id/imageView4"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/imageView4" />
-
-    <ImageButton
-        android:id="@+id/backFromAddProduct"
-        android:layout_width="60dp"
-        android:layout_height="60dp"
-        android:background="@color/grey"
-        android:src="@drawable/back_symbol"
-        app:layout_constraintBottom_toBottomOf="@+id/imageView4"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/imageView4" />
+    >
 
     <TextView
         android:id="@+id/textView31"
@@ -48,7 +16,7 @@
         android:layout_marginTop="30dp"
         android:text="Nama Produk"
         android:textColor="@color/white"
-        android:textSize="15sp"
+        android:textSize="20sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView4" />
 
@@ -61,7 +29,6 @@
         android:layout_marginEnd="40dp"
         android:background="@drawable/rounded_corners"
         android:hint="Nama Produk"
-        android:textSize="15sp"
         android:paddingLeft="10dp"
         android:paddingTop="5dp"
         android:paddingRight="5dp"
@@ -78,7 +45,7 @@
         android:layout_marginTop="20dp"
         android:text="Deskripsi"
         android:textColor="@color/white"
-        android:textSize="15sp"
+        android:textSize="20sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editText14" />
 
@@ -91,7 +58,6 @@
         android:layout_marginEnd="40dp"
         android:background="@drawable/rounded_corners"
         android:hint="Deskripsi Produk"
-        android:textSize="15sp"
         android:paddingLeft="10dp"
         android:paddingTop="5dp"
         android:paddingRight="5dp"
@@ -108,7 +74,7 @@
         android:layout_marginTop="20dp"
         android:text="Kategori"
         android:textColor="@color/white"
-        android:textSize="15sp"
+        android:textSize="20sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editText15" />
 
@@ -121,7 +87,6 @@
         android:layout_marginEnd="40dp"
         android:background="@drawable/rounded_corners"
         android:hint="Kategori Produk"
-        android:textSize="15sp"
         android:paddingLeft="10dp"
         android:paddingTop="5dp"
         android:paddingRight="5dp"
@@ -137,7 +102,7 @@
         android:layout_marginTop="20dp"
         android:text="Supplier"
         android:textColor="@color/white"
-        android:textSize="15sp"
+        android:textSize="20sp"
         app:layout_constraintStart_toStartOf="@+id/editText16"
         app:layout_constraintTop_toBottomOf="@+id/editText16" />
 
@@ -149,7 +114,6 @@
         android:layout_marginTop="10dp"
         android:layout_marginEnd="40dp"
         android:background="@drawable/rounded_corners"
-        android:scrollbarSize="15sp"
         android:paddingLeft="10dp"
         android:paddingTop="5dp"
         android:paddingRight="5dp"
@@ -165,7 +129,7 @@
         android:layout_marginTop="20dp"
         android:text="Harga"
         android:textColor="@color/white"
-        android:textSize="15sp"
+        android:textSize="20sp"
         app:layout_constraintStart_toStartOf="@+id/spinner_supplier"
         app:layout_constraintTop_toBottomOf="@+id/spinner_supplier" />
 
@@ -178,7 +142,6 @@
         android:layout_marginEnd="40dp"
         android:background="@drawable/rounded_corners"
         android:hint="Harga Produk"
-        android:textSize="15sp"
         android:paddingLeft="10dp"
         android:paddingTop="5dp"
         android:paddingRight="5dp"
@@ -194,7 +157,7 @@
         android:layout_marginTop="20dp"
         android:text="Harga Jual"
         android:textColor="@color/white"
-        android:textSize="15sp"
+        android:textSize="20sp"
         app:layout_constraintStart_toStartOf="@+id/spinner_supplier"
         app:layout_constraintTop_toBottomOf="@+id/editText17" />
 
@@ -207,7 +170,6 @@
         android:layout_marginEnd="40dp"
         android:background="@drawable/rounded_corners"
         android:hint="Harga Jual Produk"
-        android:textSize="15sp"
         android:paddingLeft="10dp"
         android:paddingTop="5dp"
         android:paddingRight="5dp"
@@ -223,7 +185,7 @@
         android:layout_marginTop="30dp"
         android:text="Jumlah"
         android:textColor="@color/white"
-        android:textSize="15sp"
+        android:textSize="20sp"
         app:layout_constraintStart_toStartOf="@+id/spinner_supplier"
         app:layout_constraintTop_toBottomOf="@+id/editText18" />
 
@@ -235,7 +197,6 @@
         android:layout_marginTop="10dp"
         android:layout_marginEnd="40dp"
         android:background="@drawable/rounded_corners"
-        android:textSize="15sp"
         android:hint="Jumlah "
         android:paddingLeft="10dp"
         android:paddingTop="5dp"
@@ -253,7 +214,7 @@
         android:layout_marginTop="30dp"
         android:text="Satuan"
         android:textColor="@color/white"
-        android:textSize="15sp"
+        android:textSize="20sp"
         app:layout_constraintStart_toStartOf="@+id/guideline"
         app:layout_constraintTop_toBottomOf="@+id/editText18" />
 
@@ -266,7 +227,6 @@
         android:layout_marginEnd="40dp"
         android:background="@drawable/rounded_corners"
         android:hint="Satuan"
-        android:textSize="15sp"
         android:paddingLeft="10dp"
         android:paddingTop="5dp"
         android:paddingRight="5dp"
@@ -282,19 +242,10 @@
         android:backgroundTint="@color/blue"
         android:text="SAVE"
         android:fontFamily="@font/poppinssemibold"
-        android:textSize="15sp"
+        android:textSize="20sp"
         android:layout_marginTop="30dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editText19" />
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintGuide_begin="198dp"
-        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

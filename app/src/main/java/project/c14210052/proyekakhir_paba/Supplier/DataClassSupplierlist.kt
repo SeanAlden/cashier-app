@@ -1,4 +1,4 @@
-package project.c14210052.proyekakhir_paba
+package project.c14210052.proyekakhir_paba.Supplier
 
 import android.os.Parcelable
 import kotlinx.parcelize.Parcelize

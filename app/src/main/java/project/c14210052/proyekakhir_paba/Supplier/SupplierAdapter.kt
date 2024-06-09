@@ -1,12 +1,12 @@
-package project.c14210052.proyekakhir_paba
+package project.c14210052.proyekakhir_paba.Supplier
 
-import android.media.Image
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageButton
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import project.c14210052.proyekakhir_paba.R
 
 class SupplierAdapter(
     private val suppliers: List<Supplier>,

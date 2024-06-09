@@ -1,4 +1,4 @@
-package project.c14210052.proyekakhir_paba
+package project.c14210052.proyekakhir_paba.Supplier
 
 import android.annotation.SuppressLint
 import android.content.Intent
@@ -13,6 +13,8 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
+import project.c14210052.proyekakhir_paba.MainActivity
+import project.c14210052.proyekakhir_paba.R
 
 class SupplierListActivity : AppCompatActivity() {
 
@@ -70,7 +72,7 @@ class SupplierListActivity : AppCompatActivity() {
         }
 
         btnBack.setOnClickListener {
-            val intent = Intent(this@SupplierListActivity, HomeFragment::class.java)
+            val intent = Intent(this@SupplierListActivity, MainActivity::class.java)
             startActivity(intent)
         }
 

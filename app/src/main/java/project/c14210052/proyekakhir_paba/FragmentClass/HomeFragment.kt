@@ -1,23 +1,31 @@
-package project.c14210052.proyekakhir_paba
+package project.c14210052.proyekakhir_paba.FragmentClass
 
 import android.content.Intent
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageButton
-
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
+import androidx.fragment.app.Fragment
+//import project.c14210052.proyekakhir_paba.ARG_PARAM1
+//import project.c14210052.proyekakhir_paba.ARG_PARAM2
+import project.c14210052.proyekakhir_paba.Cashier.CashierActivity
+import project.c14210052.proyekakhir_paba.Inventory.InventoryActivity
+import project.c14210052.proyekakhir_paba.Product.DaftarProdukActivity
+import project.c14210052.proyekakhir_paba.R
+import project.c14210052.proyekakhir_paba.Supplier.SupplierListActivity
 
 /**
  * A simple [Fragment] subclass.
  * Use the [HomeFragment.newInstance] factory method to
  * create an instance of this fragment.
  */
+
+// TODO: Rename parameter arguments, choose names that match
+// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
+private const val ARG_PARAM1 = "param1"
+private const val ARG_PARAM2 = "param2"
+
 class HomeFragment : Fragment() {
     // TODO: Rename and change types of parameters
     private var param1: String? = null
@@ -41,9 +49,10 @@ class HomeFragment : Fragment() {
         val produkBtn: ImageButton = view.findViewById(R.id.produkBtn)
         val supplierBtn: ImageButton = view.findViewById(R.id.supplierBtn)
         val cashierBtn: ImageButton = view.findViewById(R.id.cashierBtn)
+        val inventoryBtn: ImageButton = view.findViewById(R.id.inventoryBtn)
 
         produkBtn.setOnClickListener {
-            val intentProduk = Intent(activity, AddProductActivity::class.java)
+            val intentProduk = Intent(activity, DaftarProdukActivity::class.java)
             startActivity(intentProduk)
         }
 
@@ -55,6 +64,11 @@ class HomeFragment : Fragment() {
         cashierBtn.setOnClickListener {
             val intentCashier = Intent(activity, CashierActivity::class.java)
             startActivity(intentCashier)
+        }
+
+        inventoryBtn.setOnClickListener {
+            val intentInventory = Intent(activity, InventoryActivity::class.java)
+            startActivity(intentInventory)
         }
 
         return view

@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/black"
-    tools:context=".ProductCategoryActivity">
+    tools:context=".Product.ProductCategoryActivity">
 
     <ImageView
         android:id="@+id/imageView4"
@@ -31,7 +31,7 @@
         app:layout_constraintTop_toTopOf="@+id/imageView4" />
 
     <ImageButton
-        android:id="@+id/imageButton3"
+        android:id="@+id/backFromProductCategory"
         android:layout_width="60dp"
         android:layout_height="60dp"
         android:background="@color/grey"

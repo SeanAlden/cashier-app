@@ -2,11 +2,14 @@ package project.c14210052.proyekakhir_paba
 
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
-import androidx.appcompat.app.ActionBar
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.fragment.app.Fragment
+import project.c14210052.proyekakhir_paba.FragmentClass.FaqFragment
+import project.c14210052.proyekakhir_paba.FragmentClass.HomeFragment
+import project.c14210052.proyekakhir_paba.FragmentClass.ProfileFragment
+import project.c14210052.proyekakhir_paba.FragmentClass.SettingsFragment
 import project.c14210052.proyekakhir_paba.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {

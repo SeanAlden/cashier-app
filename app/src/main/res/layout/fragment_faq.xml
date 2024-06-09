@@ -6,27 +6,47 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/black"
-    tools:context=".FaqFragment">
+    tools:context=".FragmentClass.FaqFragment">
+
+    <ImageView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/grey"
+        app:layout_constraintBottom_toTopOf="@+id/rvFAQ"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/faqText"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/faqText"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="10dp"
         android:fontFamily="@font/poppinssemibold"
         android:text="FAQ"
-        android:textAlignment="center"
+        android:textAlignment="textEnd"
         android:textColor="@color/white"
         android:textSize="40sp"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/imageView8"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageView8"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginEnd="150dp"
+        android:background="@drawable/faq_header"
+        android:backgroundTint="@color/white"
+        app:layout_constraintBottom_toBottomOf="@+id/faqText"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/faqText" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvFAQ"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
-        app:layout_constraintTop_toBottomOf="@+id/faqText" />
+        app:layout_constraintTop_toBottomOf="@+id/imageView8" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

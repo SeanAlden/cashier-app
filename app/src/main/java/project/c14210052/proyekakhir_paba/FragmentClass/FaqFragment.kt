@@ -1,15 +1,13 @@
-package project.c14210052.proyekakhir_paba
+package project.c14210052.proyekakhir_paba.FragmentClass
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
+import project.c14210052.proyekakhir_paba.R
 import project.c14210052.proyekakhir_paba.databinding.FragmentFaqBinding
-
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
 
 class FaqFragment : Fragment() {
     private var _binding: FragmentFaqBinding? = null
@@ -36,7 +34,7 @@ class FaqFragment : Fragment() {
 
         val questions = resources.getStringArray(R.array.pertanyaan)
         val answers = resources.getStringArray(R.array.jawaban)
-        val faqList = questions.zip(answers) { question, answer -> FaqItem(question, answer)}
+        val faqList = questions.zip(answers) { question, answer -> FaqItem(question, answer) }
 
         val adapter = FaqAdapter(faqList)
         binding.rvFAQ.layoutManager = LinearLayoutManager(requireContext())

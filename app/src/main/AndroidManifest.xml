@@ -15,52 +15,52 @@
         android:theme="@style/Theme.ProyekAkhir_PABA"
         tools:targetApi="31">
         <activity
-            android:name=".InventoryActivity"
+            android:name=".Inventory.InventoryActivity"
             android:exported="false" />
         <activity
-            android:name=".DetailPenjualanActivity"
+            android:name=".Cashier.DetailPenjualanActivity"
             android:exported="false" />
         <activity
-            android:name=".DaftarProdukActivity"
+            android:name=".Product.DaftarProdukActivity"
             android:exported="false" />
         <activity
-            android:name=".DaftarAntrianActivity"
+            android:name=".Cashier.DaftarAntrianActivity"
             android:exported="false" />
         <activity
-            android:name=".RiwayatPenjualanActivity"
+            android:name=".Cashier.RiwayatPenjualanActivity"
             android:exported="false" />
         <activity
-            android:name=".SupplierInformationActivity"
+            android:name=".Supplier.SupplierInformationActivity"
             android:exported="false" />
         <activity
-            android:name=".AddSupplierActivity"
+            android:name=".Supplier.AddSupplierActivity"
             android:exported="false" />
         <activity
-            android:name=".NewPasswordActivity"
+            android:name=".LoginRegister.NewPasswordActivity"
             android:exported="false" />
         <activity
-            android:name=".ResetPasswordActivity"
+            android:name=".LoginRegister.ResetPasswordActivity"
             android:exported="false" />
         <activity
-            android:name=".SupplierListActivity"
+            android:name=".Supplier.SupplierListActivity"
             android:exported="false" />
         <activity
-            android:name=".CashierActivity"
+            android:name=".Cashier.CashierActivity"
             android:exported="false" />
         <activity
-            android:name=".ProductCategoryActivity"
+            android:name=".Product.ProductCategoryActivity"
             android:exported="false" />
         <activity
-            android:name=".DetailProductActivity"
+            android:name=".Product.DetailProductActivity"
             android:exported="false" />
         <activity
-            android:name=".AddProductActivity"
+            android:name=".Product.AddProductActivity"
             android:exported="false" />
         <activity
-            android:name=".RegisterActivity"
+            android:name=".LoginRegister.RegisterActivity"
             android:exported="false" />
         <activity
-            android:name=".LoginActivity"
+            android:name=".LoginRegister.LoginActivity"
             android:exported="false" />
         <activity
             android:name=".MainActivity"

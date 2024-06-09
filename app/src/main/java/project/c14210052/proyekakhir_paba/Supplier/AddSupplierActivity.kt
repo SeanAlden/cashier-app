@@ -1,4 +1,4 @@
-package project.c14210052.proyekakhir_paba
+package project.c14210052.proyekakhir_paba.Supplier
 
 import android.annotation.SuppressLint
 import android.content.Intent
@@ -13,6 +13,7 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
+import project.c14210052.proyekakhir_paba.R
 
 class AddSupplierActivity : AppCompatActivity() {
 
