@@ -9,7 +9,7 @@
     tools:context=".Supplier.EditSupplierActivity">
 
     <ImageView
-        android:id="@+id/headerEditSupplierData"
+        android:id="@+id/header"
         android:layout_width="0dp"
         android:layout_height="70dp"
         android:background="@color/grey"
@@ -26,10 +26,10 @@
         android:textAlignment="center"
         android:textColor="@color/white"
         android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="@+id/headerEditSupplierData"
+        app:layout_constraintBottom_toBottomOf="@+id/header"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/headerEditSupplierData" />
+        app:layout_constraintTop_toTopOf="@+id/header" />
 
     <ImageButton
         android:id="@+id/backButtonFromEditSupplier"
@@ -37,9 +37,9 @@
         android:layout_height="60dp"
         android:background="@color/grey"
         android:src="@drawable/back_symbol"
-        app:layout_constraintBottom_toBottomOf="@+id/headerEditSupplierData"
+        app:layout_constraintBottom_toBottomOf="@+id/header"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/headerEditSupplierData" />
+        app:layout_constraintTop_toTopOf="@+id/header" />
 
     <TextView
         android:id="@+id/textView24"
@@ -52,7 +52,7 @@
         android:textSize="15sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/headerEditSupplierData" />
+        app:layout_constraintTop_toBottomOf="@+id/header" />
 
     <EditText
         android:id="@+id/namaSupplierEdtTxt"

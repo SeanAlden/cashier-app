@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -27,21 +26,10 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
-        android:text="Nama Supplier"
+        android:text="Nama Produk"
         android:textColor="@color/white"
         app:layout_constraintStart_toStartOf="@+id/imageView6"
         app:layout_constraintTop_toTopOf="@+id/imageView6" />
-
-    <TextView
-        android:id="@+id/kodeSupplier"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:text="Kode Pos Supplier"
-        android:textColor="@color/white"
-        app:layout_constraintBottom_toTopOf="@+id/kategoriPrdk"
-        app:layout_constraintStart_toStartOf="@+id/imageView6"
-        app:layout_constraintTop_toBottomOf="@+id/namaPrdk" />
 
     <TextView
         android:id="@+id/kategoriPrdk"
@@ -49,10 +37,43 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginBottom="16dp"
-        android:text="Alamat Supplier"
+        android:text="Kategori Produk"
         android:textColor="@color/grey"
         app:layout_constraintBottom_toBottomOf="@+id/imageView6"
         app:layout_constraintStart_toStartOf="@+id/imageView6" />
+
+    <TextView
+        android:id="@+id/hargaPrdk"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:text="Harga Produk"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toTopOf="@+id/kategoriPrdk"
+        app:layout_constraintStart_toEndOf="@+id/namaPrdk"
+        app:layout_constraintTop_toBottomOf="@+id/namaPrdk" />
+
+    <TextView
+        android:id="@+id/jumlahPrdk"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:text="0"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toTopOf="@+id/kategoriPrdk"
+        app:layout_constraintStart_toEndOf="@+id/hargaPrdk"
+        app:layout_constraintTop_toBottomOf="@+id/namaPrdk" />
+
+    <TextView
+        android:id="@+id/satuanPrdk"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:text="Satuan"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toTopOf="@+id/kategoriPrdk"
+        app:layout_constraintStart_toEndOf="@+id/jumlahPrdk"
+        app:layout_constraintTop_toBottomOf="@+id/namaPrdk" />
 
     <ImageButton
         android:id="@+id/deleteBtn"

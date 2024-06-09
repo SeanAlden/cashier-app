@@ -18,8 +18,8 @@ class SupplierAdapter(
 
     lateinit var context : Context
     class SupplierViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        val namaSupplier: TextView = itemView.findViewById(R.id.namaSupplier)
-        val alamatSupplier: TextView = itemView.findViewById(R.id.alamatSupplier)
+        val namaSupplier: TextView = itemView.findViewById(R.id.namaPrdk)
+        val alamatSupplier: TextView = itemView.findViewById(R.id.kategoriPrdk)
         val kodePosSupplier: TextView = itemView.findViewById(R.id.kodeSupplier)
         val deleteBtn: ImageButton = itemView.findViewById(R.id.deleteBtn)
     }

@@ -8,17 +8,37 @@
     android:background="@color/black"
     tools:context=".Cashier.CashierActivity">
 
-    <TextView
+    <ImageView
+        android:id="@+id/header"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:text="Cashier Page"
-        android:textColor="@color/white"
-        android:textSize="40sp"
-        android:textAlignment="center"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_height="70dp"
+        android:background="@color/grey"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/titleView"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/poppinssemibold"
+        android:text="Cashier"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="@+id/header"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/header" />
+
+    <ImageButton
+        android:id="@+id/backButtonFromCashier"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:background="@color/grey"
+        android:src="@drawable/back_symbol"
+        app:layout_constraintBottom_toBottomOf="@+id/header"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/header" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
