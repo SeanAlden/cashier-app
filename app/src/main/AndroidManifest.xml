@@ -45,12 +45,6 @@
             android:name=".Supplier.AddSupplierActivity"
             android:exported="false" />
         <activity
-            android:name=".LoginRegister.NewPasswordActivity"
-            android:exported="false" />
-        <activity
-            android:name=".LoginRegister.ResetPasswordActivity"
-            android:exported="false" />
-        <activity
             android:name=".Supplier.SupplierListActivity"
             android:exported="false" />
         <activity

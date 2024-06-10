@@ -9,100 +9,14 @@
     android:background="@color/black"
     >
 
-    <ImageView
-        android:id="@+id/imageView2"
-        android:layout_width="105dp"
-        android:layout_height="100dp"
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvProfile"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:layout_marginTop="100dp"
-        android:background="@drawable/circle_shape"
-        android:src="@drawable/f_profile"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/namaToko"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:hint="Shop Name"
-        android:textColorHint="@color/white"
-        android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="@+id/imageView2"
-        app:layout_constraintStart_toStartOf="@+id/imageView2"
-        app:layout_constraintTop_toBottomOf="@+id/imageView2" />
-
-    <TextView
-        android:id="@+id/textView9"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="70dp"
-        android:layout_marginTop="30dp"
-        android:text="Username"
-        android:textColor="@color/white"
-        android:textSize="14sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/namaToko" />
-
-    <TextView
-        android:id="@+id/editText5"
-        android:layout_width="0dp"
-        android:layout_height="30dp"
-        android:layout_marginStart="70dp"
-        android:layout_marginTop="7dp"
-        android:layout_marginEnd="70dp"
-        android:paddingTop="5dp"
-        android:background="@drawable/rounded_corners"
-        android:hint="Your username"
-        android:textAlignment="center"
-        android:textColor="@color/black"
-        android:textColorHint="@color/grey"
-        android:textSize="14sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView9" />
-
-    <TextView
-        android:id="@+id/textView11"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="70dp"
-        android:layout_marginTop="20dp"
-        android:text="Email"
-        android:textColor="@color/white"
-        android:textSize="14sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editText5" />
-
-    <TextView
-        android:id="@+id/yourEmail"
-        android:layout_width="0dp"
-        android:layout_height="30dp"
-        android:layout_marginStart="70dp"
-        android:layout_marginTop="7dp"
-        android:layout_marginEnd="70dp"
-        android:background="@drawable/rounded_corners"
-        android:hint="Your email"
-        android:textAlignment="center"
-        android:paddingTop="5dp"
-        android:textColor="@color/black"
-        android:textColorHint="@color/grey"
-        android:textSize="14sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView11" />
-
-    <Button
-        android:id="@+id/editProfileBtn"
-        android:layout_width="100dp"
-        android:layout_height="50dp"
-        android:layout_marginTop="40dp"
-        android:backgroundTint="@color/grey"
-        android:text="Edit"
-        android:textSize="15sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/yourEmail" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

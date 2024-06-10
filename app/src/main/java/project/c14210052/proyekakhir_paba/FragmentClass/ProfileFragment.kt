@@ -1,14 +1,26 @@
 package project.c14210052.proyekakhir_paba.FragmentClass
 
 import android.annotation.SuppressLint
+import android.app.AlertDialog
+import android.content.DialogInterface
 import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
+import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.FirebaseUser
+import com.google.firebase.auth.ktx.auth
+import com.google.firebase.firestore.ktx.firestore
+import com.google.firebase.ktx.Firebase
 import project.c14210052.proyekakhir_paba.EditProfileActivity
+import project.c14210052.proyekakhir_paba.LoginRegister.LoginActivity
+import project.c14210052.proyekakhir_paba.LoginRegister.Users
+import project.c14210052.proyekakhir_paba.MainActivity
 //import project.c14210052.proyekakhir_paba.ARG_PARAM1
 //import project.c14210052.proyekakhir_paba.ARG_PARAM2
 import project.c14210052.proyekakhir_paba.R
@@ -29,6 +41,14 @@ class ProfileFragment : Fragment() {
     private var param1: String? = null
     private var param2: String? = null
 
+    private lateinit var _rvAsetProfile: RecyclerView
+    var listUsers: ArrayList<Users> = arrayListOf()
+    private lateinit var auth: FirebaseAuth
+
+    var db = Firebase.firestore
+    lateinit var userID: String
+    lateinit var user: FirebaseUser
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
@@ -41,15 +61,90 @@ class ProfileFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {val view = inflater.inflate(R.layout.fragment_profile, container, false)
-
-        val editProfileButton: Button = view.findViewById(R.id.editProfileBtn)
-
-        editProfileButton.setOnClickListener {
-            val intentEditProfile = Intent(activity, EditProfileActivity::class.java)
-            startActivity(intentEditProfile)
-        }
+    ): View? {
+        val view = inflater.inflate(R.layout.fragment_profile, container, false)
         return view
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        auth = Firebase.auth
+//        _rvAsetProfile.layoutManager = LinearLayoutManager(context)
+        _rvAsetProfile = view.findViewById(R.id.rvProfile)
+        userID = auth.currentUser!!.uid
+        user = auth.currentUser!!
+        showData()
+    }
+
+
+    fun addUsers() {
+        var docRef = db.collection("users").document(userID)
+
+        docRef.get().addOnSuccessListener {
+            listUsers.clear()
+            val hasil = Users(
+                docRef.id,
+                it.getString("fullname"),
+                it.getString("email"),
+                it.getString("password"),
+                it.getString("status")
+            )
+            listUsers.add(hasil)
+            _rvAsetProfile.adapter?.notifyDataSetChanged()
+        }
+    }
+
+    fun showData() {
+        _rvAsetProfile.layoutManager = LinearLayoutManager(super.requireActivity() as MainActivity)
+        val adapterPr = ProfileAdapter(listUsers)
+        _rvAsetProfile.adapter = adapterPr
+
+        adapterPr.setOnItemClickCallback(object : ProfileAdapter.OnItemClickCallBack {
+            override fun editProfile(data: Users) {
+                val intent = Intent(requireActivity() as MainActivity, EditProfileActivity::class.java)
+                intent.putExtra("kirimDataProfile", data)
+                startActivity(intent)
+            }
+
+            override fun signOut(data: Users) {
+                Firebase.auth.signOut()
+                startActivity(Intent(requireActivity() as MainActivity, LoginActivity::class.java))
+                Toast.makeText(
+                    requireActivity() as MainActivity,
+                    "Sign Out Berhasil",
+                    Toast.LENGTH_LONG
+                ).show()
+            }
+
+            override fun deleteProfile(data: Users) {
+                AlertDialog.Builder(requireActivity() as MainActivity).setTitle("Delete Account")
+                    .setMessage("Apakah Anda yakin ingin menghapus akun?")
+                    .setPositiveButton("Hapus", DialogInterface.OnClickListener { dialog, which ->
+                        Toast.makeText(
+                            requireActivity() as MainActivity,
+                            "Delete Akun Sukses",
+                            Toast.LENGTH_LONG
+                        ).show()
+                        db.collection("users").document(userID).delete()
+                        user.delete()
+                        startActivity(
+                            Intent(
+                                requireActivity() as MainActivity,
+                                LoginActivity::class.java
+                            )
+                        )
+                    })
+                    .setNegativeButton("Cancel", DialogInterface.OnClickListener { dialog, which ->
+
+                    })
+                    .show()
+            }
+        })
+    }
+
+    override fun onStart() {
+        super.onStart()
+        addUsers()
     }
 
     companion object {

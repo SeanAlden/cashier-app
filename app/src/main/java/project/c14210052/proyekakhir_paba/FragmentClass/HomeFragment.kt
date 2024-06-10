@@ -14,7 +14,6 @@ import com.google.gson.Gson
 //import project.c14210052.proyekakhir_paba.ARG_PARAM2
 import project.c14210052.proyekakhir_paba.Cashier.CashierActivity
 import project.c14210052.proyekakhir_paba.Inventory.InventoryActivity
-import project.c14210052.proyekakhir_paba.LoginRegister.User
 import project.c14210052.proyekakhir_paba.Product.DaftarProdukActivity
 import project.c14210052.proyekakhir_paba.R
 import project.c14210052.proyekakhir_paba.Supplier.SupplierListActivity

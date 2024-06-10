@@ -16,15 +16,16 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
-import kotlinx.coroutines.MainScope
 import project.c14210052.proyekakhir_paba.MainActivity
 import project.c14210052.proyekakhir_paba.R
 
 class RegisterActivity : AppCompatActivity() {
 
     private lateinit var auth: FirebaseAuth
-    private val db = Firebase.firestore
+    var db = Firebase.firestore
+    lateinit var userID: String
 
+    @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_register)
@@ -34,76 +35,62 @@ class RegisterActivity : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
-        auth = FirebaseAuth.getInstance()
 
-        val fullNameEditText = findViewById<EditText>(R.id.fullNameEdtTxt)
-        val userNameEditText = findViewById<EditText>(R.id.userNameEdtTxt)
-        val emailEditText = findViewById<EditText>(R.id.emailEdtTxtSignUp)
-        val passwordEditText = findViewById<EditText>(R.id.passEdtTxtSignUp)
-        val registerButton = findViewById<Button>(R.id.registerBtnSignUp)
-        val signInButton = findViewById<Button>(R.id.signInButton)
+        val _btnSignUp: Button = findViewById(R.id.registerBtnSignUp)
+        val _etEmail: EditText = findViewById(R.id.emailEdtTxtSignUp)
+        val _etPassword: EditText = findViewById(R.id.passEdtTxtSignUp)
+        val _etFullName: EditText = findViewById(R.id.etFullNameSignUp)
+        val _btnToLoginPage : Button = findViewById(R.id.btnToSignInPage)
 
-        registerButton.setOnClickListener {
-            val fullName = fullNameEditText.text.toString().trim()
-            val userName = userNameEditText.text.toString().trim()
-            val email = emailEditText.text.toString().trim()
-            val password = passwordEditText.text.toString().trim()
+        auth = Firebase.auth
 
-            if (fullName.isNotEmpty() && userName.isNotEmpty() && email.isNotEmpty() && password.isNotEmpty()) {
-                signUp(fullName, userName, email, password)
-            } else {
-                Toast.makeText(this, "Please fill in all fields", Toast.LENGTH_SHORT).show()
+//        val fullNameEditText = findViewById<EditText>(R.id.fullNameEdtTxt)
+//        val userNameEditText = findViewById<EditText>(R.id.userNameEdtTxt)
+//        val emailEditText = findViewById<EditText>(R.id.emailEdtTxtSignUp)
+//        val passwordEditText = findViewById<EditText>(R.id.passEdtTxtSignUp)
+//        val registerButton = findViewById<Button>(R.id.registerBtnSignUp)
+//        val signInButton = findViewById<Button>(R.id.signInButton)
+
+        _btnToLoginPage.setOnClickListener {
+            startActivity(Intent(this@RegisterActivity, LoginActivity::class.java))
+        }
+
+        _btnSignUp.setOnClickListener {
+            val email = _etEmail.text.toString()
+            val password = _etPassword.text.toString()
+            if (TextUtils.isEmpty(email)){
+                _etEmail.setError("Email diperlukan")
+                return@setOnClickListener
             }
-        }
+            if (TextUtils.isEmpty(password)){
+                _etPassword.setError("Password diperlukan")
+                return@setOnClickListener
+            }
 
-        signInButton.setOnClickListener {
-            startActivity(Intent(this, LoginActivity::class.java))
-        }
-    }
-
-    private fun signUp(fullName: String, userName: String, email: String, password: String) {
-        auth.createUserWithEmailAndPassword(email, password)
-            .addOnCompleteListener(this) { task ->
-                if (task.isSuccessful) {
-                    Log.d("RegisterActivity", "createUserWithEmail:success")
-                    val user = auth.currentUser
-                    val userId = user?.uid
-
-                    val userMap = hashMapOf(
-                        "fullName" to fullName,
-                        "userName" to userName,
-                        "email" to email
-                    )
-
-                    if (userId != null) {
-                        db.collection("users").document(userId)
-                            .set(userMap)
+            auth.createUserWithEmailAndPassword(email, password)
+                .addOnCompleteListener() { task ->
+                    if (task.isSuccessful) {
+                        userID = auth.currentUser!!.uid
+                        val data = Users(userID,_etFullName.text.toString(),email,password, "user")
+                        db.collection("users").document(userID).set(data)
                             .addOnSuccessListener {
-                                Log.d("RegisterActivity", "DocumentSnapshot successfully written!")
-                                // Save username in SharedPreferences
-                                val sharedPreferences = getSharedPreferences("MyAppPrefs", MODE_PRIVATE)
-                                val editor = sharedPreferences.edit()
-                                editor.putString("username", userName)
-                                editor.apply()
-
-                                // Navigate to your main activity
-                                startActivity(Intent(this, MainActivity::class.java))
+                                _etFullName.setText("")
+                                _etEmail.setText("")
+                                _etPassword.setText("")
+                                Toast.makeText(this, "Account Created", Toast.LENGTH_LONG).show()
                                 finish()
                             }
-                            .addOnFailureListener { e ->
-                                Log.w("RegisterActivity", "Error writing document", e)
-                                Toast.makeText(this, "Registration failed.", Toast.LENGTH_SHORT).show()
-                            }
+                        val intent = Intent(this@RegisterActivity, LoginActivity::class.java)
+                        startActivity(intent)
                     } else {
-                        Log.w("RegisterActivity", "User ID is null")
-                        Toast.makeText(this, "User ID is null.", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(
+                            baseContext,
+                            "Autentikasi Gagal!",
+                            Toast.LENGTH_SHORT,
+                        ).show()
                     }
-                } else {
-                    Log.w("RegisterActivity", "createUserWithEmail:failure", task.exception)
-                    Toast.makeText(baseContext, "Authentication failed: ${task.exception?.message}",
-                        Toast.LENGTH_SHORT).show()
                 }
-            }
+        }
     }
 }
 

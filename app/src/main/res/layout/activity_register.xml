@@ -67,7 +67,7 @@
         app:layout_constraintTop_toBottomOf="@+id/signUpDesc" />
 
     <EditText
-        android:id="@+id/fullNameEdtTxt"
+        android:id="@+id/etFullNameSignUp"
         android:layout_width="0dp"
         android:layout_height="30dp"
         android:layout_marginTop="5dp"
@@ -82,33 +82,6 @@
         app:layout_constraintTop_toBottomOf="@+id/fullName" />
 
     <TextView
-        android:id="@+id/userName"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="50dp"
-        android:layout_marginTop="25dp"
-        android:fontFamily="@font/poppinsregular"
-        android:text="Username"
-        android:textColor="@color/white"
-        android:textSize="15sp"
-        app:layout_constraintStart_toStartOf="@+id/signUpDesc"
-        app:layout_constraintTop_toBottomOf="@+id/fullNameEdtTxt" />
-
-    <EditText
-        android:id="@+id/userNameEdtTxt"
-        android:layout_width="0dp"
-        android:layout_height="30dp"
-        android:layout_marginEnd="70dp"
-        android:background="@drawable/background"
-        android:hint="your username"
-        android:textAlignment="center"
-        android:textColorHint="#717171"
-        android:textSize="15sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/fullName"
-        app:layout_constraintTop_toBottomOf="@+id/userName" />
-
-    <TextView
         android:id="@+id/email"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -119,7 +92,7 @@
         android:textColor="@color/white"
         android:textSize="15sp"
         app:layout_constraintStart_toStartOf="@+id/signUpDesc"
-        app:layout_constraintTop_toBottomOf="@+id/userNameEdtTxt" />
+        app:layout_constraintTop_toBottomOf="@+id/etFullNameSignUp" />
 
     <EditText
         android:id="@+id/emailEdtTxtSignUp"
@@ -191,7 +164,7 @@
         app:layout_constraintStart_toStartOf="@+id/registerBtnSignUp" />
 
     <Button
-        android:id="@+id/signInButton"
+        android:id="@+id/btnToSignInPage"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginEnd="60dp"
