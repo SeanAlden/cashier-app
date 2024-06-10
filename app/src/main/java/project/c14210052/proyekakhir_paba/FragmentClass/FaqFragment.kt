@@ -41,13 +41,13 @@ class FaqFragment : Fragment() {
         binding.rvFAQ.layoutManager = LinearLayoutManager(requireContext())
         binding.rvFAQ.adapter = adapter
 
-        binding.searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
+        binding.searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener{
             override fun onQueryTextSubmit(query: String?): Boolean {
-            TODO()
+                return false
             }
-
             override fun onQueryTextChange(newText: String?): Boolean {
-            TODO()
+                adapter.filterList(newText.orEmpty())
+                return true
             }
         })
     }

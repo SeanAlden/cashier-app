@@ -4,8 +4,9 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import project.c14210052.proyekakhir_paba.databinding.RecyclerFaqBinding
-
 class FaqAdapter(private val faqList: List<FaqItem>) : RecyclerView.Adapter<FaqAdapter.FaqViewHolder>() {
+    private var filteredFaqList = faqList
+
     inner class FaqViewHolder(private val binding: RecyclerFaqBinding) : RecyclerView.ViewHolder(binding.root){
         fun bind(faqItem: FaqItem) {
             binding.question.text = faqItem.question
@@ -18,9 +19,20 @@ class FaqAdapter(private val faqList: List<FaqItem>) : RecyclerView.Adapter<FaqA
         return FaqViewHolder(binding)
     }
 
-    override fun getItemCount(): Int = faqList.size
+    override fun getItemCount(): Int = filteredFaqList.size
 
     override fun onBindViewHolder(holder: FaqViewHolder, position: Int){
-        holder.bind(faqList[position])
+        holder.bind(filteredFaqList[position])
+    }
+
+    fun filterList(query: String) {
+        filteredFaqList = if (query.isEmpty()) {
+            faqList
+        } else {
+            faqList.filter {
+                it.question.contains(query, ignoreCase = true) || it.answer.contains(query, ignoreCase = true)
+            }
+        }
+        notifyDataSetChanged()
     }
 }
