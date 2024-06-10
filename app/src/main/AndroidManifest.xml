@@ -70,9 +70,6 @@
             android:exported="false" />
         <activity
             android:name=".LoginRegister.LoginActivity"
-            android:exported="false" />
-        <activity
-            android:name=".PreHomePage"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

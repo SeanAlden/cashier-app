@@ -1,16 +1,20 @@
 package project.c14210052.proyekakhir_paba.FragmentClass
 
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageButton
+import android.widget.TextView
 import androidx.fragment.app.Fragment
+import com.google.gson.Gson
 //import project.c14210052.proyekakhir_paba.ARG_PARAM1
 //import project.c14210052.proyekakhir_paba.ARG_PARAM2
 import project.c14210052.proyekakhir_paba.Cashier.CashierActivity
 import project.c14210052.proyekakhir_paba.Inventory.InventoryActivity
+import project.c14210052.proyekakhir_paba.LoginRegister.User
 import project.c14210052.proyekakhir_paba.Product.DaftarProdukActivity
 import project.c14210052.proyekakhir_paba.R
 import project.c14210052.proyekakhir_paba.Supplier.SupplierListActivity
@@ -50,6 +54,17 @@ class HomeFragment : Fragment() {
         val supplierBtn: ImageButton = view.findViewById(R.id.supplierBtn)
         val cashierBtn: ImageButton = view.findViewById(R.id.cashierBtn)
         val inventoryBtn: ImageButton = view.findViewById(R.id.inventoryBtn)
+
+        // Get username from SharedPreferences
+        val sharedPreferences = activity?.getSharedPreferences("MyAppPrefs", Context.MODE_PRIVATE)
+        val username = sharedPreferences?.getString("username", "User")
+//        val userJson = sharedPreferences?.getString("user", null)
+//        val user = if (userJson != null) Gson().fromJson(userJson, User::class.java) else null
+
+        // Set username to TextView
+        val shopNameTextView = view.findViewById<TextView>(R.id.shopName)
+        shopNameTextView.text = username
+//        shopNameTextView.text = user?.userName ?
 
         produkBtn.setOnClickListener {
             val intentProduk = Intent(activity, DaftarProdukActivity::class.java)

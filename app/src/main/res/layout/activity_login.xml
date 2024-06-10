@@ -9,7 +9,7 @@
     tools:context=".LoginRegister.LoginActivity">
 
     <ImageView
-        android:id="@+id/imageView"
+        android:id="@+id/nusantaraLogo"
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:layout_marginStart="20dp"
@@ -19,16 +19,17 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
+        android:id="@+id/nusantaraTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:src="@drawable/nusantara_font"
-        app:layout_constraintBottom_toBottomOf="@+id/imageView"
+        app:layout_constraintBottom_toBottomOf="@+id/nusantaraLogo"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/imageView"
-        app:layout_constraintTop_toTopOf="@+id/imageView" />
+        app:layout_constraintStart_toEndOf="@+id/nusantaraLogo"
+        app:layout_constraintTop_toTopOf="@+id/nusantaraLogo" />
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/signInTitle"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
@@ -36,11 +37,11 @@
         android:text="SIGN IN"
         android:textColor="@color/white"
         android:textSize="30sp"
-        app:layout_constraintStart_toStartOf="@+id/imageView"
-        app:layout_constraintTop_toBottomOf="@+id/imageView" />
+        app:layout_constraintStart_toStartOf="@+id/nusantaraLogo"
+        app:layout_constraintTop_toBottomOf="@+id/nusantaraLogo" />
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/signInDesc"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginEnd="20dp"
@@ -49,11 +50,11 @@
         android:textColor="@color/white"
         android:textSize="15sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/imageView"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
+        app:layout_constraintStart_toStartOf="@+id/nusantaraLogo"
+        app:layout_constraintTop_toBottomOf="@+id/signInTitle" />
 
     <TextView
-        android:id="@+id/textView3"
+        android:id="@+id/emailFont"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="50dp"
@@ -62,11 +63,11 @@
         android:text="Email"
         android:textColor="@color/white"
         android:textSize="15sp"
-        app:layout_constraintStart_toStartOf="@+id/textView2"
-        app:layout_constraintTop_toBottomOf="@+id/textView2" />
+        app:layout_constraintStart_toStartOf="@+id/signInDesc"
+        app:layout_constraintTop_toBottomOf="@+id/signInDesc" />
 
     <EditText
-        android:id="@+id/editText"
+        android:id="@+id/emailEdtTxtSignIn"
         android:layout_width="0dp"
         android:layout_height="30dp"
         android:layout_marginTop="5dp"
@@ -77,11 +78,11 @@
         android:textColorHint="#717171"
         android:textSize="15sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/textView3"
-        app:layout_constraintTop_toBottomOf="@+id/textView3" />
+        app:layout_constraintStart_toStartOf="@+id/emailFont"
+        app:layout_constraintTop_toBottomOf="@+id/emailFont" />
 
     <TextView
-        android:id="@+id/textView4"
+        android:id="@+id/passFont"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="50dp"
@@ -90,11 +91,11 @@
         android:text="Password"
         android:textColor="@color/white"
         android:textSize="15sp"
-        app:layout_constraintStart_toStartOf="@+id/textView2"
-        app:layout_constraintTop_toBottomOf="@+id/editText" />
+        app:layout_constraintStart_toStartOf="@+id/signInDesc"
+        app:layout_constraintTop_toBottomOf="@+id/emailEdtTxtSignIn" />
 
     <EditText
-        android:id="@+id/editText2"
+        android:id="@+id/passEdtTxtSignIn"
         android:layout_width="0dp"
         android:layout_height="30dp"
         android:layout_marginTop="5dp"
@@ -105,11 +106,11 @@
         android:textColorHint="#717171"
         android:textSize="15sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/textView3"
-        app:layout_constraintTop_toBottomOf="@+id/textView4" />
+        app:layout_constraintStart_toStartOf="@+id/emailFont"
+        app:layout_constraintTop_toBottomOf="@+id/passFont" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/loginBtn"
         android:layout_width="0dp"
         android:layout_height="50dp"
         android:layout_marginTop="90dp"
@@ -117,8 +118,8 @@
         android:background="@drawable/background_login"
         android:text="LOGIN"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/editText2"
-        app:layout_constraintTop_toBottomOf="@+id/editText2" />
+        app:layout_constraintStart_toStartOf="@+id/passEdtTxtSignIn"
+        app:layout_constraintTop_toBottomOf="@+id/passEdtTxtSignIn" />
 
     <TextView
         android:id="@+id/textView5"
@@ -132,10 +133,10 @@
         android:textSize="15sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button" />
+        app:layout_constraintTop_toBottomOf="@+id/loginBtn" />
 
     <TextView
-        android:id="@+id/textView6"
+        android:id="@+id/goToSignUpQuestion"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginBottom="20dp"
@@ -145,10 +146,10 @@
         android:textColor="@color/white"
         android:textSize="13sp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/button" />
+        app:layout_constraintStart_toStartOf="@+id/loginBtn" />
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/signUpButton"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginEnd="60dp"
