@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.widget.SearchView
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import project.c14210052.proyekakhir_paba.R
@@ -39,6 +40,16 @@ class FaqFragment : Fragment() {
         val adapter = FaqAdapter(faqList)
         binding.rvFAQ.layoutManager = LinearLayoutManager(requireContext())
         binding.rvFAQ.adapter = adapter
+
+        binding.searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
+            override fun onQueryTextSubmit(query: String?): Boolean {
+            TODO()
+            }
+
+            override fun onQueryTextChange(newText: String?): Boolean {
+            TODO()
+            }
+        })
     }
 
     override fun onDestroyView() {
