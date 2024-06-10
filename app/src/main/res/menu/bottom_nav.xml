@@ -9,10 +9,6 @@
         android:id="@+id/profile"
         android:icon="@drawable/f_profile"
         />
-    <item android:title="Settings"
-        android:id="@+id/settings"
-        android:icon="@drawable/f_settings"
-        />
     <item android:title="FAQ"
         android:id="@+id/faq"
         android:icon="@drawable/f_faq"

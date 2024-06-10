@@ -1,7 +1,6 @@
 package project.c14210052.proyekakhir_paba
 
 import android.os.Bundle
-import android.util.Log
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -10,7 +9,6 @@ import androidx.fragment.app.Fragment
 import project.c14210052.proyekakhir_paba.FragmentClass.FaqFragment
 import project.c14210052.proyekakhir_paba.FragmentClass.HomeFragment
 import project.c14210052.proyekakhir_paba.FragmentClass.ProfileFragment
-import project.c14210052.proyekakhir_paba.FragmentClass.SettingsFragment
 import project.c14210052.proyekakhir_paba.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
@@ -29,7 +27,6 @@ class MainActivity : AppCompatActivity() {
             when(it.itemId){
                 R.id.home -> replaceFragment(HomeFragment())
                 R.id.profile -> replaceFragment(ProfileFragment())
-                R.id.settings -> replaceFragment(SettingsFragment())
                 R.id.faq -> replaceFragment(FaqFragment())
                 else -> {
 
