@@ -2,7 +2,6 @@ package project.c14210052.proyekakhir_paba.Supplier
 
 import android.annotation.SuppressLint
 import android.content.Intent
-import android.content.SharedPreferences
 import android.os.Bundle
 import android.widget.Button
 import android.widget.ImageButton
@@ -17,7 +16,7 @@ import project.c14210052.proyekakhir_paba.R
 class SupplierInformationActivity : AppCompatActivity() {
 
 //    private lateinit var sharedPreferences: SharedPreferences
-    private lateinit var suppliers: Supplier
+    private lateinit var suppliers: DataSupplier
     private lateinit var btnBack : ImageButton
     private lateinit var gson: Gson
     @SuppressLint("MissingInflatedId")
@@ -28,7 +27,7 @@ class SupplierInformationActivity : AppCompatActivity() {
 
 //        sharedPreferences = getSharedPreferences("SupplierData", MODE_PRIVATE)
         val supplierJson = intent.getStringExtra("supplier")
-        val supplier = Gson().fromJson(supplierJson, Supplier::class.java)
+        val supplier = Gson().fromJson(supplierJson, DataSupplier::class.java)
 
         val namaSupplierView = findViewById<TextView>(R.id.namaSupplierView)
         val emailSupplierView = findViewById<TextView>(R.id.emailSupplierView)
@@ -55,7 +54,7 @@ class SupplierInformationActivity : AppCompatActivity() {
         kodePosSupplierView.text = supplier.kodeSupplier
 
         gson = Gson()
-        suppliers = gson.fromJson(intent.getStringExtra("supplier"), Supplier::class.java)
+        suppliers = gson.fromJson(intent.getStringExtra("supplier"), DataSupplier::class.java)
 
 
         btnBack = findViewById(R.id.backButton)

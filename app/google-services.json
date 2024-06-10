@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "653115339870",
+    "project_id": "proyekakhir-paba",
+    "storage_bucket": "proyekakhir-paba.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:653115339870:android:fcfa60a593f2d89e3130cf",
+        "android_client_info": {
+          "package_name": "project.c14210052.proyekakhir_paba"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC56fKDoHiHga-x1V7rTZNpAKCLaEY43DM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

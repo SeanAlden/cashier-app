@@ -43,8 +43,8 @@ class SupplierListActivity : AppCompatActivity() {
 //        }
 
         val suppliersJson = sharedPreferences.getString("suppliers", "[]")
-        val suppliersType = object : TypeToken<List<Supplier>>() {}.type
-        val suppliers: MutableList<Supplier> = gson.fromJson(suppliersJson, suppliersType)
+        val suppliersType = object : TypeToken<List<DataSupplier>>() {}.type
+        val suppliers: MutableList<DataSupplier> = gson.fromJson(suppliersJson, suppliersType)
 
         recyclerView = findViewById(R.id.rvSupplier)
         recyclerView.layoutManager = LinearLayoutManager(this)

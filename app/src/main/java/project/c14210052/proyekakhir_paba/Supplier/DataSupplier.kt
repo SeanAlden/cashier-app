@@ -1,5 +1,5 @@
 package project.c14210052.proyekakhir_paba.Supplier
-data class Supplier(
+data class DataSupplier(
     val namaSupplier: String,
     val emailSupplier: String,
     val teleponSupplier: String,

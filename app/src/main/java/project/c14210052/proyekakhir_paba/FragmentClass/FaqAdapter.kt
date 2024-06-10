@@ -4,11 +4,11 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import project.c14210052.proyekakhir_paba.databinding.RecyclerFaqBinding
-class FaqAdapter(private val faqList: List<FaqItem>) : RecyclerView.Adapter<FaqAdapter.FaqViewHolder>() {
+class FaqAdapter(private val faqList: List<DataFaq>) : RecyclerView.Adapter<FaqAdapter.FaqViewHolder>() {
     private var filteredFaqList = faqList
 
     inner class FaqViewHolder(private val binding: RecyclerFaqBinding) : RecyclerView.ViewHolder(binding.root){
-        fun bind(faqItem: FaqItem) {
+        fun bind(faqItem: DataFaq) {
             binding.question.text = faqItem.question
             binding.answer.text = faqItem.answer
         }

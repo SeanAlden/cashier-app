@@ -21,7 +21,7 @@ class AddSupplierActivity : AppCompatActivity() {
     private val gson = Gson()
     private lateinit var btnBack : ImageButton
 
-    private var arSupplier = arrayListOf<Supplier>()
+    private var arSupplier = arrayListOf<DataSupplier>()
 
     @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -65,10 +65,10 @@ class AddSupplierActivity : AppCompatActivity() {
             saved.apply()
 
             val suppliersJson = sharedPreferences.getString("suppliers", "[]")
-            val suppliersType = object : TypeToken<List<Supplier>>() {}.type
-            val suppliers: MutableList<Supplier> = gson.fromJson(suppliersJson, suppliersType)
+            val suppliersType = object : TypeToken<List<DataSupplier>>() {}.type
+            val suppliers: MutableList<DataSupplier> = gson.fromJson(suppliersJson, suppliersType)
 
-            val newSupplier = Supplier(
+            val newSupplier = DataSupplier(
                 namaSupplier = namaSupplierEdtTxt.text.toString(),
                 emailSupplier = emailSupplierEdtTxt.text.toString(),
                 teleponSupplier = nomorTeleponEdtTxt.text.toString(),

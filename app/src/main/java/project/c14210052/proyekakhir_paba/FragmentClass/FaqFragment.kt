@@ -35,7 +35,7 @@ class FaqFragment : Fragment() {
 
         val questions = resources.getStringArray(R.array.pertanyaan)
         val answers = resources.getStringArray(R.array.jawaban)
-        val faqList = questions.zip(answers) { question, answer -> FaqItem(question, answer) }
+        val faqList = questions.zip(answers) { question, answer -> DataFaq(question, answer) }
 
         val adapter = FaqAdapter(faqList)
         binding.rvFAQ.layoutManager = LinearLayoutManager(requireContext())

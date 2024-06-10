@@ -11,9 +11,9 @@ import androidx.recyclerview.widget.RecyclerView
 import project.c14210052.proyekakhir_paba.R
 
 class SupplierAdapter(
-    private val suppliers: MutableList<Supplier>,
+    private val suppliers: MutableList<DataSupplier>,
     private val onDeleteClick: (Int) -> Unit,
-    private val onItemClick: (Supplier) -> Unit
+    private val onItemClick: (DataSupplier) -> Unit
 ) : RecyclerView.Adapter<SupplierAdapter.SupplierViewHolder>(){
 
     lateinit var context : Context
