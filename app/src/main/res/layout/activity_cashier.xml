@@ -6,10 +6,10 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/black"
-    tools:context=".Cashier.CashierActivity">
+    tools:context=".CashierActivity">
 
     <ImageView
-        android:id="@+id/header"
+        android:id="@+id/headerContainerCashier"
         android:layout_width="0dp"
         android:layout_height="70dp"
         android:background="@color/grey"
@@ -18,7 +18,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/titleView"
+        android:id="@+id/tvCashier"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:fontFamily="@font/poppinssemibold"
@@ -26,19 +26,19 @@
         android:textAlignment="center"
         android:textColor="@color/white"
         android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="@+id/header"
+        app:layout_constraintBottom_toBottomOf="@+id/headerContainerCashier"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/header" />
+        app:layout_constraintTop_toTopOf="@+id/headerContainerCashier" />
 
     <ImageButton
-        android:id="@+id/backButtonFromCashier"
+        android:id="@+id/btnBackFromCashier"
         android:layout_width="60dp"
         android:layout_height="60dp"
         android:background="@color/grey"
         android:src="@drawable/back_symbol"
-        app:layout_constraintBottom_toBottomOf="@+id/header"
+        app:layout_constraintBottom_toBottomOf="@+id/headerContainerCashier"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/header" />
+        app:layout_constraintTop_toTopOf="@+id/headerContainerCashier" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

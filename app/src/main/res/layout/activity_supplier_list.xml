@@ -8,10 +8,10 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/black"
-    tools:context=".Supplier.SupplierListActivity">
+    tools:context=".SupplierListActivity">
 
     <ImageView
-        android:id="@+id/header"
+        android:id="@+id/headerContainerSupplierList"
         android:layout_width="0dp"
         android:layout_height="70dp"
         android:background="@color/grey"
@@ -20,7 +20,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/titleView"
+        android:id="@+id/tvSupplier"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:fontFamily="@font/poppinssemibold"
@@ -28,23 +28,23 @@
         android:textAlignment="center"
         android:textColor="@color/white"
         android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="@+id/header"
+        app:layout_constraintBottom_toBottomOf="@+id/headerContainerSupplierList"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/header" />
+        app:layout_constraintTop_toTopOf="@+id/headerContainerSupplierList" />
 
     <ImageButton
-        android:id="@+id/backButtonFromSupplierList"
+        android:id="@+id/btnBackFromSupplierList"
         android:layout_width="60dp"
         android:layout_height="60dp"
         android:src="@drawable/back_symbol"
         android:backgroundTint="@color/grey"
-        app:layout_constraintBottom_toBottomOf="@+id/header"
+        app:layout_constraintBottom_toBottomOf="@+id/headerContainerSupplierList"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/header" />
+        app:layout_constraintTop_toTopOf="@+id/headerContainerSupplierList" />
 
     <TextView
-        android:id="@+id/textView23"
+        android:id="@+id/tvInstruction"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
@@ -57,17 +57,17 @@
         android:textSize="15sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/header" />
+        app:layout_constraintTop_toBottomOf="@+id/headerContainerSupplierList" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvSupplier"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
-        app:layout_constraintTop_toBottomOf="@+id/textView23" />
+        app:layout_constraintTop_toBottomOf="@+id/tvInstruction" />
 
     <ImageButton
-        android:id="@+id/addSuppButton"
+        android:id="@+id/btnAddSupplier"
         android:layout_width="60dp"
         android:layout_height="60dp"
         android:layout_marginEnd="40dp"
@@ -78,13 +78,14 @@
         app:layout_constraintEnd_toEndOf="parent" />
 
     <ImageView
+        android:id="@+id/plusSign"
         android:layout_width="60dp"
         android:layout_height="60dp"
         android:background="@drawable/plus_symbol"
         android:backgroundTint="@color/white"
-        app:layout_constraintBottom_toBottomOf="@+id/addSuppButton"
-        app:layout_constraintEnd_toEndOf="@+id/addSuppButton"
-        app:layout_constraintStart_toStartOf="@+id/addSuppButton"
-        app:layout_constraintTop_toTopOf="@+id/addSuppButton" />
+        app:layout_constraintBottom_toBottomOf="@+id/btnAddSupplier"
+        app:layout_constraintEnd_toEndOf="@+id/btnAddSupplier"
+        app:layout_constraintStart_toStartOf="@+id/btnAddSupplier"
+        app:layout_constraintTop_toTopOf="@+id/btnAddSupplier" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

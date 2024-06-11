@@ -1,4 +1,4 @@
-package project.c14210052.proyekakhir_paba.Product
+package project.c14210052.proyekakhir_paba
 
 import android.annotation.SuppressLint
 import android.content.Intent
@@ -8,11 +8,10 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
-import project.c14210052.proyekakhir_paba.R
 
 class ProductCategoryActivity : AppCompatActivity() {
 
-    private lateinit var backBtn : ImageButton
+    private lateinit var _backBtn : ImageButton
     @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -24,9 +23,9 @@ class ProductCategoryActivity : AppCompatActivity() {
             insets
         }
 
-        backBtn = findViewById(R.id.backFromProductCategory)
+        _backBtn = findViewById(R.id.btnBackFromAddCategory)
 
-        backBtn.setOnClickListener {
+        _backBtn.setOnClickListener {
             val intent = Intent(this@ProductCategoryActivity, DaftarProdukActivity::class.java)
             startActivity(intent)
         }

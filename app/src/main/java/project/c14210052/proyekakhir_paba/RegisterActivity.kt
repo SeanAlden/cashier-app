@@ -1,10 +1,9 @@
-package project.c14210052.proyekakhir_paba.LoginRegister
+package project.c14210052.proyekakhir_paba
 
 import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
 import android.text.TextUtils
-import android.util.Log
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
@@ -16,40 +15,25 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
-import project.c14210052.proyekakhir_paba.MainActivity
-import project.c14210052.proyekakhir_paba.R
 
 class RegisterActivity : AppCompatActivity() {
 
     private lateinit var auth: FirebaseAuth
     var db = Firebase.firestore
     lateinit var userID: String
-
     @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_register)
         enableEdgeToEdge()
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
-            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
-            insets
-        }
 
-        val _btnSignUp: Button = findViewById(R.id.registerBtnSignUp)
-        val _etEmail: EditText = findViewById(R.id.emailEdtTxtSignUp)
-        val _etPassword: EditText = findViewById(R.id.passEdtTxtSignUp)
-        val _etFullName: EditText = findViewById(R.id.etFullNameSignUp)
-        val _btnToLoginPage : Button = findViewById(R.id.btnToSignInPage)
+        val _btnSignUp: Button = findViewById(R.id.btnCreateAccount)
+        val _etEmail: EditText = findViewById(R.id.etEmaill)
+        val _etPassword: EditText = findViewById(R.id.etPasswordd)
+        val _etFullName: EditText = findViewById(R.id.etFull_Name)
+        val _btnToLoginPage : Button = findViewById(R.id.btnGoToSignInPage)
 
         auth = Firebase.auth
-
-//        val fullNameEditText = findViewById<EditText>(R.id.fullNameEdtTxt)
-//        val userNameEditText = findViewById<EditText>(R.id.userNameEdtTxt)
-//        val emailEditText = findViewById<EditText>(R.id.emailEdtTxtSignUp)
-//        val passwordEditText = findViewById<EditText>(R.id.passEdtTxtSignUp)
-//        val registerButton = findViewById<Button>(R.id.registerBtnSignUp)
-//        val signInButton = findViewById<Button>(R.id.signInButton)
 
         _btnToLoginPage.setOnClickListener {
             startActivity(Intent(this@RegisterActivity, LoginActivity::class.java))
@@ -80,8 +64,8 @@ class RegisterActivity : AppCompatActivity() {
                                 Toast.makeText(this, "Account Created", Toast.LENGTH_LONG).show()
                                 finish()
                             }
-                        val intent = Intent(this@RegisterActivity, LoginActivity::class.java)
-                        startActivity(intent)
+//                        val intent = Intent(this@RegisterActivity, LoginActivity::class.java)
+//                        startActivity(intent)
                     } else {
                         Toast.makeText(
                             baseContext,
@@ -90,6 +74,11 @@ class RegisterActivity : AppCompatActivity() {
                         ).show()
                     }
                 }
+        }
+        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
+            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
+            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
+            insets
         }
     }
 }

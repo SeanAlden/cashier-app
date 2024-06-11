@@ -6,10 +6,10 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/black"
-    tools:context=".Product.DetailProductActivity">
+    tools:context=".DetailProductActivity">
 
     <ImageView
-        android:id="@+id/header"
+        android:id="@+id/headerContainerDetailProduct"
         android:layout_width="0dp"
         android:layout_height="70dp"
         android:background="@color/grey"
@@ -18,7 +18,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/titleView"
+        android:id="@+id/tvDetailProduct"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:fontFamily="@font/poppinssemibold"
@@ -26,22 +26,23 @@
         android:textAlignment="center"
         android:textColor="@color/white"
         android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="@+id/header"
+        app:layout_constraintBottom_toBottomOf="@+id/headerContainerDetailProduct"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/header" />
+        app:layout_constraintTop_toTopOf="@+id/headerContainerDetailProduct" />
 
     <ImageButton
+        android:id="@+id/btnBackFromDetailProduct"
         android:layout_width="60dp"
         android:layout_height="60dp"
         android:background="@color/grey"
         android:src="@drawable/back_symbol"
-        app:layout_constraintBottom_toBottomOf="@+id/header"
+        app:layout_constraintBottom_toBottomOf="@+id/headerContainerDetailProduct"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/header" />
+        app:layout_constraintTop_toTopOf="@+id/headerContainerDetailProduct" />
 
     <TextView
-        android:id="@+id/textView16"
+        android:id="@+id/tvNamaProdukDetail"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="30dp"
@@ -51,10 +52,10 @@
         android:textSize="15sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/header" />
+        app:layout_constraintTop_toBottomOf="@+id/headerContainerDetailProduct" />
 
     <EditText
-        android:id="@+id/editText8"
+        android:id="@+id/etNamaProdukDetail"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="30dp"
@@ -63,10 +64,10 @@
         android:background="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView16" />
+        app:layout_constraintTop_toBottomOf="@+id/tvNamaProdukDetail" />
 
     <TextView
-        android:id="@+id/textView17"
+        android:id="@+id/tvDeskripsiProdukDetail"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="30dp"
@@ -76,10 +77,10 @@
         android:textSize="15sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editText8" />
+        app:layout_constraintTop_toBottomOf="@+id/etNamaProdukDetail" />
 
     <EditText
-        android:id="@+id/editText9"
+        android:id="@+id/etDeskripsiProdukDetail"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="30dp"
@@ -88,10 +89,10 @@
         android:background="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView17" />
+        app:layout_constraintTop_toBottomOf="@+id/tvDeskripsiProdukDetail" />
 
     <TextView
-        android:id="@+id/textView18"
+        android:id="@+id/tvKategoriProdukDetail"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="30dp"
@@ -101,10 +102,10 @@
         android:textSize="15sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editText9" />
+        app:layout_constraintTop_toBottomOf="@+id/etDeskripsiProdukDetail" />
 
     <EditText
-        android:id="@+id/editText10"
+        android:id="@+id/etKategoriProdukDetail"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="30dp"
@@ -113,10 +114,10 @@
         android:background="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView18" />
+        app:layout_constraintTop_toBottomOf="@+id/tvKategoriProdukDetail" />
 
     <TextView
-        android:id="@+id/textView19"
+        android:id="@+id/tvSupplierProdukDetail"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="30dp"
@@ -126,10 +127,10 @@
         android:textSize="15sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editText10" />
+        app:layout_constraintTop_toBottomOf="@+id/etKategoriProdukDetail" />
 
     <EditText
-        android:id="@+id/editText11"
+        android:id="@+id/etSupplierProdukDetail"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="30dp"
@@ -138,10 +139,10 @@
         android:background="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView19" />
+        app:layout_constraintTop_toBottomOf="@+id/tvSupplierProdukDetail" />
 
     <TextView
-        android:id="@+id/textView20"
+        android:id="@+id/tvHargaPokokDetail"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="30dp"
@@ -151,10 +152,10 @@
         android:textSize="15sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editText11" />
+        app:layout_constraintTop_toBottomOf="@+id/etSupplierProdukDetail" />
 
     <EditText
-        android:id="@+id/editText12"
+        android:id="@+id/etHargaPokokDetail"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="30dp"
@@ -163,10 +164,10 @@
         android:background="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView20" />
+        app:layout_constraintTop_toBottomOf="@+id/tvHargaPokokDetail" />
 
     <TextView
-        android:id="@+id/textView21"
+        android:id="@+id/tvHargaJualDetail"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="30dp"
@@ -176,10 +177,10 @@
         android:textSize="15sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editText12" />
+        app:layout_constraintTop_toBottomOf="@+id/etHargaPokokDetail" />
 
     <EditText
-        android:id="@+id/editText13"
+        android:id="@+id/etHargaJualDetail"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="30dp"
@@ -188,10 +189,10 @@
         android:background="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView21" />
+        app:layout_constraintTop_toBottomOf="@+id/tvHargaJualDetail" />
 
     <TextView
-        android:id="@+id/textView22"
+        android:id="@+id/tvJumlahProdukDetail"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="30dp"
@@ -201,10 +202,10 @@
         android:textSize="15sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editText13" />
+        app:layout_constraintTop_toBottomOf="@+id/etHargaJualDetail" />
 
     <EditText
-        android:id="@+id/editText21"
+        android:id="@+id/etJumlahProdukDetail"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="30dp"
@@ -213,10 +214,10 @@
         android:background="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView22" />
+        app:layout_constraintTop_toBottomOf="@+id/tvJumlahProdukDetail" />
 
     <TextView
-        android:id="@+id/textView23"
+        android:id="@+id/tvSatuanProdukDetail"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="30dp"
@@ -226,9 +227,10 @@
         android:textSize="15sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editText21" />
+        app:layout_constraintTop_toBottomOf="@+id/etJumlahProdukDetail" />
 
     <EditText
+        android:id="@+id/etSatuanProdukDetail"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="30dp"
@@ -237,7 +239,7 @@
         android:background="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView23" />
+        app:layout_constraintTop_toBottomOf="@+id/tvSatuanProdukDetail" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

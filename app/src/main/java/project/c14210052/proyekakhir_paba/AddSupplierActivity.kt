@@ -1,4 +1,4 @@
-package project.c14210052.proyekakhir_paba.Supplier
+package project.c14210052.proyekakhir_paba
 
 import android.annotation.SuppressLint
 import android.content.Intent
@@ -11,17 +11,17 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.ktx.firestore
+import com.google.firebase.ktx.Firebase
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
-import project.c14210052.proyekakhir_paba.R
 
 class AddSupplierActivity : AppCompatActivity() {
 
     private lateinit var sharedPreferences: SharedPreferences
     private val gson = Gson()
-    private lateinit var btnBack : ImageButton
-
-    private var arSupplier = arrayListOf<DataSupplier>()
+    private lateinit var _btnBack : ImageButton
 
     @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -36,32 +36,32 @@ class AddSupplierActivity : AppCompatActivity() {
 
         sharedPreferences = getSharedPreferences("SupplierData", MODE_PRIVATE)
 
-        val namaSupplierEdtTxt = findViewById<EditText>(R.id.namaSupplierEdtTxt)
-        val emailSupplierEdtTxt = findViewById<EditText>(R.id.emailSupplierEdtTxt)
-        val nomorTeleponEdtTxt = findViewById<EditText>(R.id.nomorTeleponEdtTxt)
-        val alamatSupplierEdtTxt = findViewById<EditText>(R.id.alamatSupplierEdtTxt)
-        val kotaSupplierEdtTxt = findViewById<EditText>(R.id.kotaSupplierEdtTxt)
-        val provinsiSupplierEdtTxt = findViewById<EditText>(R.id.provinsiSupplierEdtTxt)
-        val kodePosSupplierEdtTxt = findViewById<EditText>(R.id.kodePosSupplierEdtTxt)
+        val _namaSupplierEdtTxt = findViewById<EditText>(R.id.etNamaSupplier)
+        val _emailSupplierEdtTxt = findViewById<EditText>(R.id.etEmailSupplier)
+        val _nomorTeleponEdtTxt = findViewById<EditText>(R.id.etTeleponSupplier)
+        val _alamatSupplierEdtTxt = findViewById<EditText>(R.id.etAlamatSupplier)
+        val _kotaSupplierEdtTxt = findViewById<EditText>(R.id.etKotaSupplier)
+        val _provinsiSupplierEdtTxt = findViewById<EditText>(R.id.etProvinsiSupplier)
+        val _kodePosSupplierEdtTxt = findViewById<EditText>(R.id.etKodePosSupplier)
 
-        val saveBtn = findViewById<Button>(R.id.saveSupplierBtn)
+        val _saveBtn = findViewById<Button>(R.id.btnSaveSupplier)
 
-        btnBack = findViewById(R.id.backButtonFromAddSupplier)
-        btnBack.setOnClickListener {
+        _btnBack = findViewById(R.id.btnBackFromAddSupplier)
+        _btnBack.setOnClickListener {
             val intent = Intent(this@AddSupplierActivity, SupplierListActivity::class.java)
             startActivity(intent)
         }
 
-        saveBtn.setOnClickListener {
+        _saveBtn.setOnClickListener {
 
             val saved = sharedPreferences.edit()
-            saved.putString("namaSupplier", namaSupplierEdtTxt.text.toString())
-            saved.putString("emailSupplier", emailSupplierEdtTxt.text.toString())
-            saved.putString("nomorTelepon", nomorTeleponEdtTxt.text.toString())
-            saved.putString("alamatSupplier", alamatSupplierEdtTxt.text.toString())
-            saved.putString("kotaSupplier", kotaSupplierEdtTxt.text.toString())
-            saved.putString("provinsiSupplier", provinsiSupplierEdtTxt.text.toString())
-            saved.putString("kodePosSupplier", kodePosSupplierEdtTxt.text.toString())
+            saved.putString("namaSupplier", _namaSupplierEdtTxt.text.toString())
+            saved.putString("emailSupplier", _emailSupplierEdtTxt.text.toString())
+            saved.putString("nomorTelepon", _nomorTeleponEdtTxt.text.toString())
+            saved.putString("alamatSupplier", _alamatSupplierEdtTxt.text.toString())
+            saved.putString("kotaSupplier", _kotaSupplierEdtTxt.text.toString())
+            saved.putString("provinsiSupplier", _provinsiSupplierEdtTxt.text.toString())
+            saved.putString("kodePosSupplier", _kodePosSupplierEdtTxt.text.toString())
             saved.apply()
 
             val suppliersJson = sharedPreferences.getString("suppliers", "[]")
@@ -69,13 +69,13 @@ class AddSupplierActivity : AppCompatActivity() {
             val suppliers: MutableList<DataSupplier> = gson.fromJson(suppliersJson, suppliersType)
 
             val newSupplier = DataSupplier(
-                namaSupplier = namaSupplierEdtTxt.text.toString(),
-                emailSupplier = emailSupplierEdtTxt.text.toString(),
-                teleponSupplier = nomorTeleponEdtTxt.text.toString(),
-                alamatSupplier = alamatSupplierEdtTxt.text.toString(),
-                kotaSupplier = kotaSupplierEdtTxt.text.toString(),
-                provinsiSupplier = provinsiSupplierEdtTxt.text.toString(),
-                kodeSupplier = kodePosSupplierEdtTxt.text.toString()
+                namaSupplier = _namaSupplierEdtTxt.text.toString(),
+                emailSupplier = _emailSupplierEdtTxt.text.toString(),
+                teleponSupplier = _nomorTeleponEdtTxt.text.toString(),
+                alamatSupplier = _alamatSupplierEdtTxt.text.toString(),
+                kotaSupplier = _kotaSupplierEdtTxt.text.toString(),
+                provinsiSupplier = _provinsiSupplierEdtTxt.text.toString(),
+                kodeSupplier = _kodePosSupplierEdtTxt.text.toString()
             )
             suppliers.add(newSupplier)
 
@@ -89,3 +89,6 @@ class AddSupplierActivity : AppCompatActivity() {
         }
     }
 }
+
+
+

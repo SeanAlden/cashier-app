@@ -1,4 +1,4 @@
-package project.c14210052.proyekakhir_paba.Product
+package project.c14210052.proyekakhir_paba
 
 import android.annotation.SuppressLint
 import android.content.Intent
@@ -9,14 +9,12 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
-import project.c14210052.proyekakhir_paba.MainActivity
-import project.c14210052.proyekakhir_paba.R
 
 class DaftarProdukActivity : AppCompatActivity() {
 
-    private lateinit var addProductBtn : ImageButton
-    private lateinit var backBtn : ImageButton
-    private lateinit var categoryBtn : Button
+    private lateinit var _addProductBtn : ImageButton
+    private lateinit var _backBtn : ImageButton
+    private lateinit var _categoryBtn : Button
     @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -28,21 +26,21 @@ class DaftarProdukActivity : AppCompatActivity() {
             insets
         }
 
-        addProductBtn = findViewById(R.id.addProductButton)
-        backBtn = findViewById(R.id.backFromProductList)
-        categoryBtn = findViewById(R.id.categoryBtn)
+        _addProductBtn = findViewById(R.id.btnAddProduct)
+        _backBtn = findViewById(R.id.btnBackFromProductList)
+        _categoryBtn = findViewById(R.id.btnCategory)
 
-        addProductBtn.setOnClickListener {
+        _addProductBtn.setOnClickListener {
             val intent = Intent(this@DaftarProdukActivity, AddProductActivity::class.java)
             startActivity(intent)
         }
 
-        backBtn.setOnClickListener {
+        _backBtn.setOnClickListener {
             val intent = Intent(this@DaftarProdukActivity, MainActivity::class.java)
             startActivity(intent)
         }
 
-        categoryBtn.setOnClickListener {
+        _categoryBtn.setOnClickListener {
             val intent = Intent(this@DaftarProdukActivity, ProductCategoryActivity::class.java)
             startActivity(intent)
         }

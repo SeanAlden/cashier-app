@@ -1,4 +1,4 @@
-package project.c14210052.proyekakhir_paba.Supplier
+package project.c14210052.proyekakhir_paba
 
 import android.annotation.SuppressLint
 import android.content.Intent
@@ -11,17 +11,18 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.ktx.firestore
+import com.google.firebase.ktx.Firebase
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
-import project.c14210052.proyekakhir_paba.MainActivity
-import project.c14210052.proyekakhir_paba.R
 
 class SupplierListActivity : AppCompatActivity() {
 
     private lateinit var sharedPreferences: SharedPreferences
     private lateinit var recyclerView: RecyclerView
-    private lateinit var adapter: SupplierAdapter
-    private lateinit var btnBack: ImageButton
+    private lateinit var supplierAdapter: SupplierAdapter
+    private lateinit var _btnBack: ImageButton
     private val gson = Gson()
 
     @SuppressLint("MissingInflatedId")
@@ -48,12 +49,12 @@ class SupplierListActivity : AppCompatActivity() {
 
         recyclerView = findViewById(R.id.rvSupplier)
         recyclerView.layoutManager = LinearLayoutManager(this)
-        adapter = SupplierAdapter(suppliers, { position ->
+        supplierAdapter = SupplierAdapter(suppliers, { position ->
             suppliers.removeAt(position)
             val editor = sharedPreferences.edit()
             editor.putString("suppliers", gson.toJson(suppliers))
             editor.apply()
-            adapter.notifyItemRemoved(position)
+            supplierAdapter.notifyItemRemoved(position)
         }, { supplier ->
             val intent = Intent(this, SupplierInformationActivity::class.java)
 //            intent.putExtra("namaSupplier", supplier.namaSupplier)
@@ -62,19 +63,20 @@ class SupplierListActivity : AppCompatActivity() {
             intent.putExtra("supplier", gson.toJson(supplier))
             startActivity(intent)
         })
-        recyclerView.adapter = adapter
+        recyclerView.adapter = supplierAdapter
 
-        val addSuppButton = findViewById<ImageButton>(R.id.addSuppButton)
-        btnBack = findViewById(R.id.backButtonFromSupplierList)
+        val addSuppButton = findViewById<ImageButton>(R.id.btnAddSupplier)
+        _btnBack = findViewById(R.id.btnBackFromSupplierList)
 
         addSuppButton.setOnClickListener {
             val intent = Intent(this, AddSupplierActivity::class.java)
             startActivity(intent)
         }
 
-        btnBack.setOnClickListener {
+        _btnBack.setOnClickListener {
             val intent = Intent(this@SupplierListActivity, MainActivity::class.java)
             startActivity(intent)
         }
     }
 }
+

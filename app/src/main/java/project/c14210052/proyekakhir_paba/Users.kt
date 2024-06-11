@@ -1,4 +1,4 @@
-package project.c14210052.proyekakhir_paba.LoginRegister
+package project.c14210052.proyekakhir_paba
 
 import android.os.Parcel
 import android.os.Parcelable

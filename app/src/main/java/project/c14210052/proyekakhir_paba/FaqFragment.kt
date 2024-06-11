@@ -1,4 +1,4 @@
-package project.c14210052.proyekakhir_paba.FragmentClass
+package project.c14210052.proyekakhir_paba
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -7,7 +7,6 @@ import android.view.ViewGroup
 import androidx.appcompat.widget.SearchView
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
-import project.c14210052.proyekakhir_paba.R
 import project.c14210052.proyekakhir_paba.databinding.FragmentFaqBinding
 
 class FaqFragment : Fragment() {
@@ -41,7 +40,7 @@ class FaqFragment : Fragment() {
         binding.rvFAQ.layoutManager = LinearLayoutManager(requireContext())
         binding.rvFAQ.adapter = adapter
 
-        binding.searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener{
+        binding.searchFaqView.setOnQueryTextListener(object : SearchView.OnQueryTextListener{
             override fun onQueryTextSubmit(query: String?): Boolean {
                 return false
             }

@@ -6,10 +6,10 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/black"
-    tools:context=".LoginRegister.LoginActivity">
+    tools:context=".RegisterActivity">
 
     <ImageView
-        android:id="@+id/nusantaraLogo"
+        android:id="@+id/imgNusantaraLogo"
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:layout_marginStart="20dp"
@@ -19,17 +19,17 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
-        android:id="@+id/nusantaraTitle"
+        android:id="@+id/imgNusantaraFont"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:src="@drawable/nusantara_font"
-        app:layout_constraintBottom_toBottomOf="@+id/nusantaraLogo"
+        app:layout_constraintBottom_toBottomOf="@+id/imgNusantaraLogo"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/nusantaraLogo"
-        app:layout_constraintTop_toTopOf="@+id/nusantaraLogo" />
+        app:layout_constraintStart_toEndOf="@+id/imgNusantaraLogo"
+        app:layout_constraintTop_toTopOf="@+id/imgNusantaraLogo" />
 
     <TextView
-        android:id="@+id/signUpTitle"
+        android:id="@+id/tvSignUp"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
@@ -37,11 +37,11 @@
         android:text="SIGN UP"
         android:textColor="@color/white"
         android:textSize="30sp"
-        app:layout_constraintStart_toStartOf="@+id/nusantaraLogo"
-        app:layout_constraintTop_toBottomOf="@+id/nusantaraLogo" />
+        app:layout_constraintStart_toStartOf="@+id/imgNusantaraLogo"
+        app:layout_constraintTop_toBottomOf="@+id/imgNusantaraLogo" />
 
     <TextView
-        android:id="@+id/signUpDesc"
+        android:id="@+id/tvSignUpDescription"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginEnd="20dp"
@@ -50,11 +50,11 @@
         android:textColor="@color/white"
         android:textSize="15sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/nusantaraLogo"
-        app:layout_constraintTop_toBottomOf="@+id/signUpTitle" />
+        app:layout_constraintStart_toStartOf="@+id/imgNusantaraLogo"
+        app:layout_constraintTop_toBottomOf="@+id/tvSignUp" />
 
     <TextView
-        android:id="@+id/fullName"
+        android:id="@+id/tvFull_Name"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="50dp"
@@ -63,11 +63,11 @@
         android:text="Full Name"
         android:textColor="@color/white"
         android:textSize="15sp"
-        app:layout_constraintStart_toStartOf="@+id/signUpDesc"
-        app:layout_constraintTop_toBottomOf="@+id/signUpDesc" />
+        app:layout_constraintStart_toStartOf="@+id/tvSignUpDescription"
+        app:layout_constraintTop_toBottomOf="@+id/tvSignUpDescription" />
 
     <EditText
-        android:id="@+id/etFullNameSignUp"
+        android:id="@+id/etFull_Name"
         android:layout_width="0dp"
         android:layout_height="30dp"
         android:layout_marginTop="5dp"
@@ -78,11 +78,11 @@
         android:textColorHint="#717171"
         android:textSize="15sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/fullName"
-        app:layout_constraintTop_toBottomOf="@+id/fullName" />
+        app:layout_constraintStart_toStartOf="@+id/tvFull_Name"
+        app:layout_constraintTop_toBottomOf="@+id/tvFull_Name" />
 
     <TextView
-        android:id="@+id/email"
+        android:id="@+id/tvEmaill"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="50dp"
@@ -91,11 +91,11 @@
         android:text="Email"
         android:textColor="@color/white"
         android:textSize="15sp"
-        app:layout_constraintStart_toStartOf="@+id/signUpDesc"
-        app:layout_constraintTop_toBottomOf="@+id/etFullNameSignUp" />
+        app:layout_constraintStart_toStartOf="@+id/tvSignUpDescription"
+        app:layout_constraintTop_toBottomOf="@+id/etFull_Name" />
 
     <EditText
-        android:id="@+id/emailEdtTxtSignUp"
+        android:id="@+id/etEmaill"
         android:layout_width="0dp"
         android:layout_height="30dp"
         android:layout_marginTop="5dp"
@@ -106,11 +106,11 @@
         android:textColorHint="#717171"
         android:textSize="15sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/fullName"
-        app:layout_constraintTop_toBottomOf="@+id/email" />
+        app:layout_constraintStart_toStartOf="@+id/tvFull_Name"
+        app:layout_constraintTop_toBottomOf="@+id/tvEmaill" />
 
     <TextView
-        android:id="@+id/password"
+        android:id="@+id/tvPasswordd"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="50dp"
@@ -119,11 +119,11 @@
         android:text="Password"
         android:textColor="@color/white"
         android:textSize="15sp"
-        app:layout_constraintStart_toStartOf="@+id/signUpDesc"
-        app:layout_constraintTop_toBottomOf="@+id/emailEdtTxtSignUp" />
+        app:layout_constraintStart_toStartOf="@+id/tvSignUpDescription"
+        app:layout_constraintTop_toBottomOf="@+id/etEmaill" />
 
     <EditText
-        android:id="@+id/passEdtTxtSignUp"
+        android:id="@+id/etPasswordd"
         android:layout_width="0dp"
         android:layout_height="30dp"
         android:layout_marginTop="5dp"
@@ -134,12 +134,11 @@
         android:textColorHint="#717171"
         android:textSize="15sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/emailEdtTxtSignUp"
-        app:layout_constraintTop_toBottomOf="@+id/password" />
-
+        app:layout_constraintStart_toStartOf="@+id/etEmaill"
+        app:layout_constraintTop_toBottomOf="@+id/tvPasswordd" />
 
     <Button
-        android:id="@+id/registerBtnSignUp"
+        android:id="@+id/btnCreateAccount"
         android:layout_width="0dp"
         android:layout_height="50dp"
         android:layout_marginTop="240dp"
@@ -147,11 +146,11 @@
         android:background="@drawable/background_login"
         android:text="CREATE ACCOUNT"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/emailEdtTxtSignUp"
-        app:layout_constraintTop_toBottomOf="@+id/emailEdtTxtSignUp" />
+        app:layout_constraintStart_toStartOf="@+id/etEmaill"
+        app:layout_constraintTop_toBottomOf="@+id/etEmaill" />
 
     <TextView
-        android:id="@+id/goToSignInQuestion"
+        android:id="@+id/tvQuestionGoToSignIn"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginBottom="20dp"
@@ -161,10 +160,10 @@
         android:textColor="@color/white"
         android:textSize="13sp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/registerBtnSignUp" />
+        app:layout_constraintStart_toStartOf="@+id/btnCreateAccount" />
 
     <Button
-        android:id="@+id/btnToSignInPage"
+        android:id="@+id/btnGoToSignInPage"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginEnd="60dp"

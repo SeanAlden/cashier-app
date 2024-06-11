@@ -15,11 +15,10 @@ import com.google.firebase.Firebase
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.auth
 import com.google.firebase.firestore.firestore
-import project.c14210052.proyekakhir_paba.LoginRegister.Users
 
 class EditProfileActivity : AppCompatActivity() {
 
-    private lateinit var backButton : ImageButton
+    private lateinit var _backButton : ImageButton
     @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         lateinit var auth:FirebaseAuth
@@ -37,8 +36,8 @@ class EditProfileActivity : AppCompatActivity() {
         auth = Firebase.auth
 
         var intentData = intent.getParcelableExtra<Users>("kirimDataProfile")
-        var _etFullname: EditText = findViewById(R.id.etFullNameProfileEdit)
-        var _btnSave: Button = findViewById(R.id.btnSaveProfileBtn)
+        var _etFullname: EditText = findViewById(R.id.etFullNameEditProfile)
+        var _btnSave: Button = findViewById(R.id.btnSaveEditProfile)
         _etFullname.setText(intentData!!.fullname.toString())
         userID = auth.currentUser!!.uid
 
@@ -52,9 +51,9 @@ class EditProfileActivity : AppCompatActivity() {
             finish()
         }
 
-        backButton = findViewById(R.id.backButtonFromEditProfile)
+        _backButton = findViewById(R.id.btnBackFromEditProfile)
 
-        backButton.setOnClickListener {
+        _backButton.setOnClickListener {
             val intent = Intent(this@EditProfileActivity, MainActivity::class.java)
             startActivity(intent)
         }

@@ -6,20 +6,20 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/black"
-    tools:context=".FragmentClass.FaqFragment">
+    tools:context=".FaqFragment">
 
     <ImageView
-        android:id="@+id/imageView12"
+        android:id="@+id/containerFAQ"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:background="@color/grey"
         app:layout_constraintBottom_toTopOf="@+id/rvFAQ"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/faqText"
+        app:layout_constraintStart_toStartOf="@+id/tvFAQ"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/faqText"
+        android:id="@+id/tvFAQ"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
@@ -29,39 +29,39 @@
         android:textAlignment="textEnd"
         android:textColor="@color/white"
         android:textSize="40sp"
-        app:layout_constraintEnd_toStartOf="@+id/imageView8"
+        app:layout_constraintEnd_toStartOf="@+id/imgQuestion"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
-        android:id="@+id/imageView8"
+        android:id="@+id/imgQuestion"
         android:layout_width="60dp"
         android:layout_height="60dp"
         android:layout_marginEnd="130dp"
         android:background="@drawable/faq_header"
         android:backgroundTint="@color/white"
-        app:layout_constraintBottom_toBottomOf="@+id/faqText"
+        app:layout_constraintBottom_toBottomOf="@+id/tvFAQ"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/faqText" />
+        app:layout_constraintTop_toTopOf="@+id/tvFAQ" />
 
     <com.google.android.material.card.MaterialCardView
-        android:id="@+id/materialCardView"
+        android:id="@+id/searchFaqMaterialCardView"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         app:cardCornerRadius="8dp"
         app:cardUseCompatPadding="true"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/faqText">
+        app:layout_constraintTop_toBottomOf="@+id/tvFAQ">
 
         <androidx.appcompat.widget.SearchView
-            android:id="@+id/searchView"
+            android:id="@+id/searchFaqView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:iconifiedByDefault="false"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/imageView12"
+            app:layout_constraintTop_toBottomOf="@+id/containerFAQ"
             app:queryHint="Search" />
 
     </com.google.android.material.card.MaterialCardView>
@@ -72,6 +72,6 @@
         android:layout_height="wrap_content"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/materialCardView" />
+        app:layout_constraintTop_toBottomOf="@+id/searchFaqMaterialCardView" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

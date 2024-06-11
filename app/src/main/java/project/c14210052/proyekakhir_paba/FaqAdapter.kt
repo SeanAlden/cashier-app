@@ -1,11 +1,11 @@
-package project.c14210052.proyekakhir_paba.FragmentClass
+package project.c14210052.proyekakhir_paba
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import project.c14210052.proyekakhir_paba.databinding.RecyclerFaqBinding
 class FaqAdapter(private val faqList: List<DataFaq>) : RecyclerView.Adapter<FaqAdapter.FaqViewHolder>() {
-    private var filteredFaqList = faqList
+    private var _filteredFaqList = faqList
 
     inner class FaqViewHolder(private val binding: RecyclerFaqBinding) : RecyclerView.ViewHolder(binding.root){
         fun bind(faqItem: DataFaq) {
@@ -19,14 +19,14 @@ class FaqAdapter(private val faqList: List<DataFaq>) : RecyclerView.Adapter<FaqA
         return FaqViewHolder(binding)
     }
 
-    override fun getItemCount(): Int = filteredFaqList.size
+    override fun getItemCount(): Int = _filteredFaqList.size
 
     override fun onBindViewHolder(holder: FaqViewHolder, position: Int){
-        holder.bind(filteredFaqList[position])
+        holder.bind(_filteredFaqList[position])
     }
 
     fun filterList(query: String) {
-        filteredFaqList = if (query.isEmpty()) {
+        _filteredFaqList = if (query.isEmpty()) {
             faqList
         } else {
             faqList.filter {

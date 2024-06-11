@@ -1,4 +1,4 @@
-package project.c14210052.proyekakhir_paba.Supplier
+package project.c14210052.proyekakhir_paba
 data class DataSupplier(
     val namaSupplier: String,
     val emailSupplier: String,

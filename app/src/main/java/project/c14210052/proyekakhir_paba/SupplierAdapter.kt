@@ -1,4 +1,4 @@
-package project.c14210052.proyekakhir_paba.Supplier
+package project.c14210052.proyekakhir_paba
 
 import android.app.AlertDialog
 import android.content.Context
@@ -8,7 +8,6 @@ import android.view.ViewGroup
 import android.widget.ImageButton
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import project.c14210052.proyekakhir_paba.R
 
 class SupplierAdapter(
     private val suppliers: MutableList<DataSupplier>,
@@ -18,10 +17,10 @@ class SupplierAdapter(
 
     lateinit var context : Context
     class SupplierViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        val namaSupplier: TextView = itemView.findViewById(R.id.namaPrdk)
-        val alamatSupplier: TextView = itemView.findViewById(R.id.kategoriPrdk)
-        val kodePosSupplier: TextView = itemView.findViewById(R.id.kodeSupplier)
-        val deleteBtn: ImageButton = itemView.findViewById(R.id.deleteBtn)
+        val _namaSupplier: TextView = itemView.findViewById(R.id.namaPrdk)
+        val _alamatSupplier: TextView = itemView.findViewById(R.id.kategoriPrdk)
+        val _kodePosSupplier: TextView = itemView.findViewById(R.id.kodeSupplier)
+        val _deleteBtn: ImageButton = itemView.findViewById(R.id.deleteBtn)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): SupplierViewHolder {
@@ -35,11 +34,11 @@ class SupplierAdapter(
 
     override fun onBindViewHolder(holder: SupplierViewHolder, position: Int) {
         val supplier = suppliers[position]
-        holder.namaSupplier.text = supplier.namaSupplier
-        holder.alamatSupplier.text = supplier.alamatSupplier
-        holder.kodePosSupplier.text = supplier.kodeSupplier
+        holder._namaSupplier.text = supplier.namaSupplier
+        holder._alamatSupplier.text = supplier.alamatSupplier
+        holder._kodePosSupplier.text = supplier.kodeSupplier
 
-        holder.deleteBtn.setOnClickListener {
+        holder._deleteBtn.setOnClickListener {
             AlertDialog.Builder(context).apply {
                 setTitle("Hapus Supplier")
                 setMessage("Apakah Anda yakin ingin menghapus supplier ini?")

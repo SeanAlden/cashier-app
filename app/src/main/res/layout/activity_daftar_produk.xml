@@ -6,10 +6,10 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/black"
-    tools:context=".Product.DaftarProdukActivity">
+    tools:context=".DaftarProdukActivity">
 
     <ImageView
-        android:id="@+id/header"
+        android:id="@+id/headerContainerDaftarProduk"
         android:layout_width="0dp"
         android:layout_height="70dp"
         android:background="@color/grey"
@@ -18,7 +18,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/titleView"
+        android:id="@+id/tvDaftarProduk"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:fontFamily="@font/poppinssemibold"
@@ -26,23 +26,23 @@
         android:textAlignment="center"
         android:textColor="@color/white"
         android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="@+id/header"
+        app:layout_constraintBottom_toBottomOf="@+id/headerContainerDaftarProduk"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/header" />
+        app:layout_constraintTop_toTopOf="@+id/headerContainerDaftarProduk" />
 
     <ImageButton
-        android:id="@+id/backFromProductList"
+        android:id="@+id/btnBackFromProductList"
         android:layout_width="60dp"
         android:layout_height="60dp"
         android:background="@color/grey"
         android:src="@drawable/back_symbol"
-        app:layout_constraintBottom_toBottomOf="@+id/header"
+        app:layout_constraintBottom_toBottomOf="@+id/headerContainerDaftarProduk"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/header" />
+        app:layout_constraintTop_toTopOf="@+id/headerContainerDaftarProduk" />
 
     <ImageView
-        android:id="@+id/imageView5"
+        android:id="@+id/containerKategoriProduk"
         android:layout_width="0dp"
         android:layout_height="50dp"
         android:layout_marginStart="30dp"
@@ -51,10 +51,10 @@
         android:background="@color/grey"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/header" />
+        app:layout_constraintTop_toBottomOf="@+id/headerContainerDaftarProduk" />
 
     <TextView
-        android:id="@+id/textView15"
+        android:id="@+id/tvKategori"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
@@ -62,34 +62,35 @@
         android:textColor="@color/white"
         android:textColorHint="@color/white"
         android:textSize="15sp"
-        app:layout_constraintBottom_toBottomOf="@+id/imageView5"
-        app:layout_constraintStart_toStartOf="@+id/imageView5"
-        app:layout_constraintTop_toTopOf="@+id/imageView5" />
+        app:layout_constraintBottom_toBottomOf="@+id/containerKategoriProduk"
+        app:layout_constraintStart_toStartOf="@+id/containerKategoriProduk"
+        app:layout_constraintTop_toTopOf="@+id/containerKategoriProduk" />
 
     <ImageButton
+        android:id="@+id/dropdownKategori"
         android:layout_width="20dp"
         android:layout_height="20dp"
         android:layout_marginStart="5dp"
         android:background="@drawable/arrow_down"
         android:backgroundTint="@color/white"
-        app:layout_constraintBottom_toBottomOf="@+id/textView15"
-        app:layout_constraintStart_toEndOf="@+id/textView15"
-        app:layout_constraintTop_toTopOf="@+id/textView15" />
+        app:layout_constraintBottom_toBottomOf="@+id/tvKategori"
+        app:layout_constraintStart_toEndOf="@+id/tvKategori"
+        app:layout_constraintTop_toTopOf="@+id/tvKategori" />
 
     <Button
-        android:id="@+id/categoryBtn"
+        android:id="@+id/btnCategory"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="10dp"
         android:backgroundTint="#606060"
         android:text="KATEGORI PRODUK"
         android:textSize="9sp"
-        app:layout_constraintBottom_toBottomOf="@+id/imageView5"
-        app:layout_constraintEnd_toEndOf="@+id/imageView5"
-        app:layout_constraintTop_toTopOf="@+id/imageView5" />
+        app:layout_constraintBottom_toBottomOf="@+id/containerKategoriProduk"
+        app:layout_constraintEnd_toEndOf="@+id/containerKategoriProduk"
+        app:layout_constraintTop_toTopOf="@+id/containerKategoriProduk" />
 
     <ImageButton
-        android:id="@+id/addProductButton"
+        android:id="@+id/btnAddProduct"
         android:layout_width="60dp"
         android:layout_height="60dp"
         android:layout_marginEnd="40dp"
@@ -100,21 +101,20 @@
         app:layout_constraintEnd_toEndOf="parent" />
 
     <ImageView
+        android:id="@+id/plusSymbol"
         android:layout_width="60dp"
         android:layout_height="60dp"
         android:background="@drawable/plus_symbol"
         android:backgroundTint="@color/white"
-        app:layout_constraintBottom_toBottomOf="@+id/addProductButton"
-        app:layout_constraintEnd_toEndOf="@+id/addProductButton"
-        app:layout_constraintStart_toStartOf="@+id/addProductButton"
-        app:layout_constraintTop_toTopOf="@+id/addProductButton" />
+        app:layout_constraintBottom_toBottomOf="@+id/btnAddProduct"
+        app:layout_constraintEnd_toEndOf="@+id/btnAddProduct"
+        app:layout_constraintStart_toStartOf="@+id/btnAddProduct"
+        app:layout_constraintTop_toTopOf="@+id/btnAddProduct" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvProduct"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@+id/imageView5" />
-
-
+        app:layout_constraintTop_toBottomOf="@+id/containerKategoriProduk" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

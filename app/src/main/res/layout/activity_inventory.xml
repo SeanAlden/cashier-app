@@ -6,10 +6,10 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/black"
-    tools:context=".Inventory.InventoryActivity">
+    tools:context=".InventoryActivity">
 
     <ImageView
-        android:id="@+id/header"
+        android:id="@+id/headerContainerInventory"
         android:layout_width="0dp"
         android:layout_height="70dp"
         android:background="@color/grey"
@@ -18,7 +18,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/titleView"
+        android:id="@+id/tvInventory"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:fontFamily="@font/poppinssemibold"
@@ -26,19 +26,19 @@
         android:textAlignment="center"
         android:textColor="@color/white"
         android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="@+id/header"
+        app:layout_constraintBottom_toBottomOf="@+id/headerContainerInventory"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/header" />
+        app:layout_constraintTop_toTopOf="@+id/headerContainerInventory" />
 
     <ImageButton
-        android:id="@+id/backButtonFromInventory"
+        android:id="@+id/btnBackFromInventory"
         android:layout_width="60dp"
         android:layout_height="60dp"
         android:background="@color/grey"
         android:src="@drawable/back_symbol"
-        app:layout_constraintBottom_toBottomOf="@+id/header"
+        app:layout_constraintBottom_toBottomOf="@+id/headerContainerInventory"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/header" />
+        app:layout_constraintTop_toTopOf="@+id/headerContainerInventory" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

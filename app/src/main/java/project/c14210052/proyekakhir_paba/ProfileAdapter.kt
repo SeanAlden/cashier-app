@@ -1,6 +1,5 @@
-package project.c14210052.proyekakhir_paba.FragmentClass
+package project.c14210052.proyekakhir_paba
 
-import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -11,8 +10,6 @@ import androidx.recyclerview.widget.RecyclerView
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
-import project.c14210052.proyekakhir_paba.LoginRegister.Users
-import project.c14210052.proyekakhir_paba.R
 
 class ProfileAdapter (
     private val listUsers:ArrayList<Users>
@@ -48,7 +45,7 @@ class ProfileAdapter (
         return listUsers.size
     }
 
-    override fun onBindViewHolder(holder: ProfileAdapter.ListViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: ListViewHolder, position: Int) {
         auth = Firebase.auth
         val asetUsers = listUsers[position]
         holder._tvFullName.setText(asetUsers.fullname)

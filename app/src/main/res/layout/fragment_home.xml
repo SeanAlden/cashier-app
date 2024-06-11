@@ -6,10 +6,10 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/black"
-    tools:context=".FragmentClass.HomeFragment">
+    tools:context=".HomeFragment">
 
     <ImageView
-        android:id="@+id/imageView3"
+        android:id="@+id/imgNusantaraTitlee"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
@@ -19,7 +19,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageButton
-        android:id="@+id/produkBtn"
+        android:id="@+id/btnProduk"
         android:layout_width="95dp"
         android:layout_height="88dp"
         android:layout_marginStart="80dp"
@@ -27,10 +27,10 @@
         android:background="@drawable/rounded_corners"
         android:src="@drawable/produk_logo"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView4" />
+        app:layout_constraintTop_toBottomOf="@+id/imgCashier" />
 
     <TextView
-        android:id="@+id/textView13"
+        android:id="@+id/tvProduk"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="7dp"
@@ -38,22 +38,22 @@
         android:text="Product"
         android:textAlignment="center"
         android:textColor="@color/white"
-        app:layout_constraintEnd_toEndOf="@+id/produkBtn"
-        app:layout_constraintStart_toStartOf="@+id/produkBtn"
-        app:layout_constraintTop_toBottomOf="@+id/produkBtn" />
+        app:layout_constraintEnd_toEndOf="@+id/btnProduk"
+        app:layout_constraintStart_toStartOf="@+id/btnProduk"
+        app:layout_constraintTop_toBottomOf="@+id/btnProduk" />
 
     <ImageButton
-        android:id="@+id/supplierBtn"
+        android:id="@+id/btnSupplier"
         android:layout_width="95dp"
         android:layout_height="88dp"
         android:layout_marginEnd="80dp"
         android:background="@drawable/rounded_corners"
         android:src="@drawable/supplier_logo"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/produkBtn" />
+        app:layout_constraintTop_toTopOf="@+id/btnProduk" />
 
     <TextView
-        android:id="@+id/textView14"
+        android:id="@+id/tvSupplierr"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="7dp"
@@ -61,21 +61,22 @@
         android:text="Supplier"
         android:textAlignment="center"
         android:textColor="@color/white"
-        app:layout_constraintEnd_toEndOf="@+id/supplierBtn"
-        app:layout_constraintStart_toStartOf="@+id/supplierBtn"
-        app:layout_constraintTop_toBottomOf="@+id/supplierBtn" />
+        app:layout_constraintEnd_toEndOf="@+id/btnSupplier"
+        app:layout_constraintStart_toStartOf="@+id/btnSupplier"
+        app:layout_constraintTop_toBottomOf="@+id/btnSupplier" />
 
     <ImageButton
-        android:id="@+id/cashierBtn"
+        android:id="@+id/btnCashier"
         android:layout_width="95dp"
         android:layout_height="88dp"
         android:layout_marginTop="25dp"
         android:background="@drawable/rounded_corners"
         android:src="@drawable/cashier_logo"
-        app:layout_constraintEnd_toEndOf="@+id/textView13"
-        app:layout_constraintTop_toBottomOf="@+id/textView13" />
+        app:layout_constraintEnd_toEndOf="@+id/tvProduk"
+        app:layout_constraintTop_toBottomOf="@+id/tvProduk" />
 
     <TextView
+        android:id="@+id/tvCashier"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="7dp"
@@ -83,21 +84,22 @@
         android:text="Cashier"
         android:textAlignment="center"
         android:textColor="@color/white"
-        app:layout_constraintEnd_toEndOf="@+id/cashierBtn"
-        app:layout_constraintStart_toStartOf="@+id/cashierBtn"
-        app:layout_constraintTop_toBottomOf="@+id/cashierBtn" />
+        app:layout_constraintEnd_toEndOf="@+id/btnCashier"
+        app:layout_constraintStart_toStartOf="@+id/btnCashier"
+        app:layout_constraintTop_toBottomOf="@+id/btnCashier" />
 
     <ImageButton
-        android:id="@+id/inventoryBtn"
+        android:id="@+id/btnInventory"
         android:layout_width="95dp"
         android:layout_height="88dp"
         android:layout_marginTop="25dp"
         android:background="@drawable/rounded_corners"
         android:src="@drawable/inventory_logo"
-        app:layout_constraintEnd_toEndOf="@+id/supplierBtn"
-        app:layout_constraintTop_toBottomOf="@+id/textView14" />
+        app:layout_constraintEnd_toEndOf="@+id/btnSupplier"
+        app:layout_constraintTop_toBottomOf="@+id/tvSupplierr" />
 
     <TextView
+        android:id="@+id/tvInventory"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="7dp"
@@ -105,12 +107,12 @@
         android:text="Inventory"
         android:textAlignment="center"
         android:textColor="@color/white"
-        app:layout_constraintEnd_toEndOf="@+id/inventoryBtn"
-        app:layout_constraintStart_toStartOf="@+id/inventoryBtn"
-        app:layout_constraintTop_toBottomOf="@+id/cashierBtn" />
+        app:layout_constraintEnd_toEndOf="@+id/btnInventory"
+        app:layout_constraintStart_toStartOf="@+id/btnInventory"
+        app:layout_constraintTop_toBottomOf="@+id/btnCashier" />
 
     <TextView
-        android:id="@+id/helloTextView"
+        android:id="@+id/tvHello"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
@@ -120,10 +122,10 @@
         android:textColor="@color/white"
         android:textSize="26sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView3" />
+        app:layout_constraintTop_toBottomOf="@+id/imgNusantaraTitlee" />
 
     <TextView
-        android:id="@+id/shopName"
+        android:id="@+id/tvShopName"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:fontFamily="@font/poppinsregular"
@@ -131,17 +133,17 @@
         android:textColor="@color/white"
         android:textColorHint="@color/grey"
         android:textSize="26sp"
-        app:layout_constraintStart_toEndOf="@+id/helloTextView"
-        app:layout_constraintTop_toTopOf="@+id/helloTextView" />
+        app:layout_constraintStart_toEndOf="@+id/tvHello"
+        app:layout_constraintTop_toTopOf="@+id/tvHello" />
 
     <ImageView
-        android:id="@+id/imageView4"
+        android:id="@+id/imgCashier"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:src="@drawable/cashier_app_logo"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/shopName" />
+        app:layout_constraintTop_toBottomOf="@+id/tvShopName" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

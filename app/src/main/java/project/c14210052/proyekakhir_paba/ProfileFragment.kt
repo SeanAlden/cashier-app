@@ -1,4 +1,4 @@
-package project.c14210052.proyekakhir_paba.FragmentClass
+package project.c14210052.proyekakhir_paba
 
 import android.annotation.SuppressLint
 import android.app.AlertDialog
@@ -17,13 +17,8 @@ import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
-import project.c14210052.proyekakhir_paba.EditProfileActivity
-import project.c14210052.proyekakhir_paba.LoginRegister.LoginActivity
-import project.c14210052.proyekakhir_paba.LoginRegister.Users
-import project.c14210052.proyekakhir_paba.MainActivity
 //import project.c14210052.proyekakhir_paba.ARG_PARAM1
 //import project.c14210052.proyekakhir_paba.ARG_PARAM2
-import project.c14210052.proyekakhir_paba.R
 
 /**
  * A simple [Fragment] subclass.
@@ -38,9 +33,6 @@ private const val ARG_PARAM2 = "param2"
 
 class ProfileFragment : Fragment() {
     // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
-
     private lateinit var _rvAsetProfile: RecyclerView
     var listUsers: ArrayList<Users> = arrayListOf()
     private lateinit var auth: FirebaseAuth
@@ -48,6 +40,9 @@ class ProfileFragment : Fragment() {
     var db = Firebase.firestore
     lateinit var userID: String
     lateinit var user: FirebaseUser
+
+    private var param1: String? = null
+    private var param2: String? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -62,8 +57,7 @@ class ProfileFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val view = inflater.inflate(R.layout.fragment_profile, container, false)
-        return view
+        return inflater.inflate(R.layout.fragment_profile, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

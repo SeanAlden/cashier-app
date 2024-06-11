@@ -6,10 +6,10 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/black"
-    tools:context=".Product.AddProductActivity">
+    tools:context=".AddProductActivity">
 
     <ImageView
-        android:id="@+id/header"
+        android:id="@+id/headerContainerAddProduct"
         android:layout_width="0dp"
         android:layout_height="70dp"
         android:background="@color/grey"
@@ -18,7 +18,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/titleView"
+        android:id="@+id/tvTambahProduk"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:fontFamily="@font/poppinssemibold"
@@ -26,23 +26,23 @@
         android:textAlignment="center"
         android:textColor="@color/white"
         android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="@+id/header"
+        app:layout_constraintBottom_toBottomOf="@+id/headerContainerAddProduct"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/header" />
+        app:layout_constraintTop_toTopOf="@+id/headerContainerAddProduct" />
 
     <ImageButton
-        android:id="@+id/backFromAddProduct"
+        android:id="@+id/btnBackFromAddProduct"
         android:layout_width="60dp"
         android:layout_height="60dp"
         android:background="@color/grey"
         android:src="@drawable/back_symbol"
-        app:layout_constraintBottom_toBottomOf="@+id/header"
+        app:layout_constraintBottom_toBottomOf="@+id/headerContainerAddProduct"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/header" />
+        app:layout_constraintTop_toTopOf="@+id/headerContainerAddProduct" />
 
     <TextView
-        android:id="@+id/namaProduk"
+        android:id="@+id/tvNamaProduk"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="40dp"
@@ -51,10 +51,10 @@
         android:textColor="@color/white"
         android:textSize="15sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/header" />
+        app:layout_constraintTop_toBottomOf="@+id/headerContainerAddProduct" />
 
     <EditText
-        android:id="@+id/namaProdukEditText"
+        android:id="@+id/etNamaProduk"
         android:layout_width="0dp"
         android:layout_height="40dp"
         android:layout_marginStart="40dp"
@@ -69,10 +69,10 @@
         android:paddingBottom="5dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/namaProduk" />
+        app:layout_constraintTop_toBottomOf="@+id/tvNamaProduk" />
 
     <TextView
-        android:id="@+id/deskripsiProduk"
+        android:id="@+id/tvDeskripsiProduk"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="40dp"
@@ -81,10 +81,10 @@
         android:textColor="@color/white"
         android:textSize="15sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/namaProdukEditText" />
+        app:layout_constraintTop_toBottomOf="@+id/etNamaProduk" />
 
     <EditText
-        android:id="@+id/deskripsiProdukEditText"
+        android:id="@+id/etDeskripsiProduk"
         android:layout_width="0dp"
         android:layout_height="40dp"
         android:layout_marginStart="40dp"
@@ -99,10 +99,10 @@
         android:paddingBottom="5dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/deskripsiProduk" />
+        app:layout_constraintTop_toBottomOf="@+id/tvDeskripsiProduk" />
 
     <TextView
-        android:id="@+id/kategoriProduk"
+        android:id="@+id/tvKategoriProduk"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="40dp"
@@ -111,10 +111,10 @@
         android:textColor="@color/white"
         android:textSize="15sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/deskripsiProdukEditText" />
+        app:layout_constraintTop_toBottomOf="@+id/etDeskripsiProduk" />
 
     <EditText
-        android:id="@+id/kategoriProdukEditText"
+        android:id="@+id/etKategoriProduk"
         android:layout_width="0dp"
         android:layout_height="40dp"
         android:layout_marginStart="40dp"
@@ -129,18 +129,18 @@
         android:paddingBottom="5dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/kategoriProduk" />
+        app:layout_constraintTop_toBottomOf="@+id/tvKategoriProduk" />
 
     <TextView
-        android:id="@+id/supplierProduk"
+        android:id="@+id/tvSupplierProduk"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:text="Supplier"
         android:textColor="@color/white"
         android:textSize="15sp"
-        app:layout_constraintStart_toStartOf="@+id/kategoriProdukEditText"
-        app:layout_constraintTop_toBottomOf="@+id/kategoriProdukEditText" />
+        app:layout_constraintStart_toStartOf="@+id/etKategoriProduk"
+        app:layout_constraintTop_toBottomOf="@+id/etKategoriProduk" />
 
     <Spinner
         android:id="@+id/dropdownSupplier"
@@ -157,10 +157,10 @@
         android:paddingBottom="5dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/supplierProduk" />
+        app:layout_constraintTop_toBottomOf="@+id/tvSupplierProduk" />
 
     <TextView
-        android:id="@+id/hargaProdukSupplier"
+        android:id="@+id/tvHargaPokokProduk"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
@@ -171,7 +171,7 @@
         app:layout_constraintTop_toBottomOf="@+id/dropdownSupplier" />
 
     <EditText
-        android:id="@+id/hargaProdukEditText"
+        android:id="@+id/etHargaPokokProduk"
         android:layout_width="0dp"
         android:layout_height="40dp"
         android:layout_marginStart="40dp"
@@ -186,10 +186,10 @@
         android:paddingBottom="5dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/hargaProdukSupplier" />
+        app:layout_constraintTop_toBottomOf="@+id/tvHargaPokokProduk" />
 
     <TextView
-        android:id="@+id/hargaJualProduk"
+        android:id="@+id/tvHargaJualProduk"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
@@ -197,10 +197,10 @@
         android:textColor="@color/white"
         android:textSize="15sp"
         app:layout_constraintStart_toStartOf="@+id/dropdownSupplier"
-        app:layout_constraintTop_toBottomOf="@+id/hargaProdukEditText" />
+        app:layout_constraintTop_toBottomOf="@+id/etHargaPokokProduk" />
 
     <EditText
-        android:id="@+id/hargaJualProdukEditText"
+        android:id="@+id/etHargaJualProduk"
         android:layout_width="0dp"
         android:layout_height="40dp"
         android:layout_marginStart="40dp"
@@ -215,10 +215,10 @@
         android:paddingBottom="5dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/hargaJualProduk" />
+        app:layout_constraintTop_toBottomOf="@+id/tvHargaJualProduk" />
 
     <TextView
-        android:id="@+id/jumlahProduk"
+        android:id="@+id/tvJumlahProduk"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
@@ -226,10 +226,10 @@
         android:textColor="@color/white"
         android:textSize="15sp"
         app:layout_constraintStart_toStartOf="@+id/dropdownSupplier"
-        app:layout_constraintTop_toBottomOf="@+id/hargaJualProdukEditText" />
+        app:layout_constraintTop_toBottomOf="@+id/etHargaJualProduk" />
 
     <EditText
-        android:id="@+id/jumlahProdukEditText"
+        android:id="@+id/etJumlahProduk"
         android:layout_width="0dp"
         android:layout_height="40dp"
         android:layout_marginStart="40dp"
@@ -244,10 +244,10 @@
         android:paddingBottom="5dp"
         app:layout_constraintEnd_toStartOf="@+id/guideline"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/jumlahProduk" />
+        app:layout_constraintTop_toBottomOf="@+id/tvJumlahProduk" />
 
     <TextView
-        android:id="@+id/satuanProduk"
+        android:id="@+id/tvSatuanProduk"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="40dp"
@@ -256,10 +256,10 @@
         android:textColor="@color/white"
         android:textSize="15sp"
         app:layout_constraintStart_toStartOf="@+id/guideline"
-        app:layout_constraintTop_toBottomOf="@+id/hargaJualProdukEditText" />
+        app:layout_constraintTop_toBottomOf="@+id/etHargaJualProduk" />
 
     <EditText
-        android:id="@+id/satuanProdukEditText"
+        android:id="@+id/etSatuanProduk"
         android:layout_width="0dp"
         android:layout_height="40dp"
         android:layout_marginStart="40dp"
@@ -274,10 +274,10 @@
         android:paddingBottom="5dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@+id/guideline"
-        app:layout_constraintTop_toBottomOf="@+id/satuanProduk" />
+        app:layout_constraintTop_toBottomOf="@+id/tvSatuanProduk" />
 
     <Button
-        android:id="@+id/btnAddProduk"
+        android:id="@+id/btnSaveProduk"
         android:layout_width="150dp"
         android:layout_height="50dp"
         android:backgroundTint="@color/blue"
@@ -287,7 +287,7 @@
         android:layout_marginTop="30dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/jumlahProdukEditText" />
+        app:layout_constraintTop_toBottomOf="@+id/etJumlahProduk" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline"

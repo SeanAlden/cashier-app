@@ -6,10 +6,10 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/black"
-    tools:context=".Supplier.EditSupplierActivity">
+    tools:context=".EditSupplierActivity">
 
     <ImageView
-        android:id="@+id/header"
+        android:id="@+id/headerContainerEditSupplier"
         android:layout_width="0dp"
         android:layout_height="70dp"
         android:background="@color/grey"
@@ -18,7 +18,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/EditSupplierDataTitleHeader"
+        android:id="@+id/tvEditDataSupplier"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:fontFamily="@font/poppinssemibold"
@@ -26,23 +26,23 @@
         android:textAlignment="center"
         android:textColor="@color/white"
         android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="@+id/header"
+        app:layout_constraintBottom_toBottomOf="@+id/headerContainerEditSupplier"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/header" />
+        app:layout_constraintTop_toTopOf="@+id/headerContainerEditSupplier" />
 
     <ImageButton
-        android:id="@+id/backButtonFromEditSupplier"
+        android:id="@+id/btnBackFromEditSupplier"
         android:layout_width="60dp"
         android:layout_height="60dp"
         android:background="@color/grey"
         android:src="@drawable/back_symbol"
-        app:layout_constraintBottom_toBottomOf="@+id/header"
+        app:layout_constraintBottom_toBottomOf="@+id/headerContainerEditSupplier"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/header" />
+        app:layout_constraintTop_toTopOf="@+id/headerContainerEditSupplier" />
 
     <TextView
-        android:id="@+id/textView24"
+        android:id="@+id/tvNamaSupplierEdit"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="30dp"
@@ -52,10 +52,10 @@
         android:textSize="15sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/header" />
+        app:layout_constraintTop_toBottomOf="@+id/headerContainerEditSupplier" />
 
     <EditText
-        android:id="@+id/namaSupplierEdtTxt"
+        android:id="@+id/etNamaSupplierEdit"
         android:layout_width="0dp"
         android:layout_height="30dp"
         android:layout_marginTop="10dp"
@@ -69,11 +69,11 @@
         android:textColorHint="@color/grey"
         android:textSize="15sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/textView24"
-        app:layout_constraintTop_toBottomOf="@+id/textView24" />
+        app:layout_constraintStart_toStartOf="@+id/tvNamaSupplierEdit"
+        app:layout_constraintTop_toBottomOf="@+id/tvNamaSupplierEdit" />
 
     <TextView
-        android:id="@+id/textView25"
+        android:id="@+id/tvEmailSupplierEdit"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="30dp"
@@ -83,10 +83,10 @@
         android:textSize="15sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/namaSupplierEdtTxt" />
+        app:layout_constraintTop_toBottomOf="@+id/etNamaSupplierEdit" />
 
     <EditText
-        android:id="@+id/emailSupplierEdtTxt"
+        android:id="@+id/etEmailSupplierEdit"
         android:layout_width="0dp"
         android:layout_height="30dp"
         android:layout_marginTop="10dp"
@@ -100,11 +100,11 @@
         android:textColorHint="@color/grey"
         android:textSize="15sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/textView24"
-        app:layout_constraintTop_toBottomOf="@+id/textView25" />
+        app:layout_constraintStart_toStartOf="@+id/tvNamaSupplierEdit"
+        app:layout_constraintTop_toBottomOf="@+id/tvEmailSupplierEdit" />
 
     <TextView
-        android:id="@+id/textView26"
+        android:id="@+id/tvTeleponSupplierEdit"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="30dp"
@@ -114,10 +114,10 @@
         android:textSize="15sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/emailSupplierEdtTxt" />
+        app:layout_constraintTop_toBottomOf="@+id/etEmailSupplierEdit" />
 
     <EditText
-        android:id="@+id/nomorTeleponEdtTxt"
+        android:id="@+id/etTeleponSupplierEdit"
         android:layout_width="0dp"
         android:layout_height="30dp"
         android:layout_marginTop="10dp"
@@ -131,11 +131,11 @@
         android:textColorHint="@color/grey"
         android:textSize="15sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/textView24"
-        app:layout_constraintTop_toBottomOf="@+id/textView26" />
+        app:layout_constraintStart_toStartOf="@+id/tvNamaSupplierEdit"
+        app:layout_constraintTop_toBottomOf="@+id/tvTeleponSupplierEdit" />
 
     <TextView
-        android:id="@+id/textView27"
+        android:id="@+id/tvAlamatSupplierEdit"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="30dp"
@@ -145,10 +145,10 @@
         android:textSize="15sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/nomorTeleponEdtTxt" />
+        app:layout_constraintTop_toBottomOf="@+id/etTeleponSupplierEdit" />
 
     <EditText
-        android:id="@+id/alamatSupplierEdtTxt"
+        android:id="@+id/etAlamatSupplierEdit"
         android:layout_width="0dp"
         android:layout_height="30dp"
         android:layout_marginTop="10dp"
@@ -162,11 +162,11 @@
         android:textColorHint="@color/grey"
         android:textSize="15sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/textView24"
-        app:layout_constraintTop_toBottomOf="@+id/textView27" />
+        app:layout_constraintStart_toStartOf="@+id/tvNamaSupplierEdit"
+        app:layout_constraintTop_toBottomOf="@+id/tvAlamatSupplierEdit" />
 
     <TextView
-        android:id="@+id/textView28"
+        android:id="@+id/tvKotaSupplierEdit"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="30dp"
@@ -176,10 +176,10 @@
         android:textSize="15sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/alamatSupplierEdtTxt" />
+        app:layout_constraintTop_toBottomOf="@+id/etAlamatSupplierEdit" />
 
     <EditText
-        android:id="@+id/kotaSupplierEdtTxt"
+        android:id="@+id/etKotaSupplierEdit"
         android:layout_width="0dp"
         android:layout_height="30dp"
         android:layout_marginTop="10dp"
@@ -193,11 +193,11 @@
         android:textColorHint="@color/grey"
         android:textSize="15sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/textView24"
-        app:layout_constraintTop_toBottomOf="@+id/textView28" />
+        app:layout_constraintStart_toStartOf="@+id/tvNamaSupplierEdit"
+        app:layout_constraintTop_toBottomOf="@+id/tvKotaSupplierEdit" />
 
     <TextView
-        android:id="@+id/textView29"
+        android:id="@+id/tvProvinsiSupplierEdit"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="30dp"
@@ -207,10 +207,10 @@
         android:textSize="15sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/kotaSupplierEdtTxt" />
+        app:layout_constraintTop_toBottomOf="@+id/etKotaSupplierEdit" />
 
     <EditText
-        android:id="@+id/provinsiSupplierEdtTxt"
+        android:id="@+id/etProvinsiSupplierEdit"
         android:layout_width="0dp"
         android:layout_height="30dp"
         android:layout_marginTop="10dp"
@@ -224,11 +224,11 @@
         android:textColorHint="@color/grey"
         android:textSize="15sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/textView24"
-        app:layout_constraintTop_toBottomOf="@+id/textView29" />
+        app:layout_constraintStart_toStartOf="@+id/tvNamaSupplierEdit"
+        app:layout_constraintTop_toBottomOf="@+id/tvProvinsiSupplierEdit" />
 
     <TextView
-        android:id="@+id/textView30"
+        android:id="@+id/tvKodePosSupplierEdit"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="30dp"
@@ -238,10 +238,10 @@
         android:textSize="15sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/provinsiSupplierEdtTxt" />
+        app:layout_constraintTop_toBottomOf="@+id/etProvinsiSupplierEdit" />
 
     <EditText
-        android:id="@+id/kodePosSupplierEdtTxt"
+        android:id="@+id/etKodePosSupplierEdit"
         android:layout_width="0dp"
         android:layout_height="30dp"
         android:layout_marginTop="10dp"
@@ -255,11 +255,11 @@
         android:textColorHint="@color/grey"
         android:textSize="15sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/textView24"
-        app:layout_constraintTop_toBottomOf="@+id/textView30" />
+        app:layout_constraintStart_toStartOf="@+id/tvNamaSupplierEdit"
+        app:layout_constraintTop_toBottomOf="@+id/tvKodePosSupplierEdit" />
 
     <Button
-        android:id="@+id/saveEditSupplierDataBtn"
+        android:id="@+id/btnSaveEditSupplierData"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="30dp"
@@ -269,6 +269,6 @@
         android:text="Save"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/kodePosSupplierEdtTxt" />
+        app:layout_constraintTop_toBottomOf="@+id/etKodePosSupplierEdit" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

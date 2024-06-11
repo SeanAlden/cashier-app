@@ -6,10 +6,10 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/black"
-    tools:context=".Supplier.AddSupplierActivity">
+    tools:context=".AddSupplierActivity">
 
     <ImageView
-        android:id="@+id/header"
+        android:id="@+id/headerContainerAddSupplier"
         android:layout_width="0dp"
         android:layout_height="70dp"
         android:background="@color/grey"
@@ -18,7 +18,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/titleView"
+        android:id="@+id/tvTambahSupplier"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:fontFamily="@font/poppinssemibold"
@@ -26,23 +26,23 @@
         android:textAlignment="center"
         android:textColor="@color/white"
         android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="@+id/header"
+        app:layout_constraintBottom_toBottomOf="@+id/headerContainerAddSupplier"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/header" />
+        app:layout_constraintTop_toTopOf="@+id/headerContainerAddSupplier" />
 
     <ImageButton
-        android:id="@+id/backButtonFromAddSupplier"
+        android:id="@+id/btnBackFromAddSupplier"
         android:layout_width="60dp"
         android:layout_height="60dp"
         android:background="@color/grey"
         android:src="@drawable/back_symbol"
-        app:layout_constraintBottom_toBottomOf="@+id/header"
+        app:layout_constraintBottom_toBottomOf="@+id/headerContainerAddSupplier"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/header" />
+        app:layout_constraintTop_toTopOf="@+id/headerContainerAddSupplier" />
 
     <TextView
-        android:id="@+id/textView24"
+        android:id="@+id/tvNamaSupplier"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="30dp"
@@ -52,10 +52,10 @@
         android:textSize="15sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/header" />
+        app:layout_constraintTop_toBottomOf="@+id/headerContainerAddSupplier" />
 
     <EditText
-        android:id="@+id/namaSupplierEdtTxt"
+        android:id="@+id/etNamaSupplier"
         android:layout_width="0dp"
         android:layout_height="30dp"
         android:layout_marginTop="10dp"
@@ -69,11 +69,11 @@
         android:textColorHint="@color/grey"
         android:textSize="15sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/textView24"
-        app:layout_constraintTop_toBottomOf="@+id/textView24" />
+        app:layout_constraintStart_toStartOf="@+id/tvNamaSupplier"
+        app:layout_constraintTop_toBottomOf="@+id/tvNamaSupplier" />
 
     <TextView
-        android:id="@+id/textView25"
+        android:id="@+id/tvEmailSupplier"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="30dp"
@@ -83,10 +83,10 @@
         android:textSize="15sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/namaSupplierEdtTxt" />
+        app:layout_constraintTop_toBottomOf="@+id/etNamaSupplier" />
 
     <EditText
-        android:id="@+id/emailSupplierEdtTxt"
+        android:id="@+id/etEmailSupplier"
         android:layout_width="0dp"
         android:layout_height="30dp"
         android:layout_marginTop="10dp"
@@ -100,11 +100,11 @@
         android:textColorHint="@color/grey"
         android:textSize="15sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/textView24"
-        app:layout_constraintTop_toBottomOf="@+id/textView25" />
+        app:layout_constraintStart_toStartOf="@+id/tvNamaSupplier"
+        app:layout_constraintTop_toBottomOf="@+id/tvEmailSupplier" />
 
     <TextView
-        android:id="@+id/textView26"
+        android:id="@+id/tvTeleponSupplier"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="30dp"
@@ -114,10 +114,10 @@
         android:textSize="15sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/emailSupplierEdtTxt" />
+        app:layout_constraintTop_toBottomOf="@+id/etEmailSupplier" />
 
     <EditText
-        android:id="@+id/nomorTeleponEdtTxt"
+        android:id="@+id/etTeleponSupplier"
         android:layout_width="0dp"
         android:layout_height="30dp"
         android:layout_marginTop="10dp"
@@ -131,11 +131,11 @@
         android:textColorHint="@color/grey"
         android:textSize="15sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/textView24"
-        app:layout_constraintTop_toBottomOf="@+id/textView26" />
+        app:layout_constraintStart_toStartOf="@+id/tvNamaSupplier"
+        app:layout_constraintTop_toBottomOf="@+id/tvTeleponSupplier" />
 
     <TextView
-        android:id="@+id/textView27"
+        android:id="@+id/tvAlamatSupplier"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="30dp"
@@ -145,10 +145,10 @@
         android:textSize="15sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/nomorTeleponEdtTxt" />
+        app:layout_constraintTop_toBottomOf="@+id/etTeleponSupplier" />
 
     <EditText
-        android:id="@+id/alamatSupplierEdtTxt"
+        android:id="@+id/etAlamatSupplier"
         android:layout_width="0dp"
         android:layout_height="30dp"
         android:layout_marginTop="10dp"
@@ -162,11 +162,11 @@
         android:textColorHint="@color/grey"
         android:textSize="15sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/textView24"
-        app:layout_constraintTop_toBottomOf="@+id/textView27" />
+        app:layout_constraintStart_toStartOf="@+id/tvNamaSupplier"
+        app:layout_constraintTop_toBottomOf="@+id/tvAlamatSupplier" />
 
     <TextView
-        android:id="@+id/textView28"
+        android:id="@+id/tvKotaSupplier"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="30dp"
@@ -176,10 +176,10 @@
         android:textSize="15sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/alamatSupplierEdtTxt" />
+        app:layout_constraintTop_toBottomOf="@+id/etAlamatSupplier" />
 
     <EditText
-        android:id="@+id/kotaSupplierEdtTxt"
+        android:id="@+id/etKotaSupplier"
         android:layout_width="0dp"
         android:layout_height="30dp"
         android:layout_marginTop="10dp"
@@ -193,11 +193,11 @@
         android:textColorHint="@color/grey"
         android:textSize="15sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/textView24"
-        app:layout_constraintTop_toBottomOf="@+id/textView28" />
+        app:layout_constraintStart_toStartOf="@+id/tvNamaSupplier"
+        app:layout_constraintTop_toBottomOf="@+id/tvKotaSupplier" />
 
     <TextView
-        android:id="@+id/textView29"
+        android:id="@+id/tvProvinsiSupplier"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="30dp"
@@ -207,10 +207,10 @@
         android:textSize="15sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/kotaSupplierEdtTxt" />
+        app:layout_constraintTop_toBottomOf="@+id/etKotaSupplier" />
 
     <EditText
-        android:id="@+id/provinsiSupplierEdtTxt"
+        android:id="@+id/etProvinsiSupplier"
         android:layout_width="0dp"
         android:layout_height="30dp"
         android:layout_marginTop="10dp"
@@ -224,11 +224,11 @@
         android:textColorHint="@color/grey"
         android:textSize="15sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/textView24"
-        app:layout_constraintTop_toBottomOf="@+id/textView29" />
+        app:layout_constraintStart_toStartOf="@+id/tvNamaSupplier"
+        app:layout_constraintTop_toBottomOf="@+id/tvProvinsiSupplier" />
 
     <TextView
-        android:id="@+id/textView30"
+        android:id="@+id/tvKodePosSupplier"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="30dp"
@@ -238,10 +238,10 @@
         android:textSize="15sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/provinsiSupplierEdtTxt" />
+        app:layout_constraintTop_toBottomOf="@+id/etProvinsiSupplier" />
 
     <EditText
-        android:id="@+id/kodePosSupplierEdtTxt"
+        android:id="@+id/etKodePosSupplier"
         android:layout_width="0dp"
         android:layout_height="30dp"
         android:layout_marginTop="10dp"
@@ -255,11 +255,11 @@
         android:textColorHint="@color/grey"
         android:textSize="15sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/textView24"
-        app:layout_constraintTop_toBottomOf="@+id/textView30" />
+        app:layout_constraintStart_toStartOf="@+id/tvNamaSupplier"
+        app:layout_constraintTop_toBottomOf="@+id/tvKodePosSupplier" />
 
     <Button
-        android:id="@+id/saveSupplierBtn"
+        android:id="@+id/btnSaveSupplier"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="30dp"
@@ -269,6 +269,6 @@
         android:text="Save"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/kodePosSupplierEdtTxt" />
+        app:layout_constraintTop_toBottomOf="@+id/etKodePosSupplier" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

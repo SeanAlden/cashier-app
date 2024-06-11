@@ -1,4 +1,4 @@
-package project.c14210052.proyekakhir_paba.Supplier
+package project.c14210052.proyekakhir_paba
 
 import android.annotation.SuppressLint
 import android.content.Intent
@@ -11,13 +11,12 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.google.gson.Gson
-import project.c14210052.proyekakhir_paba.R
 
 class SupplierInformationActivity : AppCompatActivity() {
 
 //    private lateinit var sharedPreferences: SharedPreferences
-    private lateinit var suppliers: DataSupplier
-    private lateinit var btnBack : ImageButton
+    private lateinit var _suppliers: DataSupplier
+    private lateinit var _btnBack : ImageButton
     private lateinit var gson: Gson
     @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -29,13 +28,13 @@ class SupplierInformationActivity : AppCompatActivity() {
         val supplierJson = intent.getStringExtra("supplier")
         val supplier = Gson().fromJson(supplierJson, DataSupplier::class.java)
 
-        val namaSupplierView = findViewById<TextView>(R.id.namaSupplierView)
-        val emailSupplierView = findViewById<TextView>(R.id.emailSupplierView)
-        val nomorTeleponView = findViewById<TextView>(R.id.nomorTeleponView)
-        val alamatSupplierView = findViewById<TextView>(R.id.alamatSupplierView)
-        val kotaSupplierView = findViewById<TextView>(R.id.kotaSupplierView)
-        val provinsiSupplierView = findViewById<TextView>(R.id.provinsiSupplierView)
-        val kodePosSupplierView = findViewById<TextView>(R.id.kodePosSupplierView)
+        val namaSupplierView = findViewById<TextView>(R.id.tvNamaSupplierInfoo)
+        val emailSupplierView = findViewById<TextView>(R.id.tvEmailSupplierInfoo)
+        val nomorTeleponView = findViewById<TextView>(R.id.tvTeleponSupplierInfoo)
+        val alamatSupplierView = findViewById<TextView>(R.id.tvAlamatSupplierInfoo)
+        val kotaSupplierView = findViewById<TextView>(R.id.tvKotaSupplierInfoo)
+        val provinsiSupplierView = findViewById<TextView>(R.id.tvProvinsiSupplierInfoo)
+        val kodePosSupplierView = findViewById<TextView>(R.id.tvKodePosSupplierInfoo)
 
 //        namaSupplierView.text = sharedPreferences.getString("namaSupplier", "")
 //        emailSupplierView.text = sharedPreferences.getString("emailSupplier", "")
@@ -54,21 +53,21 @@ class SupplierInformationActivity : AppCompatActivity() {
         kodePosSupplierView.text = supplier.kodeSupplier
 
         gson = Gson()
-        suppliers = gson.fromJson(intent.getStringExtra("supplier"), DataSupplier::class.java)
+        _suppliers = gson.fromJson(intent.getStringExtra("supplier"), DataSupplier::class.java)
 
 
-        btnBack = findViewById(R.id.backButton)
+        _btnBack = findViewById(R.id.btnBackFromInformasiSupplier)
 
-        btnBack.setOnClickListener {
+        _btnBack.setOnClickListener {
             val intent = Intent(this@SupplierInformationActivity, SupplierListActivity::class.java)
             startActivity(intent)
         }
 
-        val editSupplierBtn = findViewById<Button>(R.id.editSupplierBtn)
+        val editSupplierBtn = findViewById<Button>(R.id.btnEditSupplier)
 
         editSupplierBtn.setOnClickListener {
             val intent = Intent(this, EditSupplierActivity::class.java)
-            intent.putExtra("supplier", gson.toJson(suppliers))
+            intent.putExtra("supplier", gson.toJson(_suppliers))
             startActivity(intent)
         }
 

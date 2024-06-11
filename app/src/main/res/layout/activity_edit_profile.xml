@@ -9,7 +9,7 @@
     tools:context=".EditProfileActivity">
 
     <ImageView
-        android:id="@+id/header"
+        android:id="@+id/headerContainerEditProfile"
         android:layout_width="0dp"
         android:layout_height="70dp"
         android:background="@color/grey"
@@ -18,7 +18,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/EditProfileTitleHeader"
+        android:id="@+id/tvEditProfile"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:fontFamily="@font/poppinssemibold"
@@ -26,23 +26,23 @@
         android:textAlignment="center"
         android:textColor="@color/white"
         android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="@+id/header"
+        app:layout_constraintBottom_toBottomOf="@+id/headerContainerEditProfile"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/header" />
+        app:layout_constraintTop_toTopOf="@+id/headerContainerEditProfile" />
 
     <ImageButton
-        android:id="@+id/backButtonFromEditProfile"
+        android:id="@+id/btnBackFromEditProfile"
         android:layout_width="60dp"
         android:layout_height="60dp"
         android:background="@color/grey"
         android:src="@drawable/back_symbol"
-        app:layout_constraintBottom_toBottomOf="@+id/header"
+        app:layout_constraintBottom_toBottomOf="@+id/headerContainerEditProfile"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/header" />
+        app:layout_constraintTop_toTopOf="@+id/headerContainerEditProfile" />
 
     <ImageView
-        android:id="@+id/imageView2"
+        android:id="@+id/imgProfile"
         android:layout_width="105dp"
         android:layout_height="100dp"
         android:layout_marginTop="100dp"
@@ -51,7 +51,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
 
     <TextView
         android:id="@+id/tvFullName"
@@ -63,17 +62,17 @@
         android:textColor="@color/white"
         android:textSize="14sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView2" />
+        app:layout_constraintTop_toBottomOf="@+id/imgProfile" />
 
     <EditText
-        android:id="@+id/etFullNameProfileEdit"
+        android:id="@+id/etFullNameEditProfile"
         android:layout_width="0dp"
         android:layout_height="30dp"
         android:layout_marginStart="70dp"
         android:layout_marginTop="7dp"
         android:layout_marginEnd="70dp"
         android:background="@drawable/rounded_corners"
-        android:hint="Fill your username here"
+        android:hint="Fill your new name here"
         android:textAlignment="center"
         android:textColor="@color/black"
         android:textColorHint="@color/grey"
@@ -83,7 +82,7 @@
         app:layout_constraintTop_toBottomOf="@+id/tvFullName" />
 
     <Button
-        android:id="@+id/btnSaveProfileBtn"
+        android:id="@+id/btnSaveEditProfile"
         android:layout_width="100dp"
         android:layout_height="50dp"
         android:layout_marginTop="24dp"
@@ -92,6 +91,6 @@
         android:textSize="15sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etFullNameProfileEdit" />
+        app:layout_constraintTop_toBottomOf="@+id/etFullNameEditProfile" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

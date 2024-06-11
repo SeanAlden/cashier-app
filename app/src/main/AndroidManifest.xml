@@ -18,52 +18,52 @@
             android:name=".EditProfileActivity"
             android:exported="false" />
         <activity
-            android:name=".Supplier.EditSupplierActivity"
+            android:name=".EditSupplierActivity"
             android:exported="false" />
         <activity
             android:name=".MainActivity"
             android:exported="false" />
         <activity
-            android:name=".Inventory.InventoryActivity"
+            android:name=".InventoryActivity"
             android:exported="false" />
         <activity
-            android:name=".Cashier.DetailPenjualanActivity"
+            android:name=".DetailPenjualanActivity"
             android:exported="false" />
         <activity
-            android:name=".Product.DaftarProdukActivity"
+            android:name=".DaftarProdukActivity"
             android:exported="false" />
         <activity
-            android:name=".Cashier.DaftarAntrianActivity"
+            android:name=".DaftarAntrianActivity"
             android:exported="false" />
         <activity
-            android:name=".Cashier.RiwayatPenjualanActivity"
+            android:name=".RiwayatPenjualanActivity"
             android:exported="false" />
         <activity
-            android:name=".Supplier.SupplierInformationActivity"
+            android:name=".SupplierInformationActivity"
             android:exported="false" />
         <activity
-            android:name=".Supplier.AddSupplierActivity"
+            android:name=".AddSupplierActivity"
             android:exported="false" />
         <activity
-            android:name=".Supplier.SupplierListActivity"
+            android:name=".SupplierListActivity"
             android:exported="false" />
         <activity
-            android:name=".Cashier.CashierActivity"
+            android:name=".CashierActivity"
             android:exported="false" />
         <activity
-            android:name=".Product.ProductCategoryActivity"
+            android:name=".ProductCategoryActivity"
             android:exported="false" />
         <activity
-            android:name=".Product.DetailProductActivity"
+            android:name=".DetailProductActivity"
             android:exported="false" />
         <activity
-            android:name=".Product.AddProductActivity"
+            android:name=".AddProductActivity"
             android:exported="false" />
         <activity
-            android:name=".LoginRegister.RegisterActivity"
+            android:name=".RegisterActivity"
             android:exported="false" />
         <activity
-            android:name=".LoginRegister.LoginActivity"
+            android:name=".LoginActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
