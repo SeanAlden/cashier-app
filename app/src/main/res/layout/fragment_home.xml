@@ -138,7 +138,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:fontFamily="@font/poppinsregular"
-        android:hint="shopName"
+        android:hint="yourName"
         android:textColor="@color/white"
         android:textColorHint="@color/grey"
         android:textSize="26sp"

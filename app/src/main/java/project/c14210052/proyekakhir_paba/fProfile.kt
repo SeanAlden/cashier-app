@@ -64,7 +64,7 @@ class fProfile : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         auth = Firebase.auth
 //        _rvAsetProfile.layoutManager = LinearLayoutManager(context)
-        _rvAsetProfile = view.findViewById(R.id.rvProfile)
+//        _rvAsetProfile = view.findViewById(R.id.rvProfile)
         userID = auth.currentUser!!.uid
         user = auth.currentUser!!
         showData()
@@ -89,51 +89,51 @@ class fProfile : Fragment() {
     }
 
     fun showData() {
-        _rvAsetProfile.layoutManager = LinearLayoutManager(super.requireActivity() as MainActivity)
-        val adapterPr = adapterProfile(listUsers)
-        _rvAsetProfile.adapter = adapterPr
-
-        adapterPr.setOnItemClickCallback(object : adapterProfile.OnItemClickCallBack {
-            override fun editProfile(data: Users) {
-                val intent = Intent(requireActivity() as MainActivity, editProfilePage::class.java)
-                intent.putExtra("kirimDataProfile", data)
-                startActivity(intent)
-            }
-
-            override fun signOut(data: Users) {
-                Firebase.auth.signOut()
-                startActivity(Intent(requireActivity() as MainActivity, loginPage::class.java))
-                Toast.makeText(
-                    requireActivity() as MainActivity,
-                    "Sign Out Berhasil",
-                    Toast.LENGTH_LONG
-                ).show()
-            }
-
-            override fun deleteProfile(data: Users) {
-                AlertDialog.Builder(requireActivity() as MainActivity).setTitle("Delete Account")
-                    .setMessage("Apakah Anda yakin ingin menghapus akun?")
-                    .setPositiveButton("Hapus", DialogInterface.OnClickListener { dialog, which ->
-                        Toast.makeText(
-                            requireActivity() as MainActivity,
-                            "Delete Akun Sukses",
-                            Toast.LENGTH_LONG
-                        ).show()
-                        db.collection("users").document(userID).delete()
-                        user.delete()
-                        startActivity(
-                            Intent(
-                                requireActivity() as MainActivity,
-                                loginPage::class.java
-                            )
-                        )
-                    })
-                    .setNegativeButton("Cancel", DialogInterface.OnClickListener { dialog, which ->
-
-                    })
-                    .show()
-            }
-        })
+//        _rvAsetProfile.layoutManager = LinearLayoutManager(super.requireActivity() as MainActivity)
+//        val adapterPr = adapterProfile(listUsers)
+//        _rvAsetProfile.adapter = adapterPr
+//
+//        adapterPr.setOnItemClickCallback(object : adapterProfile.OnItemClickCallBack {
+//            override fun editProfile(data: Users) {
+//                val intent = Intent(requireActivity() as MainActivity, editProfilePage::class.java)
+//                intent.putExtra("kirimDataProfile", data)
+//                startActivity(intent)
+//            }
+//
+//            override fun signOut(data: Users) {
+//                Firebase.auth.signOut()
+//                startActivity(Intent(requireActivity() as MainActivity, loginPage::class.java))
+//                Toast.makeText(
+//                    requireActivity() as MainActivity,
+//                    "Sign Out Berhasil",
+//                    Toast.LENGTH_LONG
+//                ).show()
+//            }
+//
+//            override fun deleteProfile(data: Users) {
+//                AlertDialog.Builder(requireActivity() as MainActivity).setTitle("Delete Account")
+//                    .setMessage("Apakah Anda yakin ingin menghapus akun?")
+//                    .setPositiveButton("Hapus", DialogInterface.OnClickListener { dialog, which ->
+//                        Toast.makeText(
+//                            requireActivity() as MainActivity,
+//                            "Delete Akun Sukses",
+//                            Toast.LENGTH_LONG
+//                        ).show()
+//                        db.collection("users").document(userID).delete()
+//                        user.delete()
+//                        startActivity(
+//                            Intent(
+//                                requireActivity() as MainActivity,
+//                                loginPage::class.java
+//                            )
+//                        )
+//                    })
+//                    .setNegativeButton("Cancel", DialogInterface.OnClickListener { dialog, which ->
+//
+//                    })
+//                    .show()
+//            }
+//        })
     }
 
     override fun onStart() {
