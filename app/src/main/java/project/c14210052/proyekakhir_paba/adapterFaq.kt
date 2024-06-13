@@ -3,11 +3,11 @@ package project.c14210052.proyekakhir_paba
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import project.c14210052.proyekakhir_paba.databinding.RecyclerFaqBinding
+import project.c14210052.proyekakhir_paba.databinding.ItemFaqBinding
 class adapterFaq(private val faqList: List<Faq>) : RecyclerView.Adapter<adapterFaq.FaqViewHolder>() {
     private var _filteredFaqList = faqList
 
-    inner class FaqViewHolder(private val binding: RecyclerFaqBinding) : RecyclerView.ViewHolder(binding.root){
+    inner class FaqViewHolder(private val binding: ItemFaqBinding) : RecyclerView.ViewHolder(binding.root){
         fun bind(faqItem: Faq) {
             binding.question.text = faqItem.question
             binding.answer.text = faqItem.answer
@@ -15,7 +15,7 @@ class adapterFaq(private val faqList: List<Faq>) : RecyclerView.Adapter<adapterF
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): FaqViewHolder {
-        val binding = RecyclerFaqBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        val binding = ItemFaqBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return FaqViewHolder(binding)
     }
 
