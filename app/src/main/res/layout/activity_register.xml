@@ -14,7 +14,7 @@
         android:layout_height="50dp"
         android:layout_marginStart="20dp"
         android:layout_marginTop="30dp"
-        android:src="@drawable/nusantara_logo"
+        android:src="@drawable/smartact_logo"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -22,9 +22,9 @@
         android:id="@+id/imgNusantaraFont"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@drawable/nusantara_font"
-        app:layout_constraintBottom_toBottomOf="@+id/imgNusantaraLogo"
+        android:src="@drawable/smartact_font"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.423"
         app:layout_constraintStart_toEndOf="@+id/imgNusantaraLogo"
         app:layout_constraintTop_toTopOf="@+id/imgNusantaraLogo" />
 
@@ -32,7 +32,7 @@
         android:id="@+id/tvSignUp"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="70dp"
         android:fontFamily="@font/poppinssemibold"
         android:text="SIGN UP"
         android:textColor="@color/white"
