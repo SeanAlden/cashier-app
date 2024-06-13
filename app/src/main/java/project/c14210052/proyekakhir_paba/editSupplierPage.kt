@@ -72,12 +72,12 @@ class editSupplierPage : AppCompatActivity() {
             )
 
             // Convert updated supplier to JSON and pass back
-//            val resultIntent = Intent()
-//            resultIntent.putExtra("updateSupplier", Gson().toJson(supplier))
-//            setResult(RESULT_OK, resultIntent)
+            val resultIntent = Intent()
+            resultIntent.putExtra("updateSupplier", Gson().toJson(supplier))
+            setResult(RESULT_OK, resultIntent)
 
-            val supplierJsonn = intent.getStringExtra("updateSupplier")
-            supplier = Gson().fromJson(supplierJsonn, Supplier::class.java)
+//            val supplierJsonn = intent.getStringExtra("updateSupplier")
+//            supplier = Gson().fromJson(supplierJsonn, Supplier::class.java)
 
             finish()
         }
