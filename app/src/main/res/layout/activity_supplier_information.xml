@@ -266,17 +266,4 @@
         app:layout_constraintStart_toStartOf="@+id/tvNamaSupplierInfo"
         app:layout_constraintTop_toBottomOf="@+id/tvKodePosSupplierInfo" />
 
-    <Button
-        android:id="@+id/btnEditSupplier"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="30dp"
-        android:layout_marginTop="50dp"
-        android:layout_marginEnd="30dp"
-        android:backgroundTint="#4CAF50"
-        android:text="Edit"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvKodePosSupplierInfoo" />
-
 </androidx.constraintlayout.widget.ConstraintLayout>

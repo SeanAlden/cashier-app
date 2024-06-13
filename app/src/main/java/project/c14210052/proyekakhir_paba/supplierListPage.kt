@@ -20,6 +20,7 @@ class supplierListPage : AppCompatActivity() {
     private lateinit var recyclerView: RecyclerView
     private lateinit var supplierAdapter: adapterSupplier
     private lateinit var _btnBack: ImageButton
+    private lateinit var suppliers : MutableList<Supplier>
     private val gson = Gson()
 
     @SuppressLint("MissingInflatedId")
@@ -32,6 +33,10 @@ class supplierListPage : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
+
+        // Initialize suppliers and adapter
+        suppliers = mutableListOf()
+//        supplierAdapter = adapterSupplier(suppliers, this::deleteSupplier, this::editSupplier)
 
         sharedPreferences = getSharedPreferences("SupplierData", MODE_PRIVATE)
 
@@ -76,4 +81,7 @@ class supplierListPage : AppCompatActivity() {
         }
     }
 }
+
+
+
 

@@ -21,13 +21,13 @@
             android:name=".editSupplierPage"
             android:exported="false" />
         <activity
-            android:name=".MainActivity"
-            android:exported="false" />
-        <activity
-            android:name=".inventoryPage"
+            android:name=".loginPage"
             android:exported="false" />
         <activity
             android:name=".detailPenjualanPage"
+            android:exported="false" />
+        <activity
+            android:name=".detailProductPage"
             android:exported="false" />
         <activity
             android:name=".daftarProdukPage"
@@ -54,7 +54,7 @@
             android:name=".productCategoryPage"
             android:exported="false" />
         <activity
-            android:name=".detailProductPage"
+            android:name=".inventoryPage"
             android:exported="false" />
         <activity
             android:name=".addProductPage"
@@ -63,7 +63,7 @@
             android:name=".registerPage"
             android:exported="false" />
         <activity
-            android:name=".loginPage"
+            android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

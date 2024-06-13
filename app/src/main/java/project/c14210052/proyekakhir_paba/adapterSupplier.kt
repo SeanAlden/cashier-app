@@ -2,12 +2,14 @@ package project.c14210052.proyekakhir_paba
 
 import android.app.AlertDialog
 import android.content.Context
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageButton
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.google.gson.Gson
 
 class adapterSupplier(
     private val suppliers: MutableList<Supplier>,
@@ -16,11 +18,13 @@ class adapterSupplier(
 ) : RecyclerView.Adapter<adapterSupplier.SupplierViewHolder>(){
 
     lateinit var context : Context
+    private val gson = Gson()
     class SupplierViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val _namaSupplier: TextView = itemView.findViewById(R.id.namaPrdk)
         val _alamatSupplier: TextView = itemView.findViewById(R.id.kategoriPrdk)
         val _kodePosSupplier: TextView = itemView.findViewById(R.id.kodeSupplier)
         val _deleteBtn: ImageButton = itemView.findViewById(R.id.deleteBtn)
+        val _editBtn: ImageButton = itemView.findViewById(R.id.editBtn)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): SupplierViewHolder {
@@ -37,6 +41,12 @@ class adapterSupplier(
         holder._namaSupplier.text = supplier.namaSupplier
         holder._alamatSupplier.text = supplier.alamatSupplier
         holder._kodePosSupplier.text = supplier.kodeSupplier
+
+        holder._editBtn.setOnClickListener {
+            val intent = Intent(context, editSupplierPage::class.java)
+            intent.putExtra("supplier", gson.toJson(supplier))
+            context.startActivity(intent)
+        }
 
         holder._deleteBtn.setOnClickListener {
             AlertDialog.Builder(context).apply {
@@ -58,3 +68,4 @@ class adapterSupplier(
         }
     }
 }
+
