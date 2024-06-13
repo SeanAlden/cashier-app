@@ -12,10 +12,10 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.google.gson.Gson
 
-class SupplierInformationActivity : AppCompatActivity() {
+class supplierInformationPage : AppCompatActivity() {
 
 //    private lateinit var sharedPreferences: SharedPreferences
-    private lateinit var _suppliers: DataSupplier
+    private lateinit var _suppliers: Supplier
     private lateinit var _btnBack : ImageButton
     private lateinit var gson: Gson
     @SuppressLint("MissingInflatedId")
@@ -26,7 +26,7 @@ class SupplierInformationActivity : AppCompatActivity() {
 
 //        sharedPreferences = getSharedPreferences("SupplierData", MODE_PRIVATE)
         val supplierJson = intent.getStringExtra("supplier")
-        val supplier = Gson().fromJson(supplierJson, DataSupplier::class.java)
+        val supplier = Gson().fromJson(supplierJson, Supplier::class.java)
 
         val namaSupplierView = findViewById<TextView>(R.id.tvNamaSupplierInfoo)
         val emailSupplierView = findViewById<TextView>(R.id.tvEmailSupplierInfoo)
@@ -53,20 +53,20 @@ class SupplierInformationActivity : AppCompatActivity() {
         kodePosSupplierView.text = supplier.kodeSupplier
 
         gson = Gson()
-        _suppliers = gson.fromJson(intent.getStringExtra("supplier"), DataSupplier::class.java)
+        _suppliers = gson.fromJson(intent.getStringExtra("supplier"), Supplier::class.java)
 
 
         _btnBack = findViewById(R.id.btnBackFromInformasiSupplier)
 
         _btnBack.setOnClickListener {
-            val intent = Intent(this@SupplierInformationActivity, SupplierListActivity::class.java)
+            val intent = Intent(this@supplierInformationPage, supplierListPage::class.java)
             startActivity(intent)
         }
 
         val editSupplierBtn = findViewById<Button>(R.id.btnEditSupplier)
 
         editSupplierBtn.setOnClickListener {
-            val intent = Intent(this, EditSupplierActivity::class.java)
+            val intent = Intent(this, editSupplierPage::class.java)
             intent.putExtra("supplier", gson.toJson(_suppliers))
             startActivity(intent)
         }

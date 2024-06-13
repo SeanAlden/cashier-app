@@ -11,9 +11,9 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
 
-class ProfileAdapter (
+class adapterProfile (
     private val listUsers:ArrayList<Users>
-): RecyclerView.Adapter<ProfileAdapter.ListViewHolder>(){
+): RecyclerView.Adapter<adapterProfile.ListViewHolder>(){
     private lateinit var auth: FirebaseAuth
     private lateinit var onItemClickCallBack : OnItemClickCallBack
 
@@ -37,7 +37,7 @@ class ProfileAdapter (
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ListViewHolder {
         val view = LayoutInflater.from(parent.context)
-            .inflate(R.layout.recycler_profile,parent, false)
+            .inflate(R.layout.item_profile,parent, false)
         return ListViewHolder(view)
     }
 

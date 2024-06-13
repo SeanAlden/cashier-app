@@ -9,7 +9,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 
-class InventoryActivity : AppCompatActivity() {
+class inventoryPage : AppCompatActivity() {
 
     private lateinit var _backButton : ImageButton
     @SuppressLint("MissingInflatedId")
@@ -26,7 +26,7 @@ class InventoryActivity : AppCompatActivity() {
         _backButton = findViewById(R.id.btnBackFromInventory)
 
         _backButton.setOnClickListener {
-            val intent = Intent(this@InventoryActivity, MainActivity::class.java)
+            val intent = Intent(this@inventoryPage, MainActivity::class.java)
             startActivity(intent)
         }
 

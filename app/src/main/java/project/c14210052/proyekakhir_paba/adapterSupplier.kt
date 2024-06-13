@@ -9,11 +9,11 @@ import android.widget.ImageButton
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 
-class SupplierAdapter(
-    private val suppliers: MutableList<DataSupplier>,
+class adapterSupplier(
+    private val suppliers: MutableList<Supplier>,
     private val onDeleteClick: (Int) -> Unit,
-    private val onItemClick: (DataSupplier) -> Unit
-) : RecyclerView.Adapter<SupplierAdapter.SupplierViewHolder>(){
+    private val onItemClick: (Supplier) -> Unit
+) : RecyclerView.Adapter<adapterSupplier.SupplierViewHolder>(){
 
     lateinit var context : Context
     class SupplierViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
@@ -26,7 +26,7 @@ class SupplierAdapter(
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): SupplierViewHolder {
         context = parent.context
         val view = LayoutInflater.from(context)
-            .inflate(R.layout.recycler_supplier, parent, false)
+            .inflate(R.layout.item_supplier, parent, false)
         return SupplierViewHolder(view)
     }
 

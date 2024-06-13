@@ -22,7 +22,7 @@ import com.google.firebase.ktx.Firebase
 
 /**
  * A simple [Fragment] subclass.
- * Use the [ProfileFragment.newInstance] factory method to
+ * Use the [fProfile.newInstance] factory method to
  * create an instance of this fragment.
  */
 
@@ -31,7 +31,7 @@ import com.google.firebase.ktx.Firebase
 private const val ARG_PARAM1 = "param1"
 private const val ARG_PARAM2 = "param2"
 
-class ProfileFragment : Fragment() {
+class fProfile : Fragment() {
     // TODO: Rename and change types of parameters
     private lateinit var _rvAsetProfile: RecyclerView
     var listUsers: ArrayList<Users> = arrayListOf()
@@ -90,19 +90,19 @@ class ProfileFragment : Fragment() {
 
     fun showData() {
         _rvAsetProfile.layoutManager = LinearLayoutManager(super.requireActivity() as MainActivity)
-        val adapterPr = ProfileAdapter(listUsers)
+        val adapterPr = adapterProfile(listUsers)
         _rvAsetProfile.adapter = adapterPr
 
-        adapterPr.setOnItemClickCallback(object : ProfileAdapter.OnItemClickCallBack {
+        adapterPr.setOnItemClickCallback(object : adapterProfile.OnItemClickCallBack {
             override fun editProfile(data: Users) {
-                val intent = Intent(requireActivity() as MainActivity, EditProfileActivity::class.java)
+                val intent = Intent(requireActivity() as MainActivity, editProfilePage::class.java)
                 intent.putExtra("kirimDataProfile", data)
                 startActivity(intent)
             }
 
             override fun signOut(data: Users) {
                 Firebase.auth.signOut()
-                startActivity(Intent(requireActivity() as MainActivity, LoginActivity::class.java))
+                startActivity(Intent(requireActivity() as MainActivity, loginPage::class.java))
                 Toast.makeText(
                     requireActivity() as MainActivity,
                     "Sign Out Berhasil",
@@ -124,7 +124,7 @@ class ProfileFragment : Fragment() {
                         startActivity(
                             Intent(
                                 requireActivity() as MainActivity,
-                                LoginActivity::class.java
+                                loginPage::class.java
                             )
                         )
                     })
@@ -153,7 +153,7 @@ class ProfileFragment : Fragment() {
         // TODO: Rename and change types and number of parameters
         @JvmStatic
         fun newInstance(param1: String, param2: String) =
-            ProfileFragment().apply {
+            fProfile().apply {
                 arguments = Bundle().apply {
                     putString(ARG_PARAM1, param1)
                     putString(ARG_PARAM2, param2)

@@ -9,7 +9,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 
-class CashierActivity : AppCompatActivity() {
+class cashierPage : AppCompatActivity() {
 
     private lateinit var backButton : ImageButton
     @SuppressLint("MissingInflatedId")
@@ -26,7 +26,7 @@ class CashierActivity : AppCompatActivity() {
         backButton = findViewById(R.id.btnBackFromCashier)
 
         backButton.setOnClickListener {
-            val intent = Intent(this@CashierActivity, MainActivity::class.java)
+            val intent = Intent(this@cashierPage, MainActivity::class.java)
             startActivity(intent)
         }
     }

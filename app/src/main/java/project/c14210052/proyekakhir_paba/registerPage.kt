@@ -16,7 +16,7 @@ import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 
-class RegisterActivity : AppCompatActivity() {
+class registerPage : AppCompatActivity() {
 
     private lateinit var auth: FirebaseAuth
     var db = Firebase.firestore
@@ -36,7 +36,7 @@ class RegisterActivity : AppCompatActivity() {
         auth = Firebase.auth
 
         _btnToLoginPage.setOnClickListener {
-            startActivity(Intent(this@RegisterActivity, LoginActivity::class.java))
+            startActivity(Intent(this@registerPage, loginPage::class.java))
         }
 
         _btnSignUp.setOnClickListener {

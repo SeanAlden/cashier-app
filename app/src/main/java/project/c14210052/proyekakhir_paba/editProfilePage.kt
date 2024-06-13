@@ -16,7 +16,7 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.auth
 import com.google.firebase.firestore.firestore
 
-class EditProfileActivity : AppCompatActivity() {
+class editProfilePage : AppCompatActivity() {
 
     private lateinit var _backButton : ImageButton
     @SuppressLint("MissingInflatedId")
@@ -46,7 +46,7 @@ class EditProfileActivity : AppCompatActivity() {
             val newData = Users(docRef.id,_etFullname.text.toString(), intentData.email.toString(), intentData.password.toString(), intentData.status.toString())
 
             docRef.set(newData).addOnSuccessListener {
-                Toast.makeText(this@EditProfileActivity, "Edit Profile Success", Toast.LENGTH_LONG).show()
+                Toast.makeText(this@editProfilePage, "Edit Profile Success", Toast.LENGTH_LONG).show()
             }
             finish()
         }
@@ -54,7 +54,7 @@ class EditProfileActivity : AppCompatActivity() {
         _backButton = findViewById(R.id.btnBackFromEditProfile)
 
         _backButton.setOnClickListener {
-            val intent = Intent(this@EditProfileActivity, MainActivity::class.java)
+            val intent = Intent(this@editProfilePage, MainActivity::class.java)
             startActivity(intent)
         }
     }

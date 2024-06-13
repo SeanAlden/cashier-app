@@ -9,7 +9,7 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import project.c14210052.proyekakhir_paba.databinding.FragmentFaqBinding
 
-class FaqFragment : Fragment() {
+class fFaq : Fragment() {
     private var _binding: FragmentFaqBinding? = null
     private val binding get() = _binding!!
 
@@ -34,9 +34,9 @@ class FaqFragment : Fragment() {
 
         val questions = resources.getStringArray(R.array.pertanyaan)
         val answers = resources.getStringArray(R.array.jawaban)
-        val faqList = questions.zip(answers) { question, answer -> DataFaq(question, answer) }
+        val faqList = questions.zip(answers) { question, answer -> Faq(question, answer) }
 
-        val adapter = FaqAdapter(faqList)
+        val adapter = adapterFaq(faqList)
         binding.rvFAQ.layoutManager = LinearLayoutManager(requireContext())
         binding.rvFAQ.adapter = adapter
 

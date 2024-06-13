@@ -15,7 +15,7 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
 
-class LoginActivity : AppCompatActivity() {
+class loginPage : AppCompatActivity() {
 
     private lateinit var auth: FirebaseAuth
 
@@ -33,7 +33,7 @@ class LoginActivity : AppCompatActivity() {
         auth = Firebase.auth
 
         _goToSignUpButton.setOnClickListener {
-            startActivity(Intent(this@LoginActivity, RegisterActivity::class.java))
+            startActivity(Intent(this@loginPage, registerPage::class.java))
         }
 
         _loginButton.setOnClickListener {
@@ -52,7 +52,7 @@ class LoginActivity : AppCompatActivity() {
             auth.signInWithEmailAndPassword(email, password)
                 .addOnCompleteListener() { task ->
                     if (task.isSuccessful) {
-                        startActivity(Intent(this@LoginActivity, MainActivity::class.java))
+                        startActivity(Intent(this@loginPage, MainActivity::class.java))
                         Toast.makeText(this, "Login Sukses", Toast.LENGTH_LONG).show()
                         finish()
                     } else {

@@ -11,17 +11,14 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.firestore.ktx.firestore
-import com.google.firebase.ktx.Firebase
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 
-class SupplierListActivity : AppCompatActivity() {
+class supplierListPage : AppCompatActivity() {
 
     private lateinit var sharedPreferences: SharedPreferences
     private lateinit var recyclerView: RecyclerView
-    private lateinit var supplierAdapter: SupplierAdapter
+    private lateinit var supplierAdapter: adapterSupplier
     private lateinit var _btnBack: ImageButton
     private val gson = Gson()
 
@@ -44,19 +41,19 @@ class SupplierListActivity : AppCompatActivity() {
 //        }
 
         val suppliersJson = sharedPreferences.getString("suppliers", "[]")
-        val suppliersType = object : TypeToken<List<DataSupplier>>() {}.type
-        val suppliers: MutableList<DataSupplier> = gson.fromJson(suppliersJson, suppliersType)
+        val suppliersType = object : TypeToken<List<Supplier>>() {}.type
+        val suppliers: MutableList<Supplier> = gson.fromJson(suppliersJson, suppliersType)
 
         recyclerView = findViewById(R.id.rvSupplier)
         recyclerView.layoutManager = LinearLayoutManager(this)
-        supplierAdapter = SupplierAdapter(suppliers, { position ->
+        supplierAdapter = adapterSupplier(suppliers, { position ->
             suppliers.removeAt(position)
             val editor = sharedPreferences.edit()
             editor.putString("suppliers", gson.toJson(suppliers))
             editor.apply()
             supplierAdapter.notifyItemRemoved(position)
         }, { supplier ->
-            val intent = Intent(this, SupplierInformationActivity::class.java)
+            val intent = Intent(this, supplierInformationPage::class.java)
 //            intent.putExtra("namaSupplier", supplier.namaSupplier)
 //            intent.putExtra("alamatSupplier", supplier.alamatSupplier)
 //            intent.putExtra("kodeSupplier", supplier.kodeSupplier)
@@ -69,12 +66,12 @@ class SupplierListActivity : AppCompatActivity() {
         _btnBack = findViewById(R.id.btnBackFromSupplierList)
 
         addSuppButton.setOnClickListener {
-            val intent = Intent(this, AddSupplierActivity::class.java)
+            val intent = Intent(this, addSupplierPage::class.java)
             startActivity(intent)
         }
 
         _btnBack.setOnClickListener {
-            val intent = Intent(this@SupplierListActivity, MainActivity::class.java)
+            val intent = Intent(this@supplierListPage, MainActivity::class.java)
             startActivity(intent)
         }
     }

@@ -9,25 +9,27 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 
-class AddProductActivity : AppCompatActivity() {
+class editSupplierPage : AppCompatActivity() {
 
-    private lateinit var _backBtn : ImageButton
+    private lateinit var _backButton : ImageButton
+
     @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
-        setContentView(R.layout.activity_add_product)
+        setContentView(R.layout.activity_edit_supplier)
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
 
-        _backBtn = findViewById(R.id.btnBackFromAddProduct)
+        _backButton = findViewById<ImageButton>(R.id.btnBackFromEditSupplier)
 
-        _backBtn.setOnClickListener {
-            val intent = Intent(this@AddProductActivity, DaftarProdukActivity::class.java)
+        _backButton.setOnClickListener {
+            val intent = Intent(this@editSupplierPage, supplierListPage::class.java)
             startActivity(intent)
         }
+
     }
 }

@@ -15,55 +15,55 @@
         android:theme="@style/Theme.ProyekAkhir_PABA"
         tools:targetApi="31">
         <activity
-            android:name=".EditProfileActivity"
+            android:name=".editProfilePage"
             android:exported="false" />
         <activity
-            android:name=".EditSupplierActivity"
+            android:name=".editSupplierPage"
             android:exported="false" />
         <activity
             android:name=".MainActivity"
             android:exported="false" />
         <activity
-            android:name=".InventoryActivity"
+            android:name=".inventoryPage"
             android:exported="false" />
         <activity
-            android:name=".DetailPenjualanActivity"
+            android:name=".detailPenjualanPage"
             android:exported="false" />
         <activity
-            android:name=".DaftarProdukActivity"
+            android:name=".daftarProdukPage"
             android:exported="false" />
         <activity
-            android:name=".DaftarAntrianActivity"
+            android:name=".daftarAntrianPage"
             android:exported="false" />
         <activity
-            android:name=".RiwayatPenjualanActivity"
+            android:name=".riwayatPenjualanPage"
             android:exported="false" />
         <activity
-            android:name=".SupplierInformationActivity"
+            android:name=".supplierInformationPage"
             android:exported="false" />
         <activity
-            android:name=".AddSupplierActivity"
+            android:name=".addSupplierPage"
             android:exported="false" />
         <activity
-            android:name=".SupplierListActivity"
+            android:name=".supplierListPage"
             android:exported="false" />
         <activity
-            android:name=".CashierActivity"
+            android:name=".cashierPage"
             android:exported="false" />
         <activity
-            android:name=".ProductCategoryActivity"
+            android:name=".productCategoryPage"
             android:exported="false" />
         <activity
-            android:name=".DetailProductActivity"
+            android:name=".detailProductPage"
             android:exported="false" />
         <activity
-            android:name=".AddProductActivity"
+            android:name=".addProductPage"
             android:exported="false" />
         <activity
-            android:name=".RegisterActivity"
+            android:name=".registerPage"
             android:exported="false" />
         <activity
-            android:name=".LoginActivity"
+            android:name=".loginPage"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

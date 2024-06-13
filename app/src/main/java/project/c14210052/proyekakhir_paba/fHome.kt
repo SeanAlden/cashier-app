@@ -13,7 +13,7 @@ import androidx.fragment.app.Fragment
 
 /**
  * A simple [Fragment] subclass.
- * Use the [HomeFragment.newInstance] factory method to
+ * Use the [fHome.newInstance] factory method to
  * create an instance of this fragment.
  */
 
@@ -22,7 +22,7 @@ import androidx.fragment.app.Fragment
 private const val ARG_PARAM1 = "param1"
 private const val ARG_PARAM2 = "param2"
 
-class HomeFragment : Fragment() {
+class fHome : Fragment() {
     // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null
@@ -49,22 +49,22 @@ class HomeFragment : Fragment() {
         val _inventoryBtn: ImageButton = view.findViewById(R.id.btnInventory)
 
         _produkBtn.setOnClickListener {
-            val intentProduk = Intent(activity, DaftarProdukActivity::class.java)
+            val intentProduk = Intent(activity, daftarProdukPage::class.java)
             startActivity(intentProduk)
         }
 
         _supplierBtn.setOnClickListener {
-            val intentSupplier = Intent(activity, SupplierListActivity::class.java)
+            val intentSupplier = Intent(activity, supplierListPage::class.java)
             startActivity(intentSupplier)
         }
 
         _cashierBtn.setOnClickListener {
-            val intentCashier = Intent(activity, CashierActivity::class.java)
+            val intentCashier = Intent(activity, cashierPage::class.java)
             startActivity(intentCashier)
         }
 
         _inventoryBtn.setOnClickListener {
-            val intentInventory = Intent(activity, InventoryActivity::class.java)
+            val intentInventory = Intent(activity, inventoryPage::class.java)
             startActivity(intentInventory)
         }
 
@@ -83,7 +83,7 @@ class HomeFragment : Fragment() {
         // TODO: Rename and change types and number of parameters
         @JvmStatic
         fun newInstance(param1: String, param2: String) =
-            HomeFragment().apply {
+            fHome().apply {
                 arguments = Bundle().apply {
                     putString(ARG_PARAM1, param1)
                     putString(ARG_PARAM2, param2)
