@@ -1,4 +1,4 @@
-package project.c14210052.proyekakhir_paba
+package project.c14210052.proyekakhir_paba.adapter
 
 import android.app.AlertDialog
 import android.content.Context
@@ -10,6 +10,9 @@ import android.widget.ImageButton
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.google.gson.Gson
+import project.c14210052.proyekakhir_paba.R
+import project.c14210052.proyekakhir_paba.dataClass.Supplier
+import project.c14210052.proyekakhir_paba.editSupplierPage
 
 class adapterSupplier(
     private val suppliers: MutableList<Supplier>,

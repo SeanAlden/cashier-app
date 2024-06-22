@@ -1,8 +1,9 @@
-package project.c14210052.proyekakhir_paba
+package project.c14210052.proyekakhir_paba.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import project.c14210052.proyekakhir_paba.dataClass.Faq
 import project.c14210052.proyekakhir_paba.databinding.ItemFaqBinding
 class adapterFaq(private val faqList: List<Faq>) : RecyclerView.Adapter<adapterFaq.FaqViewHolder>() {
     private var _filteredFaqList = faqList

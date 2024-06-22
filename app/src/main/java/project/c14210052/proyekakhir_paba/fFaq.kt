@@ -7,6 +7,8 @@ import android.view.ViewGroup
 import androidx.appcompat.widget.SearchView
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
+import project.c14210052.proyekakhir_paba.adapter.adapterFaq
+import project.c14210052.proyekakhir_paba.dataClass.Faq
 import project.c14210052.proyekakhir_paba.databinding.FragmentFaqBinding
 
 class fFaq : Fragment() {

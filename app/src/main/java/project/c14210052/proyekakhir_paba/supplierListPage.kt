@@ -13,6 +13,8 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
+import project.c14210052.proyekakhir_paba.adapter.adapterSupplier
+import project.c14210052.proyekakhir_paba.dataClass.Supplier
 
 class supplierListPage : AppCompatActivity() {
 

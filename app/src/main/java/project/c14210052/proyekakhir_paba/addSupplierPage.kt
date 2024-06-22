@@ -17,6 +17,7 @@ import com.google.firebase.firestore.firestore
 import com.google.firebase.Firebase
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
+import project.c14210052.proyekakhir_paba.dataClass.Supplier
 
 class addSupplierPage : AppCompatActivity() {
 

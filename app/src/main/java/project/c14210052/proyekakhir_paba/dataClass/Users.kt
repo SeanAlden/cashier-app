@@ -1,4 +1,4 @@
-package project.c14210052.proyekakhir_paba
+package project.c14210052.proyekakhir_paba.dataClass
 
 import android.os.Parcel
 import android.os.Parcelable

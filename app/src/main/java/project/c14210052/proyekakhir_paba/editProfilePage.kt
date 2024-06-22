@@ -15,6 +15,7 @@ import com.google.firebase.Firebase
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.auth
 import com.google.firebase.firestore.firestore
+import project.c14210052.proyekakhir_paba.dataClass.Users
 
 class editProfilePage : AppCompatActivity() {
 
