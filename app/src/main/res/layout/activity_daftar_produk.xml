@@ -66,7 +66,7 @@
         app:layout_constraintStart_toStartOf="@+id/containerKategoriProduk"
         app:layout_constraintTop_toTopOf="@+id/containerKategoriProduk" />
 
-    <ImageButton
+    <Spinner
         android:id="@+id/dropdownKategori"
         android:layout_width="20dp"
         android:layout_height="20dp"

@@ -10,6 +10,22 @@
     android:background="@color/black"
     tools:context=".supplierListPage">
 
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardViewHeaderListSupplier"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="8dp"
+        app:cardElevation="4dp"
+        android:backgroundTint="@color/black"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_margin="0dp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
     <ImageView
         android:id="@+id/headerContainerSupplierList"
         android:layout_width="0dp"
@@ -59,12 +75,15 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/headerContainerSupplierList" />
 
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvSupplier"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
-        app:layout_constraintTop_toBottomOf="@+id/tvInstruction" />
+        app:layout_constraintTop_toBottomOf="@+id/cardViewHeaderListSupplier" />
 
     <ImageButton
         android:id="@+id/btnAddSupplier"

@@ -8,6 +8,21 @@
     android:background="@color/black"
     tools:context=".supplierInformationPage">
 
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardViewHeaderInformasiSupplier"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="8dp"
+        app:cardElevation="4dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_margin="0dp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
     <ImageView
         android:id="@+id/headerContainerSupplierInformation"
         android:layout_width="0dp"
@@ -41,229 +56,245 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/tvNamaSupplierInfo"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="30dp"
-        android:layout_marginTop="30dp"
-        android:text="Nama Supplier"
-        android:textColor="@color/white"
-        android:textSize="15sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/headerContainerSupplierInformation" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
 
-    <TextView
-        android:id="@+id/tvNamaSupplierInfoo"
-        android:layout_width="0dp"
-        android:layout_height="30dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="30dp"
-        android:background="@drawable/rounded_corners"
-        android:hint="Nama Anda"
-        android:paddingStart="10dp"
-        android:paddingTop="5dp"
-        android:paddingEnd="10dp"
-        android:paddingBottom="5dp"
-        android:textColor="@color/black"
-        android:textColorHint="@color/grey"
-        android:textSize="15sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/tvNamaSupplierInfo"
-        app:layout_constraintTop_toBottomOf="@+id/tvNamaSupplierInfo" />
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintTop_toBottomOf="@+id/cardViewHeaderInformasiSupplier"
+        app:layout_constraintBottom_toBottomOf="parent">
 
-    <TextView
-        android:id="@+id/tvEmailSupplierInfo"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="30dp"
-        android:layout_marginTop="30dp"
-        android:text="Email"
-        android:textColor="@color/white"
-        android:textSize="15sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvNamaSupplierInfoo" />
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
-    <TextView
-        android:id="@+id/tvEmailSupplierInfoo"
-        android:layout_width="0dp"
-        android:layout_height="30dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="30dp"
-        android:background="@drawable/rounded_corners"
-        android:hint="Email Anda"
-        android:paddingStart="10dp"
-        android:paddingTop="5dp"
-        android:paddingEnd="10dp"
-        android:paddingBottom="5dp"
-        android:textColorHint="@color/grey"
-        android:textSize="15sp"
-        android:textColor="@color/black"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/tvNamaSupplierInfo"
-        app:layout_constraintTop_toBottomOf="@+id/tvEmailSupplierInfo" />
+            <TextView
+                android:id="@+id/tvNamaSupplierInfo"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="30dp"
+                android:layout_marginTop="95dp"
+                android:text="Nama Supplier"
 
-    <TextView
-        android:id="@+id/tvTeleponSupplierInfo"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="30dp"
-        android:layout_marginTop="30dp"
-        android:text="Telepon"
-        android:textColor="@color/white"
-        android:textSize="15sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvEmailSupplierInfoo" />
+                android:textColor="@color/white"
+                android:textSize="15sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/tvTeleponSupplierInfoo"
-        android:layout_width="0dp"
-        android:layout_height="30dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="30dp"
-        android:background="@drawable/rounded_corners"
-        android:hint="Nomor Telepon Anda"
-        android:textColor="@color/black"
-        android:paddingStart="10dp"
-        android:paddingTop="5dp"
-        android:paddingEnd="10dp"
-        android:paddingBottom="5dp"
-        android:textColorHint="@color/grey"
-        android:textSize="15sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/tvNamaSupplierInfo"
-        app:layout_constraintTop_toBottomOf="@+id/tvTeleponSupplierInfo" />
+        <TextView
+            android:id="@+id/tvNamaSupplierInfoo"
+            android:layout_width="0dp"
+            android:layout_height="30dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="30dp"
+            android:background="@drawable/rounded_corners"
+            android:hint="Nama Anda"
+            android:paddingStart="10dp"
+            android:paddingTop="5dp"
+            android:paddingEnd="10dp"
+            android:paddingBottom="5dp"
+            android:textColor="@color/black"
+            android:textColorHint="@color/grey"
+            android:textSize="15sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/tvNamaSupplierInfo"
+            app:layout_constraintTop_toBottomOf="@+id/tvNamaSupplierInfo" />
 
-    <TextView
-        android:id="@+id/tvAlamatSupplierInfo"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="30dp"
-        android:layout_marginTop="30dp"
-        android:text="Alamat"
-        android:textColor="@color/white"
-        android:textSize="15sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvTeleponSupplierInfoo" />
+        <TextView
+            android:id="@+id/tvEmailSupplierInfo"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="30dp"
+            android:text="Email"
+            android:textColor="@color/white"
+            android:textSize="15sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvNamaSupplierInfoo" />
 
-    <TextView
-        android:id="@+id/tvAlamatSupplierInfoo"
-        android:layout_width="0dp"
-        android:layout_height="30dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="30dp"
-        android:background="@drawable/rounded_corners"
-        android:hint="Alamat Anda"
-        android:textColor="@color/black"
-        android:paddingStart="10dp"
-        android:paddingTop="5dp"
-        android:paddingEnd="10dp"
-        android:paddingBottom="5dp"
-        android:textColorHint="@color/grey"
-        android:textSize="15sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/tvNamaSupplierInfo"
-        app:layout_constraintTop_toBottomOf="@+id/tvAlamatSupplierInfo" />
+        <TextView
+            android:id="@+id/tvEmailSupplierInfoo"
+            android:layout_width="0dp"
+            android:layout_height="30dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="30dp"
+            android:background="@drawable/rounded_corners"
+            android:hint="Email Anda"
+            android:paddingStart="10dp"
+            android:paddingTop="5dp"
+            android:paddingEnd="10dp"
+            android:paddingBottom="5dp"
+            android:textColorHint="@color/grey"
+            android:textSize="15sp"
+            android:textColor="@color/black"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/tvNamaSupplierInfo"
+            app:layout_constraintTop_toBottomOf="@+id/tvEmailSupplierInfo" />
 
-    <TextView
-        android:id="@+id/tvKotaSupplierInfo"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="30dp"
-        android:layout_marginTop="30dp"
-        android:text="Kota"
-        android:textColor="@color/white"
-        android:textSize="15sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvAlamatSupplierInfoo" />
+        <TextView
+            android:id="@+id/tvTeleponSupplierInfo"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="30dp"
+            android:text="Telepon"
+            android:textColor="@color/white"
+            android:textSize="15sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvEmailSupplierInfoo" />
 
-    <TextView
-        android:id="@+id/tvKotaSupplierInfoo"
-        android:layout_width="0dp"
-        android:layout_height="30dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="30dp"
-        android:background="@drawable/rounded_corners"
-        android:hint="Kota"
-        android:textColor="@color/black"
-        android:paddingStart="10dp"
-        android:paddingTop="5dp"
-        android:paddingEnd="10dp"
-        android:paddingBottom="5dp"
-        android:textColorHint="@color/grey"
-        android:textSize="15sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/tvNamaSupplierInfo"
-        app:layout_constraintTop_toBottomOf="@+id/tvKotaSupplierInfo" />
+        <TextView
+            android:id="@+id/tvTeleponSupplierInfoo"
+            android:layout_width="0dp"
+            android:layout_height="30dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="30dp"
+            android:background="@drawable/rounded_corners"
+            android:hint="Nomor Telepon Anda"
+            android:textColor="@color/black"
+            android:paddingStart="10dp"
+            android:paddingTop="5dp"
+            android:paddingEnd="10dp"
+            android:paddingBottom="5dp"
+            android:textColorHint="@color/grey"
+            android:textSize="15sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/tvNamaSupplierInfo"
+            app:layout_constraintTop_toBottomOf="@+id/tvTeleponSupplierInfo" />
 
-    <TextView
-        android:id="@+id/tvProvinsiSupplierInfo"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="30dp"
-        android:layout_marginTop="30dp"
-        android:text="Provinsi"
-        android:textColor="@color/white"
-        android:textSize="15sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvKotaSupplierInfoo" />
+        <TextView
+            android:id="@+id/tvAlamatSupplierInfo"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="30dp"
+            android:text="Alamat"
+            android:textColor="@color/white"
+            android:textSize="15sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvTeleponSupplierInfoo" />
 
-    <TextView
-        android:id="@+id/tvProvinsiSupplierInfoo"
-        android:layout_width="0dp"
-        android:layout_height="30dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="30dp"
-        android:background="@drawable/rounded_corners"
-        android:hint="Provinsi"
-        android:textColor="@color/black"
-        android:paddingStart="10dp"
-        android:paddingTop="5dp"
-        android:paddingEnd="10dp"
-        android:paddingBottom="5dp"
-        android:textColorHint="@color/grey"
-        android:textSize="15sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/tvNamaSupplierInfo"
-        app:layout_constraintTop_toBottomOf="@+id/tvProvinsiSupplierInfo" />
+        <TextView
+            android:id="@+id/tvAlamatSupplierInfoo"
+            android:layout_width="0dp"
+            android:layout_height="30dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="30dp"
+            android:background="@drawable/rounded_corners"
+            android:hint="Alamat Anda"
+            android:textColor="@color/black"
+            android:paddingStart="10dp"
+            android:paddingTop="5dp"
+            android:paddingEnd="10dp"
+            android:paddingBottom="5dp"
+            android:textColorHint="@color/grey"
+            android:textSize="15sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/tvNamaSupplierInfo"
+            app:layout_constraintTop_toBottomOf="@+id/tvAlamatSupplierInfo" />
 
-    <TextView
-        android:id="@+id/tvKodePosSupplierInfo"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="30dp"
-        android:layout_marginTop="30dp"
-        android:text="Kode Pos"
-        android:textColor="@color/white"
-        android:textSize="15sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvProvinsiSupplierInfoo" />
+        <TextView
+            android:id="@+id/tvKotaSupplierInfo"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="30dp"
+            android:text="Kota"
+            android:textColor="@color/white"
+            android:textSize="15sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvAlamatSupplierInfoo" />
 
-    <TextView
-        android:id="@+id/tvKodePosSupplierInfoo"
-        android:layout_width="0dp"
-        android:layout_height="30dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="30dp"
-        android:background="@drawable/rounded_corners"
-        android:hint="Kode Pos"
-        android:textColor="@color/black"
-        android:paddingStart="10dp"
-        android:paddingTop="5dp"
-        android:paddingEnd="10dp"
-        android:paddingBottom="5dp"
-        android:textColorHint="@color/grey"
-        android:textSize="15sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/tvNamaSupplierInfo"
-        app:layout_constraintTop_toBottomOf="@+id/tvKodePosSupplierInfo" />
+        <TextView
+            android:id="@+id/tvKotaSupplierInfoo"
+            android:layout_width="0dp"
+            android:layout_height="30dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="30dp"
+            android:background="@drawable/rounded_corners"
+            android:hint="Kota"
+            android:textColor="@color/black"
+            android:paddingStart="10dp"
+            android:paddingTop="5dp"
+            android:paddingEnd="10dp"
+            android:paddingBottom="5dp"
+            android:textColorHint="@color/grey"
+            android:textSize="15sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/tvNamaSupplierInfo"
+            app:layout_constraintTop_toBottomOf="@+id/tvKotaSupplierInfo" />
+
+        <TextView
+            android:id="@+id/tvProvinsiSupplierInfo"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="30dp"
+            android:text="Provinsi"
+            android:textColor="@color/white"
+            android:textSize="15sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvKotaSupplierInfoo" />
+
+        <TextView
+            android:id="@+id/tvProvinsiSupplierInfoo"
+            android:layout_width="0dp"
+            android:layout_height="30dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="30dp"
+            android:background="@drawable/rounded_corners"
+            android:hint="Provinsi"
+            android:textColor="@color/black"
+            android:paddingStart="10dp"
+            android:paddingTop="5dp"
+            android:paddingEnd="10dp"
+            android:paddingBottom="5dp"
+            android:textColorHint="@color/grey"
+            android:textSize="15sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/tvNamaSupplierInfo"
+            app:layout_constraintTop_toBottomOf="@+id/tvProvinsiSupplierInfo" />
+
+        <TextView
+            android:id="@+id/tvKodePosSupplierInfo"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="30dp"
+            android:text="Kode Pos"
+            android:textColor="@color/white"
+            android:textSize="15sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvProvinsiSupplierInfoo" />
+
+        <TextView
+            android:id="@+id/tvKodePosSupplierInfoo"
+            android:layout_width="0dp"
+            android:layout_height="30dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="30dp"
+            android:background="@drawable/rounded_corners"
+            android:hint="Kode Pos"
+            android:textColor="@color/black"
+            android:paddingStart="10dp"
+            android:paddingTop="5dp"
+            android:paddingEnd="10dp"
+            android:paddingBottom="5dp"
+            android:textColorHint="@color/grey"
+            android:textSize="15sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/tvNamaSupplierInfo"
+            app:layout_constraintTop_toBottomOf="@+id/tvKodePosSupplierInfo" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

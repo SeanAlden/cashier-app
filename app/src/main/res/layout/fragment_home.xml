@@ -8,17 +8,27 @@
     android:background="@color/black"
     tools:context=".fHome">
 
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintTop_toBottomOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
     <ImageView
         android:layout_width="65dp"
         android:layout_height="44dp"
         android:layout_marginStart="24dp"
         android:src="@drawable/smartact_logo"
-        app:layout_constraintBottom_toBottomOf="@+id/imgNusantaraTitlee"
+        app:layout_constraintBottom_toBottomOf="@+id/imgCashierTitle"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/imgNusantaraTitlee" />
+        app:layout_constraintTop_toTopOf="@+id/imgCashierTitle" />
 
     <ImageView
-        android:id="@+id/imgNusantaraTitlee"
+        android:id="@+id/imgCashierTitle"
         android:layout_width="242dp"
         android:layout_height="61dp"
         android:layout_marginTop="24dp"
@@ -27,132 +37,150 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <ImageButton
-        android:id="@+id/btnProduk"
-        android:layout_width="95dp"
-        android:layout_height="88dp"
-        android:layout_marginStart="80dp"
-        android:layout_marginTop="30dp"
-        android:background="@drawable/rounded_corners"
-        android:src="@drawable/produk_logo"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imgCashier" />
 
-    <TextView
-        android:id="@+id/tvProduk"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="7dp"
-        android:fontFamily="@font/poppinssemibold"
-        android:text="Product"
-        android:textAlignment="center"
-        android:textColor="@color/white"
-        app:layout_constraintEnd_toEndOf="@+id/btnProduk"
-        app:layout_constraintStart_toStartOf="@+id/btnProduk"
-        app:layout_constraintTop_toBottomOf="@+id/btnProduk" />
+            <ImageButton
+                android:id="@+id/btnProduk"
+                android:layout_width="95dp"
+                android:layout_height="88dp"
+                android:layout_marginTop="30dp"
+                android:background="@drawable/rounded_corners"
+                android:src="@drawable/produk_logo"
+                app:layout_constraintStart_toStartOf="@+id/guideline1"
+                app:layout_constraintTop_toBottomOf="@+id/imgCashier" />
 
-    <ImageButton
-        android:id="@+id/btnSupplier"
-        android:layout_width="95dp"
-        android:layout_height="88dp"
-        android:layout_marginEnd="80dp"
-        android:background="@drawable/rounded_corners"
-        android:src="@drawable/supplier_logo"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/btnProduk" />
+                <TextView
+                    android:id="@+id/tvProduk"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="7dp"
+                    android:fontFamily="@font/poppinssemibold"
+                    android:text="Product"
+                    android:textAlignment="center"
+                    android:textColor="@color/white"
+                    app:layout_constraintEnd_toEndOf="@+id/btnProduk"
+                    app:layout_constraintStart_toStartOf="@+id/btnProduk"
+                    app:layout_constraintTop_toBottomOf="@+id/btnProduk" />
 
-    <TextView
-        android:id="@+id/tvSupplierr"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="7dp"
-        android:fontFamily="@font/poppinssemibold"
-        android:text="Supplier"
-        android:textAlignment="center"
-        android:textColor="@color/white"
-        app:layout_constraintEnd_toEndOf="@+id/btnSupplier"
-        app:layout_constraintStart_toStartOf="@+id/btnSupplier"
-        app:layout_constraintTop_toBottomOf="@+id/btnSupplier" />
+            <ImageButton
+                android:id="@+id/btnSupplier"
+                android:layout_width="95dp"
+                android:layout_height="88dp"
+                android:background="@drawable/rounded_corners"
+                android:src="@drawable/supplier_logo"
+                app:layout_constraintEnd_toStartOf="@+id/guideline2"
+                app:layout_constraintTop_toTopOf="@+id/btnProduk" />
 
-    <ImageButton
-        android:id="@+id/btnCashier"
-        android:layout_width="95dp"
-        android:layout_height="88dp"
-        android:layout_marginTop="25dp"
-        android:background="@drawable/rounded_corners"
-        android:src="@drawable/cashier_logo"
-        app:layout_constraintEnd_toEndOf="@+id/tvProduk"
-        app:layout_constraintTop_toBottomOf="@+id/tvProduk" />
+                <TextView
+                    android:id="@+id/tvSupplierr"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="7dp"
+                    android:fontFamily="@font/poppinssemibold"
+                    android:text="Supplier"
+                    android:textAlignment="center"
+                    android:textColor="@color/white"
+                    app:layout_constraintEnd_toEndOf="@+id/btnSupplier"
+                    app:layout_constraintStart_toStartOf="@+id/btnSupplier"
+                    app:layout_constraintTop_toBottomOf="@+id/btnSupplier" />
 
-    <TextView
-        android:id="@+id/tvCashier"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="7dp"
-        android:fontFamily="@font/poppinssemibold"
-        android:text="Cashier"
-        android:textAlignment="center"
-        android:textColor="@color/white"
-        app:layout_constraintEnd_toEndOf="@+id/btnCashier"
-        app:layout_constraintStart_toStartOf="@+id/btnCashier"
-        app:layout_constraintTop_toBottomOf="@+id/btnCashier" />
+            <ImageButton
+                android:id="@+id/btnCashier"
+                android:layout_width="95dp"
+                android:layout_height="0dp"
+                android:layout_marginTop="32dp"
+                android:background="@drawable/rounded_corners"
+                android:src="@drawable/cashier_logo"
+                app:layout_constraintEnd_toEndOf="@+id/tvProduk"
+                app:layout_constraintTop_toBottomOf="@+id/tvProduk" />
 
-    <ImageButton
-        android:id="@+id/btnInventory"
-        android:layout_width="95dp"
-        android:layout_height="88dp"
-        android:layout_marginTop="25dp"
-        android:background="@drawable/rounded_corners"
-        android:src="@drawable/inventory_logo"
-        app:layout_constraintEnd_toEndOf="@+id/btnSupplier"
-        app:layout_constraintTop_toBottomOf="@+id/tvSupplierr" />
+            <TextView
+                    android:id="@+id/tvCashier"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="7dp"
+                    android:fontFamily="@font/poppinssemibold"
+                    android:text="Cashier"
+                    android:textAlignment="center"
+                    android:textColor="@color/white"
+                    app:layout_constraintEnd_toEndOf="@+id/btnCashier"
+                    app:layout_constraintStart_toStartOf="@+id/btnCashier"
+                    app:layout_constraintTop_toBottomOf="@+id/btnCashier" />
 
-    <TextView
-        android:id="@+id/tvInventory"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="7dp"
-        android:fontFamily="@font/poppinssemibold"
-        android:text="Inventory"
-        android:textAlignment="center"
-        android:textColor="@color/white"
-        app:layout_constraintEnd_toEndOf="@+id/btnInventory"
-        app:layout_constraintStart_toStartOf="@+id/btnInventory"
-        app:layout_constraintTop_toBottomOf="@+id/btnCashier" />
+            <ImageButton
+                android:id="@+id/btnInventory"
+                android:layout_width="95dp"
+                android:layout_height="88dp"
+                android:layout_marginTop="32dp"
+                android:background="@drawable/rounded_corners"
+                android:src="@drawable/inventory_logo"
+                app:layout_constraintEnd_toEndOf="@+id/btnSupplier"
+                app:layout_constraintTop_toBottomOf="@+id/tvSupplierr" />
 
-    <TextView
-        android:id="@+id/tvHello"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="17dp"
-        android:fontFamily="@font/poppinssemibold"
-        android:text="Hello, "
-        android:textColor="@color/white"
-        android:textSize="26sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imgNusantaraTitlee" />
+                <TextView
+                    android:id="@+id/tvInventory"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="7dp"
+                    android:fontFamily="@font/poppinssemibold"
+                    android:text="Inventory"
+                    android:textAlignment="center"
+                    android:textColor="@color/white"
+                    app:layout_constraintEnd_toEndOf="@+id/btnInventory"
+                    app:layout_constraintStart_toStartOf="@+id/btnInventory"
+                    app:layout_constraintTop_toBottomOf="@+id/btnCashier" />
 
-    <TextView
-        android:id="@+id/tvShopName"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:fontFamily="@font/poppinsregular"
-        android:hint="yourName"
-        android:textColor="@color/white"
-        android:textColorHint="@color/grey"
-        android:textSize="26sp"
-        app:layout_constraintStart_toEndOf="@+id/tvHello"
-        app:layout_constraintTop_toTopOf="@+id/tvHello" />
+            <ImageView
+                android:id="@+id/imgCashier"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:src="@drawable/cashier_app_logo"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvHello" />
 
-    <ImageView
-        android:id="@+id/imgCashier"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:src="@drawable/cashier_app_logo"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvShopName" />
+            <TextView
+                android:id="@+id/tvHello"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="17dp"
+                android:fontFamily="@font/poppinssemibold"
+                android:text="Hello, "
+                android:textColor="@color/white"
+                android:textSize="26sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/imgCashierTitle" />
+
+            <TextView
+                android:id="@+id/tvShopName"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/poppinsregular"
+                android:hint="yourName"
+                android:textColor="@color/white"
+                android:textColorHint="@color/grey"
+                android:textSize="26sp"
+                app:layout_constraintStart_toEndOf="@+id/tvHello"
+                app:layout_constraintTop_toTopOf="@+id/tvHello" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guideline1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent="0.125"
+
+                />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guideline2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent="0.865"  />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

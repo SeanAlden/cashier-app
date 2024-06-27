@@ -8,6 +8,21 @@
     android:background="@color/black"
     tools:context=".editSupplierPage">
 
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardViewHeaderEditSupplier"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="8dp"
+        app:cardElevation="4dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_margin="0dp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
     <ImageView
         android:id="@+id/headerContainerEditSupplier"
         android:layout_width="0dp"
@@ -41,234 +56,249 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/headerContainerEditSupplier" />
 
-    <TextView
-        android:id="@+id/tvNamaSupplierEdit"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="30dp"
-        android:layout_marginTop="30dp"
-        android:text="Nama Supplier"
-        android:textColor="@color/white"
-        android:textSize="15sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/headerContainerEditSupplier" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
 
-    <EditText
-        android:id="@+id/etNamaSupplierEdit"
-        android:layout_width="0dp"
-        android:layout_height="30dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="30dp"
-        android:background="@drawable/rounded_corners"
-        android:hint="Masukkan Nama"
-        android:paddingStart="10dp"
-        android:paddingTop="5dp"
-        android:paddingEnd="10dp"
-        android:paddingBottom="5dp"
-        android:textColorHint="@color/grey"
-        android:textSize="15sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/tvNamaSupplierEdit"
-        app:layout_constraintTop_toBottomOf="@+id/tvNamaSupplierEdit" />
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintTop_toBottomOf="@+id/cardViewHeaderEditSupplier"
+        app:layout_constraintBottom_toBottomOf="parent">
 
-    <TextView
-        android:id="@+id/tvEmailSupplierEdit"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="30dp"
-        android:layout_marginTop="30dp"
-        android:text="Email"
-        android:textColor="@color/white"
-        android:textSize="15sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etNamaSupplierEdit" />
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
-    <EditText
-        android:id="@+id/etEmailSupplierEdit"
-        android:layout_width="0dp"
-        android:layout_height="30dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="30dp"
-        android:background="@drawable/rounded_corners"
-        android:hint="Masukkan Email"
-        android:paddingStart="10dp"
-        android:paddingTop="5dp"
-        android:paddingEnd="10dp"
-        android:paddingBottom="5dp"
-        android:textColorHint="@color/grey"
-        android:textSize="15sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/tvNamaSupplierEdit"
-        app:layout_constraintTop_toBottomOf="@+id/tvEmailSupplierEdit" />
+            <TextView
+                android:id="@+id/tvNamaSupplierEdit"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="30dp"
+                android:layout_marginTop="95dp"
+                android:text="Nama Supplier"
+                android:textColor="@color/white"
+                android:textSize="15sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/tvTeleponSupplierEdit"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="30dp"
-        android:layout_marginTop="30dp"
-        android:text="Telepon"
-        android:textColor="@color/white"
-        android:textSize="15sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etEmailSupplierEdit" />
+        <EditText
+            android:id="@+id/etNamaSupplierEdit"
+            android:layout_width="0dp"
+            android:layout_height="30dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="30dp"
+            android:background="@drawable/rounded_corners"
+            android:hint="Masukkan Nama"
+            android:paddingStart="10dp"
+            android:paddingTop="5dp"
+            android:paddingEnd="10dp"
+            android:paddingBottom="5dp"
+            android:textColorHint="@color/grey"
+            android:textSize="15sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/tvNamaSupplierEdit"
+            app:layout_constraintTop_toBottomOf="@+id/tvNamaSupplierEdit" />
 
-    <EditText
-        android:id="@+id/etTeleponSupplierEdit"
-        android:layout_width="0dp"
-        android:layout_height="30dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="30dp"
-        android:background="@drawable/rounded_corners"
-        android:hint="Masukkan Nomor Telepon"
-        android:paddingStart="10dp"
-        android:paddingTop="5dp"
-        android:paddingEnd="10dp"
-        android:paddingBottom="5dp"
-        android:textColorHint="@color/grey"
-        android:textSize="15sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/tvNamaSupplierEdit"
-        app:layout_constraintTop_toBottomOf="@+id/tvTeleponSupplierEdit" />
+        <TextView
+            android:id="@+id/tvEmailSupplierEdit"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="30dp"
+            android:text="Email"
+            android:textColor="@color/white"
+            android:textSize="15sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/etNamaSupplierEdit" />
 
-    <TextView
-        android:id="@+id/tvAlamatSupplierEdit"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="30dp"
-        android:layout_marginTop="30dp"
-        android:text="Alamat"
-        android:textColor="@color/white"
-        android:textSize="15sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etTeleponSupplierEdit" />
+        <EditText
+            android:id="@+id/etEmailSupplierEdit"
+            android:layout_width="0dp"
+            android:layout_height="30dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="30dp"
+            android:background="@drawable/rounded_corners"
+            android:hint="Masukkan Email"
+            android:paddingStart="10dp"
+            android:paddingTop="5dp"
+            android:paddingEnd="10dp"
+            android:paddingBottom="5dp"
+            android:textColorHint="@color/grey"
+            android:textSize="15sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/tvNamaSupplierEdit"
+            app:layout_constraintTop_toBottomOf="@+id/tvEmailSupplierEdit" />
 
-    <EditText
-        android:id="@+id/etAlamatSupplierEdit"
-        android:layout_width="0dp"
-        android:layout_height="30dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="30dp"
-        android:background="@drawable/rounded_corners"
-        android:hint="Masukkan Alamat"
-        android:paddingStart="10dp"
-        android:paddingTop="5dp"
-        android:paddingEnd="10dp"
-        android:paddingBottom="5dp"
-        android:textColorHint="@color/grey"
-        android:textSize="15sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/tvNamaSupplierEdit"
-        app:layout_constraintTop_toBottomOf="@+id/tvAlamatSupplierEdit" />
+        <TextView
+            android:id="@+id/tvTeleponSupplierEdit"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="30dp"
+            android:text="Telepon"
+            android:textColor="@color/white"
+            android:textSize="15sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/etEmailSupplierEdit" />
 
-    <TextView
-        android:id="@+id/tvKotaSupplierEdit"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="30dp"
-        android:layout_marginTop="30dp"
-        android:text="Kota"
-        android:textColor="@color/white"
-        android:textSize="15sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etAlamatSupplierEdit" />
+        <EditText
+            android:id="@+id/etTeleponSupplierEdit"
+            android:layout_width="0dp"
+            android:layout_height="30dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="30dp"
+            android:background="@drawable/rounded_corners"
+            android:hint="Masukkan Nomor Telepon"
+            android:paddingStart="10dp"
+            android:paddingTop="5dp"
+            android:paddingEnd="10dp"
+            android:paddingBottom="5dp"
+            android:textColorHint="@color/grey"
+            android:textSize="15sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/tvNamaSupplierEdit"
+            app:layout_constraintTop_toBottomOf="@+id/tvTeleponSupplierEdit" />
 
-    <EditText
-        android:id="@+id/etKotaSupplierEdit"
-        android:layout_width="0dp"
-        android:layout_height="30dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="30dp"
-        android:background="@drawable/rounded_corners"
-        android:hint="Kota"
-        android:paddingStart="10dp"
-        android:paddingTop="5dp"
-        android:paddingEnd="10dp"
-        android:paddingBottom="5dp"
-        android:textColorHint="@color/grey"
-        android:textSize="15sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/tvNamaSupplierEdit"
-        app:layout_constraintTop_toBottomOf="@+id/tvKotaSupplierEdit" />
+        <TextView
+            android:id="@+id/tvAlamatSupplierEdit"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="30dp"
+            android:text="Alamat"
+            android:textColor="@color/white"
+            android:textSize="15sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/etTeleponSupplierEdit" />
 
-    <TextView
-        android:id="@+id/tvProvinsiSupplierEdit"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="30dp"
-        android:layout_marginTop="30dp"
-        android:text="Provinsi"
-        android:textColor="@color/white"
-        android:textSize="15sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etKotaSupplierEdit" />
+        <EditText
+            android:id="@+id/etAlamatSupplierEdit"
+            android:layout_width="0dp"
+            android:layout_height="30dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="30dp"
+            android:background="@drawable/rounded_corners"
+            android:hint="Masukkan Alamat"
+            android:paddingStart="10dp"
+            android:paddingTop="5dp"
+            android:paddingEnd="10dp"
+            android:paddingBottom="5dp"
+            android:textColorHint="@color/grey"
+            android:textSize="15sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/tvNamaSupplierEdit"
+            app:layout_constraintTop_toBottomOf="@+id/tvAlamatSupplierEdit" />
 
-    <EditText
-        android:id="@+id/etProvinsiSupplierEdit"
-        android:layout_width="0dp"
-        android:layout_height="30dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="30dp"
-        android:background="@drawable/rounded_corners"
-        android:hint="Provinsi"
-        android:paddingStart="10dp"
-        android:paddingTop="5dp"
-        android:paddingEnd="10dp"
-        android:paddingBottom="5dp"
-        android:textColorHint="@color/grey"
-        android:textSize="15sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/tvNamaSupplierEdit"
-        app:layout_constraintTop_toBottomOf="@+id/tvProvinsiSupplierEdit" />
+        <TextView
+            android:id="@+id/tvKotaSupplierEdit"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="30dp"
+            android:text="Kota"
+            android:textColor="@color/white"
+            android:textSize="15sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/etAlamatSupplierEdit" />
 
-    <TextView
-        android:id="@+id/tvKodePosSupplierEdit"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="30dp"
-        android:layout_marginTop="30dp"
-        android:text="Kode Pos"
-        android:textColor="@color/white"
-        android:textSize="15sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etProvinsiSupplierEdit" />
+        <EditText
+            android:id="@+id/etKotaSupplierEdit"
+            android:layout_width="0dp"
+            android:layout_height="30dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="30dp"
+            android:background="@drawable/rounded_corners"
+            android:hint="Kota"
+            android:paddingStart="10dp"
+            android:paddingTop="5dp"
+            android:paddingEnd="10dp"
+            android:paddingBottom="5dp"
+            android:textColorHint="@color/grey"
+            android:textSize="15sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/tvNamaSupplierEdit"
+            app:layout_constraintTop_toBottomOf="@+id/tvKotaSupplierEdit" />
 
-    <EditText
-        android:id="@+id/etKodePosSupplierEdit"
-        android:layout_width="0dp"
-        android:layout_height="30dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="30dp"
-        android:background="@drawable/rounded_corners"
-        android:hint="Kode Pos"
-        android:paddingStart="10dp"
-        android:paddingTop="5dp"
-        android:paddingEnd="10dp"
-        android:paddingBottom="5dp"
-        android:textColorHint="@color/grey"
-        android:textSize="15sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/tvNamaSupplierEdit"
-        app:layout_constraintTop_toBottomOf="@+id/tvKodePosSupplierEdit" />
+        <TextView
+            android:id="@+id/tvProvinsiSupplierEdit"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="30dp"
+            android:text="Provinsi"
+            android:textColor="@color/white"
+            android:textSize="15sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/etKotaSupplierEdit" />
 
-    <Button
-        android:id="@+id/btnSaveEditSupplierData"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="30dp"
-        android:layout_marginTop="50dp"
-        android:layout_marginEnd="30dp"
-        android:backgroundTint="#4CAF50"
-        android:text="Save"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etKodePosSupplierEdit" />
+        <EditText
+            android:id="@+id/etProvinsiSupplierEdit"
+            android:layout_width="0dp"
+            android:layout_height="30dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="30dp"
+            android:background="@drawable/rounded_corners"
+            android:hint="Provinsi"
+            android:paddingStart="10dp"
+            android:paddingTop="5dp"
+            android:paddingEnd="10dp"
+            android:paddingBottom="5dp"
+            android:textColorHint="@color/grey"
+            android:textSize="15sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/tvNamaSupplierEdit"
+            app:layout_constraintTop_toBottomOf="@+id/tvProvinsiSupplierEdit" />
+
+        <TextView
+            android:id="@+id/tvKodePosSupplierEdit"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="30dp"
+            android:text="Kode Pos"
+            android:textColor="@color/white"
+            android:textSize="15sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/etProvinsiSupplierEdit" />
+
+        <EditText
+            android:id="@+id/etKodePosSupplierEdit"
+            android:layout_width="0dp"
+            android:layout_height="30dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="30dp"
+            android:background="@drawable/rounded_corners"
+            android:hint="Kode Pos"
+            android:paddingStart="10dp"
+            android:paddingTop="5dp"
+            android:paddingEnd="10dp"
+            android:paddingBottom="5dp"
+            android:textColorHint="@color/grey"
+            android:textSize="15sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/tvNamaSupplierEdit"
+            app:layout_constraintTop_toBottomOf="@+id/tvKodePosSupplierEdit" />
+
+        <Button
+            android:id="@+id/btnSaveEditSupplierData"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="50dp"
+            android:layout_marginEnd="30dp"
+            android:backgroundTint="#4CAF50"
+            android:text="Save"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/etKodePosSupplierEdit" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
