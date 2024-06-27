@@ -85,7 +85,7 @@
             <EditText
                 android:id="@+id/etNamaProduk"
                 android:layout_width="0dp"
-                android:layout_height="40dp"
+                android:layout_height="wrap_content"
                 android:layout_marginStart="40dp"
                 android:layout_marginTop="10dp"
                 android:layout_marginEnd="40dp"
@@ -115,7 +115,7 @@
             <EditText
                 android:id="@+id/etDeskripsiProduk"
                 android:layout_width="0dp"
-                android:layout_height="40dp"
+                android:layout_height="wrap_content"
                 android:layout_marginStart="40dp"
                 android:layout_marginTop="10dp"
                 android:layout_marginEnd="40dp"
@@ -145,7 +145,7 @@
             <EditText
                 android:id="@+id/etKategoriProduk"
                 android:layout_width="0dp"
-                android:layout_height="40dp"
+                android:layout_height="wrap_content"
                 android:layout_marginStart="40dp"
                 android:layout_marginTop="10dp"
                 android:layout_marginEnd="40dp"
@@ -174,7 +174,7 @@
             <Spinner
                 android:id="@+id/dropdownSupplier"
                 android:layout_width="0dp"
-                android:layout_height="40dp"
+                android:layout_height="wrap_content"
                 android:layout_marginStart="40dp"
                 android:layout_marginTop="10dp"
                 android:layout_marginEnd="40dp"
@@ -202,7 +202,7 @@
             <EditText
                 android:id="@+id/etHargaPokokProduk"
                 android:layout_width="0dp"
-                android:layout_height="40dp"
+                android:layout_height="wrap_content"
                 android:layout_marginStart="40dp"
                 android:layout_marginTop="10dp"
                 android:layout_marginEnd="40dp"
@@ -231,7 +231,7 @@
             <EditText
                 android:id="@+id/etHargaJualProduk"
                 android:layout_width="0dp"
-                android:layout_height="40dp"
+                android:layout_height="wrap_content"
                 android:layout_marginStart="40dp"
                 android:layout_marginTop="10dp"
                 android:layout_marginEnd="40dp"
@@ -260,7 +260,7 @@
             <EditText
                 android:id="@+id/etJumlahProduk"
                 android:layout_width="0dp"
-                android:layout_height="40dp"
+                android:layout_height="wrap_content"
                 android:layout_marginStart="40dp"
                 android:layout_marginTop="10dp"
                 android:layout_marginEnd="40dp"
@@ -290,7 +290,7 @@
             <EditText
                 android:id="@+id/etSatuanProduk"
                 android:layout_width="0dp"
-                android:layout_height="40dp"
+                android:layout_height="wrap_content"
                 android:layout_marginStart="40dp"
                 android:layout_marginTop="10dp"
                 android:layout_marginEnd="40dp"

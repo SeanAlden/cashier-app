@@ -6,6 +6,7 @@ import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.AdapterView.OnItemClickListener
 import android.widget.ImageButton
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
@@ -17,7 +18,8 @@ import project.c14210052.proyekakhir_paba.editSupplierPage
 class adapterSupplier(
     private val suppList: MutableList<Supplier>,
     private val listener: OnDeleteClickListener,
-    private val editListener: OnEditClickListener)
+    private val editListener: OnEditClickListener,
+    private val itemClickListener: OnItemClickListener)
     : RecyclerView.Adapter<adapterSupplier.SupplierViewHolder>(){
 
     interface OnDeleteClickListener {
@@ -26,6 +28,11 @@ class adapterSupplier(
     interface OnEditClickListener {
         fun onEditClick(suppItem: Supplier)
     }
+
+    interface OnItemClickListener {
+        fun onItemClick(suppItem: Supplier)
+    }
+
     class SupplierViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val _namaSupplier: TextView = itemView.findViewById(R.id.namaPrdk)
         val _alamatSupplier: TextView = itemView.findViewById(R.id.kategoriPrdk)
@@ -68,6 +75,12 @@ class adapterSupplier(
                         dialog.dismiss()
                     }
                 builder.create().show()
+            }
+        }
+        holder.itemView.setOnClickListener {
+            val currentPosition = holder.adapterPosition
+            if (currentPosition != RecyclerView.NO_POSITION) {
+                itemClickListener.onItemClick(supplier)
             }
         }
     }
