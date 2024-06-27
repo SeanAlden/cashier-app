@@ -26,28 +26,20 @@ class editProfilePage : AppCompatActivity() {
         val db = Firebase.firestore
         lateinit var userID:String
         super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
         setContentView(R.layout.activity_edit_profile)
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
-            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
-            insets
-        }
-
         auth = Firebase.auth
-
         var intentData = intent.getParcelableExtra<Users>("kirimDataProfile")
-        var _etFullname: EditText = findViewById(R.id.etFullNameEditProfile)
-        var _btnSave: Button = findViewById(R.id.btnSaveEditProfile)
+        var _etFullname:EditText = findViewById(R.id.etFullNameEditProfile)
+        var _btnSave:Button = findViewById(R.id.btnSaveEditProfile)
         _etFullname.setText(intentData!!.fullname.toString())
         userID = auth.currentUser!!.uid
 
         _btnSave.setOnClickListener {
             val docRef = db.collection("users").document(userID)
-            val newData = Users(docRef.id,_etFullname.text.toString(), intentData.email.toString(), intentData.password.toString(), intentData.status.toString())
+            val newData = Users(docRef.id,_etFullname.text.toString(),intentData.email.toString(),intentData.password.toString(),intentData.status.toString())
 
             docRef.set(newData).addOnSuccessListener {
-                Toast.makeText(this@editProfilePage, "Edit Profile Success", Toast.LENGTH_LONG).show()
+                Toast.makeText(this@editProfilePage,"Edit Profile Success",Toast.LENGTH_LONG).show()
             }
             finish()
         }

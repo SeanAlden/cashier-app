@@ -6,18 +6,30 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageButton
+import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import com.google.firebase.firestore.FirebaseFirestore
 import com.google.gson.Gson
 import project.c14210052.proyekakhir_paba.dataClass.Supplier
 
 class editSupplierPage : AppCompatActivity() {
 
-    private lateinit var _backButton : ImageButton
-    private lateinit var _saveButton : Button
-    private lateinit var supplier: Supplier
+    private lateinit var _etEditNamaSupp: EditText
+    private lateinit var _etEditEmailSupp: EditText
+    private lateinit var _etEditNomorTelpSupp: EditText
+    private lateinit var _etEditAlamatSupp: EditText
+    private lateinit var _etEditKotaSupp: EditText
+    private lateinit var _etEditProvinsiSupp: EditText
+    private lateinit var _etEditKodeSupp: EditText
+    private lateinit var _btnSaveEditSupp: Button
+    private lateinit var _btnBackFromEditSupp: ImageButton
+
+    private lateinit var db: FirebaseFirestore
+
+    private var suppId: String? = null
 
     @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -30,57 +42,73 @@ class editSupplierPage : AppCompatActivity() {
             insets
         }
 
-        _backButton = findViewById<ImageButton>(R.id.btnBackFromEditSupplier)
-        _saveButton = findViewById(R.id.btnSaveEditSupplierData)
+        db = FirebaseFirestore.getInstance()
 
-        // Get the passed supplier data
-        val supplierJson = intent.getStringExtra("supplier")
-        supplier = Gson().fromJson(supplierJson, Supplier::class.java)
+        _etEditNamaSupp = findViewById(R.id.etNamaSupplierEdit)
+        _etEditEmailSupp = findViewById(R.id.etEmailSupplierEdit)
+        _etEditNomorTelpSupp = findViewById(R.id.etTeleponSupplierEdit)
+        _etEditAlamatSupp = findViewById(R.id.etAlamatSupplierEdit)
+        _etEditKotaSupp = findViewById(R.id.etKotaSupplierEdit)
+        _etEditProvinsiSupp = findViewById(R.id.etProvinsiSupplierEdit)
+        _etEditKodeSupp = findViewById(R.id.etKodePosSupplierEdit)
 
-        // Initialize UI elements
-        var etNamaSupplier = findViewById<EditText>(R.id.etNamaSupplierEdit)
-        var etEmailSupplier = findViewById<EditText>(R.id.etEmailSupplierEdit)
-        var etTeleponSupplier = findViewById<EditText>(R.id.etTeleponSupplierEdit)
-        var etAlamatSupplier = findViewById<EditText>(R.id.etAlamatSupplierEdit)
-        var etKotaSupplier = findViewById<EditText>(R.id.etKotaSupplierEdit)
-        var etProvinsiSupplier = findViewById<EditText>(R.id.etProvinsiSupplierEdit)
-        var etKodePosSupplier = findViewById<EditText>(R.id.etKodePosSupplierEdit)
+        _btnSaveEditSupp = findViewById(R.id.btnSaveEditSupplierData)
+        _btnBackFromEditSupp = findViewById(R.id.btnBackFromEditSupplier)
 
-        // Populate fields with current data
-        etNamaSupplier.setText(supplier.namaSupplier)
-        etEmailSupplier.setText(supplier.emailSupplier)
-        etTeleponSupplier.setText(supplier.teleponSupplier)
-        etAlamatSupplier.setText(supplier.alamatSupplier)
-        etKotaSupplier.setText(supplier.kotaSupplier)
-        etProvinsiSupplier.setText(supplier.provinsiSupplier)
-        etKodePosSupplier.setText(supplier.kodeSupplier)
+        suppId = intent.getStringExtra("SUPP_ID")
+        _etEditNamaSupp.setText(intent.getStringExtra("SUPP_NAME"))
+        _etEditEmailSupp.setText(intent.getStringExtra("SUPP_EMAIL"))
+        _etEditNomorTelpSupp.setText(intent.getStringExtra("SUPP_TELP"))
+        _etEditAlamatSupp.setText(intent.getStringExtra("SUPP_ALAMAT"))
+        _etEditKotaSupp.setText(intent.getStringExtra("SUPP_KOTA"))
+        _etEditProvinsiSupp.setText(intent.getStringExtra("SUPP_PROV"))
+        _etEditKodeSupp.setText(intent.getStringExtra("SUPP_KODE"))
 
-        _backButton.setOnClickListener {
+        _btnSaveEditSupp.setOnClickListener {
+            updateSupp()
+        }
+
+        _btnBackFromEditSupp.setOnClickListener {
             val intent = Intent(this@editSupplierPage, supplierListPage::class.java)
             startActivity(intent)
         }
+    }
 
-        _saveButton.setOnClickListener {
-            // Update the supplier object with new data
-            supplier = Supplier(
-                etNamaSupplier.text.toString(),
-                etEmailSupplier.text.toString(),
-                etTeleponSupplier.text.toString(),
-                etAlamatSupplier.text.toString(),
-                etKotaSupplier.text.toString(),
-                etProvinsiSupplier.text.toString(),
-                etKodePosSupplier.text.toString()
-            )
+    private fun updateSupp() {
+        val nama = _etEditNamaSupp.text.toString()
+        val email = _etEditEmailSupp.text.toString()
+        val nomorTelp = _etEditNomorTelpSupp.text.toString()
+        val alamat = _etEditAlamatSupp.text.toString()
+        val kota = _etEditKotaSupp.text.toString()
+        val provinsi = _etEditProvinsiSupp.text.toString()
+        val kode = _etEditKodeSupp.text.toString()
 
-            // Convert updated supplier to JSON and pass back
-            val resultIntent = Intent()
-            resultIntent.putExtra("updateSupplier", Gson().toJson(supplier))
-            setResult(RESULT_OK, resultIntent)
+        if (nama.isEmpty() || email.isEmpty() || nomorTelp.isEmpty()
+            || alamat.isEmpty() || kota.isEmpty() || provinsi.isEmpty() || kode.isEmpty()
+        ) {
+            Toast.makeText(this, "Please fill out all fields", Toast.LENGTH_SHORT).show()
+            return
+        }
 
-//            val supplierJsonn = intent.getStringExtra("updateSupplier")
-//            supplier = Gson().fromJson(supplierJsonn, Supplier::class.java)
-
-            finish()
+        if (suppId != null) {
+            db.collection("tbSupplier").document(suppId!!)
+                .update(
+                    mapOf(
+                        "namaSupplier" to nama,
+                        "emailSupplier" to email,
+                        "alamatSupplier" to alamat,
+                        "kotaSupplier" to kota,
+                        "provinsiSupplier" to provinsi,
+                        "kodeSupplier" to kode
+                    ))
+                .addOnSuccessListener {
+                    finish()
+                }
+                .addOnFailureListener { e ->
+                    println("Failed to update item: ${e.message}")
+                }
         }
     }
 }
+
+

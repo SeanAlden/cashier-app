@@ -1,21 +1,26 @@
 package project.c14210052.proyekakhir_paba
 
 import android.annotation.SuppressLint
+import android.content.DialogInterface
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
+import com.google.firebase.auth.auth
 import com.google.firebase.auth.ktx.auth
+import com.google.firebase.firestore.firestore
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
+import project.c14210052.proyekakhir_paba.adapter.adapterProfile
 import project.c14210052.proyekakhir_paba.dataClass.Users
-
-//import project.c14210052.proyekakhir_paba.ARG_PARAM1
-//import project.c14210052.proyekakhir_paba.ARG_PARAM2
 
 /**
  * A simple [Fragment] subclass.
@@ -49,24 +54,23 @@ class fProfile : Fragment() {
         }
     }
 
-    @SuppressLint("MissingInflatedId")
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_profile, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        auth = Firebase.auth
-//        _rvAsetProfile.layoutManager = LinearLayoutManager(context)
-//        _rvAsetProfile = view.findViewById(R.id.rvProfile)
+        auth = com.google.firebase.Firebase.auth
+        _rvAsetProfile = view.findViewById(R.id.rvProfile)
         userID = auth.currentUser!!.uid
         user = auth.currentUser!!
         showData()
-    }
 
+    }
 
     fun addUsers() {
         var docRef = db.collection("users").document(userID)
@@ -86,51 +90,53 @@ class fProfile : Fragment() {
     }
 
     fun showData() {
-//        _rvAsetProfile.layoutManager = LinearLayoutManager(super.requireActivity() as MainActivity)
-//        val adapterPr = adapterProfile(listUsers)
-//        _rvAsetProfile.adapter = adapterPr
-//
-//        adapterPr.setOnItemClickCallback(object : adapterProfile.OnItemClickCallBack {
-//            override fun editProfile(data: Users) {
-//                val intent = Intent(requireActivity() as MainActivity, editProfilePage::class.java)
-//                intent.putExtra("kirimDataProfile", data)
-//                startActivity(intent)
-//            }
-//
-//            override fun signOut(data: Users) {
-//                Firebase.auth.signOut()
-//                startActivity(Intent(requireActivity() as MainActivity, loginPage::class.java))
-//                Toast.makeText(
-//                    requireActivity() as MainActivity,
-//                    "Sign Out Berhasil",
-//                    Toast.LENGTH_LONG
-//                ).show()
-//            }
-//
-//            override fun deleteProfile(data: Users) {
-//                AlertDialog.Builder(requireActivity() as MainActivity).setTitle("Delete Account")
-//                    .setMessage("Apakah Anda yakin ingin menghapus akun?")
-//                    .setPositiveButton("Hapus", DialogInterface.OnClickListener { dialog, which ->
-//                        Toast.makeText(
-//                            requireActivity() as MainActivity,
-//                            "Delete Akun Sukses",
-//                            Toast.LENGTH_LONG
-//                        ).show()
-//                        db.collection("users").document(userID).delete()
-//                        user.delete()
-//                        startActivity(
-//                            Intent(
-//                                requireActivity() as MainActivity,
-//                                loginPage::class.java
-//                            )
-//                        )
-//                    })
-//                    .setNegativeButton("Cancel", DialogInterface.OnClickListener { dialog, which ->
-//
-//                    })
-//                    .show()
-//            }
-//        })
+        _rvAsetProfile.layoutManager = LinearLayoutManager(super.requireActivity() as MainActivity)
+        val adapterPr = adapterProfile(listUsers)
+        _rvAsetProfile.adapter = adapterPr
+
+
+        adapterPr.setOnItemClickCallback(object : adapterProfile.OnItemClickCallback {
+            override fun editProfile(data: Users) {
+                val intent = Intent(requireActivity() as MainActivity, editProfilePage::class.java)
+                intent.putExtra("kirimDataProfile", data)
+                startActivity(intent)
+            }
+
+            override fun signOut(data: Users) {
+                com.google.firebase.Firebase.auth.signOut()
+                startActivity(Intent(requireActivity() as MainActivity, loginPage::class.java))
+                Toast.makeText(
+                    requireActivity() as MainActivity,
+                    "Sign out Success",
+                    Toast.LENGTH_LONG
+                ).show()
+            }
+
+            override fun deleteProfile(data: Users) {
+                AlertDialog.Builder(requireActivity() as MainActivity).setTitle("Delete Account")
+                    .setMessage("Apakah benar akun ini mau dihapus")
+                    .setPositiveButton("Hapus", DialogInterface.OnClickListener { dialog, which ->
+                        Toast.makeText(
+                            requireActivity() as MainActivity,
+                            "Delete Account Successful",
+                            Toast.LENGTH_LONG
+                        ).show()
+                        db.collection("users").document(userID).delete()
+                        user.delete()
+                        startActivity(
+                            Intent(
+                                requireActivity() as MainActivity,
+                                loginPage::class.java
+                            )
+                        )
+                    })
+                    .setNegativeButton("Batal", DialogInterface.OnClickListener { dialog, which ->
+
+                    })
+                    .show()
+            }
+
+        })
     }
 
     override fun onStart() {
@@ -145,7 +151,7 @@ class fProfile : Fragment() {
          *
          * @param param1 Parameter 1.
          * @param param2 Parameter 2.
-         * @return A new instance of fragment ProfileFragment.
+         * @return A new instance of fragment fProfile.
          */
         // TODO: Rename and change types and number of parameters
         @JvmStatic
