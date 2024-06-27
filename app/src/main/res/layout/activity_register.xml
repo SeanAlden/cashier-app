@@ -82,17 +82,42 @@
         app:layout_constraintTop_toBottomOf="@+id/tvFull_Name" />
 
     <TextView
+        android:id="@+id/tvUsername"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="25dp"
+        android:fontFamily="@font/poppinsregular"
+        android:text="Username"
+        android:textColor="@color/white"
+        android:textSize="15sp"
+        app:layout_constraintStart_toStartOf="@+id/etFull_Name"
+        app:layout_constraintTop_toBottomOf="@+id/etFull_Name" />
+
+    <EditText
+        android:id="@+id/etUsername"
+        android:layout_width="0dp"
+        android:layout_height="30dp"
+        android:layout_marginEnd="70dp"
+        android:background="@drawable/background"
+        android:hint="your userame"
+        android:textAlignment="center"
+        android:textColorHint="#717171"
+        android:textSize="15sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/tvUsername"
+        app:layout_constraintTop_toBottomOf="@+id/tvUsername" />
+
+    <TextView
         android:id="@+id/tvEmaill"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="50dp"
         android:layout_marginTop="25dp"
         android:fontFamily="@font/poppinsregular"
         android:text="Email"
         android:textColor="@color/white"
         android:textSize="15sp"
-        app:layout_constraintStart_toStartOf="@+id/tvSignUpDescription"
-        app:layout_constraintTop_toBottomOf="@+id/etFull_Name" />
+        app:layout_constraintStart_toStartOf="@+id/etUsername"
+        app:layout_constraintTop_toBottomOf="@+id/etUsername" />
 
     <EditText
         android:id="@+id/etEmaill"
@@ -142,13 +167,13 @@
         android:id="@+id/btnCreateAccount"
         android:layout_width="0dp"
         android:layout_height="50dp"
-        android:layout_marginTop="240dp"
+        android:layout_marginTop="90dp"
         android:layout_marginEnd="70dp"
         android:background="@drawable/background_login"
         android:text="CREATE ACCOUNT"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/etEmaill"
-        app:layout_constraintTop_toBottomOf="@+id/etEmaill" />
+        app:layout_constraintStart_toStartOf="@+id/etPasswordd"
+        app:layout_constraintTop_toBottomOf="@+id/etPasswordd" />
 
     <TextView
         android:id="@+id/tvQuestionGoToSignIn"

@@ -30,13 +30,15 @@ class editProfilePage : AppCompatActivity() {
         auth = Firebase.auth
         var intentData = intent.getParcelableExtra<Users>("kirimDataProfile")
         var _etFullname:EditText = findViewById(R.id.etFullNameEditProfile)
+        var _etUsername:EditText = findViewById(R.id.etUserNameEditProfile)
         var _btnSave:Button = findViewById(R.id.btnSaveEditProfile)
         _etFullname.setText(intentData!!.fullname.toString())
+        _etUsername.setText(intentData!!.username.toString())
         userID = auth.currentUser!!.uid
 
         _btnSave.setOnClickListener {
             val docRef = db.collection("users").document(userID)
-            val newData = Users(docRef.id,_etFullname.text.toString(),intentData.email.toString(),intentData.password.toString(),intentData.status.toString())
+            val newData = Users(docRef.id,_etFullname.text.toString(),_etUsername.text.toString(),intentData.email.toString(),intentData.password.toString(),intentData.status.toString())
 
             docRef.set(newData).addOnSuccessListener {
                 Toast.makeText(this@editProfilePage,"Edit Profile Success",Toast.LENGTH_LONG).show()

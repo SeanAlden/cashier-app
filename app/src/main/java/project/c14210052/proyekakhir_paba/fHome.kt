@@ -1,13 +1,19 @@
 package project.c14210052.proyekakhir_paba
 
 import android.annotation.SuppressLint
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageButton
+import android.widget.TextView
 import androidx.fragment.app.Fragment
+import com.google.firebase.Firebase
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.firestore
+
 //import project.c14210052.proyekakhir_paba.ARG_PARAM1
 //import project.c14210052.proyekakhir_paba.ARG_PARAM2
 
@@ -24,6 +30,10 @@ private const val ARG_PARAM2 = "param2"
 
 class fHome : Fragment() {
     // TODO: Rename and change types of parameters
+
+    private lateinit var auth: FirebaseAuth
+    private val db = Firebase.firestore
+
     private var param1: String? = null
     private var param2: String? = null
 
@@ -33,6 +43,8 @@ class fHome : Fragment() {
             param1 = it.getString(ARG_PARAM1)
             param2 = it.getString(ARG_PARAM2)
         }
+
+        auth = FirebaseAuth.getInstance()
     }
 
     @SuppressLint("MissingInflatedId")
@@ -47,6 +59,7 @@ class fHome : Fragment() {
         val _supplierBtn: ImageButton = view.findViewById(R.id.btnSupplier)
         val _cashierBtn: ImageButton = view.findViewById(R.id.btnCashier)
         val _inventoryBtn: ImageButton = view.findViewById(R.id.btnInventory)
+        val _tvUsernameCall: TextView = view.findViewById(R.id.tvUsernameCall)
 
         _produkBtn.setOnClickListener {
             val intentProduk = Intent(activity, daftarProdukPage::class.java)
@@ -66,6 +79,21 @@ class fHome : Fragment() {
         _inventoryBtn.setOnClickListener {
             val intentInventory = Intent(activity, inventoryPage::class.java)
             startActivity(intentInventory)
+        }
+
+        // mengambil username dari firestore dan tampilkan
+        val userID = auth.currentUser?.uid
+        if (userID != null) {
+            db.collection("users").document(userID).get()
+                .addOnSuccessListener { document ->
+                    if (document != null) {
+                        val username = document.getString("username") ?: "User"
+                        _tvUsernameCall.text = username
+                    }
+                }
+                .addOnFailureListener {
+                    // Handle failure
+                }
         }
 
         return view

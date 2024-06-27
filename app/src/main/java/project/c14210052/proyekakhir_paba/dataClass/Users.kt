@@ -6,11 +6,13 @@ import android.os.Parcelable
 data class Users(
     val idUsers: String?,
     val fullname: String?,
+    val username: String?,
     val email: String?,
     val password: String?,
     val status: String?
 ) : Parcelable {
     constructor(parcel: Parcel) : this(
+        parcel.readString(),
         parcel.readString(),
         parcel.readString(),
         parcel.readString(),
@@ -22,6 +24,7 @@ data class Users(
     override fun writeToParcel(parcel: Parcel, flags: Int) {
         parcel.writeString(idUsers)
         parcel.writeString(fullname)
+        parcel.writeString(username)
         parcel.writeString(email)
         parcel.writeString(password)
         parcel.writeString(status)

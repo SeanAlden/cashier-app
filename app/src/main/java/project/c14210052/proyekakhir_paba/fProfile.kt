@@ -80,6 +80,7 @@ class fProfile : Fragment() {
             val hasil = Users(
                 docRef.id,
                 it.getString("fullname"),
+                it.getString("username"),
                 it.getString("email"),
                 it.getString("password"),
                 it.getString("status")

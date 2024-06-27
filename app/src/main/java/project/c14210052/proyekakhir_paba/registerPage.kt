@@ -1,6 +1,7 @@
 package project.c14210052.proyekakhir_paba
 
 import android.annotation.SuppressLint
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.text.TextUtils
@@ -37,6 +38,7 @@ class registerPage : AppCompatActivity() {
         val _etEmail: EditText = findViewById(R.id.etEmaill)
         val _etPassword: EditText = findViewById(R.id.etPasswordd)
         val _etFullName: EditText = findViewById(R.id.etFull_Name)
+        val _etUsername: EditText = findViewById(R.id.etUsername)
         val _btnToLoginPage : Button = findViewById(R.id.btnGoToSignInPage)
 
         auth = Firebase.auth
@@ -48,6 +50,7 @@ class registerPage : AppCompatActivity() {
         _btnSignUp.setOnClickListener {
             val email = _etEmail.text.toString()
             val password = _etPassword.text.toString()
+
             if (TextUtils.isEmpty(email)){
                 _etEmail.setError("Email diperlukan")
                 return@setOnClickListener
@@ -61,13 +64,15 @@ class registerPage : AppCompatActivity() {
                 .addOnCompleteListener() { task ->
                     if (task.isSuccessful) {
                         userID = auth.currentUser!!.uid
-                        val data = Users(userID,_etFullName.text.toString(),email,password, "user")
+                        val data = Users(userID,_etFullName.text.toString(), _etUsername.text.toString(),email,password, "user")
                         db.collection("users").document(userID).set(data)
                             .addOnSuccessListener {
                                 _etFullName.setText("")
+                                _etUsername.setText("")
                                 _etEmail.setText("")
                                 _etPassword.setText("")
                                 Toast.makeText(this, "Account Created", Toast.LENGTH_LONG).show()
+
                                 finish()
                             }
 //                        val intent = Intent(this@RegisterActivity, LoginActivity::class.java)

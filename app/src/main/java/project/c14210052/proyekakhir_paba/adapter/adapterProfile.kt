@@ -20,6 +20,7 @@ class adapterProfile (
     private lateinit var onItemClickCallback: OnItemClickCallback
 
     inner class ListViewHolder(itemView: View): RecyclerView.ViewHolder(itemView){
+        var _tvUserName: TextView = itemView.findViewById(R.id.tvUsernameProfile)
         var _tvFullName: TextView = itemView.findViewById(R.id.tvFullNameProfile)
         var _tvEmail: TextView = itemView.findViewById(R.id.tvEmailProfile)
         var _btnSignOut: Button = itemView.findViewById(R.id.btnSignOutItem)
@@ -50,6 +51,7 @@ class adapterProfile (
     override fun onBindViewHolder(holder: adapterProfile.ListViewHolder, position: Int) {
         auth = Firebase.auth
         var asetUsers = listUsers[position]
+        holder._tvUserName.setText(asetUsers.username)
         holder._tvFullName.setText(asetUsers.fullname)
         holder._tvEmail.setText(asetUsers.email)
         holder._btnSignOut.setOnClickListener {
