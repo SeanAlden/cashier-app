@@ -57,27 +57,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/headerContainerProductCategory" />
 
-    <ImageButton
-        android:id="@+id/btnAddProductCategory"
-        android:layout_width="60dp"
-        android:layout_height="60dp"
-        android:layout_marginEnd="40dp"
-        android:layout_marginBottom="40dp"
-        android:background="@drawable/circle_shape"
-        android:backgroundTint="@color/blue"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
-
-    <ImageView
-        android:id="@+id/plusLogo"
-        android:layout_width="60dp"
-        android:layout_height="60dp"
-        android:background="@drawable/plus_symbol"
-        android:backgroundTint="@color/white"
-        app:layout_constraintBottom_toBottomOf="@+id/btnAddProductCategory"
-        app:layout_constraintEnd_toEndOf="@+id/btnAddProductCategory"
-        app:layout_constraintStart_toStartOf="@+id/btnAddProductCategory"
-        app:layout_constraintTop_toTopOf="@+id/btnAddProductCategory" />
 
     <ImageView
         android:id="@+id/headerContainerTable"
@@ -116,6 +95,28 @@
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>
+
+    <ImageButton
+        android:id="@+id/btnAddProductCategory"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginEnd="40dp"
+        android:layout_marginBottom="40dp"
+        android:background="@drawable/circle_shape"
+        android:backgroundTint="@color/blue"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <ImageView
+        android:id="@+id/plusLogo"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:background="@drawable/plus_symbol"
+        android:backgroundTint="@color/white"
+        app:layout_constraintBottom_toBottomOf="@+id/btnAddProductCategory"
+        app:layout_constraintEnd_toEndOf="@+id/btnAddProductCategory"
+        app:layout_constraintStart_toStartOf="@+id/btnAddProductCategory"
+        app:layout_constraintTop_toTopOf="@+id/btnAddProductCategory" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvCategory"
