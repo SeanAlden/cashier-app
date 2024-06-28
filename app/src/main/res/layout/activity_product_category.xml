@@ -105,7 +105,8 @@
         android:background="@drawable/circle_shape"
         android:backgroundTint="@color/blue"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        android:contentDescription="@string/add_product_category" />
 
     <ImageView
         android:id="@+id/plusLogo"
