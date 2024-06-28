@@ -127,21 +127,50 @@ class productCategoryPage : AppCompatActivity() {
     }
 
     private fun deleteCategoryFromFirestore(kategori: KategoriProduk){
-        val categoryRef = firestore.collection("kategoriProduk")
-            .whereEqualTo("idKategori", kategori.idKategori)
-
-        categoryRef.get().addOnSuccessListener { documents ->
-            for (document in documents) {
-                document.reference.delete()
-                    .addOnSuccessListener {
-                        fetchCategoriesFromFirestore()
-                    }
-                    .addOnFailureListener {
-
-                    }
-            }
-        }
+        showDeleteConfirmationDialog(kategori)
     }
+
+    private fun showDeleteConfirmationDialog(kategori: KategoriProduk) {
+        val dialog = AlertDialog.Builder(this)
+            .setTitle("Hapus Kategori")
+            .setMessage("Apakah Anda ingin menghapus kategori ini?")
+            .setNegativeButton("No", null)
+            .setPositiveButton("Yes") { _, _ ->
+                val categoryRef = firestore.collection("kategoriProduk")
+                    .whereEqualTo("idKategori", kategori.idKategori)
+
+                categoryRef.get().addOnSuccessListener { documents ->
+                    for (document in documents) {
+                        document.reference.delete()
+                            .addOnSuccessListener {
+                                fetchCategoriesFromFirestore()
+                            }
+                            .addOnFailureListener {
+                                // Handle failure
+                            }
+                    }
+                }
+            }
+            .create()
+        dialog.show()
+    }
+
+//    private fun deleteCategoryFromFirestore(kategori: KategoriProduk){
+//        val categoryRef = firestore.collection("kategoriProduk")
+//            .whereEqualTo("idKategori", kategori.idKategori)
+//
+//        categoryRef.get().addOnSuccessListener { documents ->
+//            for (document in documents) {
+//                document.reference.delete()
+//                    .addOnSuccessListener {
+//                        fetchCategoriesFromFirestore()
+//                    }
+//                    .addOnFailureListener {
+//
+//                    }
+//            }
+//        }
+//    }
 
     private fun setupRecyclerView() {
 //        adapterKategori = adapterKategori(kategoriList)
