@@ -32,8 +32,10 @@
                 android:id="@+id/imgNusantaraTitle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="20dp"
+                android:layout_marginStart="32dp"
+                android:layout_marginEnd="32dp"
                 android:src="@drawable/smartact_font"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/imgNusantara"
                 app:layout_constraintTop_toTopOf="@+id/imgNusantara" />
 
@@ -130,37 +132,42 @@
             android:layout_marginTop="90dp"
             android:layout_marginEnd="70dp"
             android:background="@drawable/background_login"
+            android:backgroundTint="@color/green"
             android:text="LOGIN"
+            android:textColor="@color/white"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="@+id/etPassword"
             app:layout_constraintTop_toBottomOf="@+id/etPassword" />
 
-        <TextView
-            android:id="@+id/tvQuestionGoToSignUp"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="20dp"
-            android:fontFamily="@font/poppinsregular"
-            android:text="DON’T HAVE AN ACCOUNT? "
-            android:textAlignment="center"
-            android:textColor="@color/white"
-            android:textSize="13sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="@+id/btnLogin" />
+            <TextView
+                android:id="@+id/tvQuestionGoToSignUp"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:layout_marginBottom="20dp"
+                android:fontFamily="@font/poppinsregular"
+                android:text="DON’T HAVE AN ACCOUNT? "
+                android:textAlignment="center"
+                android:textColor="@color/white"
+                android:textSize="13sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/btnGoToSignUpPage"
+                app:layout_constraintStart_toStartOf="@+id/btnLogin"
+                app:layout_constraintTop_toTopOf="@+id/btnGoToSignUpPage" />
 
-                <Button
-                    android:id="@+id/btnGoToSignUpPage"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="80dp"
-                    android:layout_marginEnd="60dp"
-                    android:layout_marginBottom="10dp"
-                    android:backgroundTint="@color/black"
-                    android:text="Sign-up"
-                    android:textColor="#00D8C4"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/btnLogin" />
+            <Button
+                android:id="@+id/btnGoToSignUpPage"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="60dp"
+                android:layout_marginBottom="10dp"
+                android:backgroundTint="@color/black"
+                android:text="Sign-up"
+                android:textColor="#00D8C4"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/btnLogin" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>

@@ -49,8 +49,9 @@ class editProfilePage : AppCompatActivity() {
         _backButton = findViewById(R.id.btnBackFromEditProfile)
 
         _backButton.setOnClickListener {
-            val intent = Intent(this@editProfilePage, MainActivity::class.java)
-            startActivity(intent)
+//            val intent = Intent(this@editProfilePage, MainActivity::class.java)
+//            startActivity(intent)
+            finish()
         }
     }
 }

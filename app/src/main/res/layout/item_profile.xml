@@ -101,7 +101,7 @@
         android:layout_width="160dp"
         android:layout_height="50dp"
         android:layout_marginTop="40dp"
-        android:backgroundTint="@color/grey"
+        android:backgroundTint="@color/blue"
         android:text="Sign Out"
         android:textSize="15sp"
         app:layout_constraintEnd_toEndOf="parent"
