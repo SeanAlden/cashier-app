@@ -15,6 +15,9 @@
         android:theme="@style/Theme.ProyekAkhir_PABA"
         tools:targetApi="31">
         <activity
+            android:name=".editProductPage"
+            android:exported="false" />
+        <activity
             android:name=".editProfilePage"
             android:exported="false" />
         <activity
