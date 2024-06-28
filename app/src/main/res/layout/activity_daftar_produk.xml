@@ -61,6 +61,7 @@
         android:backgroundTint="#606060"
         android:text="KATEGORI PRODUK"
         android:textSize="9sp"
+        android:textColor="@color/white"
         app:layout_constraintBottom_toBottomOf="@+id/containerKategoriProduk"
         app:layout_constraintEnd_toEndOf="@+id/containerKategoriProduk"
         app:layout_constraintTop_toTopOf="@+id/containerKategoriProduk" />
