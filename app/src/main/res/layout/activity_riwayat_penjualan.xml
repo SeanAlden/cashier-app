@@ -18,11 +18,10 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/tvInventory"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:fontFamily="@font/poppinssemibold"
-        android:text="Inventory"
+        android:text="Riwayat Penjualan"
         android:textAlignment="center"
         android:textColor="@color/white"
         android:textSize="20sp"
@@ -44,6 +43,7 @@
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="0dp"
+        android:layout_marginTop="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -70,29 +70,29 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_weight="1"
+                        android:layout_weight="2"
                         android:fontFamily="sans-serif-light"
-                        android:text="Keluar"
+                        android:text="ID"
                         android:textAlignment="center"
                         android:textColor="@color/white"
                         android:textSize="16sp" />
 
                     <TextView
-                        android:layout_width="match_parent"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_weight="1"
+                        android:layout_weight="2"
                         android:fontFamily="sans-serif-light"
-                        android:text="Sisa"
+                        android:text="Tanggal"
                         android:textAlignment="center"
                         android:textColor="@color/white"
                         android:textSize="16sp" />
 
                     <TextView
-                        android:layout_width="match_parent"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_weight="1"
+                        android:layout_weight="2"
                         android:fontFamily="sans-serif-light"
-                        android:text="Satuan"
+                        android:text="Total"
                         android:textAlignment="center"
                         android:textColor="@color/white"
                         android:textSize="16sp" />
@@ -102,7 +102,7 @@
             </TableLayout>
 
             <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/rvInventory"
+                android:id="@+id/rvRiwayatPenjualan"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
         </LinearLayout>
