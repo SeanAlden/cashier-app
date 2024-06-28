@@ -193,7 +193,18 @@ class daftarProdukPage : AppCompatActivity() {
 
     private fun editProduct(produk: Produk) {
         // Implement edit product functionality
-
+        val intent = Intent(this, editProductPage::class.java).apply {
+            putExtra("PRODUCT_ID", produk.idProduk)
+            putExtra("PRODUCT_NAME", produk.namaProduk)
+            putExtra("PRODUCT_DESCRIPTION", produk.deskripsiProduk)
+            putExtra("PRODUCT_CATEGORY", produk.kategoriProduk)
+            putExtra("PRODUCT_SUPPLIER", produk.supplierProduk)
+            putExtra("PRODUCT_COST_PRICE", produk.hargaPokokProduk)
+            putExtra("PRODUCT_SELLING_PRICE", produk.hargaJualProduk)
+            putExtra("PRODUCT_QUANTITY", produk.jumlahProduk)
+            putExtra("PRODUCT_UNIT", produk.satuanProduk)
+        }
+        startActivity(intent)
     }
 
 //    private fun setupRecyclerView() {
