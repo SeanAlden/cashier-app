@@ -53,30 +53,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/headerContainerDaftarProduk" />
 
-    <TextView
-        android:id="@+id/tvKategori"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:hint="Kategori"
-        android:textColor="@color/white"
-        android:textColorHint="@color/white"
-        android:textSize="15sp"
-        app:layout_constraintBottom_toBottomOf="@+id/containerKategoriProduk"
-        app:layout_constraintStart_toStartOf="@+id/containerKategoriProduk"
-        app:layout_constraintTop_toTopOf="@+id/containerKategoriProduk" />
-
-    <Spinner
-        android:id="@+id/dropdownKategori"
-        android:layout_width="20dp"
-        android:layout_height="20dp"
-        android:layout_marginStart="5dp"
-        android:background="@drawable/arrow_down"
-        android:backgroundTint="@color/white"
-        app:layout_constraintBottom_toBottomOf="@+id/tvKategori"
-        app:layout_constraintStart_toEndOf="@+id/tvKategori"
-        app:layout_constraintTop_toTopOf="@+id/tvKategori" />
-
     <Button
         android:id="@+id/btnCategory"
         android:layout_width="wrap_content"
@@ -88,6 +64,27 @@
         app:layout_constraintBottom_toBottomOf="@+id/containerKategoriProduk"
         app:layout_constraintEnd_toEndOf="@+id/containerKategoriProduk"
         app:layout_constraintTop_toTopOf="@+id/containerKategoriProduk" />
+
+    <!-- New Spinner -->
+    <Spinner
+        android:id="@+id/spinnerCategory"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="40dp"
+        android:layout_marginEnd="80dp"
+        android:background="@color/white"
+        app:layout_constraintBottom_toBottomOf="@+id/containerKategoriProduk"
+        app:layout_constraintEnd_toStartOf="@+id/btnCategory"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/containerKategoriProduk" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/arrow_down"
+        app:layout_constraintBottom_toBottomOf="@+id/spinnerCategory"
+        app:layout_constraintEnd_toEndOf="@+id/spinnerCategory"
+        app:layout_constraintTop_toTopOf="@+id/spinnerCategory" />
 
     <ImageButton
         android:id="@+id/btnAddProduct"

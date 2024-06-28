@@ -15,7 +15,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.ktx.toObject
-import project.c14210052.proyekakhir_paba.adapter.KategoriAdapter
+import project.c14210052.proyekakhir_paba.adapter.adapterKategori
 import project.c14210052.proyekakhir_paba.dataClass.KategoriProduk
 
 class productCategoryPage : AppCompatActivity() {
@@ -23,7 +23,7 @@ class productCategoryPage : AppCompatActivity() {
     private lateinit var _backBtn: ImageButton
     private lateinit var _addBtn: ImageButton
     private lateinit var recyclerView: RecyclerView
-    private lateinit var kategoriAdapter: KategoriAdapter
+    private lateinit var adapterKategori: adapterKategori
     private val kategoriList = mutableListOf<KategoriProduk>()
 
     private val firestore = FirebaseFirestore.getInstance()
@@ -76,6 +76,26 @@ class productCategoryPage : AppCompatActivity() {
         dialog.show()
     }
 
+    private fun showEditCategoryDialog(kategori: KategoriProduk) {
+        val dialogView = LayoutInflater.from(this).inflate(R.layout.dialog_add_category, null)
+        val editTextCategoryName = dialogView.findViewById<EditText>(R.id.etCategoryName)
+        editTextCategoryName.setText(kategori.namaKategori)
+
+        val dialog = AlertDialog.Builder(this)
+            .setTitle("Edit Kategori")
+            .setMessage("Edit nama kategori!")
+            .setView(dialogView)
+            .setNegativeButton("Cancel", null)
+            .setPositiveButton("Save") { _, _ ->
+                val categoryName = editTextCategoryName.text.toString()
+                if (categoryName.isNotEmpty()) {
+                    updateCategoryInFirestore(kategori.idKategori, categoryName)
+                }
+            }
+            .create()
+        dialog.show()
+    }
+
     private fun addCategoryToFirestore(categoryName: String) {
         val newCategory = KategoriProduk(idKategori = kategoriList.size, namaKategori = categoryName)
         firestore.collection("kategoriProduk")
@@ -88,10 +108,52 @@ class productCategoryPage : AppCompatActivity() {
             }
     }
 
+    private fun updateCategoryInFirestore(idKategori: Int, categoryName: String) {
+        val categoryRef = firestore.collection("kategoriProduk")
+            .whereEqualTo("idKategori", idKategori)
+
+        categoryRef.get().addOnSuccessListener { documents ->
+            for (document in documents) {
+                document.reference.update("namaKategori", categoryName)
+                    .addOnSuccessListener {
+                        fetchCategoriesFromFirestore() // melakukan refresh data setelah update
+                    }
+                    .addOnFailureListener {
+
+                    }
+            }
+        }
+    }
+
+    private fun deleteCategoryFromFirestore(kategori: KategoriProduk){
+        val categoryRef = firestore.collection("kategoriProduk")
+            .whereEqualTo("idKategori", kategori.idKategori)
+
+        categoryRef.get().addOnSuccessListener { documents ->
+            for (document in documents) {
+                document.reference.delete()
+                    .addOnSuccessListener {
+                        fetchCategoriesFromFirestore()
+                    }
+                    .addOnFailureListener {
+
+                    }
+            }
+        }
+    }
+
     private fun setupRecyclerView() {
-        kategoriAdapter = KategoriAdapter(kategoriList)
+//        adapterKategori = adapterKategori(kategoriList)
+//        recyclerView.layoutManager = LinearLayoutManager(this)
+//        recyclerView.adapter = adapterKategori
+
+        adapterKategori = adapterKategori(kategoriList, onEditClick = { kategori ->
+            showEditCategoryDialog(kategori)
+        }) { kategori ->
+            deleteCategoryFromFirestore(kategori)
+        }
         recyclerView.layoutManager = LinearLayoutManager(this)
-        recyclerView.adapter = kategoriAdapter
+        recyclerView.adapter = adapterKategori
     }
 
     private fun fetchCategoriesFromFirestore() {
@@ -103,7 +165,7 @@ class productCategoryPage : AppCompatActivity() {
                     val kategori = document.toObject<KategoriProduk>()
                     kategoriList.add(kategori)
                 }
-                kategoriAdapter.notifyDataSetChanged()
+                adapterKategori.notifyDataSetChanged()
             }
             .addOnFailureListener {
                 // Handle failure
