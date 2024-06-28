@@ -13,6 +13,7 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.toObject
 import project.c14210052.proyekakhir_paba.adapter.adapterKategori
@@ -21,7 +22,7 @@ import project.c14210052.proyekakhir_paba.dataClass.Produk
 
 class daftarProdukPage : AppCompatActivity() {
 
-    private lateinit var _addProductBtn : ImageButton
+    private lateinit var _addProductBtn : FloatingActionButton
     private lateinit var _backBtn : ImageButton
     private lateinit var _categoryBtn : Button
     private lateinit var spinnerCategory: Spinner

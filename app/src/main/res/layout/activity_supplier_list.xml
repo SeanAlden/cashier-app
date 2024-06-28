@@ -86,26 +86,15 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/cardViewHeaderListSupplier" />
 
-    <ImageButton
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/btnAddSupplier"
-        android:layout_width="60dp"
-        android:layout_height="60dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end"
         android:layout_marginEnd="40dp"
         android:layout_marginBottom="40dp"
-        android:background="@drawable/circle_shape"
-        android:backgroundTint="@color/blue"
+        android:src="@drawable/plus_symbol"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
-
-    <ImageView
-        android:id="@+id/plusSign"
-        android:layout_width="60dp"
-        android:layout_height="60dp"
-        android:background="@drawable/plus_symbol"
-        android:backgroundTint="@color/white"
-        app:layout_constraintBottom_toBottomOf="@+id/btnAddSupplier"
-        app:layout_constraintEnd_toEndOf="@+id/btnAddSupplier"
-        app:layout_constraintStart_toStartOf="@+id/btnAddSupplier"
-        app:layout_constraintTop_toTopOf="@+id/btnAddSupplier" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

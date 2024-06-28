@@ -86,27 +86,16 @@
         app:layout_constraintEnd_toEndOf="@+id/spinnerCategory"
         app:layout_constraintTop_toTopOf="@+id/spinnerCategory" />
 
-    <ImageButton
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/btnAddProduct"
-        android:layout_width="60dp"
-        android:layout_height="60dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end"
         android:layout_marginEnd="40dp"
         android:layout_marginBottom="40dp"
-        android:background="@drawable/circle_shape"
-        android:backgroundTint="@color/blue"
+        android:src="@drawable/plus_symbol"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
-
-    <ImageView
-        android:id="@+id/plusSymbol"
-        android:layout_width="60dp"
-        android:layout_height="60dp"
-        android:background="@drawable/plus_symbol"
-        android:backgroundTint="@color/white"
-        app:layout_constraintBottom_toBottomOf="@+id/btnAddProduct"
-        app:layout_constraintEnd_toEndOf="@+id/btnAddProduct"
-        app:layout_constraintStart_toStartOf="@+id/btnAddProduct"
-        app:layout_constraintTop_toTopOf="@+id/btnAddProduct" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvProduct"

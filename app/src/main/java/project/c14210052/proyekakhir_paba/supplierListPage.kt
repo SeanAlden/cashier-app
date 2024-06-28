@@ -6,6 +6,7 @@ import android.widget.ImageButton
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.ListenerRegistration
 import project.c14210052.proyekakhir_paba.adapter.adapterSupplier
@@ -29,7 +30,7 @@ class supplierListPage : AppCompatActivity(), adapterSupplier.OnDeleteClickListe
         _suppAdapter = adapterSupplier(_suppList, this, this, this)
         _recyclerView.adapter = _suppAdapter
 
-        val btnTambahSupp: ImageButton = findViewById(R.id.btnAddSupplier)
+        val btnTambahSupp: FloatingActionButton = findViewById(R.id.btnAddSupplier)
         btnTambahSupp.setOnClickListener {
             val intent = Intent(this@supplierListPage, addSupplierPage::class.java)
             startActivity(intent)

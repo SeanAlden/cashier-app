@@ -206,7 +206,7 @@
                 android:textAlignment="center"
                 android:textColor="@color/white"
                 android:textSize="13sp"
-                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintBottom_toBottomOf="@+id/btnGoToSignInPage"
                 app:layout_constraintEnd_toStartOf="@+id/btnGoToSignInPage"
                 app:layout_constraintStart_toStartOf="@+id/btnCreateAccount"
                 app:layout_constraintTop_toTopOf="@+id/btnGoToSignInPage" />
