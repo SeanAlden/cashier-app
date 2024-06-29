@@ -20,12 +20,8 @@ import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.ListenerRegistration
-import com.google.firebase.firestore.toObject
-import project.c14210052.proyekakhir_paba.adapter.ProductAdapter
-import project.c14210052.proyekakhir_paba.adapter.adapterKategori
-import project.c14210052.proyekakhir_paba.dataClass.KategoriProduk
+import project.c14210052.proyekakhir_paba.adapter.adapterProduct
 import project.c14210052.proyekakhir_paba.dataClass.Produk
-import project.c14210052.proyekakhir_paba.dataClass.Supplier
 
 class daftarProdukPage : AppCompatActivity() {
 
@@ -35,7 +31,7 @@ class daftarProdukPage : AppCompatActivity() {
     private lateinit var spinnerCategory: Spinner
     private lateinit var rvProduct: RecyclerView
     private lateinit var _productList: MutableList<Produk>
-    private lateinit var productAdapter: ProductAdapter
+    private lateinit var adapterProduct: adapterProduct
 
     //    private var _productList = mutableListOf<Produk>()
     private var _productListener: ListenerRegistration? = null
@@ -63,7 +59,7 @@ class daftarProdukPage : AppCompatActivity() {
 //        recyclerView = findViewById(R.id.rvProduct)
 
         _productList = mutableListOf()
-        productAdapter = ProductAdapter(_productList,
+        adapterProduct = adapterProduct(_productList,
             { produk ->
                 // pergi ke detail
                 navigateToDetailPage(produk)
@@ -77,7 +73,7 @@ class daftarProdukPage : AppCompatActivity() {
             })
 
         rvProduct.layoutManager = LinearLayoutManager(this)
-        rvProduct.adapter = productAdapter
+        rvProduct.adapter = adapterProduct
 
         _addProductBtn.setOnClickListener {
             val intent = Intent(this@daftarProdukPage, addProductPage::class.java)
@@ -128,7 +124,7 @@ class daftarProdukPage : AppCompatActivity() {
                             _productList.add(it)
                         }
                     }
-                    productAdapter.notifyDataSetChanged()
+                    adapterProduct.notifyDataSetChanged()
                 }
             }
     }
@@ -146,7 +142,7 @@ class daftarProdukPage : AppCompatActivity() {
                 .addOnSuccessListener {
                     // Successfully deleted
                     _productList.remove(produk)
-                    productAdapter.notifyDataSetChanged()
+                    adapterProduct.notifyDataSetChanged()
                     Toast.makeText(this, "Produk berhasil dihapus.", Toast.LENGTH_SHORT).show()
                 }
                 .addOnFailureListener { e ->
@@ -235,7 +231,7 @@ class daftarProdukPage : AppCompatActivity() {
                                 _productList.add(it)
                             }
                         }
-                        productAdapter.notifyDataSetChanged()
+                        adapterProduct.notifyDataSetChanged()
                     }
                 }
         }

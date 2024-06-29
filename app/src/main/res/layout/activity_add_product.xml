@@ -160,6 +160,16 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/tvKategoriProduk" />
 
+            <ImageView
+                android:id="@+id/imageView3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:src="@drawable/arrow_down"
+                app:layout_constraintBottom_toBottomOf="@+id/dropdownKategoriProduk"
+                app:layout_constraintEnd_toEndOf="@+id/dropdownKategoriProduk"
+                app:layout_constraintTop_toTopOf="@+id/dropdownKategoriProduk" />
+
             <TextView
                 android:id="@+id/tvSupplierProduk"
                 android:layout_width="0dp"
@@ -188,6 +198,14 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/tvSupplierProduk" />
 
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/arrow_down"
+                app:layout_constraintBottom_toBottomOf="@+id/dropdownSupplier"
+                app:layout_constraintEnd_toEndOf="@+id/imageView3"
+                app:layout_constraintTop_toTopOf="@+id/dropdownSupplier" />
+
             <TextView
                 android:id="@+id/tvHargaPokokProduk"
                 android:layout_width="0dp"
@@ -215,7 +233,8 @@
                 android:textSize="15sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/tvHargaPokokProduk" />
+                app:layout_constraintTop_toBottomOf="@+id/tvHargaPokokProduk"
+                android:inputType="number" />
 
             <TextView
                 android:id="@+id/tvHargaJualProduk"
@@ -244,7 +263,8 @@
                 android:textSize="15sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/tvHargaJualProduk" />
+                app:layout_constraintTop_toBottomOf="@+id/tvHargaJualProduk"
+                android:inputType="number" />
 
             <TextView
                 android:id="@+id/tvJumlahProduk"
@@ -273,7 +293,8 @@
                 android:textSize="15sp"
                 app:layout_constraintEnd_toStartOf="@+id/guideline"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/tvJumlahProduk" />
+                app:layout_constraintTop_toBottomOf="@+id/tvJumlahProduk"
+                android:inputType="number" />
 
             <TextView
                 android:id="@+id/tvSatuanProduk"

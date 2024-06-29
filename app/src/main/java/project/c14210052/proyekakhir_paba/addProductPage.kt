@@ -3,6 +3,8 @@ package project.c14210052.proyekakhir_paba
 import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
+import android.text.Editable
+import android.text.TextWatcher
 import android.widget.ArrayAdapter
 import android.widget.Button
 import android.widget.EditText
@@ -13,6 +15,7 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import androidx.core.widget.addTextChangedListener
 import com.google.firebase.firestore.FirebaseFirestore
 import project.c14210052.proyekakhir_paba.dataClass.Produk
 import java.util.UUID
@@ -63,6 +66,11 @@ class addProductPage : AppCompatActivity() {
         loadKategoriData()
         loadSupplierData()
 
+        // membuat TextWatcher untuk validasi inputan
+        addInputValidation(_etHargaPokokProduk)
+        addInputValidation(_etHargaJualProduk)
+        addInputValidation(_etJumlahProduk)
+
         _backBtn.setOnClickListener {
             val intent = Intent(this@addProductPage, daftarProdukPage::class.java)
             startActivity(intent)
@@ -71,6 +79,26 @@ class addProductPage : AppCompatActivity() {
         _btnSaveProduk.setOnClickListener {
             saveProductData()
         }
+    }
+
+    private fun addInputValidation(editText: EditText){
+        editText.addTextChangedListener(object: TextWatcher{
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
+
+            }
+
+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+                val input = s.toString()
+                if (input.isNotEmpty() && !input.matches(Regex("\\d+"))) {
+                    editText.error = "Masukkan hanya angka 0-9"
+                    editText.setText("")
+                }
+            }
+
+            override fun afterTextChanged(s: Editable?) {
+
+            }
+        })
     }
 
     private fun loadKategoriData() {

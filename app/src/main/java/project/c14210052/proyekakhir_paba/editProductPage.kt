@@ -1,6 +1,8 @@
 package project.c14210052.proyekakhir_paba
 
 import android.os.Bundle
+import android.text.Editable
+import android.text.TextWatcher
 import android.widget.ArrayAdapter
 import android.widget.Button
 import android.widget.EditText
@@ -65,6 +67,26 @@ class editProductPage : AppCompatActivity() {
 
         loadCategories()
         loadSuppliers()
+
+        addInputValidation(etEditHargaPokokProduk)
+        addInputValidation(etEditHargaJualProduk)
+        addInputValidation(etEditJumlahProduk)
+    }
+
+    private fun addInputValidation(editText: EditText) {
+        editText.addTextChangedListener(object : TextWatcher {
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
+
+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+                val input = s.toString()
+                if (input.isNotEmpty() && !input.matches(Regex("\\d+"))) {
+                    editText.error = "Masukkan hanya angka 0-9"
+                    editText.setText("")
+                }
+            }
+
+            override fun afterTextChanged(s: Editable?) {}
+        })
     }
 
     private fun populateProductDetails(produk: Produk){

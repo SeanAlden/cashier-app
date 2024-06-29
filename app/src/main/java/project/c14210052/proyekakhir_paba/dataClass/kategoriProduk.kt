@@ -3,7 +3,7 @@ package project.c14210052.proyekakhir_paba.dataClass
 import android.os.Parcel
 import android.os.Parcelable
 
-data class KategoriProduk(
+data class kategoriProduk(
     val idKategori: Int = 0,
     val namaKategori: String? = ""
 ) : Parcelable {
@@ -22,12 +22,12 @@ data class KategoriProduk(
         return 0
     }
 
-    companion object CREATOR : Parcelable.Creator<KategoriProduk> {
-        override fun createFromParcel(parcel: Parcel): KategoriProduk {
-            return KategoriProduk(parcel)
+    companion object CREATOR : Parcelable.Creator<kategoriProduk> {
+        override fun createFromParcel(parcel: Parcel): kategoriProduk {
+            return kategoriProduk(parcel)
         }
 
-        override fun newArray(size: Int): Array<KategoriProduk?> {
+        override fun newArray(size: Int): Array<kategoriProduk?> {
             return arrayOfNulls(size)
         }
     }

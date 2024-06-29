@@ -9,13 +9,12 @@ import android.widget.PopupMenu
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import project.c14210052.proyekakhir_paba.R
-import project.c14210052.proyekakhir_paba.dataClass.KategoriProduk
-import project.c14210052.proyekakhir_paba.dataClass.Produk
+import project.c14210052.proyekakhir_paba.dataClass.kategoriProduk
 
 class adapterKategori(
-    private val kategoriList: MutableList<KategoriProduk>,
-    private val onEditClick: (KategoriProduk) -> Unit,
-    private val onDeleteClick: (KategoriProduk) -> Unit
+    private val kategoriList: MutableList<kategoriProduk>,
+    private val onEditClick: (kategoriProduk) -> Unit,
+    private val onDeleteClick: (kategoriProduk) -> Unit
 ) : RecyclerView.Adapter<adapterKategori.KategoriViewHolder>() {
 
     inner class KategoriViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
@@ -43,7 +42,7 @@ class adapterKategori(
         return kategoriList.size
     }
 
-    private fun showPopupMenu(view: View, kategori: KategoriProduk) {
+    private fun showPopupMenu(view: View, kategori: kategoriProduk) {
         val popup = PopupMenu(view.context, view)
         popup.inflate(R.menu.category_options_menu)
         popup.setOnMenuItemClickListener { item: MenuItem ->

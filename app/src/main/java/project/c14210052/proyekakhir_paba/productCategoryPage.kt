@@ -17,7 +17,7 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.ktx.toObject
 import project.c14210052.proyekakhir_paba.adapter.adapterKategori
-import project.c14210052.proyekakhir_paba.dataClass.KategoriProduk
+import project.c14210052.proyekakhir_paba.dataClass.kategoriProduk
 
 class productCategoryPage : AppCompatActivity() {
 
@@ -25,7 +25,7 @@ class productCategoryPage : AppCompatActivity() {
     private lateinit var _addBtn: FloatingActionButton
     private lateinit var recyclerView: RecyclerView
     private lateinit var adapterKategori: adapterKategori
-    private val kategoriList = mutableListOf<KategoriProduk>()
+    private val kategoriList = mutableListOf<kategoriProduk>()
 
     private val firestore = FirebaseFirestore.getInstance()
 
@@ -77,7 +77,7 @@ class productCategoryPage : AppCompatActivity() {
         dialog.show()
     }
 
-    private fun showEditCategoryDialog(kategori: KategoriProduk) {
+    private fun showEditCategoryDialog(kategori: kategoriProduk) {
         val dialogView = LayoutInflater.from(this).inflate(R.layout.dialog_add_category, null)
         val editTextCategoryName = dialogView.findViewById<EditText>(R.id.etCategoryName)
         editTextCategoryName.setText(kategori.namaKategori)
@@ -98,7 +98,7 @@ class productCategoryPage : AppCompatActivity() {
     }
 
     private fun addCategoryToFirestore(categoryName: String) {
-        val newCategory = KategoriProduk(idKategori = kategoriList.size, namaKategori = categoryName)
+        val newCategory = kategoriProduk(idKategori = kategoriList.size, namaKategori = categoryName)
         firestore.collection("kategoriProduk")
             .add(newCategory)
             .addOnSuccessListener {
@@ -126,11 +126,11 @@ class productCategoryPage : AppCompatActivity() {
         }
     }
 
-    private fun deleteCategoryFromFirestore(kategori: KategoriProduk){
+    private fun deleteCategoryFromFirestore(kategori: kategoriProduk){
             checkIfCategoryIsInUse(kategori)
     }
 
-    private fun checkIfCategoryIsInUse(kategori: KategoriProduk) {
+    private fun checkIfCategoryIsInUse(kategori: kategoriProduk) {
         val productsRef = firestore.collection("tbProduk")
             .whereEqualTo("kategoriProduk", kategori.namaKategori)
 
@@ -156,7 +156,7 @@ class productCategoryPage : AppCompatActivity() {
         dialog.show()
     }
 
-    private fun showDeleteConfirmationDialog(kategori: KategoriProduk) {
+    private fun showDeleteConfirmationDialog(kategori: kategoriProduk) {
         val dialog = AlertDialog.Builder(this)
             .setTitle("Hapus Kategori")
             .setMessage("Apakah Anda ingin menghapus kategori ini?")
@@ -218,7 +218,7 @@ class productCategoryPage : AppCompatActivity() {
             .addOnSuccessListener { result ->
                 kategoriList.clear()
                 for (document in result) {
-                    val kategori = document.toObject<KategoriProduk>()
+                    val kategori = document.toObject<kategoriProduk>()
                     kategoriList.add(kategori)
                 }
                 adapterKategori.notifyDataSetChanged()

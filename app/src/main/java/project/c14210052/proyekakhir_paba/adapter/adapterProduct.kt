@@ -9,12 +9,12 @@ import androidx.recyclerview.widget.RecyclerView
 import project.c14210052.proyekakhir_paba.R
 import project.c14210052.proyekakhir_paba.dataClass.Produk
 
-class ProductAdapter(
+class adapterProduct(
     private val productList: List<Produk>,
     private val onItemClick: (Produk) -> Unit,
     private val onDeleteClickListener: (Produk) -> Unit,
     private val onEditClickListener: (Produk) -> Unit
-) : RecyclerView.Adapter<ProductAdapter.ProductViewHolder>() {
+) : RecyclerView.Adapter<adapterProduct.ProductViewHolder>() {
 
     inner class ProductViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val namaPrdk: TextView = itemView.findViewById(R.id.namaPrdk)
