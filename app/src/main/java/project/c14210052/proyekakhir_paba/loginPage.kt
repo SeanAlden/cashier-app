@@ -30,12 +30,23 @@ class loginPage : AppCompatActivity() {
             insets
         }
 
+        auth = Firebase.auth
+
+        // melakukan cek kalau user telah melakukan sign in, maka akan langsung ke MainActivity
+        val currentUser = auth.currentUser
+        if (currentUser != null) {
+            startActivity(Intent(this@loginPage, MainActivity::class.java))
+            // animasi
+            overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left)
+            finish()
+            return
+        }
+
         var _goToSignUpButton : Button = findViewById(R.id.btnGoToSignUpPage)
         var _loginButton : Button = findViewById(R.id.btnLogin)
         var _emailEditText : EditText = findViewById(R.id.etEmail)
         var _passwordEditText : EditText = findViewById(R.id.etPassword)
 
-        auth = Firebase.auth
 
         _goToSignUpButton.setOnClickListener {
             startActivity(Intent(this@loginPage, registerPage::class.java))
@@ -57,9 +68,15 @@ class loginPage : AppCompatActivity() {
             auth.signInWithEmailAndPassword(email, password)
                 .addOnCompleteListener() { task ->
                     if (task.isSuccessful) {
-                        startActivity(Intent(this@loginPage, MainActivity::class.java))
+                        val intent = Intent(this@loginPage, MainActivity::class.java)
+                        startActivity(intent)
+                        // animasi
+                        overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left)
                         Toast.makeText(this, "Login Sukses", Toast.LENGTH_LONG).show()
                         finish()
+//                        startActivity(Intent(this@loginPage, MainActivity::class.java))
+//                        Toast.makeText(this, "Login Sukses", Toast.LENGTH_LONG).show()
+//                        finish()
                     } else {
                         Toast.makeText(
                             baseContext,
