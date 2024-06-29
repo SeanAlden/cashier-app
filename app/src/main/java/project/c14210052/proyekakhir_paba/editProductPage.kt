@@ -1,8 +1,10 @@
 package project.c14210052.proyekakhir_paba
 
 import android.os.Bundle
+import android.widget.ArrayAdapter
 import android.widget.Button
 import android.widget.EditText
+import android.widget.ImageButton
 import android.widget.Spinner
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
@@ -10,8 +12,23 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.google.firebase.firestore.FirebaseFirestore
+import project.c14210052.proyekakhir_paba.dataClass.Produk
 
 class editProductPage : AppCompatActivity() {
+
+    private lateinit var etEditNamaProduk: EditText
+    private lateinit var etEditDeskripsiProduk: EditText
+    private lateinit var spinnerEditKategoriProduk: Spinner
+    private lateinit var spinnerEditSupplierProduk: Spinner
+    private lateinit var etEditHargaPokokProduk: EditText
+    private lateinit var etEditHargaJualProduk: EditText
+    private lateinit var etEditJumlahProduk: EditText
+    private lateinit var etEditSatuanProduk: EditText
+    private lateinit var btnEditSaveProduk: Button
+    private lateinit var btnEditCancel: ImageButton
+    private lateinit var firestore: FirebaseFirestore
+    private var produk: Produk? = null
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -22,65 +39,131 @@ class editProductPage : AppCompatActivity() {
             insets
         }
 
-        // Get product data from intent
-        val productId = intent.getStringExtra("PRODUCT_ID")
-        val productName = intent.getStringExtra("PRODUCT_NAME")
-        val productDescription = intent.getStringExtra("PRODUCT_DESCRIPTION")
-        val productCategory = intent.getStringExtra("PRODUCT_CATEGORY")
-        val productSupplier = intent.getStringExtra("PRODUCT_SUPPLIER")
-        val productCostPrice = intent.getStringExtra("PRODUCT_COST_PRICE")
-        val productSellingPrice = intent.getStringExtra("PRODUCT_SELLING_PRICE")
-        val productQuantity = intent.getStringExtra("PRODUCT_QUANTITY")
-        val productUnit = intent.getStringExtra("PRODUCT_UNIT")
+        etEditNamaProduk = findViewById(R.id.etEditNamaProduk)
+        etEditDeskripsiProduk = findViewById(R.id.etEditDeskripsiProduk)
+        spinnerEditKategoriProduk = findViewById(R.id.dropdownEditKategoriProduk)
+        spinnerEditSupplierProduk = findViewById(R.id.dropdownEditSupplier)
+        etEditHargaPokokProduk = findViewById(R.id.etEditHargaPokokProduk)
+        etEditHargaJualProduk = findViewById(R.id.etEditHargaJualProduk)
+        etEditJumlahProduk = findViewById(R.id.etEditJumlahProduk)
+        etEditSatuanProduk = findViewById(R.id.etEditSatuanProduk)
+        btnEditSaveProduk = findViewById(R.id.btnEditSaveProduk)
+        btnEditCancel = findViewById(R.id.btnBackFromEditProduct)
 
-        // Set data to EditText and Spinner
-        findViewById<EditText>(R.id.etEditNamaProduk).setText(productName)
-        findViewById<EditText>(R.id.etEditDeskripsiProduk).setText(productDescription)
-        findViewById<Spinner>(R.id.dropdownEditKategoriProduk).setSelection(getSpinnerIndex(R.id.dropdownEditKategoriProduk, productCategory))
-        findViewById<Spinner>(R.id.dropdownEditSupplier).setSelection(getSpinnerIndex(R.id.dropdownEditSupplier, productSupplier))
-        findViewById<EditText>(R.id.etEditHargaPokokProduk).setText(productCostPrice)
-        findViewById<EditText>(R.id.etEditHargaJualProduk).setText(productSellingPrice)
-        findViewById<EditText>(R.id.etEditJumlahProduk).setText(productQuantity)
-        findViewById<EditText>(R.id.etEditSatuanProduk).setText(productUnit)
+        firestore = FirebaseFirestore.getInstance()
 
-        findViewById<Button>(R.id.btnEditSaveProduk).setOnClickListener {
-            saveProductChanges(productId)
+        produk = intent.getParcelableExtra("produk")
+        produk?.let { populateProductDetails(it) }
+
+        btnEditSaveProduk.setOnClickListener {
+            saveProductChanges()
         }
+
+        btnEditCancel.setOnClickListener {
+            finish()
+        }
+
+        loadCategories()
+        loadSuppliers()
     }
 
-    private fun getSpinnerIndex(spinnerId: Int, value: String?): Int {
-        val spinner = findViewById<Spinner>(spinnerId)
-        for (i in 0 until spinner.count) {
-            if (spinner.getItemAtPosition(i).toString() == value) {
-                return i
-            }
-        }
-        return 0
+    private fun populateProductDetails(produk: Produk){
+        etEditNamaProduk.setText(produk.namaProduk)
+        etEditDeskripsiProduk.setText(produk.deskripsiProduk)
+        etEditHargaPokokProduk.setText(produk.hargaPokokProduk.toString())
+        etEditHargaJualProduk.setText(produk.hargaJualProduk.toString())
+        etEditJumlahProduk.setText(produk.jumlahProduk.toString())
+        etEditSatuanProduk.setText(produk.satuanProduk)
     }
 
-    private fun saveProductChanges(productId: String?) {
-        val updatedProduct = hashMapOf(
-            "namaProduk" to findViewById<EditText>(R.id.etEditNamaProduk).text.toString(),
-            "deskripsiProduk" to findViewById<EditText>(R.id.etEditDeskripsiProduk).text.toString(),
-            "kategoriProduk" to findViewById<Spinner>(R.id.dropdownEditKategoriProduk).selectedItem.toString(),
-            "supplierProduk" to findViewById<Spinner>(R.id.dropdownEditSupplier).selectedItem.toString(),
-            "hargaPokokProduk" to findViewById<EditText>(R.id.etEditHargaPokokProduk).text.toString(),
-            "hargaJualProduk" to findViewById<EditText>(R.id.etEditHargaJualProduk).text.toString(),
-            "jumlahProduk" to findViewById<EditText>(R.id.etEditJumlahProduk).text.toString(),
-            "satuanProduk" to findViewById<EditText>(R.id.etEditSatuanProduk).text.toString()
-        )
+    private fun saveProductChanges() {
+        val updatedNamaProduk = etEditNamaProduk.text.toString()
+        val updatedDeskripsiProduk = etEditDeskripsiProduk.text.toString()
+        val updatedKategoriProduk = spinnerEditKategoriProduk.selectedItem.toString()
+        val updatedSupplierProduk = spinnerEditSupplierProduk.selectedItem.toString()
+        val updatedHargaPokokProduk = etEditHargaPokokProduk.text.toString().toInt()
+        val updatedHargaJualProduk = etEditHargaJualProduk.text.toString().toInt()
+        val updatedJumlahProduk = etEditJumlahProduk.text.toString().toInt()
+        val updatedSatuanProduk = etEditSatuanProduk.text.toString()
 
+        produk?.let { produk ->
+            val updatedProduk = produk.copy(
+                namaProduk = updatedNamaProduk,
+                deskripsiProduk = updatedDeskripsiProduk,
+                kategoriProduk = updatedKategoriProduk,
+                supplierProduk = updatedSupplierProduk,
+                hargaPokokProduk = updatedHargaPokokProduk,
+                hargaJualProduk = updatedHargaJualProduk,
+                jumlahProduk = updatedJumlahProduk,
+                satuanProduk = updatedSatuanProduk
+            )
+
+            firestore.collection("tbProduk")
+                .document(produk.idProduk!!)
+                .set(updatedProduk)
+                .addOnFailureListener {
+                    Toast.makeText(this, "Produk berhasil diperbarui.", Toast.LENGTH_SHORT).show()
+                    finish()
+                }
+                .addOnFailureListener {
+                    Toast.makeText(this, "Gagal memperbarui produk.", Toast.LENGTH_SHORT).show()
+                }
+        }
+        finish()
+    }
+    private fun loadCategories() {
         val db = FirebaseFirestore.getInstance()
-        if (productId != null) {
-            db.collection("tbProduk").document(productId)
-                .set(updatedProduct)
-                .addOnSuccessListener {
-                    Toast.makeText(this, "Product updated successfully", Toast.LENGTH_SHORT).show()
-                    finish() // Close the activity
+        val kategoriList = mutableListOf<String>()
+
+        db.collection("kategoriProduk")
+            .get()
+            .addOnSuccessListener { documents ->
+                for (document in documents) {
+                    val kategori = document.getString("namaKategori")
+                    kategori?.let { kategoriList.add(it) }
                 }
-                .addOnFailureListener { e ->
-                    Toast.makeText(this, "Error updating product", Toast.LENGTH_SHORT).show()
+                val adapter = ArrayAdapter(this, android.R.layout.simple_spinner_item, kategoriList)
+                adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+                spinnerEditKategoriProduk.adapter = adapter
+
+                // Select the current category of the product
+                produk?.let {
+                    val categoryPosition = kategoriList.indexOf(it.kategoriProduk)
+                    if (categoryPosition >= 0) {
+                        spinnerEditKategoriProduk.setSelection(categoryPosition)
+                    }
                 }
-        }
+            }
+            .addOnFailureListener { exception ->
+                Toast.makeText(this, "Gagal memuat kategori.", Toast.LENGTH_SHORT).show()
+            }
+    }
+
+    private fun loadSuppliers() {
+        val db = FirebaseFirestore.getInstance()
+        val supplierList = mutableListOf<String>()
+
+        db.collection("tbSupplier")
+            .get()
+            .addOnSuccessListener { documents ->
+                for (document in documents) {
+                    val supplier = document.getString("namaSupplier")
+                    supplier?.let { supplierList.add(it) }
+                }
+                val adapter = ArrayAdapter(this, android.R.layout.simple_spinner_item, supplierList)
+                adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+                spinnerEditSupplierProduk.adapter = adapter
+
+                produk?.let {
+                    val supplierPosition = supplierList.indexOf(it.supplierProduk)
+                    if (supplierPosition >= 0) {
+                        spinnerEditSupplierProduk.setSelection(supplierPosition)
+                    }
+                }
+            }
+            .addOnFailureListener { exception ->
+                Toast.makeText(this, "Gagal memuat supplier.", Toast.LENGTH_SHORT).show()
+            }
     }
 }
+

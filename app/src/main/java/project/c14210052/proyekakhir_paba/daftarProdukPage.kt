@@ -29,14 +29,15 @@ import project.c14210052.proyekakhir_paba.dataClass.Supplier
 
 class daftarProdukPage : AppCompatActivity() {
 
-    private lateinit var _addProductBtn : FloatingActionButton
-    private lateinit var _backBtn : ImageButton
-    private lateinit var _categoryBtn : Button
+    private lateinit var _addProductBtn: FloatingActionButton
+    private lateinit var _backBtn: ImageButton
+    private lateinit var _categoryBtn: Button
     private lateinit var spinnerCategory: Spinner
     private lateinit var rvProduct: RecyclerView
-    private lateinit var _productList : MutableList<Produk>
-    private lateinit var productAdapter : ProductAdapter
-//    private var _productList = mutableListOf<Produk>()
+    private lateinit var _productList: MutableList<Produk>
+    private lateinit var productAdapter: ProductAdapter
+
+    //    private var _productList = mutableListOf<Produk>()
     private var _productListener: ListenerRegistration? = null
     private val firestore = FirebaseFirestore.getInstance()
 
@@ -65,14 +66,15 @@ class daftarProdukPage : AppCompatActivity() {
         productAdapter = ProductAdapter(_productList,
             { produk ->
                 // pergi ke detail
-                navigateToDetailPage(produk)  },
+                navigateToDetailPage(produk)
+            },
             { produk ->
-            // Delete product
-            deleteProduct(produk)
-        }, { produk ->
-            // Edit product
-            editProduct(produk)
-        })
+                // Delete product
+                deleteProduct(produk)
+            }, { produk ->
+                // Edit product
+                navigateToEditProductPage(produk)
+            })
 
         rvProduct.layoutManager = LinearLayoutManager(this)
         rvProduct.adapter = productAdapter
@@ -94,35 +96,22 @@ class daftarProdukPage : AppCompatActivity() {
 
     }
 
-//        setupRecyclerView()
-//        loadProducts()
-//        loadCategories()
-//        fetchCategoriesFromFirestore()
-
-
     private fun navigateToDetailPage(produk: Produk) {
         val intent = Intent(this@daftarProdukPage, detailProductPage::class.java)
-        intent.putExtra("produk_id", produk.idProduk) // kirim ID produk atau data yang diperlukan untuk detail
+        intent.putExtra(
+            "produk_id",
+            produk.idProduk
+        ) // kirim ID produk atau data yang diperlukan untuk detail
+        startActivity(intent)
+    }
+
+    private fun navigateToEditProductPage(produk: Produk) {
+        val intent = Intent(this@daftarProdukPage, editProductPage::class.java)
+        intent.putExtra("produk", produk)
         startActivity(intent)
     }
 
     private fun loadProducts() {
-//        val db = FirebaseFirestore.getInstance()
-//
-//        db.collection("tbProduk")
-//            .get()
-//            .addOnSuccessListener { documents ->
-//                productList.clear()
-//                for (document in documents) {
-//                    val produk = document.toObject(Produk::class.java)
-//                    productList.add(produk)
-//                }
-//                productAdapter.notifyDataSetChanged()
-//            }
-//            .addOnFailureListener { exception ->
-//                // Handle the error
-//            }
-
         _productListener?.remove() // Remove the previous listener if it exists
         _productListener = firestore.collection("tbProduk")
             .addSnapshotListener { snapshots, e ->
@@ -174,44 +163,9 @@ class daftarProdukPage : AppCompatActivity() {
         alertDialog.show()
     }
 
-
-//    private fun deleteProduct(produk: Produk) {
-//        val db = FirebaseFirestore.getInstance()
-//
-//        db.collection("tbProduk").document(produk.idProduk!!)
-//            .delete()
-//            .addOnSuccessListener {
-//                // Successfully deleted
-//                _productList.remove(produk)
-//                productAdapter.notifyDataSetChanged()
-//            }
-//            .addOnFailureListener { e ->
-//                // Failed to delete
-//            }
-//    }
-
-
     private fun editProduct(produk: Produk) {
-        // Implement edit product functionality
-        val intent = Intent(this, editProductPage::class.java).apply {
-            putExtra("PRODUCT_ID", produk.idProduk)
-            putExtra("PRODUCT_NAME", produk.namaProduk)
-            putExtra("PRODUCT_DESCRIPTION", produk.deskripsiProduk)
-            putExtra("PRODUCT_CATEGORY", produk.kategoriProduk)
-            putExtra("PRODUCT_SUPPLIER", produk.supplierProduk)
-            putExtra("PRODUCT_COST_PRICE", produk.hargaPokokProduk)
-            putExtra("PRODUCT_SELLING_PRICE", produk.hargaJualProduk)
-            putExtra("PRODUCT_QUANTITY", produk.jumlahProduk)
-            putExtra("PRODUCT_UNIT", produk.satuanProduk)
-        }
-        startActivity(intent)
-    }
 
-//    private fun setupRecyclerView() {
-//        produkAdapter = adapterKategori(produkList)
-//        recyclerView.layoutManager = LinearLayoutManager(this)
-//        recyclerView.adapter = produkAdapter
-//    }
+    }
 
     private fun loadCategories() {
         val db = FirebaseFirestore.getInstance()
@@ -231,22 +185,29 @@ class daftarProdukPage : AppCompatActivity() {
 
                 // Setup initial category filter if needed
                 spinnerCategory.setSelection(0) // Select first item as default
-                spinnerCategory.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
-                    override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
-                        val selectedCategory = parent?.getItemAtPosition(position).toString()
-                        filterProductsByCategory(selectedCategory)
-                    }
+                spinnerCategory.onItemSelectedListener =
+                    object : AdapterView.OnItemSelectedListener {
+                        override fun onItemSelected(
+                            parent: AdapterView<*>?,
+                            view: View?,
+                            position: Int,
+                            id: Long
+                        ) {
+                            val selectedCategory = parent?.getItemAtPosition(position).toString()
+                            filterProductsByCategory(selectedCategory)
+                        }
 
-                    override fun onNothingSelected(parent: AdapterView<*>?) {
-                        // Do nothing
+                        override fun onNothingSelected(parent: AdapterView<*>?) {
+                            // Do nothing
+                        }
                     }
-                }
             }
             .addOnFailureListener { exception ->
                 // Handle the error
                 Toast.makeText(this, "Gagal memuat kategori", Toast.LENGTH_SHORT).show()
             }
     }
+
     private fun filterProductsByCategory(category: String) {
         _productListener?.remove() // Remove previous listener if exists
 
@@ -256,7 +217,10 @@ class daftarProdukPage : AppCompatActivity() {
         } else {
             // Load products filtered by category
             _productListener = firestore.collection("tbProduk")
-                .whereEqualTo("kategoriProduk", category) // Adjust field name according to your Firestore structure
+                .whereEqualTo(
+                    "kategoriProduk",
+                    category
+                ) // Adjust field name according to your Firestore structure
                 .addSnapshotListener { snapshots, e ->
                     if (e != null) {
                         return@addSnapshotListener
@@ -276,49 +240,4 @@ class daftarProdukPage : AppCompatActivity() {
                 }
         }
     }
-
-
-//    private fun loadCategories() {
-//        val db = FirebaseFirestore.getInstance()
-//        val kategoriList = mutableListOf<String>()
-//
-//        db.collection("kategoriProduk")
-//            .get()
-//            .addOnSuccessListener { documents ->
-//                kategoriList.add("Semua Kategori")
-//                for (document in documents) {
-//                    val kategori = document.getString("namaKategori")
-//                    kategori?.let { kategoriList.add(it) }
-//                }
-//                val adapter = ArrayAdapter(this, android.R.layout.simple_spinner_item, kategoriList)
-//                adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-//                spinnerCategory.adapter = adapter
-//            }
-//            .addOnFailureListener { exception ->
-//                // Handle the error
-//            }
-//    }
-
-//    private fun fetchCategoriesFromFirestore() {
-//        firestore.collection("kategoriProduk")
-//            .get()
-//            .addOnSuccessListener { result ->
-//                val categoryNames = mutableListOf<String>()
-//                for (document in result) {
-//                    val namaKategori = document.getString("namaKategori")
-//                    namaKategori?.let {
-//                        categoryNames.add(it)
-//                    }
-//                }
-//                setupSpinner(categoryNames)
-//            }
-//            .addOnFailureListener {
-//                // Handle failure
-//            }
-//    }
-//    private fun setupSpinner(categoryNames: List<String>) {
-//        val adapter = ArrayAdapter(this, android.R.layout.simple_spinner_item, categoryNames)
-//        adapter.setDropDownViewResource(android.R.layout.simple_spinner_item)
-//        spinnerCategory.adapter = adapter
-//    }
 }

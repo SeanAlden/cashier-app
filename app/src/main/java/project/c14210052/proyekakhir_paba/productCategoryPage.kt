@@ -127,7 +127,33 @@ class productCategoryPage : AppCompatActivity() {
     }
 
     private fun deleteCategoryFromFirestore(kategori: KategoriProduk){
-        showDeleteConfirmationDialog(kategori)
+            checkIfCategoryIsInUse(kategori)
+    }
+
+    private fun checkIfCategoryIsInUse(kategori: KategoriProduk) {
+        val productsRef = firestore.collection("tbProduk")
+            .whereEqualTo("kategoriProduk", kategori.namaKategori)
+
+        productsRef.get().addOnSuccessListener { documents ->
+            if (documents.isEmpty) {
+                // kalau tidak ada produk yang menggunakan kategori ini, lakukan delete
+                showDeleteConfirmationDialog(kategori)
+            } else {
+                // kalau ada produk yang menggunakan kategori terkait, tampilkan pesan bahwa kategori masih digunakan
+                showCategoryInUseDialog()
+            }
+        }.addOnFailureListener {
+
+        }
+    }
+
+    private fun showCategoryInUseDialog() {
+        val dialog = AlertDialog.Builder(this)
+            .setTitle("Kategori ini masih digunakan")
+            .setMessage("Kategori ini masih digunakan oleh beberapa produk")
+            .setPositiveButton("Ok", null)
+            .create()
+        dialog.show()
     }
 
     private fun showDeleteConfirmationDialog(kategori: KategoriProduk) {

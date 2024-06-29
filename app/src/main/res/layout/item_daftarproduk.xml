@@ -64,19 +64,17 @@
             android:id="@+id/jumlahPrdk"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="32dp"
-            android:layout_marginEnd="32dp"
             android:text="0"
             android:textColor="@color/white"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="@+id/hargaPrdk"
-            app:layout_constraintStart_toEndOf="@+id/namaPrdk"
+            app:layout_constraintStart_toStartOf="@+id/hargaPrdk"
             app:layout_constraintTop_toBottomOf="@+id/namaPrdk" />
 
         <TextView
             android:id="@+id/satuanPrdk"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
             android:text="Satuan"
             android:textColor="@color/white"
             app:layout_constraintBottom_toBottomOf="@+id/jumlahPrdk"
