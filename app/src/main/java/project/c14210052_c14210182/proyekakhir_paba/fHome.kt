@@ -9,9 +9,13 @@ import android.view.ViewGroup
 import android.widget.ImageButton
 import android.widget.TextView
 import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.google.firebase.Firebase
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.firestore
+import project.c14210052_c14210182.proyekakhir_paba.adapter.adapterNews
+import project.c14210052_c14210182.proyekakhir_paba.dataClass.NewsItem
 
 //import project.c14210052.proyekakhir_paba.ARG_PARAM1
 //import project.c14210052.proyekakhir_paba.ARG_PARAM2
@@ -53,6 +57,21 @@ class fHome : Fragment() {
     ): View? {
 
         val view = inflater.inflate(R.layout.fragment_home, container, false)
+
+        val recyclerViewNews: RecyclerView = view.findViewById(R.id.recyclerViewNews)
+        recyclerViewNews.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
+
+        // tes data buat tampilan news di home page (masih hardcode)
+        val newsList = listOf(
+            NewsItem("Harga Beras hingga Gula di Ritel Bisa Melonjak Efek Dolar AS Menguat", R.drawable.beras),
+            NewsItem("SGM Eksplor-Alfamart Salurkan Bantuan ke 5.000 Anak PAUD Se-Indonesia", R.drawable.susu),
+            NewsItem("Lifebuoy Berkolaborasi dengan Kemenkes, Halodoc, dan PDUI Hadirkan Program Mobil Siaga", R.drawable.sabun),
+            NewsItem("Ini Beda Keju Alami dan Keju Olahan dan Kandungan Nutrisinya", R.drawable.keju)
+        )
+
+        // Set the adapter
+        val adapter = adapterNews(newsList)
+        recyclerViewNews.adapter = adapter
 
         val _produkBtn: ImageButton = view.findViewById(R.id.btnProduk)
         val _supplierBtn: ImageButton = view.findViewById(R.id.btnSupplier)
