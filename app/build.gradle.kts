@@ -6,11 +6,11 @@ plugins {
 }
 
 android {
-    namespace = "project.c14210052.proyekakhir_paba"
+    namespace = "project.c14210052_c14210182.proyekakhir_paba"
     compileSdk = 34
 
     defaultConfig {
-        applicationId = "project.c14210052.proyekakhir_paba"
+        applicationId = "project.c14210052_c14210182.proyekakhir_paba"
         minSdk = 26
         targetSdk = 34
         versionCode = 1
