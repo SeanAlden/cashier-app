@@ -40,94 +40,104 @@
 
             <ImageButton
                 android:id="@+id/btnProduk"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
                 android:layout_marginTop="32dp"
                 android:background="@drawable/rounded_corners"
+                android:scaleType="fitXY"
                 android:src="@drawable/produk_logo"
-                app:layout_constraintStart_toStartOf="@+id/guideline1"
+                app:layout_constraintEnd_toStartOf="@+id/guideline1"
+                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/tvUsernameCall" />
 
-                <TextView
-                    android:id="@+id/tvProduk"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="7dp"
-                    android:fontFamily="@font/poppinssemibold"
-                    android:text="Product"
-                    android:textAlignment="center"
-                    android:textColor="@color/white"
-                    app:layout_constraintEnd_toEndOf="@+id/btnProduk"
-                    app:layout_constraintStart_toStartOf="@+id/btnProduk"
-                    app:layout_constraintTop_toBottomOf="@+id/btnProduk" />
+            <TextView
+                android:id="@+id/tvProduk"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="7dp"
+                android:fontFamily="@font/poppinssemibold"
+                android:text="Product"
+                android:textAlignment="center"
+                android:textColor="@color/white"
+                android:textSize="12sp"
+                app:layout_constraintEnd_toStartOf="@+id/guideline1"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/btnProduk" />
 
             <ImageButton
                 android:id="@+id/btnSupplier"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
                 android:background="@drawable/rounded_corners"
+                android:scaleType="fitXY"
                 android:src="@drawable/supplier_logo"
-                app:layout_constraintEnd_toStartOf="@+id/guideline2"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/guideline2"
                 app:layout_constraintTop_toTopOf="@+id/btnProduk" />
 
-                <TextView
-                    android:id="@+id/tvSupplierr"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="7dp"
-                    android:fontFamily="@font/poppinssemibold"
-                    android:text="Supplier"
-                    android:textAlignment="center"
-                    android:textColor="@color/white"
-                    app:layout_constraintEnd_toEndOf="@+id/btnSupplier"
-                    app:layout_constraintStart_toStartOf="@+id/btnSupplier"
-                    app:layout_constraintTop_toBottomOf="@+id/btnSupplier" />
+            <TextView
+                android:id="@+id/tvSupplierr"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="7dp"
+                android:fontFamily="@font/poppinssemibold"
+                android:text="Supplier"
+                android:textAlignment="center"
+                android:textColor="@color/white"
+                android:textSize="12sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/guideline2"
+                app:layout_constraintTop_toBottomOf="@+id/btnSupplier" />
 
             <ImageButton
                 android:id="@+id/btnCashier"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="32dp"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
                 android:background="@drawable/rounded_corners"
+                android:scaleType="fitXY"
                 android:src="@drawable/cashier_logo"
+                app:layout_constraintEnd_toStartOf="@+id/guideline7"
                 app:layout_constraintStart_toStartOf="@+id/guideline1"
-                app:layout_constraintTop_toBottomOf="@+id/tvProduk" />
+                app:layout_constraintTop_toTopOf="@+id/btnProduk" />
 
             <TextView
-                    android:id="@+id/tvCashier"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="7dp"
-                    android:fontFamily="@font/poppinssemibold"
-                    android:text="Cashier"
-                    android:textAlignment="center"
-                    android:textColor="@color/white"
-                    app:layout_constraintEnd_toEndOf="@+id/btnCashier"
-                    app:layout_constraintStart_toStartOf="@+id/btnCashier"
-                    app:layout_constraintTop_toBottomOf="@+id/btnCashier" />
+                android:id="@+id/tvCashier"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="7dp"
+                android:fontFamily="@font/poppinssemibold"
+                android:text="Cashier"
+                android:textAlignment="center"
+                android:textColor="@color/white"
+                android:textSize="12sp"
+                app:layout_constraintEnd_toStartOf="@+id/guideline7"
+                app:layout_constraintStart_toStartOf="@+id/guideline1"
+                app:layout_constraintTop_toBottomOf="@+id/btnCashier" />
 
             <ImageButton
                 android:id="@+id/btnInventory"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="32dp"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
                 android:background="@drawable/rounded_corners"
+                android:scaleType="fitXY"
                 android:src="@drawable/inventory_logo"
                 app:layout_constraintEnd_toStartOf="@+id/guideline2"
-                app:layout_constraintTop_toBottomOf="@+id/tvSupplierr" />
+                app:layout_constraintStart_toStartOf="@+id/guideline7"
+                app:layout_constraintTop_toTopOf="@+id/btnSupplier" />
 
-                <TextView
-                    android:id="@+id/tvInventory"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="7dp"
-                    android:fontFamily="@font/poppinssemibold"
-                    android:text="Inventory"
-                    android:textAlignment="center"
-                    android:textColor="@color/white"
-                    app:layout_constraintEnd_toEndOf="@+id/btnInventory"
-                    app:layout_constraintStart_toStartOf="@+id/btnInventory"
-                    app:layout_constraintTop_toBottomOf="@+id/btnCashier" />
+            <TextView
+                android:id="@+id/tvInventory"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="7dp"
+                android:fontFamily="@font/poppinssemibold"
+                android:text="Inventory"
+                android:textAlignment="center"
+                android:textColor="@color/white"
+                android:textSize="12sp"
+                app:layout_constraintEnd_toStartOf="@+id/guideline2"
+                app:layout_constraintStart_toStartOf="@+id/guideline7"
+                app:layout_constraintTop_toBottomOf="@+id/btnCashier" />
 
             <TextView
                 android:id="@+id/tvHello"
@@ -159,8 +169,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                app:layout_constraintGuide_percent="0.125"
-
+                app:layout_constraintGuide_percent="0.25"
                 />
 
             <androidx.constraintlayout.widget.Guideline
@@ -168,13 +177,13 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                app:layout_constraintGuide_percent="0.865"  />
+                app:layout_constraintGuide_percent="0.75"  />
 
             <TextView
                 android:id="@+id/news"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
+                android:layout_marginTop="50dp"
                 android:fontFamily="@font/poppinssemibold"
                 android:text="News"
                 android:textColor="@color/white"
@@ -193,6 +202,15 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/news" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guideline7"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintGuide_percent="0.5"
+                app:layout_constraintStart_toStartOf="parent" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
