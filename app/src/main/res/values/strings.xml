@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">ProyekAkhir_PABA</string>
+    <string name="app_name">Smart Act Cashier</string>
     <string name="add_product_category">Tambah Kategori Produk</string>
     <string-array name="pertanyaan">
         <item>Apa itu aplikasi kasir?</item>
