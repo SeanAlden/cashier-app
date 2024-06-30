@@ -10,10 +10,10 @@
     <ImageView
         android:id="@+id/imgNews"
         android:layout_width="0dp"
-        android:layout_height="150dp"
-        android:layout_marginStart="40dp"
+        android:layout_height="250dp"
+        android:layout_marginStart="20dp"
         android:layout_marginTop="10dp"
-        android:layout_marginEnd="40dp"
+        android:layout_marginEnd="20dp"
         android:background="@drawable/rounded_corners"
         android:scaleType="fitXY"
         app:layout_constraintEnd_toEndOf="parent"
@@ -23,7 +23,7 @@
     <ImageView
         android:id="@+id/imageView5"
         android:layout_width="0dp"
-        android:layout_height="150dp"
+        android:layout_height="250dp"
         android:alpha="0.4"
         android:background="@drawable/rounded_corners"
         android:backgroundTint="@color/black"
@@ -48,6 +48,21 @@
         app:layout_constraintStart_toStartOf="@+id/guideline6"
         app:layout_constraintTop_toTopOf="@+id/imgNews" />
 
+    <TextView
+        android:id="@+id/txtClickInstruction"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:fontFamily="@font/poppinsregular"
+        android:hint="Click to see details"
+        android:textColor="@color/white"
+        android:textColorHint="@color/white"
+        android:textSize="13sp"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView5"
+        app:layout_constraintEnd_toEndOf="@+id/imgNews"
+        app:layout_constraintStart_toStartOf="@+id/guideline6" />
+
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline6"
         android:layout_width="wrap_content"
@@ -56,6 +71,18 @@
         app:layout_constraintGuide_percent="0.35"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        style="@style/Widget.AppCompat.ProgressBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="@+id/imgNews"
+        app:layout_constraintEnd_toEndOf="@+id/imgNews"
+        app:layout_constraintStart_toStartOf="@+id/imgNews"
+        app:layout_constraintTop_toTopOf="@+id/imgNews" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

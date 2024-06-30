@@ -1,5 +1,6 @@
 package project.c14210052_c14210182.proyekakhir_paba
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -9,6 +10,7 @@ import androidx.fragment.app.Fragment
 import androidx.viewpager2.adapter.FragmentStateAdapter
 import androidx.viewpager2.widget.ViewPager2
 import com.google.firebase.FirebaseApp
+import project.c14210052_c14210182.proyekakhir_paba.api.NewsItem
 import project.c14210052_c14210182.proyekakhir_paba.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
@@ -67,6 +69,7 @@ class MainActivity : AppCompatActivity() {
 
         override fun createFragment(position: Int): Fragment = fragments[position]
     }
+
 }
 
 

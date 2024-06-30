@@ -60,4 +60,8 @@ dependencies {
 
     // untuk glide
     implementation(libs.bumptech.glide)
+
+    // untuk API
+    implementation(libs.squareup.retrofit)
+    implementation(libs.squareup.retrofit.gson)
 }

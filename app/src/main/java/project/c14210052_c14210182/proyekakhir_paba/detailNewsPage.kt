@@ -1,18 +1,21 @@
 package project.c14210052_c14210182.proyekakhir_paba
 
-import android.annotation.SuppressLint
-import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import project.c14210052_c14210182.proyekakhir_paba.api.NewsItem
 
 class detailNewsPage : AppCompatActivity() {
 
-    lateinit var _btnBackFromDetailNews : Button
-    @SuppressLint("MissingInflatedId")
+    private lateinit var _btnBackFromDetailNews: Button
+    private lateinit var rvDetailNews: RecyclerView
+    private lateinit var adapterDetailNewsPage: adapterDetailNewsPage
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -24,7 +27,22 @@ class detailNewsPage : AppCompatActivity() {
         }
 
         _btnBackFromDetailNews = findViewById(R.id.btnBackFromDetailNews)
-        val intent = Intent(this@detailNewsPage, MainActivity::class.java)
-        startActivity(intent)
+        rvDetailNews = findViewById(R.id.rvDetailNews)
+
+        // Get NewsItem from intent
+        val newsItem = intent.getParcelableExtra<NewsItem>("news_item")
+
+        if (newsItem != null) {
+            val newsList = listOf(newsItem)
+
+            // Set up RecyclerView
+            rvDetailNews.layoutManager = LinearLayoutManager(this)
+            adapterDetailNewsPage = adapterDetailNewsPage(newsList)
+            rvDetailNews.adapter = adapterDetailNewsPage
+        }
+
+        _btnBackFromDetailNews.setOnClickListener {
+            finish()
+        }
     }
 }

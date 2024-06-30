@@ -17,6 +17,7 @@ firebaseFirestore = "25.0.0"
 firebaseAuth = "23.0.0"
 firebaseAuthKtx = "23.0.0"
 glide-version = "4.13.1"
+vretro = "2.9.0"
 
 [libraries]
 gson = {group = "com.google.code.gson", name="gson", version.ref="vgson" }
@@ -34,6 +35,8 @@ firebase-firestore = { group = "com.google.firebase", name = "firebase-firestore
 firebase-auth = { group = "com.google.firebase", name = "firebase-auth", version.ref = "firebaseAuth" }
 firebase-auth-ktx = { group = "com.google.firebase", name = "firebase-auth-ktx", version.ref = "firebaseAuthKtx" }
 bumptech-glide = { group = "com.github.bumptech.glide", name = "glide", version.ref = "glide-version" }
+squareup-retrofit = {group = "com.squareup.retrofit2", name="retrofit", version.ref="vretro"}
+squareup-retrofit-gson = {group = "com.squareup.retrofit2", name="converter-gson", version.ref="vretro"}
 
 [plugins]
 kotlinParcelize = { id = "org.jetbrains.kotlin.plugin.parcelize", version.ref = "parcelize" }
