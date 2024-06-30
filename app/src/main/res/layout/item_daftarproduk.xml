@@ -46,27 +46,42 @@
             app:layout_constraintStart_toStartOf="@+id/imageView6"
             app:layout_constraintTop_toTopOf="@+id/guideline5" />
 
-        <TextView
-            android:id="@+id/hargaPrdk"
-            android:layout_width="0dp"
+        <LinearLayout
+            android:id="@+id/linearLayout3"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginEnd="16dp"
-            android:text="Harga Produk"
-            android:textColor="@color/white"
-            app:layout_constraintBottom_toTopOf="@+id/guideline5"
-            app:layout_constraintEnd_toStartOf="@+id/guideline4"
+            android:layout_marginStart="8dp"
             app:layout_constraintStart_toStartOf="@+id/guideline3"
-            app:layout_constraintTop_toTopOf="@+id/imageView6" />
+            app:layout_constraintTop_toTopOf="@+id/namaPrdk">
+
+                <TextView
+                    android:layout_width="40dp"
+                    android:layout_height="wrap_content"
+                    android:text="Rp."
+                    android:textColor="@color/white"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="@+id/hargaPrdk"
+                    app:layout_constraintTop_toBottomOf="@+id/namaPrdk" />
+
+                <TextView
+                    android:id="@+id/hargaPrdk"
+                    android:layout_width="70dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="1dp"
+                    android:layout_marginEnd="1dp"
+                    android:text="Harga Produk"
+                    android:textColor="@color/white"
+                    app:layout_constraintBottom_toTopOf="@+id/guideline5" />
+
+        </LinearLayout>
 
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:layout_marginBottom="16dp"
-            app:layout_constraintBottom_toBottomOf="@+id/imageView6"
-            app:layout_constraintStart_toStartOf="@+id/hargaPrdk"
-            app:layout_constraintTop_toTopOf="@+id/guideline5">
+            android:layout_marginStart="8dp"
+            app:layout_constraintBottom_toBottomOf="@+id/kategoriPrdk"
+            app:layout_constraintStart_toStartOf="@+id/linearLayout3"
+            app:layout_constraintTop_toTopOf="@+id/kategoriPrdk">
 
                 <TextView
                     android:id="@+id/jumlahPrdk"
@@ -82,12 +97,8 @@
                     android:id="@+id/satuanPrdk"
                     android:layout_width="57dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="3dp"
                     android:text="Satuan"
-                    android:textColor="@color/white"
-                    app:layout_constraintBottom_toBottomOf="@+id/jumlahPrdk"
-                    app:layout_constraintStart_toEndOf="@+id/jumlahPrdk"
-                    app:layout_constraintTop_toTopOf="@+id/jumlahPrdk" />
+                    android:textColor="@color/white" />
 
         </LinearLayout>
 
@@ -135,5 +146,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintGuide_percent="0.5"
             app:layout_constraintStart_toStartOf="parent" />
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
