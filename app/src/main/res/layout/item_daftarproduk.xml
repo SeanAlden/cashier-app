@@ -8,30 +8,29 @@
         >
 
         <ImageView
-            android:id="@+id/imageView6"
+            android:id="@+id/containerProducts"
             android:layout_width="0dp"
             android:layout_height="100dp"
             android:layout_marginStart="20dp"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="20dp"
             android:layout_marginEnd="20dp"
+            android:layout_marginBottom="20dp"
             android:background="@drawable/rounded_corners"
             android:backgroundTint="#4A4A4A"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/namaPrdk"
-            android:layout_width="0dp"
+            android:layout_width="85dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginEnd="16dp"
+            android:layout_marginTop="11dp"
             android:text="Nama Produk"
             android:textColor="@color/white"
-            app:layout_constraintBottom_toTopOf="@+id/kategoriPrdk"
-            app:layout_constraintEnd_toStartOf="@+id/guideline3"
-            app:layout_constraintStart_toStartOf="@+id/imageView6"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintStart_toStartOf="@+id/kategoriPrdk"
+            app:layout_constraintTop_toTopOf="@+id/containerProducts" />
 
         <TextView
             android:id="@+id/kategoriPrdk"
@@ -39,12 +38,13 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginEnd="16dp"
+            android:layout_marginBottom="11dp"
             android:text="Kategori Produk"
             android:textColor="@color/grey"
-            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintBottom_toBottomOf="@+id/containerProducts"
             app:layout_constraintEnd_toStartOf="@+id/guideline3"
-            app:layout_constraintStart_toStartOf="@+id/imageView6"
-            app:layout_constraintTop_toTopOf="@+id/guideline5" />
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/containerProducts" />
 
         <LinearLayout
             android:id="@+id/linearLayout3"
@@ -106,20 +106,18 @@
             android:id="@+id/deleteBtn"
             android:layout_width="30dp"
             android:layout_height="30dp"
-            android:layout_marginTop="16dp"
             android:layout_marginEnd="20dp"
             android:background="@drawable/delete_logo"
             android:backgroundTint="#F44336"
-            app:layout_constraintEnd_toEndOf="@+id/imageView6"
-            app:layout_constraintTop_toTopOf="@+id/imageView6" />
+            app:layout_constraintEnd_toEndOf="@+id/containerProducts"
+            app:layout_constraintTop_toTopOf="@+id/namaPrdk" />
 
         <ImageButton
             android:id="@+id/editBtn"
             android:layout_width="30dp"
             android:layout_height="30dp"
-            android:layout_marginBottom="16dp"
             android:src="@drawable/edit_logo"
-            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintBottom_toBottomOf="@+id/kategoriPrdk"
             app:layout_constraintStart_toStartOf="@+id/deleteBtn" />
 
         <androidx.constraintlayout.widget.Guideline
@@ -138,15 +136,13 @@
             app:layout_constraintGuide_percent="0.67"
             />
 
-        <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/guideline5"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintGuide_percent="0.5"
-            app:layout_constraintStart_toStartOf="parent" />
-
-
+<!--        <androidx.constraintlayout.widget.Guideline-->
+<!--            android:id="@+id/guideline5"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:orientation="horizontal"-->
+<!--            app:layout_constraintEnd_toEndOf="parent"-->
+<!--            app:layout_constraintGuide_percent="0.5"-->
+<!--            app:layout_constraintStart_toStartOf="parent" />-->
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -18,41 +18,58 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
-    <ImageView
-        android:id="@+id/containerFAQ"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:background="@color/grey"
-        app:layout_constraintBottom_toTopOf="@+id/rvFAQ"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/tvFAQ"
-        app:layout_constraintTop_toTopOf="parent" />
+            <ImageView
+                android:id="@+id/containerFAQ"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:background="@color/grey"
+                app:layout_constraintBottom_toBottomOf="@id/searchFaqMaterialCardView"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/tvFAQ"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="10dp"
-        android:fontFamily="@font/poppinssemibold"
-        android:text="FAQ"
-        android:textAlignment="textEnd"
-        android:textColor="@color/white"
-        android:textSize="40sp"
-        app:layout_constraintEnd_toStartOf="@+id/imgQuestion"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+            <LinearLayout
+                android:id="@+id/faqTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="80dp"
+                android:layout_marginTop="0dp"
+                app:layout_constraintBottom_toTopOf="@+id/searchFaqMaterialCardView"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
 
-    <ImageView
-        android:id="@+id/imgQuestion"
-        android:layout_width="60dp"
-        android:layout_height="60dp"
-        android:layout_marginEnd="130dp"
-        android:background="@drawable/faq_header"
-        android:backgroundTint="@color/white"
-        app:layout_constraintBottom_toBottomOf="@+id/tvFAQ"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/tvFAQ" />
+                <TextView
+                    android:id="@+id/tvFAQ"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginEnd="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:fontFamily="@font/poppinssemibold"
+                    android:text="FAQ"
+                    android:textAlignment="textEnd"
+                    android:textColor="@color/white"
+                    android:textSize="40sp"
+                    app:layout_constraintEnd_toStartOf="@+id/imgQuestion"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <ImageView
+                    android:id="@+id/imgQuestion"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginEnd="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:background="@drawable/faq_header"
+                    android:backgroundTint="@color/white"
+                    app:layout_constraintBottom_toBottomOf="@+id/tvFAQ"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/tvFAQ" />
+
+            </LinearLayout>
 
     <androidx.cardview.widget.CardView
         android:id="@+id/searchFaqMaterialCardView"
@@ -63,7 +80,7 @@
         app:cardUseCompatPadding="true"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvFAQ">
+        app:layout_constraintTop_toBottomOf="@+id/faqTitle">
 
         <androidx.appcompat.widget.SearchView
             android:id="@+id/searchFaqView"
