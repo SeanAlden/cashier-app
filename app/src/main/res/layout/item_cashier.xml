@@ -8,37 +8,54 @@
     android:layout_marginVertical="20dp"
     android:background="@drawable/rounded_corners_2"
     android:backgroundTint="#2C2C2C"
-    android:orientation="vertical"
-    android:paddingHorizontal="30dp"
-    android:paddingVertical="30dp">
+    android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/tvProdukCashier"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:text="Produk"
-            android:textColor="@color/grey"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingHorizontal="40dp"
+            android:paddingVertical="20dp"
+            tools:layout_editor_absoluteX="30dp">
 
-        <TextView
-            android:id="@+id/tvJumlahCashier"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="4dp"
-            android:text="Jumlah"
-            android:textColor="@color/white"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tvProdukCashier" />
+                <TextView
+                    android:id="@+id/tvProdukCashier"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="Produk"
+                    android:textColor="@color/grey"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
 
-        <TextView
-            android:id="@+id/tvTotalCashier"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:text="Total"
-            android:textColor="@color/white"
-            app:layout_constraintBottom_toTopOf="@+id/tvJumlahCashier"
+                <TextView
+                    android:id="@+id/tvJumlahCashier"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:text="Jumlah"
+                    android:textColor="@color/white"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tvProdukCashier" />
+
+                <TextView
+                    android:id="@+id/tvTotalCashier"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="Total"
+                    android:textColor="@color/white"
+                    app:layout_constraintBottom_toTopOf="@+id/tvJumlahCashier"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tvProdukCashier" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <Button
+            android:id="@+id/btnDeleteCashier"
+            android:layout_width="22dp"
+            android:layout_height="19dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="20dp"
+            android:background="@drawable/delete_logo"
+            android:backgroundTint="#FF0000"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tvProdukCashier" />
+            app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

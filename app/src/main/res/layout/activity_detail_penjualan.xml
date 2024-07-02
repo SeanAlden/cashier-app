@@ -65,7 +65,6 @@
             app:layout_constraintTop_toBottomOf="@+id/headerContainerDetailPenjualan">
 
             <TextView
-                android:id="@+id/textView3"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="20dp"
@@ -75,7 +74,6 @@
                 android:textColor="@color/white" />
 
             <TextView
-                android:id="@+id/textView4"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="20dp"
@@ -84,7 +82,6 @@
                 android:textColor="@color/white" />
 
             <TextView
-                android:id="@+id/textView5"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="20dp"
@@ -93,7 +90,6 @@
                 android:textColor="@color/white" />
 
             <TableLayout
-                android:id="@+id/tbDetailPenjualan"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="53dp"
@@ -101,13 +97,11 @@
                 android:layout_marginEnd="53dp">
 
                 <TableRow
-                    android:id="@+id/trID"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_marginVertical="2dp">
 
                     <TextView
-                        android:id="@+id/tvID"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
@@ -118,7 +112,7 @@
                         android:textSize="16sp" />
 
                     <TextView
-                        android:id="@+id/tvIsiID"
+                        android:id="@+id/tvIDDetailPenjualan"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
@@ -130,13 +124,11 @@
                 </TableRow>
 
                 <TableRow
-                    android:id="@+id/trTanggal"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_marginVertical="2dp">
 
                     <TextView
-                        android:id="@+id/tvTanggal"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
@@ -147,7 +139,7 @@
                         android:textSize="16sp" />
 
                     <TextView
-                        android:id="@+id/tvIsiTanggal"
+                        android:id="@+id/tvTanggalDetailPenjualan"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
@@ -159,7 +151,6 @@
                 </TableRow>
 
                 <TableRow
-                    android:id="@+id/trWaktu"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_marginVertical="2dp">
@@ -176,7 +167,7 @@
                         android:textSize="16sp" />
 
                     <TextView
-                        android:id="@+id/tvIsiWaktu"
+                        android:id="@+id/tvWaktuDetailPenjualan"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
@@ -217,13 +208,11 @@
 
 
                 <TableRow
-                    android:id="@+id/trTotal"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_marginVertical="2dp">
 
                     <TextView
-                        android:id="@+id/tvTotal"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
@@ -234,7 +223,7 @@
                         android:textSize="16sp" />
 
                     <TextView
-                        android:id="@+id/tvIsiTotal"
+                        android:id="@+id/tvTotalDetailPenjualan"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
@@ -261,13 +250,11 @@
                 android:layout_marginBottom="30dp">
 
                 <TableRow
-                    android:id="@+id/trBayar"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_marginVertical="2dp">
 
                     <TextView
-                        android:id="@+id/tvBayar"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
@@ -278,7 +265,7 @@
                         android:textSize="16sp" />
 
                     <TextView
-                        android:id="@+id/tvIsiBayar"
+                        android:id="@+id/tvBayarDetailPenjualan"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
@@ -290,13 +277,11 @@
                 </TableRow>
 
                 <TableRow
-                    android:id="@+id/trKembalian"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_marginVertical="2dp">
 
                     <TextView
-                        android:id="@+id/tvKembalian"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
@@ -307,7 +292,7 @@
                         android:textSize="16sp" />
 
                     <TextView
-                        android:id="@+id/tvIsiKembalian"
+                        android:id="@+id/tvKembalianDetailPenjualan"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"

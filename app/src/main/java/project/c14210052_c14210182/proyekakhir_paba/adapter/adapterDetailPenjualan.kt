@@ -6,9 +6,9 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import project.c14210052_c14210182.proyekakhir_paba.R
-import project.c14210052_c14210182.proyekakhir_paba.dataClass.detailPenjualan
+import project.c14210052_c14210182.proyekakhir_paba.dataClass.DetailPenjualan
 
-class adapterDetailPenjualan(private val detailPenjualan: detailPenjualan) : RecyclerView.Adapter<adapterDetailPenjualan.DetailPenjualanViewHolder>() {
+class adapterDetailPenjualan(private val detailPenjualan: DetailPenjualan) : RecyclerView.Adapter<adapterDetailPenjualan.DetailPenjualanViewHolder>() {
 
     class DetailPenjualanViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val namaProduk: TextView = itemView.findViewById(R.id.tvItemNamaProduk)
@@ -22,12 +22,12 @@ class adapterDetailPenjualan(private val detailPenjualan: detailPenjualan) : Rec
     }
 
     override fun onBindViewHolder(holder: DetailPenjualanViewHolder, position: Int) {
-        holder.namaProduk.text = detailPenjualan.namaProduk[position]
-        holder.jumlah.text = detailPenjualan.jumlah[position]
-        holder.harga.text = detailPenjualan.hargaPerProduk[position]
+        holder.namaProduk.text = detailPenjualan.namaProduk?.get(position) ?: "N/A"
+        holder.jumlah.text = detailPenjualan.jumlah?.get(position) ?: "N/A"
+        holder.harga.text = detailPenjualan.hargaPerProduk?.get(position) ?: "N/A"
     }
 
     override fun getItemCount(): Int {
-        return detailPenjualan.namaProduk.size
+        return detailPenjualan.namaProduk?.size ?: 0
     }
 }

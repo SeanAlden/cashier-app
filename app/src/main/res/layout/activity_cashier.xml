@@ -56,21 +56,9 @@
         app:layout_constraintTop_toBottomOf="@+id/headerContainerCashier">
 
         <Button
-            android:id="@+id/btnDaftarAntrianCashier"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:gravity="center_horizontal|center_vertical"
-            android:text="Daftar Antrian" />
-
-        <Space
-            android:layout_width="4dp"
-            android:layout_height="wrap_content" />
-
-        <Button
             android:id="@+id/btnRiwayatCashier"
             android:layout_width="0dp"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="Riwayat" />
 
@@ -142,19 +130,6 @@
             android:orientation="horizontal">
 
             <Button
-                android:id="@+id/btnTambahKeAntrianCashier"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:backgroundTint="#0D6EFE"
-                android:text="Tambah ke Antrian"
-                android:textColor="@color/white" />
-
-            <Space
-                android:layout_width="50dp"
-                android:layout_height="wrap_content" />
-
-            <Button
                 android:id="@+id/btnBayarCashier"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
@@ -164,5 +139,116 @@
                 android:textColor="@color/white" />
         </LinearLayout>
     </LinearLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/clOverlayCashier"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#80000000"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#C1C0C0"
+            android:orientation="vertical"
+            android:paddingHorizontal="15dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:fontFamily="sans-serif-black"
+                android:text="Pembayaran"
+                android:textSize="20sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="4dp"
+                android:fontFamily="sans-serif"
+                android:paddingStart="5dp"
+                android:text="Total"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/tvTotalOverlayCashier"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="4dp"
+                android:background="@drawable/rounded_corners_2"
+                android:backgroundTint="#2C2C2C"
+                android:fontFamily="sans-serif"
+                android:paddingVertical="4dp"
+                android:paddingStart="5dp"
+                android:text="total"
+                android:textColor="#FFFFFF"
+                android:textSize="14sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="4dp"
+                android:fontFamily="sans-serif"
+                android:paddingStart="5dp"
+                android:text="bayar"
+                android:textSize="14sp" />
+
+            <EditText
+                android:id="@+id/etBayarOverlayCashier"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="4dp"
+                android:background="@drawable/rounded_corners_2"
+                android:backgroundTint="#2C2C2C"
+                android:ems="10"
+                android:fontFamily="sans-serif"
+                android:inputType="number"
+                android:paddingVertical="4dp"
+                android:paddingStart="5dp"
+                android:textColor="#FFFFFF"
+                android:textSize="14sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="4dp"
+                android:fontFamily="sans-serif"
+                android:paddingStart="5dp"
+                android:text="Kembalian"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/tvKembalianOverlayCashier"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="4dp"
+                android:background="@drawable/rounded_corners_2"
+                android:backgroundTint="#2C2C2C"
+                android:fontFamily="sans-serif"
+                android:paddingVertical="4dp"
+                android:paddingStart="5dp"
+                android:textColor="#FFFFFF"
+                android:textSize="14sp" />
+
+            <Button
+                android:id="@+id/btnBayarOverlayCashier"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:backgroundTint="#009A19"
+                android:text="Bayar"
+                android:textColor="@color/white" />
+
+        </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

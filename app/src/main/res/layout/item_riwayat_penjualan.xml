@@ -1,41 +1,40 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:layout_marginVertical="5dp"
     android:background="@drawable/rounded_corners_2"
     android:backgroundTint="#2C2C2C"
-    android:orientation="vertical">
+    android:orientation="horizontal"
+    android:paddingVertical="10dp">
 
         <TextView
             android:id="@+id/tvIDRiwayatPenjualan"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="32dp"
+            android:layout_weight="1"
+            android:gravity="center_horizontal"
             android:text="ID"
-            android:textColor="@color/grey"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            android:textColor="@color/grey" />
 
         <TextView
             android:id="@+id/tvTanggalRiwayatPenjualan"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center_horizontal"
             android:text="Tanggal"
-            android:textColor="@color/white"
-            app:layout_constraintEnd_toStartOf="@+id/tvTotalRiwayatPenjualan"
-            app:layout_constraintStart_toEndOf="@+id/tvIDRiwayatPenjualan"
-            app:layout_constraintTop_toTopOf="parent" />
+            android:textColor="@color/white" />
 
         <TextView
             android:id="@+id/tvTotalRiwayatPenjualan"
             android:layout_width="0dp"
             android:layout_height="19dp"
-            android:layout_marginEnd="32dp"
+            android:layout_weight="1"
+            android:gravity="center_horizontal"
             android:text="Total"
-            android:textColor="@color/white"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            android:textColor="@color/white" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</LinearLayout>
