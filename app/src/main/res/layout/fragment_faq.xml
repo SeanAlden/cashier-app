@@ -8,22 +8,16 @@
     android:background="@color/black"
     tools:context=".fFaq">
 
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        app:layout_constraintTop_toBottomOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent">
-
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+<!--        <androidx.constraintlayout.widget.ConstraintLayout-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content">-->
 
             <ImageView
                 android:id="@+id/containerFAQ"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
                 android:background="@color/grey"
-                app:layout_constraintBottom_toBottomOf="@id/searchFaqMaterialCardView"
+                app:layout_constraintBottom_toBottomOf="@+id/searchFaqMaterialCardView"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -33,7 +27,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="80dp"
                 android:layout_marginTop="0dp"
-                app:layout_constraintBottom_toTopOf="@+id/searchFaqMaterialCardView"
+                app:layout_constraintBottom_toTopOf="@id/searchFaqMaterialCardView"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent">
@@ -71,43 +65,50 @@
 
             </LinearLayout>
 
-    <androidx.cardview.widget.CardView
-        android:id="@+id/searchFaqMaterialCardView"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:background="@color/black"
-        app:cardCornerRadius="8dp"
-        app:cardUseCompatPadding="true"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/faqTitle">
+            <androidx.cardview.widget.CardView
+                android:id="@+id/searchFaqMaterialCardView"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:background="@color/black"
+                app:cardCornerRadius="8dp"
+                app:cardUseCompatPadding="true"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/faqTitle">
 
-        <androidx.appcompat.widget.SearchView
-            android:id="@+id/searchFaqView"
+                <androidx.appcompat.widget.SearchView
+                    android:id="@+id/searchFaqView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="1dp"
+                    android:layout_marginTop="1dp"
+                    android:layout_marginRight="1dp"
+                    android:layout_marginBottom="1dp"
+                    android:background="@drawable/rounded_corners_2"
+                    app:iconifiedByDefault="false"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/containerFAQ"
+                    app:queryHint="Search" />
+
+            </androidx.cardview.widget.CardView>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/containerFAQ">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvFAQ"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@drawable/rounded_corners_2"
-            app:iconifiedByDefault="false"
-            android:layout_marginLeft="1dp"
-            android:layout_marginRight="1dp"
-            android:layout_marginBottom="1dp"
-            android:layout_marginTop="1dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/containerFAQ"
-            app:queryHint="Search" />
+            app:layout_constraintTop_toBottomOf="@+id/containerFAQ" />
 
-    </androidx.cardview.widget.CardView>
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rvFAQ"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/searchFaqMaterialCardView" />
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
+        <!--        </androidx.constraintlayout.widget.ConstraintLayout>-->
     </ScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

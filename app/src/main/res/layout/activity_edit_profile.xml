@@ -8,16 +8,6 @@
     android:background="@color/black"
     tools:context=".editProfilePage">
 
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        app:layout_constraintTop_toBottomOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent">
-
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
     <ImageView
         android:id="@+id/headerContainerEditProfile"
         android:layout_width="0dp"
@@ -51,90 +41,100 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/headerContainerEditProfile" />
 
-    <ImageView
-        android:id="@+id/imgProfile"
-        android:layout_width="105dp"
-        android:layout_height="100dp"
-        android:layout_marginTop="100dp"
-        android:background="@drawable/circle_shape"
-        android:src="@drawable/f_profile"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/headerContainerEditProfile">
 
-    <TextView
-        android:id="@+id/tvFullName"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="70dp"
-        android:layout_marginTop="32dp"
-        android:text="Full Name"
-        android:textColor="@color/white"
-        android:textSize="14sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imgProfile" />
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
-    <EditText
-        android:id="@+id/etFullNameEditProfile"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="70dp"
-        android:layout_marginTop="7dp"
-        android:layout_marginEnd="70dp"
-        android:paddingTop="5dp"
-        android:paddingBottom="5dp"
-        android:background="@drawable/rounded_corners"
-        android:hint="Fill your new name here"
-        android:textAlignment="center"
-        android:textColor="@color/black"
-        android:textColorHint="@color/grey"
-        android:textSize="15sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvFullName" />
+            <ImageView
+                android:id="@+id/imgProfile"
+                android:layout_width="105dp"
+                android:layout_height="100dp"
+                android:layout_marginTop="100dp"
+                android:background="@drawable/circle_shape"
+                android:src="@drawable/f_profile"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/tvUserName"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="70dp"
-        android:layout_marginTop="40dp"
-        android:text="Username"
-        android:textColor="@color/white"
-        android:textSize="14sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etFullNameEditProfile" />
+            <TextView
+                android:id="@+id/tvFullName"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="70dp"
+                android:layout_marginTop="32dp"
+                android:text="Full Name"
+                android:textColor="@color/white"
+                android:textSize="14sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/imgProfile" />
 
-    <EditText
-        android:id="@+id/etUserNameEditProfile"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="70dp"
-        android:layout_marginTop="7dp"
-        android:layout_marginEnd="70dp"
-        android:paddingTop="5dp"
-        android:paddingBottom="5dp"
-        android:background="@drawable/rounded_corners"
-        android:hint="Fill your new username here"
-        android:textAlignment="center"
-        android:textColor="@color/black"
-        android:textColorHint="@color/grey"
-        android:textSize="15sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvUserName" />
+            <EditText
+                android:id="@+id/etFullNameEditProfile"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="70dp"
+                android:layout_marginTop="7dp"
+                android:layout_marginEnd="70dp"
+                android:background="@drawable/rounded_corners"
+                android:hint="Fill your new name here"
+                android:paddingTop="5dp"
+                android:paddingBottom="5dp"
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                android:textColorHint="@color/grey"
+                android:textSize="15sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvFullName" />
 
-    <Button
-        android:id="@+id/btnSaveEditProfile"
-        android:layout_width="100dp"
-        android:layout_height="50dp"
-        android:layout_marginTop="30dp"
-        android:text="Save"
-        android:backgroundTint="@color/yellow"
-        android:textSize="15sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etUserNameEditProfile" />
+            <TextView
+                android:id="@+id/tvUserName"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="70dp"
+                android:layout_marginTop="40dp"
+                android:text="Username"
+                android:textColor="@color/white"
+                android:textSize="14sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/etFullNameEditProfile" />
+
+            <EditText
+                android:id="@+id/etUserNameEditProfile"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="70dp"
+                android:layout_marginTop="7dp"
+                android:layout_marginEnd="70dp"
+                android:background="@drawable/rounded_corners"
+                android:hint="Fill your new username here"
+                android:paddingTop="5dp"
+                android:paddingBottom="5dp"
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                android:textColorHint="@color/grey"
+                android:textSize="15sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvUserName" />
+
+            <Button
+                android:id="@+id/btnSaveEditProfile"
+                android:layout_width="100dp"
+                android:layout_height="50dp"
+                android:layout_marginTop="30dp"
+                android:backgroundTint="@color/yellow"
+                android:text="Save"
+                android:textSize="15sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/etUserNameEditProfile" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
