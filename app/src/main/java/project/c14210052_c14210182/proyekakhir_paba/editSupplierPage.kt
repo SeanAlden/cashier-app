@@ -3,6 +3,8 @@ package project.c14210052_c14210182.proyekakhir_paba
 import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
+import android.text.Editable
+import android.text.TextWatcher
 import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageButton
@@ -24,6 +26,8 @@ class editSupplierPage : AppCompatActivity() {
     private lateinit var _etEditKodeSupp: EditText
     private lateinit var _btnSaveEditSupp: Button
     private lateinit var _btnBackFromEditSupp: ImageButton
+
+
 
     private lateinit var db: FirebaseFirestore
 
@@ -49,6 +53,9 @@ class editSupplierPage : AppCompatActivity() {
         _etEditKotaSupp = findViewById(R.id.etKotaSupplierEdit)
         _etEditProvinsiSupp = findViewById(R.id.etProvinsiSupplierEdit)
         _etEditKodeSupp = findViewById(R.id.etKodePosSupplierEdit)
+
+        addInputValidation(_etEditNomorTelpSupp)
+        addInputValidation(_etEditKodeSupp)
 
         _btnSaveEditSupp = findViewById(R.id.btnSaveEditSupplierData)
         _btnBackFromEditSupp = findViewById(R.id.btnBackFromEditSupplier)
@@ -106,6 +113,26 @@ class editSupplierPage : AppCompatActivity() {
                     println("Failed to update item: ${e.message}")
                 }
         }
+    }
+
+    private fun addInputValidation(editText: EditText){
+        editText.addTextChangedListener(object: TextWatcher {
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
+
+            }
+
+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+                val input = s.toString()
+                if (input.isNotEmpty() && !input.matches(Regex("\\d+"))) {
+                    editText.error = "Masukkan hanya angka 0-9"
+                    editText.setText("")
+                }
+            }
+
+            override fun afterTextChanged(s: Editable?) {
+
+            }
+        })
     }
 }
 
