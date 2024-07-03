@@ -29,9 +29,10 @@
             android:layout_weight="1"
             android:background="#3E3E3E"
             android:ems="2"
+            android:hint="0"
             android:inputType="number"
-            android:text="0"
             android:textColor="@color/white"
+            android:textColorHint="#A9FFFFFF"
             android:textSize="14sp"
             app:layout_constraintBottom_toBottomOf="@+id/imageView6"
             app:layout_constraintEnd_toEndOf="@+id/imageView6" />
