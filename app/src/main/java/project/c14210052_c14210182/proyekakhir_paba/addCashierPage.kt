@@ -5,6 +5,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
+import android.os.PersistableBundle
 import android.os.SystemClock
 import android.text.Editable
 import android.text.TextWatcher
@@ -20,6 +21,8 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import androidx.core.view.isEmpty
+import androidx.core.view.isNotEmpty
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.firebase.firestore.FirebaseFirestore
@@ -71,8 +74,6 @@ class addCashierPage : AppCompatActivity() {
         fetchDataFromFirebase()
         loadCategory()
 
-
-
         val delay = 1000 // 1 seconds after user stops typing
         var lastTextEdit: Long = 0
         var handler = Handler(Looper.getMainLooper())
@@ -97,6 +98,7 @@ class addCashierPage : AppCompatActivity() {
                     lastTextEdit = SystemClock.uptimeMillis()
                     handler.postDelayed(inputFinishChecker, delay.toLong())
                 }
+<<<<<<< Updated upstream
                 else {
                     val selectedCategory = spinnerCategory.selectedItem?.toString()
                     if (selectedCategory != null) {
@@ -106,6 +108,12 @@ class addCashierPage : AppCompatActivity() {
                         Toast.makeText(this@addCashierPage, "No category selected", Toast.LENGTH_SHORT).show()
                     }
                 }
+=======
+                else
+                    if (spinnerCategory.isNotEmpty()) {
+                    filterProductsByCategory(spinnerCategory.selectedItem.toString())
+                        }
+>>>>>>> Stashed changes
             }
         })
     }

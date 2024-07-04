@@ -3,16 +3,16 @@ package project.c14210052_c14210182.proyekakhir_paba
 import android.annotation.SuppressLint
 import android.app.Activity
 import android.content.Intent
-import android.opengl.Visibility
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
+import android.os.Parcel
+import android.os.Parcelable
 import android.os.SystemClock
 import android.text.Editable
 import android.text.TextWatcher
 import android.util.Log
 import android.view.View
-import android.widget.ArrayAdapter
 import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageButton
@@ -29,11 +29,12 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.firebase.firestore.FirebaseFirestore
 import project.c14210052_c14210182.proyekakhir_paba.adapter.adapterCashier
-import project.c14210052_c14210182.proyekakhir_paba.dataClass.DetailPenjualan
 import project.c14210052_c14210182.proyekakhir_paba.dataClass.Produk
 import java.text.SimpleDateFormat
 import java.util.Date
 import java.util.Locale
+
+
 
 class cashierPage : AppCompatActivity() {
 
@@ -60,14 +61,16 @@ class cashierPage : AppCompatActivity() {
             val jumlahBeli: Int = data?.getIntExtra("jumlah_beli", 0) ?: 0
 
             if (produk != null) {
-                val existingIndex = _productList.indexOfFirst { it.first.idProduk == produk.idProduk }
+                val existingIndex =
+                    _productList.indexOfFirst { it.first.idProduk == produk.idProduk }
                 if (existingIndex != -1) {
                     // Product already exists, update the quantity or other properties
                     _productList[existingIndex] = Pair(produk, jumlahBeli)
                 } else {
                     // Product doesn't exist, add it to the list
                     _productList.add(Pair(produk, jumlahBeli))
-                }            }
+                }
+            }
             updateTotalDisplay()
 
             adapterCashier.notifyDataSetChanged()
@@ -201,7 +204,11 @@ class cashierPage : AppCompatActivity() {
                         }
                         .addOnFailureListener { e ->
                             Log.e("Firestore", "Error adding document", e)
-                            Toast.makeText(this@cashierPage, "Error: ${e.message}", Toast.LENGTH_SHORT).show()
+                            Toast.makeText(
+                                this@cashierPage,
+                                "Error: ${e.message}",
+                                Toast.LENGTH_SHORT
+                            ).show()
                         }
                 }
             }
@@ -226,7 +233,10 @@ class cashierPage : AppCompatActivity() {
                     if (newQuantity >= 0) {
                         productRef.update("jumlahProduk", newQuantity)
                             .addOnSuccessListener {
-                                Log.d("Firestore", "Product ${product.idProduk} quantity updated to $newQuantity")
+                                Log.d(
+                                    "Firestore",
+                                    "Product ${product.idProduk} quantity updated to $newQuantity"
+                                )
                             }
                             .addOnFailureListener { e ->
                                 Log.e("Firestore", "Error updating product quantity", e)
@@ -268,5 +278,51 @@ class cashierPage : AppCompatActivity() {
         }
     }
 
+    data class ProductQuantity(val product: Produk?, val quantity: Int) : Parcelable {
+        constructor(parcel: Parcel) : this(
+            parcel.readParcelable(Produk::class.java.classLoader),
+            parcel.readInt()
+        )
+
+        override fun describeContents(): Int {
+            return 0
+        }
+
+        override fun writeToParcel(dest: Parcel, flags: Int) {
+        }
+
+        companion object CREATOR : Parcelable.Creator<ProductQuantity> {
+            override fun createFromParcel(parcel: Parcel): ProductQuantity {
+                return ProductQuantity(parcel)
+            }
+
+            override fun newArray(size: Int): Array<ProductQuantity?> {
+                return arrayOfNulls(size)
+            }
+        }
+    }
+
+    override fun onSaveInstanceState(outState: Bundle) {
+        super.onSaveInstanceState(outState)
+        val productListWithQuantities = _productList.map { ProductQuantity(it.first, it.second) }
+        outState.putParcelableArrayList("productList", ArrayList(productListWithQuantities))
+    }
+
+    override fun onRestoreInstanceState(savedInstanceState: Bundle) {
+        super.onRestoreInstanceState(savedInstanceState)
+
+        savedInstanceState?.getParcelableArrayList<ProductQuantity>("productList")?.let { restoredList ->
+            _productList.clear()
+            _productList.addAll(restoredList
+                .filter { it.product != null }
+                .map { Pair(it.product!!, it.quantity) }
+            )
+            adapterCashier.notifyDataSetChanged()
+            updateTotalDisplay()
+        }
+    }
 
 }
+
+
+
