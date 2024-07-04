@@ -62,7 +62,17 @@
     <EditText
         android:id="@+id/etSearchCashier"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_height="30dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="24dp"
+        android:paddingStart="35dp"
+        android:paddingTop="5dp"
+        android:paddingEnd="10dp"
+        android:paddingBottom="5dp"
+        android:textSize="14sp"
+        android:hint="Search Product"
+        android:textColorHint="@color/grey"
         android:background="@drawable/background"
         android:ems="20"
         android:inputType="text"
@@ -72,13 +82,23 @@
         app:layout_constraintTop_toBottomOf="@id/cardViewHeaderAddCashier" />
 
     <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:background="@drawable/search_logo"
+        app:layout_constraintBottom_toBottomOf="@+id/etSearchCashier"
+        app:layout_constraintStart_toStartOf="@+id/etSearchCashier"
+        app:layout_constraintTop_toTopOf="@+id/etSearchCashier" />
+
+    <ImageView
         android:id="@+id/containerKategoriCashier"
         android:layout_width="0dp"
         android:layout_height="50dp"
         android:layout_marginStart="30dp"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="24dp"
         android:layout_marginEnd="30dp"
-        android:background="@color/grey"
+        android:background="@drawable/rounded_corners"
+        android:backgroundTint="@color/grey"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/etSearchCashier" />
@@ -104,7 +124,7 @@
         android:layout_marginEnd="30dp"
         android:background="@color/white"
         app:layout_constraintBottom_toBottomOf="@+id/containerKategoriCashier"
-        app:layout_constraintEnd_toStartOf="@+id/btnCategory"
+        app:layout_constraintEnd_toStartOf="@+id/btnCategoryCashier"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/containerKategoriCashier" />
 
@@ -114,12 +134,14 @@
         android:src="@drawable/arrow_down"
         app:layout_constraintBottom_toBottomOf="@+id/spinnerCategoryCashier"
         app:layout_constraintEnd_toEndOf="@+id/spinnerCategoryCashier"
-        app:layout_constraintTop_toTopOf="@+id/spinnerCategoryCashier" />
+        app:layout_constraintTop_toTopOf="@+id/spinnerCategoryCashier"
+        app:layout_constraintVertical_bias="1.0" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvAddCashier"
         android:layout_width="match_parent"
         android:layout_height="0dp"
+        android:layout_marginTop="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

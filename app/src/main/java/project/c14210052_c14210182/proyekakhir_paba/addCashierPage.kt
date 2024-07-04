@@ -8,6 +8,8 @@ import android.os.Looper
 import android.os.SystemClock
 import android.text.Editable
 import android.text.TextWatcher
+import android.view.View
+import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.Button
 import android.widget.EditText
@@ -66,8 +68,8 @@ class addCashierPage : AppCompatActivity() {
 
         spinnerCategory = findViewById(R.id.spinnerCategoryCashier)
 
-        loadCategory()
         fetchDataFromFirebase()
+        loadCategory()
 
 
 
@@ -95,8 +97,15 @@ class addCashierPage : AppCompatActivity() {
                     lastTextEdit = SystemClock.uptimeMillis()
                     handler.postDelayed(inputFinishChecker, delay.toLong())
                 }
-                else
-                    filterProductsByCategory(spinnerCategory.selectedItem.toString())
+                else {
+                    val selectedCategory = spinnerCategory.selectedItem?.toString()
+                    if (selectedCategory != null) {
+                        filterProductsByCategory(selectedCategory)
+                    } else {
+                        // Handle the case where selectedCategory is null
+                        Toast.makeText(this@addCashierPage, "No category selected", Toast.LENGTH_SHORT).show()
+                    }
+                }
             }
         })
     }
@@ -123,6 +132,7 @@ class addCashierPage : AppCompatActivity() {
 
         }
     }
+
 
     private fun loadCategory() {
         val kategoriList = mutableListOf<String>()
@@ -203,6 +213,7 @@ class addCashierPage : AppCompatActivity() {
 
 
     }
+
 
     private fun filterProductsByCategory(category: String) {
         _productListener?.remove() // Remove previous listener if exists

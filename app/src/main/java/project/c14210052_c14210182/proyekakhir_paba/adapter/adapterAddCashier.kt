@@ -19,7 +19,7 @@ class adapterAddCashier (
         inner class CashierViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
             val nama: TextView = itemView.findViewById(R.id.tvNamaAddCashier)
             val kategori: TextView = itemView.findViewById(R.id.tvKategoriAddCashier)
-            val harga: TextView = itemView.findViewById(R.id.tvHargaAddCashier)
+            val harga: TextView = itemView.findViewById(R.id.tvHargaProdukAddCashier)
             val jumlah: TextView = itemView.findViewById(R.id.tvJumlahAddCashier)
             val satuan: TextView = itemView.findViewById(R.id.tvSatuanAddCashier)
             val jumlahBeli: EditText = itemView.findViewById(R.id.etJumlahCashier)

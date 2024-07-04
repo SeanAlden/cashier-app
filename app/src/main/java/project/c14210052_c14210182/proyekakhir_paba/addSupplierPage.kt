@@ -2,6 +2,8 @@ package project.c14210052_c14210182.proyekakhir_paba
 
 import android.content.Intent
 import android.os.Bundle
+import android.text.Editable
+import android.text.TextWatcher
 import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageButton
@@ -38,6 +40,9 @@ class addSupplierPage : AppCompatActivity() {
         _btnSaveSupp = findViewById(R.id.btnSaveSupplier)
         _btnBackFromAddSupp = findViewById(R.id.btnBackFromAddSupplier)
 
+        addInputValidation(_etNomorTelpSupp)
+        addInputValidation(_etKodeSupp)
+
         db = FirebaseFirestore.getInstance()
 
         _btnSaveSupp.setOnClickListener {
@@ -48,6 +53,7 @@ class addSupplierPage : AppCompatActivity() {
             val kota = _etKotaSupp.text.toString()
             val provinsi = _etProvinsiSupp.text.toString()
             val kode = _etKodeSupp.text.toString()
+
 
             if (nama.isEmpty() || email.isEmpty() || nomor_telp.isEmpty() || alamat.isEmpty() || kota.isEmpty() || provinsi.isEmpty() ||kode.isEmpty()) {
                 Toast.makeText(this, "Please fill out all fields", Toast.LENGTH_SHORT).show()
@@ -81,7 +87,29 @@ class addSupplierPage : AppCompatActivity() {
 
     }
 
+    private fun addInputValidation(editText: EditText){
+        editText.addTextChangedListener(object: TextWatcher {
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
+
+            }
+
+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+                val input = s.toString()
+                if (input.isNotEmpty() && !input.matches(Regex("\\d+"))) {
+                    editText.error = "Masukkan hanya angka 0-9"
+                    editText.setText("")
+                }
+            }
+
+            override fun afterTextChanged(s: Editable?) {
+
+            }
+        })
+    }
+
 }
+
+
 
 //    val db = Firebase.firestore
 //
