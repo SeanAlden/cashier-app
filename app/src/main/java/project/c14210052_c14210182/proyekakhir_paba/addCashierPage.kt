@@ -98,22 +98,10 @@ class addCashierPage : AppCompatActivity() {
                     lastTextEdit = SystemClock.uptimeMillis()
                     handler.postDelayed(inputFinishChecker, delay.toLong())
                 }
-<<<<<<< Updated upstream
-                else {
-                    val selectedCategory = spinnerCategory.selectedItem?.toString()
-                    if (selectedCategory != null) {
-                        filterProductsByCategory(selectedCategory)
-                    } else {
-                        // Handle the case where selectedCategory is null
-                        Toast.makeText(this@addCashierPage, "No category selected", Toast.LENGTH_SHORT).show()
-                    }
-                }
-=======
                 else
                     if (spinnerCategory.isNotEmpty()) {
                     filterProductsByCategory(spinnerCategory.selectedItem.toString())
                         }
->>>>>>> Stashed changes
             }
         })
     }
