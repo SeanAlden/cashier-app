@@ -10,7 +10,7 @@ import androidx.core.view.WindowInsetsCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import project.c14210052_c14210182.proyekakhir_paba.adapter.adapterDetailPenjualan
-import project.c14210052_c14210182.proyekakhir_paba.dataClass.DetailPenjualan
+import project.c14210052_c14210182.proyekakhir_paba.dataClass.detailPenjualan
 
 class detailPenjualanPage : AppCompatActivity() {
 
@@ -37,7 +37,7 @@ class detailPenjualanPage : AppCompatActivity() {
         recyclerView.layoutManager = LinearLayoutManager(this)
         recyclerView.isNestedScrollingEnabled = false
 
-        val detailItems: DetailPenjualan? = intent.getParcelableExtra("Detail")
+        val detailItems: detailPenjualan? = intent.getParcelableExtra("Detail")
         detailItems?.let {
             adapter = adapterDetailPenjualan(detailItems)
             recyclerView.adapter = adapter

@@ -12,13 +12,13 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.firebase.firestore.FirebaseFirestore
 import project.c14210052_c14210182.proyekakhir_paba.adapter.adapterRiwayat
-import project.c14210052_c14210182.proyekakhir_paba.dataClass.DetailPenjualan
+import project.c14210052_c14210182.proyekakhir_paba.dataClass.detailPenjualan
 
 class riwayatPenjualanPage : AppCompatActivity() {
 
     private lateinit var backButton: ImageButton
     private lateinit var rvRiwayat: RecyclerView
-    private var _riwayatList = mutableListOf<DetailPenjualan>()
+    private var _riwayatList = mutableListOf<detailPenjualan>()
     private lateinit var adapterRiwayat: adapterRiwayat
 
     private val db = FirebaseFirestore.getInstance()
@@ -55,7 +55,7 @@ class riwayatPenjualanPage : AppCompatActivity() {
             .get()
             .addOnSuccessListener { documents ->
                 for (document in documents) {
-                    val product = document.toObject(DetailPenjualan::class.java)
+                    val product = document.toObject(detailPenjualan::class.java)
                     product?.let {
                         it.id = document.id
                         _riwayatList.add(it)

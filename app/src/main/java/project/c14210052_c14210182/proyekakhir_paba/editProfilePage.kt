@@ -6,7 +6,10 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageButton
 import android.widget.Toast
+import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.ViewCompat
+import androidx.core.view.WindowInsetsCompat
 import com.google.firebase.Firebase
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.auth
@@ -18,11 +21,20 @@ class editProfilePage : AppCompatActivity() {
     private lateinit var _backButton : ImageButton
     @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_edit_profile)
+        enableEdgeToEdge()
+        setContentView(R.layout.activity_edit_supplier)
+        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
+            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
+            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
+            insets
+        }
+
         lateinit var auth:FirebaseAuth
         val db = Firebase.firestore
         lateinit var userID:String
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_edit_profile)
+
         auth = Firebase.auth
         var intentData = intent.getParcelableExtra<Users>("kirimDataProfile")
         var _etFullname:EditText = findViewById(R.id.etFullNameEditProfile)

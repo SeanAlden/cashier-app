@@ -11,7 +11,6 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.firebase.firestore.FirebaseFirestore
 import project.c14210052_c14210182.proyekakhir_paba.adapter.adapterInventory
-import project.c14210052_c14210182.proyekakhir_paba.dataClass.DetailPenjualan
 import project.c14210052_c14210182.proyekakhir_paba.dataClass.Produk
 
 class inventoryPage : AppCompatActivity() {

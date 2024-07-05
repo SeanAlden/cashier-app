@@ -6,9 +6,9 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import project.c14210052_c14210182.proyekakhir_paba.R
-import project.c14210052_c14210182.proyekakhir_paba.dataClass.DetailPenjualan
+import project.c14210052_c14210182.proyekakhir_paba.dataClass.detailPenjualan
 
-class adapterDetailPenjualan(private val detailPenjualan: DetailPenjualan) : RecyclerView.Adapter<adapterDetailPenjualan.DetailPenjualanViewHolder>() {
+class adapterDetailPenjualan(private val detailPenjualan: detailPenjualan) : RecyclerView.Adapter<adapterDetailPenjualan.DetailPenjualanViewHolder>() {
 
     class DetailPenjualanViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val namaProduk: TextView = itemView.findViewById(R.id.tvItemNamaProduk)

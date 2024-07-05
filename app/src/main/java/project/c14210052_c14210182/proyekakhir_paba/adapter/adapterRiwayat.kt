@@ -6,11 +6,11 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import project.c14210052_c14210182.proyekakhir_paba.R
-import project.c14210052_c14210182.proyekakhir_paba.dataClass.DetailPenjualan
+import project.c14210052_c14210182.proyekakhir_paba.dataClass.detailPenjualan
 
 class adapterRiwayat(
-    private val riwayatList: List<DetailPenjualan>,
-    private val onClickListener: (DetailPenjualan) -> Unit
+    private val riwayatList: List<detailPenjualan>,
+    private val onClickListener: (detailPenjualan) -> Unit
 ) : RecyclerView.Adapter<adapterRiwayat.RiwayatViewHolder>() {
 
     inner class RiwayatViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
@@ -18,7 +18,7 @@ class adapterRiwayat(
         val tanggal: TextView = itemView.findViewById(R.id.tvTanggalRiwayatPenjualan)
         val total: TextView = itemView.findViewById(R.id.tvTotalRiwayatPenjualan)
 
-        fun bind(detailPenjualan: DetailPenjualan) {
+        fun bind(detailPenjualan: detailPenjualan) {
             ID.text = detailPenjualan.id
             tanggal.text = detailPenjualan.tanggal
             total.text = detailPenjualan.total.toString()
