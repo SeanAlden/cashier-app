@@ -32,6 +32,8 @@ private const val ARG_PARAM2 = "param2"
 
 class fProfile : Fragment() {
     // TODO: Rename and change types of parameters
+
+    // mengatur tampilan untuk profile dengan recycler view
     private lateinit var _rvAsetProfile: RecyclerView
     var listUsers: ArrayList<Users> = arrayListOf()
     private lateinit var auth: FirebaseAuth
@@ -55,7 +57,6 @@ class fProfile : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_profile, container, false)
     }
 
@@ -69,6 +70,7 @@ class fProfile : Fragment() {
 
     }
 
+    // menambahkan user berdasarkan data dari collection users
     fun addUsers() {
         var docRef = db.collection("users").document(userID)
 
@@ -87,12 +89,13 @@ class fProfile : Fragment() {
         }
     }
 
+    // menampilkan data berdasarkan data user yang sign in
     fun showData() {
         _rvAsetProfile.layoutManager = LinearLayoutManager(super.requireActivity() as MainActivity)
         val adapterPr = adapterProfile(listUsers)
         _rvAsetProfile.adapter = adapterPr
 
-
+        // mengirimkan current data user ke halaman edit profil untuk ditampilkan sebagai auto edit text
         adapterPr.setOnItemClickCallback(object : adapterProfile.OnItemClickCallback {
             override fun editProfile(data: Users) {
                 val intent = Intent(requireActivity() as MainActivity, editProfilePage::class.java)
@@ -100,6 +103,7 @@ class fProfile : Fragment() {
                 startActivity(intent)
             }
 
+            // mengatur ketika melakukan sign out
             override fun signOut(data: Users) {
                 com.google.firebase.Firebase.auth.signOut()
                 startActivity(Intent(requireActivity() as MainActivity, loginPage::class.java))
@@ -110,6 +114,7 @@ class fProfile : Fragment() {
                 ).show()
             }
 
+            // mengatur untuk melakukan penghapusan pada akun
             override fun deleteProfile(data: Users) {
                 AlertDialog.Builder(requireActivity() as MainActivity).setTitle("Delete Account")
                     .setMessage("Apakah benar akun ini mau dihapus")

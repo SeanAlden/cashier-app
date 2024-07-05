@@ -2,6 +2,7 @@ package project.c14210052_c14210182.proyekakhir_paba
 
 import android.annotation.SuppressLint
 import android.os.Bundle
+import android.util.Log
 import android.widget.ImageButton
 import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
@@ -13,7 +14,7 @@ import project.c14210052_c14210182.proyekakhir_paba.dataClass.Produk
 
 class detailProductPage : AppCompatActivity() {
 
-    private val firestore = FirebaseFirestore.getInstance()
+    private val db = FirebaseFirestore.getInstance()
     private lateinit var _tvNamaProdukDetail : TextView
     private lateinit var _tvDeskripsiProdukDetail : TextView
     private lateinit var _tvKategoriProdukDetail : TextView
@@ -44,17 +45,17 @@ class detailProductPage : AppCompatActivity() {
         _tvJumlahProdukDetail = findViewById(R.id.tvJumlahProdukDetaill)
         _tvSatuanProdukDetail = findViewById(R.id.tvSatuanProdukDetaill)
 
-            // Ambil data yang dikirim melalui intent
+            // mengambil data yang dikirim melalui intent
             val produkId = intent.getStringExtra("produk_id")
 
-            // Jika ada id produk yang dikirim
+            // Jika ada id produk yang dikirim, maka akan mengambil data produk dari firestore database
+            // berdasarkan id
             if (produkId != null) {
-                // Ambil data produk dari Firestore berdasarkan id
-                firestore.collection("tbProduk").document(produkId)
+                db.collection("tbProduk").document(produkId)
                     .get()
                     .addOnSuccessListener { document ->
                         if (document != null) {
-                            // Map data ke UI
+                            // melakukan mapping data ke UI
                             val produk = document.toObject(Produk::class.java)
                             produk?.let {
                                 _tvNamaProdukDetail.setText(produk.namaProduk)
@@ -67,14 +68,14 @@ class detailProductPage : AppCompatActivity() {
                                 _tvSatuanProdukDetail.setText(produk.satuanProduk)
                             }
                         } else {
-                            // Handle jika data produk tidak ditemukan
+                            Log.d("Product Detail", "data produk tidak ditemukan")
                         }
                     }
                     .addOnFailureListener { exception ->
-
+                        Log.d("Fetch Product", "gagal mengambil data produk")
                     }
             } else {
-                // Handle jika tidak ada id produk yang dikirim
+                Log.d("Product ID", "id produk tidak ditemukan")
             }
             _btnBackFromDetailProduct = findViewById(R.id.btnBackFromDetailProduct)
 

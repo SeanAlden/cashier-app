@@ -19,8 +19,11 @@ import project.c14210052_c14210182.proyekakhir_paba.dataClass.Users
 
 class registerPage : AppCompatActivity() {
 
+    // inisialisasi firebase auth untuk autentikasi user yang register / daftar akun
     private lateinit var auth: FirebaseAuth
+    // membuat database untuk menyimpan akun user yang didaftarkan
     var db = Firebase.firestore
+    // inisialisasi id untuk akun user yang didaftarkan
     lateinit var userID: String
     @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -33,6 +36,7 @@ class registerPage : AppCompatActivity() {
             insets
         }
 
+        // inisialisasi untuk tiap komponen seperti teks inputan, tombol, dan lainnya
         val _btnSignUp: Button = findViewById(R.id.btnCreateAccount)
         val _etEmail: EditText = findViewById(R.id.etEmaill)
         val _etPassword: EditText = findViewById(R.id.etPasswordd)
@@ -50,6 +54,9 @@ class registerPage : AppCompatActivity() {
             val email = _etEmail.text.toString()
             val password = _etPassword.text.toString()
 
+            // melakukan pengecekan, jika email dan password belum diisi, maka akan menampilkan
+            // pesan untuk mengisi email dan password
+
             if (TextUtils.isEmpty(email)){
                 _etEmail.setError("Email diperlukan")
                 return@setOnClickListener
@@ -59,6 +66,13 @@ class registerPage : AppCompatActivity() {
                 return@setOnClickListener
             }
 
+            // melakukan pengecekan panjang password
+            if (password.length < 6) {
+                _etPassword.setError("Password harus terdiri dari minimal 6 karakter")
+                return@setOnClickListener
+            }
+
+            // autentikasi user ketika melakukan register
             auth.createUserWithEmailAndPassword(email, password)
                 .addOnCompleteListener() { task ->
                     if (task.isSuccessful) {
@@ -74,8 +88,6 @@ class registerPage : AppCompatActivity() {
 
                                 finish()
                             }
-//                        val intent = Intent(this@RegisterActivity, LoginActivity::class.java)
-//                        startActivity(intent)
                     } else {
                         Toast.makeText(
                             baseContext,

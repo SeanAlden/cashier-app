@@ -34,14 +34,17 @@ class fFaq : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        // mengatur resource untuk pertanyaan dan jawaban dari FAQ
         val questions = resources.getStringArray(R.array.pertanyaan)
         val answers = resources.getStringArray(R.array.jawaban)
         val faqList = questions.zip(answers) { question, answer -> Faq(question, answer) }
 
+        // mengatur tampilan recycler view untuk question dan answernya
         val adapter = adapterFaq(faqList)
         binding.rvFAQ.layoutManager = LinearLayoutManager(requireContext())
         binding.rvFAQ.adapter = adapter
 
+        // mencari pertanyaan serta jawaban yang ingin dicari dengan menggunakan query kata kunci
         binding.searchFaqView.setOnQueryTextListener(object : SearchView.OnQueryTextListener{
             override fun onQueryTextSubmit(query: String?): Boolean {
                 return false

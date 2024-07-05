@@ -29,13 +29,12 @@ class detailNewsPage : AppCompatActivity() {
         _btnBackFromDetailNews = findViewById(R.id.btnBackFromDetailNews)
         rvDetailNews = findViewById(R.id.rvDetailNews)
 
-        // Get NewsItem from intent
+        // mendapatkan item berita dengan intent
         val newsItem = intent.getParcelableExtra<NewsItem>("news_item")
 
         if (newsItem != null) {
             val newsList = listOf(newsItem)
 
-            // Set up RecyclerView
             rvDetailNews.layoutManager = LinearLayoutManager(this)
             adapterDetailNewsPage = adapterDetailNewsPage(newsList)
             rvDetailNews.adapter = adapterDetailNewsPage

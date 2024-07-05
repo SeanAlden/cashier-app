@@ -69,7 +69,7 @@ class supplierListPage : AppCompatActivity(), adapterSupplier.OnDeleteClickListe
     }
 
     private fun loadData() {
-        _suppListener?.remove() // Remove the previous listener if it exists
+        _suppListener?.remove()
         _suppListener = db.collection("tbSupplier")
             .addSnapshotListener { snapshots, e ->
                 if (e != null) {
@@ -100,7 +100,7 @@ class supplierListPage : AppCompatActivity(), adapterSupplier.OnDeleteClickListe
                     .addOnCompleteListener { task ->
                         if (task.isSuccessful) {
                             println("Deleting item at position: $position, List size before removal: ${_suppList.size}")
-                            loadData() // Reload data from Firestore
+                            loadData() // melakukan load data ulang dengan data terbaru
                             println("List size after removal: ${_suppList.size}")
                         } else {
                             println("Failed to delete item from Firestore: ${task.exception?.message}")

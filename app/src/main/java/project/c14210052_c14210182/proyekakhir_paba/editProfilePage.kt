@@ -35,10 +35,12 @@ class editProfilePage : AppCompatActivity() {
         lateinit var userID:String
 
         auth = Firebase.auth
+
         var intentData = intent.getParcelableExtra<Users>("kirimDataProfile")
         var _etFullname:EditText = findViewById(R.id.etFullNameEditProfile)
         var _etUsername:EditText = findViewById(R.id.etUserNameEditProfile)
         var _btnSave:Button = findViewById(R.id.btnSaveEditProfile)
+
         _etFullname.setText(intentData!!.fullname.toString())
         _etUsername.setText(intentData!!.username.toString())
         userID = auth.currentUser!!.uid

@@ -44,8 +44,8 @@ class adapterNews(private val newsList: List<project.c14210052_c14210182.proyeka
 //        holder.newsImage.setImageResource(newsItem.imageResId)
         // menggunakan glide untuk menampilkan gambar
         Glide.with(holder.newsImage.context)
+            //.load(newsItem.imageResId)
             .load(newsItem.urlToImage)
-//            .load(newsItem.imageResId)
             .transform(RoundedCorners(20)) // mengatur radius corner dengan nilai 20
             // mengatur tampilan progress bar
             .listener(object: RequestListener<Drawable>{
@@ -58,7 +58,6 @@ class adapterNews(private val newsList: List<project.c14210052_c14210182.proyeka
                     // menyembunyikan progress bar saat gambar gagal dimuat
                     holder.progressBar.visibility = View.GONE
                     return false
-
                 }
 
                 override fun onResourceReady(
@@ -68,17 +67,16 @@ class adapterNews(private val newsList: List<project.c14210052_c14210182.proyeka
                     dataSource: DataSource?,
                     isFirstResource: Boolean
                 ): Boolean {
-                    // menyembunyikan progress bar saat gambar berhasil dimuat setelah 5 detik
+                    // menyembunyikan progress bar saat gambar berhasil dimuat setelah 2 detik
                     android.os.Handler().postDelayed({
                         holder.progressBar.visibility = View.GONE
                     }, 2000)
-//                    holder.progressBar.visibility = View.GONE
                     return false
                 }
             })
             .into(holder.newsImage)
 
-        // Set onClickListener to open detailNewsPage with the clicked newsItem
+        // mengatur onClickListener untuk membuka halaman detail berita berdasarkan indeks berita yang di klik
         holder.itemView.setOnClickListener {
             val context = holder.itemView.context
             val intent = Intent(context, detailNewsPage::class.java)

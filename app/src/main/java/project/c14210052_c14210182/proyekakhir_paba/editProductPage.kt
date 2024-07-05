@@ -18,17 +18,17 @@ import project.c14210052_c14210182.proyekakhir_paba.dataClass.Produk
 
 class editProductPage : AppCompatActivity() {
 
-    private lateinit var etEditNamaProduk: EditText
-    private lateinit var etEditDeskripsiProduk: EditText
-    private lateinit var spinnerEditKategoriProduk: Spinner
-    private lateinit var spinnerEditSupplierProduk: Spinner
-    private lateinit var etEditHargaPokokProduk: EditText
-    private lateinit var etEditHargaJualProduk: EditText
-    private lateinit var etEditJumlahProduk: EditText
-    private lateinit var etEditSatuanProduk: EditText
-    private lateinit var btnEditSaveProduk: Button
-    private lateinit var btnEditCancel: ImageButton
-    private lateinit var firestore: FirebaseFirestore
+    private lateinit var _etEditNamaProduk: EditText
+    private lateinit var _etEditDeskripsiProduk: EditText
+    private lateinit var _spinnerEditKategoriProduk: Spinner
+    private lateinit var _spinnerEditSupplierProduk: Spinner
+    private lateinit var _etEditHargaPokokProduk: EditText
+    private lateinit var _etEditHargaJualProduk: EditText
+    private lateinit var _etEditJumlahProduk: EditText
+    private lateinit var _etEditSatuanProduk: EditText
+    private lateinit var _btnEditSaveProduk: Button
+    private lateinit var _btnEditCancel: ImageButton
+    private lateinit var db: FirebaseFirestore
     private var produk: Produk? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -41,36 +41,36 @@ class editProductPage : AppCompatActivity() {
             insets
         }
 
-        etEditNamaProduk = findViewById(R.id.etEditNamaProduk)
-        etEditDeskripsiProduk = findViewById(R.id.etEditDeskripsiProduk)
-        spinnerEditKategoriProduk = findViewById(R.id.dropdownEditKategoriProduk)
-        spinnerEditSupplierProduk = findViewById(R.id.dropdownEditSupplier)
-        etEditHargaPokokProduk = findViewById(R.id.etEditHargaPokokProduk)
-        etEditHargaJualProduk = findViewById(R.id.etEditHargaJualProduk)
-        etEditJumlahProduk = findViewById(R.id.etEditJumlahProduk)
-        etEditSatuanProduk = findViewById(R.id.etEditSatuanProduk)
-        btnEditSaveProduk = findViewById(R.id.btnEditSaveProduk)
-        btnEditCancel = findViewById(R.id.btnBackFromEditProduct)
+        _etEditNamaProduk = findViewById(R.id.etEditNamaProduk)
+        _etEditDeskripsiProduk = findViewById(R.id.etEditDeskripsiProduk)
+        _spinnerEditKategoriProduk = findViewById(R.id.dropdownEditKategoriProduk)
+        _spinnerEditSupplierProduk = findViewById(R.id.dropdownEditSupplier)
+        _etEditHargaPokokProduk = findViewById(R.id.etEditHargaPokokProduk)
+        _etEditHargaJualProduk = findViewById(R.id.etEditHargaJualProduk)
+        _etEditJumlahProduk = findViewById(R.id.etEditJumlahProduk)
+        _etEditSatuanProduk = findViewById(R.id.etEditSatuanProduk)
+        _btnEditSaveProduk = findViewById(R.id.btnEditSaveProduk)
+        _btnEditCancel = findViewById(R.id.btnBackFromEditProduct)
 
-        firestore = FirebaseFirestore.getInstance()
+        db = FirebaseFirestore.getInstance()
 
         produk = intent.getParcelableExtra("produk")
         produk?.let { populateProductDetails(it) }
 
-        btnEditSaveProduk.setOnClickListener {
+        _btnEditSaveProduk.setOnClickListener {
             saveProductChanges()
         }
 
-        btnEditCancel.setOnClickListener {
+        _btnEditCancel.setOnClickListener {
             finish()
         }
 
         loadCategories()
         loadSuppliers()
 
-        addInputValidation(etEditHargaPokokProduk)
-        addInputValidation(etEditHargaJualProduk)
-        addInputValidation(etEditJumlahProduk)
+        addInputValidation(_etEditHargaPokokProduk)
+        addInputValidation(_etEditHargaJualProduk)
+        addInputValidation(_etEditJumlahProduk)
     }
 
     private fun addInputValidation(editText: EditText) {
@@ -90,23 +90,23 @@ class editProductPage : AppCompatActivity() {
     }
 
     private fun populateProductDetails(produk: Produk){
-        etEditNamaProduk.setText(produk.namaProduk)
-        etEditDeskripsiProduk.setText(produk.deskripsiProduk)
-        etEditHargaPokokProduk.setText(produk.hargaPokokProduk.toString())
-        etEditHargaJualProduk.setText(produk.hargaJualProduk.toString())
-        etEditJumlahProduk.setText(produk.jumlahProduk.toString())
-        etEditSatuanProduk.setText(produk.satuanProduk)
+        _etEditNamaProduk.setText(produk.namaProduk)
+        _etEditDeskripsiProduk.setText(produk.deskripsiProduk)
+        _etEditHargaPokokProduk.setText(produk.hargaPokokProduk.toString())
+        _etEditHargaJualProduk.setText(produk.hargaJualProduk.toString())
+        _etEditJumlahProduk.setText(produk.jumlahProduk.toString())
+        _etEditSatuanProduk.setText(produk.satuanProduk)
     }
 
     private fun saveProductChanges() {
-        val updatedNamaProduk = etEditNamaProduk.text.toString()
-        val updatedDeskripsiProduk = etEditDeskripsiProduk.text.toString()
-        val updatedKategoriProduk = spinnerEditKategoriProduk.selectedItem.toString()
-        val updatedSupplierProduk = spinnerEditSupplierProduk.selectedItem.toString()
-        val updatedHargaPokokProduk = etEditHargaPokokProduk.text.toString().toInt()
-        val updatedHargaJualProduk = etEditHargaJualProduk.text.toString().toInt()
-        val updatedJumlahProduk = etEditJumlahProduk.text.toString().toInt()
-        val updatedSatuanProduk = etEditSatuanProduk.text.toString()
+        val updatedNamaProduk = _etEditNamaProduk.text.toString()
+        val updatedDeskripsiProduk = _etEditDeskripsiProduk.text.toString()
+        val updatedKategoriProduk = _spinnerEditKategoriProduk.selectedItem.toString()
+        val updatedSupplierProduk = _spinnerEditSupplierProduk.selectedItem.toString()
+        val updatedHargaPokokProduk = _etEditHargaPokokProduk.text.toString().toInt()
+        val updatedHargaJualProduk = _etEditHargaJualProduk.text.toString().toInt()
+        val updatedJumlahProduk = _etEditJumlahProduk.text.toString().toInt()
+        val updatedSatuanProduk = _etEditSatuanProduk.text.toString()
 
         produk?.let { produk ->
             val updatedProduk = produk.copy(
@@ -120,7 +120,7 @@ class editProductPage : AppCompatActivity() {
                 satuanProduk = updatedSatuanProduk
             )
 
-            firestore.collection("tbProduk")
+            db.collection("tbProduk")
                 .document(produk.idProduk!!)
                 .set(updatedProduk)
                 .addOnFailureListener {
@@ -146,13 +146,13 @@ class editProductPage : AppCompatActivity() {
                 }
                 val adapter = ArrayAdapter(this, android.R.layout.simple_spinner_item, kategoriList)
                 adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-                spinnerEditKategoriProduk.adapter = adapter
+                _spinnerEditKategoriProduk.adapter = adapter
 
-                // Select the current category of the product
+                // memilih kategori produk yang sekarang
                 produk?.let {
                     val categoryPosition = kategoriList.indexOf(it.kategoriProduk)
                     if (categoryPosition >= 0) {
-                        spinnerEditKategoriProduk.setSelection(categoryPosition)
+                        _spinnerEditKategoriProduk.setSelection(categoryPosition)
                     }
                 }
             }
@@ -174,12 +174,12 @@ class editProductPage : AppCompatActivity() {
                 }
                 val adapter = ArrayAdapter(this, android.R.layout.simple_spinner_item, supplierList)
                 adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-                spinnerEditSupplierProduk.adapter = adapter
+                _spinnerEditSupplierProduk.adapter = adapter
 
                 produk?.let {
                     val supplierPosition = supplierList.indexOf(it.supplierProduk)
                     if (supplierPosition >= 0) {
-                        spinnerEditSupplierProduk.setSelection(supplierPosition)
+                        _spinnerEditSupplierProduk.setSelection(supplierPosition)
                     }
                 }
             }

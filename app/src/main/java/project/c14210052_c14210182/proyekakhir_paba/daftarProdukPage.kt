@@ -35,7 +35,7 @@ class daftarProdukPage : AppCompatActivity() {
 
     //    private var _productList = mutableListOf<Produk>()
     private var _productListener: ListenerRegistration? = null
-    private val firestore = FirebaseFirestore.getInstance()
+    private val db = FirebaseFirestore.getInstance()
 
     @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -56,7 +56,6 @@ class daftarProdukPage : AppCompatActivity() {
         _categoryBtn = findViewById(R.id.btnCategory)
         spinnerCategory = findViewById(R.id.spinnerCategory)
         rvProduct = findViewById(R.id.rvProduct)
-//        recyclerView = findViewById(R.id.rvProduct)
 
         _productList = mutableListOf()
         adapterProduct = adapterProduct(_productList,
@@ -108,8 +107,8 @@ class daftarProdukPage : AppCompatActivity() {
     }
 
     private fun loadProducts() {
-        _productListener?.remove() // Remove the previous listener if it exists
-        _productListener = firestore.collection("tbProduk")
+        _productListener?.remove()
+        _productListener = db.collection("tbProduk")
             .addSnapshotListener { snapshots, e ->
                 if (e != null) {
                     return@addSnapshotListener
@@ -140,13 +139,13 @@ class daftarProdukPage : AppCompatActivity() {
             db.collection("tbProduk").document(produk.idProduk!!)
                 .delete()
                 .addOnSuccessListener {
-                    // Successfully deleted
+                    // melakukan delete pada produk
                     _productList.remove(produk)
                     adapterProduct.notifyDataSetChanged()
                     Toast.makeText(this, "Produk berhasil dihapus.", Toast.LENGTH_SHORT).show()
                 }
                 .addOnFailureListener { e ->
-                    // Failed to delete
+                    // jika gagal menghapus produk
                     Toast.makeText(this, "Gagal menghapus produk.", Toast.LENGTH_SHORT).show()
                 }
         }
@@ -170,7 +169,8 @@ class daftarProdukPage : AppCompatActivity() {
         db.collection("kategoriProduk")
             .get()
             .addOnSuccessListener { documents ->
-                kategoriList.add("Semua Kategori") // Add "Semua Kategori" as the default option
+                // membuat Semua Kategori sebagai opsi default
+                kategoriList.add("Semua Kategori")
                 for (document in documents) {
                     val kategori = document.getString("namaKategori")
                     kategori?.let { kategoriList.add(it) }
@@ -179,8 +179,8 @@ class daftarProdukPage : AppCompatActivity() {
                 adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
                 spinnerCategory.adapter = adapter
 
-                // Setup initial category filter if needed
-                spinnerCategory.setSelection(0) // Select first item as default
+                // memilih item pertama sebagai default
+                spinnerCategory.setSelection(0)
                 spinnerCategory.onItemSelectedListener =
                     object : AdapterView.OnItemSelectedListener {
                         override fun onItemSelected(
@@ -194,29 +194,28 @@ class daftarProdukPage : AppCompatActivity() {
                         }
 
                         override fun onNothingSelected(parent: AdapterView<*>?) {
-                            // Do nothing
+
                         }
                     }
             }
             .addOnFailureListener { exception ->
-                // Handle the error
                 Toast.makeText(this, "Gagal memuat kategori", Toast.LENGTH_SHORT).show()
             }
     }
 
     private fun filterProductsByCategory(category: String) {
-        _productListener?.remove() // Remove previous listener if exists
+        _productListener?.remove()
 
         if (category == "Semua Kategori") {
-            // Load all products
+            // menampilkan semua produk
             loadProducts()
         } else {
-            // Load products filtered by category
-            _productListener = firestore.collection("tbProduk")
+            // menampilkan produk berdasarkan kategori yang dipilih
+            _productListener = db.collection("tbProduk")
                 .whereEqualTo(
                     "kategoriProduk",
                     category
-                ) // Adjust field name according to your Firestore structure
+                ) // menyesuaikan tampilan daftar nama kategori berdasarkan pada data firestore
                 .addSnapshotListener { snapshots, e ->
                     if (e != null) {
                         return@addSnapshotListener

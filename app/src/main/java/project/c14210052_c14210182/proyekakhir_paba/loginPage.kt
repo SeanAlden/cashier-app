@@ -17,6 +17,7 @@ import com.google.firebase.ktx.Firebase
 
 class loginPage : AppCompatActivity() {
 
+    // inisialisasi firebase auth untuk autentikasi user yang login
     private lateinit var auth: FirebaseAuth
 
     @SuppressLint("MissingInflatedId")
@@ -33,7 +34,9 @@ class loginPage : AppCompatActivity() {
         auth = Firebase.auth
 
         // melakukan cek kalau user telah melakukan sign in, maka akan langsung ke MainActivity
+
         val currentUser = auth.currentUser
+        // kalau terdapat user yang terdaftar, maka akan langsung menavigasi ke main activity
         if (currentUser != null) {
             startActivity(Intent(this@loginPage, MainActivity::class.java))
             // animasi
@@ -42,6 +45,7 @@ class loginPage : AppCompatActivity() {
             return
         }
 
+        // inisialisasi untuk elemen-elemen halaman seperti inputan teks, dan tombol
         var _goToSignUpButton : Button = findViewById(R.id.btnGoToSignUpPage)
         var _loginButton : Button = findViewById(R.id.btnLogin)
         var _emailEditText : EditText = findViewById(R.id.etEmail)
@@ -56,6 +60,9 @@ class loginPage : AppCompatActivity() {
             val email = _emailEditText.text.toString()
             val password = _passwordEditText.text.toString()
 
+            // melakukan pengecekan, jika email dan password belum diisi, maka akan menampilkan
+            // pesan untuk mengisi email dan password
+
             if (TextUtils.isEmpty(email)) {
                 _emailEditText.setError("Email diperlukan")
                 return@setOnClickListener
@@ -65,8 +72,10 @@ class loginPage : AppCompatActivity() {
                 return@setOnClickListener
             }
 
+            // autentikasi user ketika melakukan sign in
             auth.signInWithEmailAndPassword(email, password)
                 .addOnCompleteListener() { task ->
+                    // kalau berhasil, maka akan masuk ke halaman main activity
                     if (task.isSuccessful) {
                         val intent = Intent(this@loginPage, MainActivity::class.java)
                         startActivity(intent)

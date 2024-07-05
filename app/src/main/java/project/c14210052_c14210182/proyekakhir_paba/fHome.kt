@@ -79,7 +79,6 @@ class fHome : Fragment() {
         // ambil API
         fetchNewsData(recyclerViewNews)
 
-        // Set the adapter
 //        val adapter = adapterNews(newsList)
 //        recyclerViewNews.adapter = adapter
 
@@ -120,15 +119,17 @@ class fHome : Fragment() {
                     }
                 }
                 .addOnFailureListener {
-                    // Handle failure
+                    Log.e("Users", "username tidak ditemukan")
                 }
         }
 
         return view
     }
 
+    // melakukan pengambilan data berita berdasarkan API key yang di generate
     private fun fetchNewsData(recyclerView: RecyclerView) {
-        val query = "makanan indonesia" // Add relevant keywords
+        // pencarian konten dengan query
+        val query = "makanan indonesia"
         val apiKey = "16f57f8d0e444696863da47a233e651b"
 
         RetrofitInstance.api.getSupermarketNews(query, apiKey).enqueue(object : Callback<NewsResponse> {
@@ -144,7 +145,6 @@ class fHome : Fragment() {
             }
 
             override fun onFailure(call: retrofit2.Call<NewsResponse>, t: Throwable) {
-                // Handle failure
                 Log.e("NewsAPI", "Request gagal", t)
             }
         })

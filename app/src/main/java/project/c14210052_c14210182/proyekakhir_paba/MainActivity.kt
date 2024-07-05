@@ -15,6 +15,8 @@ import project.c14210052_c14210182.proyekakhir_paba.databinding.ActivityMainBind
 
 class MainActivity : AppCompatActivity() {
 
+    // melakukan deklarasi variabel untuk binding (menggunakan binding)
+    // dan tampilan halaman 2
     private lateinit var binding: ActivityMainBinding
     private lateinit var viewPager: ViewPager2
 
@@ -22,8 +24,10 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
 
+        // menginisialisasi firebase
         FirebaseApp.initializeApp(this)
 
+        // inisialisasi layout menggunakan tampilan binding
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
@@ -32,9 +36,11 @@ class MainActivity : AppCompatActivity() {
             insets
         }
 
+        // inisialisasi view pager 2 dan juga adapter untuk view pager 2
         viewPager = binding.viewPager
         viewPager.adapter = ViewPagerAdapter(this)
 
+        // mengatur navigasi untuk setiap tombol pada footer
         binding.bottomNavigationView.setOnItemSelectedListener {
             when (it.itemId) {
                 R.id.home -> viewPager.currentItem = 0
@@ -45,10 +51,11 @@ class MainActivity : AppCompatActivity() {
             true
         }
 
-
+        // untuk mengatur swipe pada halaman fragment
         viewPager.registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback() {
             override fun onPageSelected(position: Int) {
                 super.onPageSelected(position)
+                // mengupdate simbol fragment yang terilih pada footer berdasarkan halaman fragment sekarang
                 when (position) {
                     0 -> binding.bottomNavigationView.selectedItemId = R.id.home
                     1 -> binding.bottomNavigationView.selectedItemId = R.id.profile
@@ -58,6 +65,7 @@ class MainActivity : AppCompatActivity() {
         })
     }
 
+    // adapter untuk menghandle fragment pada view pager 2
     private inner class ViewPagerAdapter(activity: AppCompatActivity) : FragmentStateAdapter(activity) {
         private val fragments = listOf(
             fHome(),

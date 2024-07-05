@@ -27,8 +27,6 @@ class editSupplierPage : AppCompatActivity() {
     private lateinit var _btnSaveEditSupp: Button
     private lateinit var _btnBackFromEditSupp: ImageButton
 
-
-
     private lateinit var db: FirebaseFirestore
 
     private var suppId: String? = null

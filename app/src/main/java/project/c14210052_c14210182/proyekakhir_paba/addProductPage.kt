@@ -49,7 +49,7 @@ class addProductPage : AppCompatActivity() {
         // menginisialisasi Firebase Firestore
         db = FirebaseFirestore.getInstance()
 
-        // menginisialisasi tampilan
+        // menginisialisasi elemen dalam halaman ini
         _backBtn = findViewById(R.id.btnBackFromAddProduct)
         _btnSaveProduk = findViewById(R.id.btnSaveProduk)
         _etNamaProduk = findViewById(R.id.etNamaProduk)

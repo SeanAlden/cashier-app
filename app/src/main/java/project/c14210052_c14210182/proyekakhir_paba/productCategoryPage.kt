@@ -4,6 +4,7 @@ import android.annotation.SuppressLint
 import android.app.AlertDialog
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.widget.EditText
 import android.widget.ImageButton
@@ -27,7 +28,7 @@ class productCategoryPage : AppCompatActivity() {
     private lateinit var adapterKategori: adapterKategori
     private val kategoriList = mutableListOf<kategoriProduk>()
 
-    private val firestore = FirebaseFirestore.getInstance()
+    private val db = FirebaseFirestore.getInstance()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -99,18 +100,18 @@ class productCategoryPage : AppCompatActivity() {
 
     private fun addCategoryToFirestore(categoryName: String) {
         val newCategory = kategoriProduk(idKategori = kategoriList.size, namaKategori = categoryName)
-        firestore.collection("kategoriProduk")
+        db.collection("kategoriProduk")
             .add(newCategory)
             .addOnSuccessListener {
-                fetchCategoriesFromFirestore() // Refresh data after adding
+                fetchCategoriesFromFirestore() // refresh data setelah penambahan
             }
             .addOnFailureListener {
-                // Handle failure
+                Log.d("Add Product", "gagal menambah kategori produk")
             }
     }
 
     private fun updateCategoryInFirestore(idKategori: Int, categoryName: String) {
-        val categoryRef = firestore.collection("kategoriProduk")
+        val categoryRef = db.collection("kategoriProduk")
             .whereEqualTo("idKategori", idKategori)
 
         categoryRef.get().addOnSuccessListener { documents ->
@@ -120,7 +121,7 @@ class productCategoryPage : AppCompatActivity() {
                         fetchCategoriesFromFirestore() // melakukan refresh data setelah update
                     }
                     .addOnFailureListener {
-
+                        Log.d("Update Product", "gagal meng-update produk")
                     }
             }
         }
@@ -131,7 +132,7 @@ class productCategoryPage : AppCompatActivity() {
     }
 
     private fun checkIfCategoryIsInUse(kategori: kategoriProduk) {
-        val productsRef = firestore.collection("tbProduk")
+        val productsRef = db.collection("tbProduk")
             .whereEqualTo("kategoriProduk", kategori.namaKategori)
 
         productsRef.get().addOnSuccessListener { documents ->
@@ -143,7 +144,7 @@ class productCategoryPage : AppCompatActivity() {
                 showCategoryInUseDialog()
             }
         }.addOnFailureListener {
-
+            Log.d("Product Exists Checking", "gagal mengecek kategori produk")
         }
     }
 
@@ -162,7 +163,7 @@ class productCategoryPage : AppCompatActivity() {
             .setMessage("Apakah Anda ingin menghapus kategori ini?")
             .setNegativeButton("No", null)
             .setPositiveButton("Yes") { _, _ ->
-                val categoryRef = firestore.collection("kategoriProduk")
+                val categoryRef = db.collection("kategoriProduk")
                     .whereEqualTo("idKategori", kategori.idKategori)
 
                 categoryRef.get().addOnSuccessListener { documents ->
@@ -172,7 +173,7 @@ class productCategoryPage : AppCompatActivity() {
                                 fetchCategoriesFromFirestore()
                             }
                             .addOnFailureListener {
-                                // Handle failure
+                                Log.d("delete product", "gagal melakukan delete")
                             }
                     }
                 }
@@ -213,7 +214,7 @@ class productCategoryPage : AppCompatActivity() {
     }
 
     private fun fetchCategoriesFromFirestore() {
-        firestore.collection("kategoriProduk")
+        db.collection("kategoriProduk")
             .get()
             .addOnSuccessListener { result ->
                 kategoriList.clear()
@@ -224,7 +225,7 @@ class productCategoryPage : AppCompatActivity() {
                 adapterKategori.notifyDataSetChanged()
             }
             .addOnFailureListener {
-                // Handle failure
+                Log.d("fetch data", "gagal melakukan fetch kategori data")
             }
     }
 }
