@@ -3,15 +3,18 @@ package project.c14210052_c14210182.proyekakhir_paba
 import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
+import android.telecom.Call
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.WindowInsetsAnimation
 import android.widget.ImageButton
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.google.android.gms.common.api.Response
 import com.google.firebase.Firebase
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.firestore
@@ -19,9 +22,7 @@ import project.c14210052_c14210182.proyekakhir_paba.adapter.adapterNews
 import project.c14210052_c14210182.proyekakhir_paba.api.NewsItem
 import project.c14210052_c14210182.proyekakhir_paba.api.NewsResponse
 import project.c14210052_c14210182.proyekakhir_paba.api.RetrofitInstance
-import retrofit2.Call
 import retrofit2.Callback
-import retrofit2.Response
 
 //import project.c14210052.proyekakhir_paba.ARG_PARAM1
 //import project.c14210052.proyekakhir_paba.ARG_PARAM2
@@ -131,7 +132,7 @@ class fHome : Fragment() {
         val apiKey = "16f57f8d0e444696863da47a233e651b"
 
         RetrofitInstance.api.getSupermarketNews(query, apiKey).enqueue(object : Callback<NewsResponse> {
-            override fun onResponse(call: Call<NewsResponse>, response: Response<NewsResponse>) {
+            override fun onResponse(call: retrofit2.Call<NewsResponse>, response: retrofit2.Response<NewsResponse>) {
                 if (response.isSuccessful) {
                     val newsList = response.body()?.articles ?: emptyList()
                     Log.d("newsAPI", "Menerima ${newsList.size} articles")
@@ -142,7 +143,7 @@ class fHome : Fragment() {
                 }
             }
 
-            override fun onFailure(call: Call<NewsResponse>, t: Throwable) {
+            override fun onFailure(call: retrofit2.Call<NewsResponse>, t: Throwable) {
                 // Handle failure
                 Log.e("NewsAPI", "Request gagal", t)
             }
