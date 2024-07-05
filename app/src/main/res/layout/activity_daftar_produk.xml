@@ -79,7 +79,6 @@
         app:layout_constraintEnd_toEndOf="@+id/containerKategoriProduk"
         app:layout_constraintTop_toTopOf="@+id/containerKategoriProduk" />
 
-    <!-- New Spinner -->
     <Spinner
         android:id="@+id/spinnerCategory"
         android:layout_width="0dp"

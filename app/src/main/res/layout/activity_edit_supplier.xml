@@ -285,18 +285,20 @@
             app:layout_constraintStart_toStartOf="@+id/tvNamaSupplierEdit"
             app:layout_constraintTop_toBottomOf="@+id/tvKodePosSupplierEdit" />
 
-        <Button
-            android:id="@+id/btnSaveEditSupplierData"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="30dp"
-            android:layout_marginTop="50dp"
-            android:layout_marginEnd="30dp"
-            android:backgroundTint="#4CAF50"
-            android:text="Save"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/etKodePosSupplierEdit" />
+            <Button
+                android:id="@+id/btnSaveEditSupplierData"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="30dp"
+                android:layout_marginTop="50dp"
+                android:layout_marginEnd="30dp"
+                android:layout_marginBottom="32dp"
+                android:backgroundTint="#4CAF50"
+                android:text="Save"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/etKodePosSupplierEdit" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
