@@ -4,7 +4,7 @@ import android.os.Parcel
 import android.os.Parcelable
 import java.util.ArrayList
 
-data class DetailPenjualan(
+data class detailPenjualan(
     var id: String? = "",
     val tanggal: String? = "",
     val waktu: String? = "",
@@ -44,12 +44,12 @@ data class DetailPenjualan(
         return 0
     }
 
-    companion object CREATOR : Parcelable.Creator<DetailPenjualan> {
-        override fun createFromParcel(parcel: Parcel): DetailPenjualan {
-            return DetailPenjualan(parcel)
+    companion object CREATOR : Parcelable.Creator<detailPenjualan> {
+        override fun createFromParcel(parcel: Parcel): detailPenjualan {
+            return detailPenjualan(parcel)
         }
 
-        override fun newArray(size: Int): Array<DetailPenjualan?> {
+        override fun newArray(size: Int): Array<detailPenjualan?> {
             return arrayOfNulls(size)
         }
     }
