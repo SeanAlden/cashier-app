@@ -8,5 +8,4 @@ plugins {
     alias(libs.plugins.androidApplication) apply false
     alias(libs.plugins.jetbrainsKotlinAndroid) apply false
     alias(libs.plugins.kotlinParcelize) apply false
-    id("com.google.devtools.ksp") version "2.0.0-1.0.21" apply false
 }
