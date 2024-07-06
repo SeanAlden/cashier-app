@@ -25,8 +25,7 @@ data class Produk(
         parcel.readInt(),
         parcel.readInt(),
         parcel.readString()
-    ) {
-    }
+    )
 
     override fun describeContents(): Int = 0
 
