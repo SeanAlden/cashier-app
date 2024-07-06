@@ -6,7 +6,7 @@ import androidx.room.PrimaryKey
 
 @Entity(tableName = "riwayat")
 data class RiwayatOffline(
-    @PrimaryKey @ColumnInfo(name = "id") val id: String? = null,
+    @PrimaryKey @ColumnInfo(name = "id") val id: String,
     @ColumnInfo(name = "tanggal") val tanggal: String? = null,
     @ColumnInfo(name = "waktu") val waktu: String? = null,
     @ColumnInfo(name = "namaProduk") val namaProduk: ArrayList<String>? = null,

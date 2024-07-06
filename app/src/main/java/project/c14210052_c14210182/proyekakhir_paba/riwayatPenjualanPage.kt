@@ -69,7 +69,7 @@ class riwayatPenjualanPage : AppCompatActivity() {
                             _riwayatList.add(it)
 
                             val riwayatOffline = RiwayatOffline(
-                                id = it.id,
+                                id = it.id.toString(),
                                 tanggal = it.tanggal,
                                 waktu = it.waktu,
                                 namaProduk = it.namaProduk,
