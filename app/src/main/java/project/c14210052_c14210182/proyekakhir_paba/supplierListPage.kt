@@ -94,23 +94,50 @@ class supplierListPage : AppCompatActivity(), adapterSupplier.OnDeleteClickListe
         if (position in _suppList.indices) {
             val suppItem = _suppList[position]
 
-            suppItem.id?.let {
-                db.collection("tbSupplier").document(it)
-                    .delete()
-                    .addOnCompleteListener { task ->
-                        if (task.isSuccessful) {
-                            println("Deleting item at position: $position, List size before removal: ${_suppList.size}")
-                            loadData() // melakukan load data ulang dengan data terbaru
-                            println("List size after removal: ${_suppList.size}")
+            suppItem.namaSupplier?.let { namaSupplier ->
+                db.collection("tbProduk")
+                    .whereEqualTo("supplierProduk", namaSupplier)
+                    .get()
+                    .addOnSuccessListener { querySnapshot ->
+                        if (querySnapshot.isEmpty) {
+                            // jika tidak ada produk yang menggunakan supplier ini maka hapus suppliernya
+                            suppItem.id?.let {
+                                db.collection("tbSupplier").document(it)
+                                    .delete()
+                                    .addOnCompleteListener { task ->
+                                        if (task.isSuccessful) {
+                                            println("Deleting item at position: $position, List size before removal: ${_suppList.size}")
+                                            loadData() // melakukan load data ulang dengan data terbaru
+                                            println("List size after removal: ${_suppList.size}")
+                                        } else {
+                                            println("Failed to delete item from Firestore: ${task.exception?.message}")
+                                        }
+                                    }
+                            }
+                            println("Position: $position, List size: ${_suppList.size}, todoList: $_suppList")
                         } else {
-                            println("Failed to delete item from Firestore: ${task.exception?.message}")
+                            // jika ada produk yang menggunakan supplier ini maka tampilkan message
+                            println("Supplier ini masih digunakan oleh beberapa produk")
+                            showMessage("Supplier ini masih digunakan oleh beberapa produk")
                         }
                     }
+                    .addOnFailureListener { exception ->
+                        println("Error checking supplier usage: ${exception.message}")
+                    }
             }
-            println("Position: $position, List size: ${_suppList.size}, todoList: $_suppList")
         } else {
             println("Invalid position: $position, List size: ${_suppList.size}")
         }
+    }
+
+    private fun showMessage(message: String) {
+        val dialog = android.app.AlertDialog.Builder(this)
+            .setMessage(message)
+            .setPositiveButton("Ok") { dialog, _ ->
+                dialog.dismiss()
+            }
+            .create()
+        dialog.show()
     }
 
     override fun onEditClick(suppItem: Supplier) {

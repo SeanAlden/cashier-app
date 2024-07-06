@@ -87,11 +87,8 @@ class loginPage : AppCompatActivity() {
 //                        Toast.makeText(this, "Login Sukses", Toast.LENGTH_LONG).show()
 //                        finish()
                     } else {
-                        Toast.makeText(
-                            baseContext,
-                            "Autentikasi gagal",
-                            Toast.LENGTH_SHORT
-                        ).show()
+                        // kalau gagal, menampilkan pesan error kepada user
+                        Toast.makeText(this, "Autentikasi gagal, silahkan coba lagi", Toast.LENGTH_SHORT).show()
                     }
                 }
         }
