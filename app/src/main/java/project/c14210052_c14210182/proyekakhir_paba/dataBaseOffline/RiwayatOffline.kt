@@ -1,5 +1,6 @@
 package project.c14210052_c14210182.proyekakhir_paba.dataBaseOffline
 
+import androidx.annotation.NonNull
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey

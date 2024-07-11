@@ -105,6 +105,8 @@ class cashierPage : AppCompatActivity() {
 
         _btnTambah.setOnClickListener {
             val intent = Intent(this@cashierPage, addCashierPage::class.java)
+            intent.putParcelableArrayListExtra("list_produk_in_cashier", ArrayList(_productList.map { it.first }))
+            intent.putIntegerArrayListExtra("jumlah_beli", ArrayList(_productList.map { it.second }))
             someActivityResultLauncher.launch(intent)
         }
         _productList = mutableListOf()

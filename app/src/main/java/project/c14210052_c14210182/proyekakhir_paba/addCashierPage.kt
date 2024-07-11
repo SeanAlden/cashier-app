@@ -16,6 +16,7 @@ import android.widget.Spinner
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.IntentCompat.getParcelableExtra
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.core.view.isNotEmpty
@@ -38,6 +39,8 @@ class addCashierPage : AppCompatActivity() {
     private var _productListener: ListenerRegistration? = null
     private var _productList = mutableListOf<Produk>()
     private lateinit var adapterAddCashier: adapterAddCashier
+    private var produkInCashier = mutableListOf<Produk>()
+    private var jumlahBeliInCashier = mutableListOf<Int>()
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -50,11 +53,30 @@ class addCashierPage : AppCompatActivity() {
             insets
         }
 
-
+        val a = mutableListOf<Int>()
+        if (android.os.Build.VERSION.SDK_INT >= 33) {
+            produkInCashier = getIntent().getParcelableArrayListExtra("list_produk_in_cashier", Produk::class.java)!!
+            jumlahBeliInCashier = getIntent().getIntegerArrayListExtra("jumlah_beli")!!
+        } else {
+            @Suppress("DEPRECATION")
+            produkInCashier = getIntent().getParcelableArrayListExtra<Produk>("list_produk_in_cashier")!!
+        }
 
         adapterAddCashier = adapterAddCashier(_productList,
             { produk, jumlahBeli ->
-                finishResult(produk, jumlahBeli)
+
+                val existingIndex =
+                    produkInCashier.indexOfFirst { it.idProduk == produk.idProduk }
+
+                if (existingIndex != -1) {
+                    if (jumlahBeli + jumlahBeliInCashier.get(existingIndex) <= produk.jumlahProduk) {
+                        finishResult(produk, jumlahBeli + jumlahBeliInCashier.get(existingIndex))
+                    }
+                } else {
+                    // Product doesn't exist, add it to the list
+                    finishResult(produk, jumlahBeli)
+
+                }
             })
 
         backButton = findViewById(R.id.btnBackFromAddCashier)
@@ -277,6 +299,4 @@ class addCashierPage : AppCompatActivity() {
                 Toast.makeText(this, "Failed to load products", Toast.LENGTH_SHORT).show()
             }
     }
-
-
 }

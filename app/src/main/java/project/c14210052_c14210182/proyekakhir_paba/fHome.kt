@@ -129,7 +129,7 @@ class fHome : Fragment() {
     // melakukan pengambilan data berita berdasarkan API key yang di generate
     private fun fetchNewsData(recyclerView: RecyclerView) {
         // pencarian konten dengan query
-        val query = "makanan indonesia"
+        val query = "supermarket"
         val apiKey = "16f57f8d0e444696863da47a233e651b"
 
         RetrofitInstance.api.getSupermarketNews(query, apiKey).enqueue(object : Callback<NewsResponse> {
