@@ -32,7 +32,14 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
+//            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
+            // Apply top padding to the ViewPager to account for the status bar
+            binding.viewPager.setPadding(0, systemBars.top, 0, 0)
+
+            // Apply bottom padding to the BottomNavigationView to account for the navigation bar
+            binding.bottomNavigationView.setPadding(systemBars.left, 0, systemBars.right, systemBars.bottom)
+
+            // Return the insets to allow the system to handle the rest
             insets
         }
 
